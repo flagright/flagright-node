@@ -8,7 +8,7 @@ import { FlagrightApi } from "@fern-api/flagright";
  * Model for business user company financial details
  */
 export interface CompanyFinancialDetails {
-    expectedTransactionPerMonth?: FlagrightApi.Amount;
+    expectedTransactionAmountPerMonth?: FlagrightApi.Amount;
     expectedTurnoverPerMonth?: FlagrightApi.Amount;
     tags?: FlagrightApi.Tag[];
 }

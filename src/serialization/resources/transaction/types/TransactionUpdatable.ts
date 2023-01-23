@@ -23,6 +23,10 @@ export const TransactionUpdatable: core.serialization.ObjectSchema<
     reference: core.serialization.string().optional(),
     deviceData: core.serialization.lazyObject(async () => (await import("../../..")).DeviceData).optional(),
     tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("../../..")).Tag)).optional(),
+    originPaymentDetails: core.serialization.lazy(async () => (await import("../../..")).PaymentDetails).optional(),
+    destinationPaymentDetails: core.serialization
+        .lazy(async () => (await import("../../..")).PaymentDetails)
+        .optional(),
 });
 
 export declare namespace TransactionUpdatable {
@@ -36,5 +40,7 @@ export declare namespace TransactionUpdatable {
         reference?: string | null;
         deviceData?: serializers.DeviceData.Raw | null;
         tags?: serializers.Tag.Raw[] | null;
+        originPaymentDetails?: serializers.PaymentDetails.Raw | null;
+        destinationPaymentDetails?: serializers.PaymentDetails.Raw | null;
     }
 }

@@ -17,4 +17,7 @@ export interface TransactionUpdatable {
     reference?: string;
     deviceData?: FlagrightApi.DeviceData;
     tags?: FlagrightApi.Tag[];
+    /** Payment details of the origin. It can be a bank account number, wallet ID, card fingerprint etc. */
+    originPaymentDetails?: FlagrightApi.PaymentDetails;
+    destinationPaymentDetails?: FlagrightApi.PaymentDetails;
 }

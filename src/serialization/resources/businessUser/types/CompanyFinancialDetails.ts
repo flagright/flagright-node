@@ -10,7 +10,7 @@ export const CompanyFinancialDetails: core.serialization.ObjectSchema<
     serializers.CompanyFinancialDetails.Raw,
     FlagrightApi.CompanyFinancialDetails
 > = core.serialization.object({
-    expectedTransactionPerMonth: core.serialization
+    expectedTransactionAmountPerMonth: core.serialization
         .lazyObject(async () => (await import("../../..")).Amount)
         .optional(),
     expectedTurnoverPerMonth: core.serialization.lazyObject(async () => (await import("../../..")).Amount).optional(),
@@ -19,7 +19,7 @@ export const CompanyFinancialDetails: core.serialization.ObjectSchema<
 
 export declare namespace CompanyFinancialDetails {
     interface Raw {
-        expectedTransactionPerMonth?: serializers.Amount.Raw | null;
+        expectedTransactionAmountPerMonth?: serializers.Amount.Raw | null;
         expectedTurnoverPerMonth?: serializers.Amount.Raw | null;
         tags?: serializers.Tag.Raw[] | null;
     }
