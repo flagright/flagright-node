@@ -16,7 +16,7 @@ API documentation is available at <https://docs.flagright.com>.
 import { FlagrightApiClient } from '@fern-api/flagright';
 
 const client = new FlagrightApiClient({
-  token: 'MY_TOKEN',
+  apiKey: 'MY_API_KEY',
 });
 
 const response = await client.transaction.retrieve('transaction-id');
