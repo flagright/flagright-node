@@ -11,7 +11,7 @@ import { Client as TransactionClient } from "./api/resources/transaction/client/
 export declare namespace FlagrightApiClient {
     interface Options {
         environment?: environments.FlagrightApiEnvironment | string;
-        token?: core.Supplier<core.BearerToken>;
+        apiKey?: core.Supplier<string>;
     }
 }
 

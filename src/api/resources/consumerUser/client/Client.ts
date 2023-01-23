@@ -12,7 +12,7 @@ import * as errors from "../../../../errors";
 export declare namespace Client {
     interface Options {
         environment?: environments.FlagrightApiEnvironment | string;
-        token?: core.Supplier<core.BearerToken>;
+        apiKey?: core.Supplier<string>;
     }
 }
 
@@ -24,7 +24,7 @@ export class Client {
             url: urlJoin(this.options.environment ?? environments.FlagrightApiEnvironment.Production, "consumer/users"),
             method: "POST",
             headers: {
-                Authorization: core.BearerToken.toAuthorizationHeader(await core.Supplier.get(this.options.token)),
+                "X-API-KEY": await core.Supplier.get(this.options.apiKey),
             },
             body: await serializers.consumerUser.create.Request.json(request),
         });
@@ -64,7 +64,7 @@ export class Client {
             ),
             method: "GET",
             headers: {
-                Authorization: core.BearerToken.toAuthorizationHeader(await core.Supplier.get(this.options.token)),
+                "X-API-KEY": await core.Supplier.get(this.options.apiKey),
             },
         });
         if (_response.ok) {
@@ -103,7 +103,7 @@ export class Client {
             ),
             method: "POST",
             headers: {
-                Authorization: core.BearerToken.toAuthorizationHeader(await core.Supplier.get(this.options.token)),
+                "X-API-KEY": await core.Supplier.get(this.options.apiKey),
             },
             body: await serializers.consumerUser.createEvent.Request.json(request),
         });

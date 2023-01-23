@@ -1,6 +1,6 @@
 {
     "name": "@fern-api/flagright",
-    "version": "0.0.4",
+    "version": "0.0.6",
     "repository": "https://github.com/fern-flagright/flagright-node",
     "files": [
         "dist",
@@ -39,12 +39,8 @@
         "build": "yarn compile && yarn bundle"
     },
     "dependencies": {
-        "@types/basic-auth": "^1.1.3",
         "@types/url-join": "4.0.1",
         "axios": "^0.27.2",
-        "basic-auth": "^2.0.1",
-        "buffer": "^6.0.3",
-        "js-base64": "^3.7.2",
         "url-join": "4.0.1"
     },
     "devDependencies": {

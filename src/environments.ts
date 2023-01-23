@@ -3,8 +3,8 @@
  */
 
 export const FlagrightApiEnvironment = {
-    Production: "https://api.example.com",
-    Sandbox: "https://sandbox.example.com",
+    Production: "https://api.flagright.com",
+    Sandbox: "https://sandbox.api.flagright.com",
 } as const;
 
 export type FlagrightApiEnvironment =
