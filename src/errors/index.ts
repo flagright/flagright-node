@@ -1,2 +1,2 @@
-export { FlagrightApiError } from "./FlagrightApiError";
-export { FlagrightApiTimeoutError } from "./FlagrightApiTimeoutError";
+export { FlagrightError } from "./FlagrightError";
+export { FlagrightTimeoutError } from "./FlagrightTimeoutError";

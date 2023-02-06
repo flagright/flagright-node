@@ -1,4 +1,3 @@
-export * as FlagrightApi from "./api";
-export { FlagrightApiClient } from "./Client";
-export { FlagrightApiEnvironment } from "./environments";
-export { FlagrightApiError, FlagrightApiTimeoutError } from "./errors";
+export * as Flagright from "./api";
+export { FlagrightClient } from "./Client";
+export { FlagrightError, FlagrightTimeoutError } from "./errors";

@@ -1,1 +1,0 @@
-export { VerifyTransactionRequest } from "./VerifyTransactionRequest";
