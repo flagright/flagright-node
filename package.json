@@ -1,6 +1,6 @@
 {
     "name": "@fern-api/flagright",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "repository": "https://github.com/fern-flagright/flagright-node",
     "files": [
         "dist",
