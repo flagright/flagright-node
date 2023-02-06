@@ -10,12 +10,12 @@ API documentation is available at <https://docs.flagright.com>.
 
 ## Usage
 
-[![Try it out](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/flagright-typescript?file=app.ts&view=editor)
+[![Try it out](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/flagright-typescript-ebcjpf?file=app.ts&view=editor)
 
 ```typescript
-import { FlagrightApiClient } from '@fern-api/flagright';
+import { FlagrightClient } from '@fern-api/flagright';
 
-const client = new FlagrightApiClient({
+const client = new FlagrightClient({
   apiKey: 'MY_API_KEY',
 });
 
