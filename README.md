@@ -19,7 +19,14 @@ const client = new FlagrightClient({
   apiKey: 'MY_API_KEY',
 });
 
-const response = await client.transaction.retrieve('transaction-id');
+const response = await client.verifyTransaction({
+  body: {
+    transactionId: 'my-transaction-id',
+    originUserId: 'origin-user-id',
+    type: Flagright.TransactionType.Deposit,
+    timestamp: 1676392009,
+  },
+});
 
 console.log('Received response from Flagright!', response);
 ```
