@@ -42,7 +42,7 @@ export class FlagrightClient {
      * * `originPaymentDetails` - Payment details (if any) used at the origin (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
      * * `originPaymentDetails` - Payment details (if any) used at the destination (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
      */
-    public async postConsumerTransaction(request: Flagright.PostConsumerTransactionRequest): Promise<void> {
+    public async verifyTransaction(request: Flagright.PostConsumerTransactionRequest): Promise<void> {
         const { validateOriginUserId, validateDestinationUserId, body: _body } = request;
         const _queryParams = new URLSearchParams();
         if (validateOriginUserId != null) {
@@ -95,7 +95,7 @@ export class FlagrightClient {
      *
      * Calling `GET /transactions/{transactionId}` will return the entire transaction payload and rule execution results for the transaction with the corresponding `transactionId`
      */
-    public async getConsumerTransaction(transactionId: string): Promise<Flagright.TransactionWithRulesResult> {
+    public async retrieveTransaction(transactionId: string): Promise<Flagright.TransactionWithRulesResult> {
         const _response = await core.fetcher({
             url: urlJoin(this.options.environment, `transactions/${transactionId}`),
             method: "GET",
@@ -155,7 +155,7 @@ export class FlagrightClient {
      * In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
      *
      */
-    public async postTransactionEvent(request: Flagright.TransactionEvent): Promise<void> {
+    public async createTransactionEvent(request: Flagright.TransactionEvent): Promise<void> {
         const _response = await core.fetcher({
             url: urlJoin(this.options.environment, "events/transaction"),
             method: "POST",
@@ -206,7 +206,7 @@ export class FlagrightClient {
      * * `createdTimestamp` - UNIX timestamp in *milliseconds* for when the User is created in your system
      *
      */
-    public async postConsumerUser(request: Flagright.User): Promise<void> {
+    public async createConsumerUser(request: Flagright.User): Promise<void> {
         const _response = await core.fetcher({
             url: urlJoin(this.options.environment, "consumer/users"),
             method: "POST",
@@ -300,7 +300,7 @@ export class FlagrightClient {
      * * `legalEntity` - Details of the business legal entity (CompanyGeneralDetails, FinancialDetails etc) - only `legalName`in `CompanyGeneralDetails` is mandatory
      * * `createdTimestamp` - UNIX timestamp in *milliseconds* for when the User is created in your system
      */
-    public async postBusinessUser(request: Flagright.Business): Promise<void> {
+    public async createBusinessUser(request: Flagright.Business): Promise<void> {
         const _response = await core.fetcher({
             url: urlJoin(this.options.environment, "business/users"),
             method: "POST",
@@ -342,7 +342,7 @@ export class FlagrightClient {
      *
      * Calling `GET /business/user/{userId}` will return the entire User payload and rule execution results for the User with the corresponding `userId`
      */
-    public async getBusinessUserUserId(userId: string): Promise<Flagright.Business> {
+    public async getBusinessUser(userId: string): Promise<Flagright.Business> {
         const _response = await core.fetcher({
             url: urlJoin(this.options.environment, `business/users/${userId}`),
             method: "GET",
@@ -400,7 +400,7 @@ export class FlagrightClient {
      * In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
      *
      */
-    public async postUserEvent(request: Flagright.ConsumerUserEvent): Promise<void> {
+    public async createConsumerUserEvent(request: Flagright.ConsumerUserEvent): Promise<void> {
         const _response = await core.fetcher({
             url: urlJoin(this.options.environment, "events/consumer/user"),
             method: "POST",
@@ -457,7 +457,7 @@ export class FlagrightClient {
      * In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
      *
      */
-    public async postBusinessUserEvent(request: Flagright.BusinessUserEvent): Promise<void> {
+    public async createBusinessUserEvent(request: Flagright.BusinessUserEvent): Promise<void> {
         const _response = await core.fetcher({
             url: urlJoin(this.options.environment, "events/business/user"),
             method: "POST",
