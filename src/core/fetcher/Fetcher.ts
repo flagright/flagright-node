@@ -1,10 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { APIResponse } from "./APIResponse";
 
-export interface Fetcher {
-    fetch: FetchFunction;
-}
-
 export type FetchFunction = (args: Fetcher.Args) => Promise<APIResponse<unknown, Fetcher.Error>>;
 
 export declare namespace Fetcher {
@@ -15,6 +11,7 @@ export declare namespace Fetcher {
         queryParameters?: URLSearchParams;
         body?: unknown;
         timeoutMs?: number;
+        withCredentials?: boolean;
     }
 
     export type Error = FailedStatusCodeError | NonJsonError | TimeoutError | UnknownError;
@@ -67,7 +64,7 @@ export const fetcher: FetchFunction = async (args) => {
             transitional: {
                 clarifyTimeoutError: true,
             },
-            withCredentials: true,
+            withCredentials: args.withCredentials,
         });
 
         let body: unknown;

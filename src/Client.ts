@@ -4,7 +4,7 @@
 
 import * as environments from "./environments";
 import * as core from "./core";
-import { Flagright } from "@fern-api/flagright";
+import { Flagright } from "flagright";
 import urlJoin from "url-join";
 import * as serializers from "./serialization";
 import * as errors from "./errors";
@@ -12,7 +12,7 @@ import * as errors from "./errors";
 export declare namespace FlagrightClient {
     interface Options {
         environment: environments.FlagrightEnvironment | string;
-        apiKey?: core.Supplier<string>;
+        apiKey: core.Supplier<string>;
     }
 }
 
@@ -104,10 +104,9 @@ export class FlagrightClient {
             },
         });
         if (_response.ok) {
-            return await serializers.TransactionWithRulesResult.parseOrThrow(
-                _response.body as serializers.TransactionWithRulesResult.Raw,
-                { allowUnknownKeys: true }
-            );
+            return await serializers.TransactionWithRulesResult.parseOrThrow(_response.body, {
+                allowUnknownKeys: true,
+            });
         }
 
         if (_response.error.reason === "status-code") {
@@ -257,9 +256,7 @@ export class FlagrightClient {
             },
         });
         if (_response.ok) {
-            return await serializers.User.parseOrThrow(_response.body as serializers.User.Raw, {
-                allowUnknownKeys: true,
-            });
+            return await serializers.User.parseOrThrow(_response.body, { allowUnknownKeys: true });
         }
 
         if (_response.error.reason === "status-code") {
@@ -351,9 +348,7 @@ export class FlagrightClient {
             },
         });
         if (_response.ok) {
-            return await serializers.Business.parseOrThrow(_response.body as serializers.Business.Raw, {
-                allowUnknownKeys: true,
-            });
+            return await serializers.Business.parseOrThrow(_response.body, { allowUnknownKeys: true });
         }
 
         if (_response.error.reason === "status-code") {

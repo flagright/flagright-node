@@ -3,7 +3,7 @@
  */
 
 import * as serializers from "..";
-import { Flagright } from "@fern-api/flagright";
+import { Flagright } from "flagright";
 import * as core from "../../core";
 
 export const RuleAction: core.serialization.Schema<serializers.RuleAction.Raw, Flagright.RuleAction> =

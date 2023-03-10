@@ -3,7 +3,7 @@
  */
 
 import * as serializers from "..";
-import { Flagright } from "@fern-api/flagright";
+import { Flagright } from "flagright";
 import * as core from "../../core";
 
 export const CountryCode: core.serialization.Schema<serializers.CountryCode.Raw, Flagright.CountryCode> =
