@@ -17,6 +17,7 @@ export const TransactionWithRulesResult: core.serialization.ObjectSchema<
         hitRules: core.serialization.list(
             core.serialization.lazyObject(async () => (await import("..")).HitRulesDetails)
         ),
+        status: core.serialization.lazy(async () => (await import("..")).RuleAction),
     })
     .extend(core.serialization.lazyObject(async () => (await import("..")).Transaction));
 
@@ -24,5 +25,6 @@ export declare namespace TransactionWithRulesResult {
     interface Raw extends serializers.Transaction.Raw {
         executedRules: serializers.ExecutedRulesResult.Raw[];
         hitRules: serializers.HitRulesDetails.Raw[];
+        status: serializers.RuleAction.Raw;
     }
 }

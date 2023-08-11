@@ -12,11 +12,13 @@ export const TransactionMonitoringResult: core.serialization.ObjectSchema<
 > = core.serialization
     .object({
         transactionId: core.serialization.string(),
+        status: core.serialization.lazy(async () => (await import("..")).RuleAction),
     })
     .extend(core.serialization.lazyObject(async () => (await import("..")).RulesResults));
 
 export declare namespace TransactionMonitoringResult {
     interface Raw extends serializers.RulesResults.Raw {
         transactionId: string;
+        status: serializers.RuleAction.Raw;
     }
 }

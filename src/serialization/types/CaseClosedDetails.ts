@@ -13,7 +13,7 @@ export const CaseClosedDetails: core.serialization.ObjectSchema<
     caseId: core.serialization.string().optional(),
     status: core.serialization.string().optional(),
     reasons: core.serialization.list(core.serialization.string()).optional(),
-    reasonDescriptionForOther: core.serialization.list(core.serialization.string()).optional(),
+    reasonDescriptionForOther: core.serialization.string().optional(),
     comment: core.serialization.string().optional(),
     userId: core.serialization.string().optional(),
     transactionIds: core.serialization.list(core.serialization.string()).optional(),
@@ -24,7 +24,7 @@ export declare namespace CaseClosedDetails {
         caseId?: string | null;
         status?: string | null;
         reasons?: string[] | null;
-        reasonDescriptionForOther?: string[] | null;
+        reasonDescriptionForOther?: string | null;
         comment?: string | null;
         userId?: string | null;
         transactionIds?: string[] | null;

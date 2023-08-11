@@ -11,10 +11,12 @@ export const ConsumerUsersResponse: core.serialization.ObjectSchema<
     Flagright.ConsumerUsersResponse
 > = core.serialization.object({
     userId: core.serialization.string(),
+    riskScoreDetails: core.serialization.lazyObject(async () => (await import("..")).RiskScoreDetails).optional(),
 });
 
 export declare namespace ConsumerUsersResponse {
     interface Raw {
         userId: string;
+        riskScoreDetails?: serializers.RiskScoreDetails.Raw | null;
     }
 }

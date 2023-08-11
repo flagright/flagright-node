@@ -6,7 +6,7 @@ import * as Flagright from "..";
 
 export interface WebhookEvent {
     id: string;
-    type: Flagright.WebhookEventType;
-    data: Flagright.UserStateDetails;
+    type_: Flagright.WebhookEventType;
+    data: Flagright.WebhookEventData;
     createdTimestamp: number;
 }

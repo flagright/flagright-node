@@ -9,8 +9,8 @@ import * as core from "../../core";
 export const CompanyGeneralDetailsUserSegment: core.serialization.Schema<
     serializers.CompanyGeneralDetailsUserSegment.Raw,
     Flagright.CompanyGeneralDetailsUserSegment
-> = core.serialization.enum_(["SOLE_PROPRIETORSHIP", "SMB", "SMALL", "MEDIUM", "LARGE", "UNKNOWN"]);
+> = core.serialization.enum_(["SOLE_PROPRIETORSHIP", "LIMITED", "SMB", "SMALL", "MEDIUM", "LARGE", "UNKNOWN"]);
 
 export declare namespace CompanyGeneralDetailsUserSegment {
-    type Raw = "SOLE_PROPRIETORSHIP" | "SMB" | "SMALL" | "MEDIUM" | "LARGE" | "UNKNOWN";
+    type Raw = "SOLE_PROPRIETORSHIP" | "LIMITED" | "SMB" | "SMALL" | "MEDIUM" | "LARGE" | "UNKNOWN";
 }

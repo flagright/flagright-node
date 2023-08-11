@@ -275,7 +275,7 @@ export type CurrencyCode =
     | "ZWL";
 
 export const CurrencyCode = {
-    One: "1INCH",
+    OneInch: "1INCH",
     Aave: "AAVE",
     Ada: "ADA",
     Aed: "AED",

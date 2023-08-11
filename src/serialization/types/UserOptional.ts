@@ -8,6 +8,7 @@ import * as core from "../../core";
 
 export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptional.Raw, Flagright.UserOptional> =
     core.serialization.object({
+        userDetails: core.serialization.lazyObject(async () => (await import("..")).UserDetails).optional(),
         userStateDetails: core.serialization.lazyObject(async () => (await import("..")).UserStateDetails).optional(),
         kycStatusDetails: core.serialization.lazyObject(async () => (await import("..")).KycStatusDetails).optional(),
         legalDocuments: core.serialization
@@ -18,7 +19,7 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
         riskLevel: core.serialization.lazy(async () => (await import("..")).RiskLevel).optional(),
         acquisitionChannel: core.serialization.lazy(async () => (await import("..")).AcquisitionChannel).optional(),
         reasonForAccountOpening: core.serialization.list(core.serialization.string()).optional(),
-        userSegment: core.serialization.lazy(async () => (await import("..")).UserOptionalUserSegment).optional(),
+        userSegment: core.serialization.lazy(async () => (await import("..")).ConsumerUserSegment).optional(),
         pepStatus: core.serialization
             .list(core.serialization.lazyObject(async () => (await import("..")).PepStatus))
             .optional(),
@@ -27,6 +28,7 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
 
 export declare namespace UserOptional {
     interface Raw {
+        userDetails?: serializers.UserDetails.Raw | null;
         userStateDetails?: serializers.UserStateDetails.Raw | null;
         kycStatusDetails?: serializers.KycStatusDetails.Raw | null;
         legalDocuments?: serializers.LegalDocument.Raw[] | null;
@@ -35,7 +37,7 @@ export declare namespace UserOptional {
         riskLevel?: serializers.RiskLevel.Raw | null;
         acquisitionChannel?: serializers.AcquisitionChannel.Raw | null;
         reasonForAccountOpening?: string[] | null;
-        userSegment?: serializers.UserOptionalUserSegment.Raw | null;
+        userSegment?: serializers.ConsumerUserSegment.Raw | null;
         pepStatus?: serializers.PepStatus.Raw[] | null;
         tags?: serializers.Tag.Raw[] | null;
     }

@@ -14,6 +14,8 @@ export interface CardDetails {
     cardIssuedCountry?: Flagright.CountryCode;
     /** Reference for the transaction <span style="white-space: nowrap">`non-empty`</span> */
     transactionReferenceField?: string;
+    /** Whether 3ds was successfully enforced for the transaction */
+    _3DsDone?: boolean;
     nameOnCard?: Flagright.ConsumerName;
     cardExpiry?: Flagright.CardExpiry;
     /** Last 4 digits of Card <span style="white-space: nowrap">`<= 4 characters`</span> */
