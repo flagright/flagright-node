@@ -7,29 +7,8 @@ import * as Flagright from "../../api";
 import * as core from "../../core";
 
 export const UserState: core.serialization.Schema<serializers.UserState.Raw, Flagright.UserState> =
-    core.serialization.enum_([
-        "UNACCEPTABLE",
-        "UNDECIDED",
-        "TERMINATED",
-        "ACTIVE",
-        "INACTIVE",
-        "DORMANT",
-        "CREATED",
-        "DELETED",
-        "SUSPENDED",
-        "BLOCKED",
-    ]);
+    core.serialization.enum_(["UNACCEPTABLE", "TERMINATED", "ACTIVE", "DORMANT", "CREATED", "SUSPENDED", "BLOCKED"]);
 
 export declare namespace UserState {
-    type Raw =
-        | "UNACCEPTABLE"
-        | "UNDECIDED"
-        | "TERMINATED"
-        | "ACTIVE"
-        | "INACTIVE"
-        | "DORMANT"
-        | "CREATED"
-        | "DELETED"
-        | "SUSPENDED"
-        | "BLOCKED";
+    type Raw = "UNACCEPTABLE" | "TERMINATED" | "ACTIVE" | "DORMANT" | "CREATED" | "SUSPENDED" | "BLOCKED";
 }

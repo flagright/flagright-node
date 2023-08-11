@@ -9,14 +9,12 @@ import * as core from "../../core";
 export const UserBase: core.serialization.ObjectSchema<serializers.UserBase.Raw, Flagright.UserBase> =
     core.serialization.object({
         userId: core.serialization.string(),
-        userDetails: core.serialization.lazyObject(async () => (await import("..")).UserDetails).optional(),
         createdTimestamp: core.serialization.number(),
     });
 
 export declare namespace UserBase {
     interface Raw {
         userId: string;
-        userDetails?: serializers.UserDetails.Raw | null;
         createdTimestamp: number;
     }
 }

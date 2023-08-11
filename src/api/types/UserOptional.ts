@@ -8,6 +8,7 @@ import * as Flagright from "..";
  * Model for User details
  */
 export interface UserOptional {
+    userDetails?: Flagright.UserDetails;
     userStateDetails?: Flagright.UserStateDetails;
     kycStatusDetails?: Flagright.KycStatusDetails;
     /** User's legal identity documents - See Document Model for details */
@@ -17,7 +18,7 @@ export interface UserOptional {
     riskLevel?: Flagright.RiskLevel;
     acquisitionChannel?: Flagright.AcquisitionChannel;
     reasonForAccountOpening?: string[];
-    userSegment?: Flagright.UserOptionalUserSegment;
+    userSegment?: Flagright.ConsumerUserSegment;
     pepStatus?: Flagright.PepStatus[];
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];

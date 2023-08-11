@@ -6,7 +6,7 @@ export interface AlertClosedDetails {
     alertId?: string;
     status?: string;
     reasons?: string[];
-    reasonDescriptionForOther?: string[];
+    reasonDescriptionForOther?: string;
     comment?: string;
     userId?: string;
     transactionIds?: string[];

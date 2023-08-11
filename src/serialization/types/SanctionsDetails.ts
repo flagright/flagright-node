@@ -12,6 +12,7 @@ export const SanctionsDetails: core.serialization.ObjectSchema<
 > = core.serialization.object({
     name: core.serialization.string(),
     searchId: core.serialization.string(),
+    iban: core.serialization.string().optional(),
     entityType: core.serialization.lazy(async () => (await import("..")).SanctionsDetailsEntityType).optional(),
 });
 
@@ -19,6 +20,7 @@ export declare namespace SanctionsDetails {
     interface Raw {
         name: string;
         searchId: string;
+        iban?: string | null;
         entityType?: serializers.SanctionsDetailsEntityType.Raw | null;
     }
 }

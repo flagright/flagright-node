@@ -10,11 +10,13 @@ export const BusinessBase: core.serialization.ObjectSchema<serializers.BusinessB
     core.serialization.object({
         userId: core.serialization.string(),
         createdTimestamp: core.serialization.number(),
+        legalEntity: core.serialization.lazyObject(async () => (await import("..")).LegalEntity),
     });
 
 export declare namespace BusinessBase {
     interface Raw {
         userId: string;
         createdTimestamp: number;
+        legalEntity: serializers.LegalEntity.Raw;
     }
 }

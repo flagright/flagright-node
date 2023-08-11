@@ -5,10 +5,18 @@
 /**
  * Segmentation of the business user
  */
-export type CompanyGeneralDetailsUserSegment = "SOLE_PROPRIETORSHIP" | "SMB" | "SMALL" | "MEDIUM" | "LARGE" | "UNKNOWN";
+export type CompanyGeneralDetailsUserSegment =
+    | "SOLE_PROPRIETORSHIP"
+    | "LIMITED"
+    | "SMB"
+    | "SMALL"
+    | "MEDIUM"
+    | "LARGE"
+    | "UNKNOWN";
 
 export const CompanyGeneralDetailsUserSegment = {
     SoleProprietorship: "SOLE_PROPRIETORSHIP",
+    Limited: "LIMITED",
     Smb: "SMB",
     Small: "SMALL",
     Medium: "MEDIUM",

@@ -10,4 +10,5 @@ import * as Flagright from "..";
 export interface TransactionWithRulesResult extends Flagright.Transaction {
     executedRules: Flagright.ExecutedRulesResult[];
     hitRules: Flagright.HitRulesDetails[];
+    status: Flagright.RuleAction;
 }

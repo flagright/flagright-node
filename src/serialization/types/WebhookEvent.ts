@@ -9,8 +9,11 @@ import * as core from "../../core";
 export const WebhookEvent: core.serialization.ObjectSchema<serializers.WebhookEvent.Raw, Flagright.WebhookEvent> =
     core.serialization.object({
         id: core.serialization.string(),
-        type: core.serialization.lazy(async () => (await import("..")).WebhookEventType),
-        data: core.serialization.lazyObject(async () => (await import("..")).UserStateDetails),
+        type_: core.serialization.property(
+            "type",
+            core.serialization.lazy(async () => (await import("..")).WebhookEventType)
+        ),
+        data: core.serialization.lazy(async () => (await import("..")).WebhookEventData),
         createdTimestamp: core.serialization.number(),
     });
 
@@ -18,7 +21,7 @@ export declare namespace WebhookEvent {
     interface Raw {
         id: string;
         type: serializers.WebhookEventType.Raw;
-        data: serializers.UserStateDetails.Raw;
+        data: serializers.WebhookEventData.Raw;
         createdTimestamp: number;
     }
 }
