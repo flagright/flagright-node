@@ -13,7 +13,7 @@ export const CompanyGeneralDetails: core.serialization.ObjectSchema<
     legalName: core.serialization.string(),
     businessIndustry: core.serialization.list(core.serialization.string()).optional(),
     mainProductsServicesSold: core.serialization.list(core.serialization.string()).optional(),
-    userSegment: core.serialization.lazy(async () => (await import("..")).CompanyGeneralDetailsUserSegment).optional(),
+    userSegment: core.serialization.lazy(async () => (await import("..")).BusinessUserSegment).optional(),
     userRegistrationStatus: core.serialization.lazy(async () => (await import("..")).UserRegistrationStatus).optional(),
     tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
 });
@@ -23,7 +23,7 @@ export declare namespace CompanyGeneralDetails {
         legalName: string;
         businessIndustry?: string[] | null;
         mainProductsServicesSold?: string[] | null;
-        userSegment?: serializers.CompanyGeneralDetailsUserSegment.Raw | null;
+        userSegment?: serializers.BusinessUserSegment.Raw | null;
         userRegistrationStatus?: serializers.UserRegistrationStatus.Raw | null;
         tags?: serializers.Tag.Raw[] | null;
     }

@@ -11,7 +11,7 @@ export interface Address {
     /** Address lines of the user's residence address */
     addressLines: unknown[];
     /** Post code of the user's residence address <span style="white-space: nowrap">`non-empty`</span> */
-    postcode: string;
+    postcode?: string;
     /** City of the user's residence address <span style="white-space: nowrap">`non-empty`</span> */
     city: string;
     /** State of the user's residence address <span style="white-space: nowrap">`non-empty`</span> */

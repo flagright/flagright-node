@@ -14,8 +14,7 @@ export interface CompanyGeneralDetails {
     businessIndustry?: string[];
     /** The key products and services provided by the company */
     mainProductsServicesSold?: string[];
-    /** Segmentation of the business user */
-    userSegment?: Flagright.CompanyGeneralDetailsUserSegment;
+    userSegment?: Flagright.BusinessUserSegment;
     userRegistrationStatus?: Flagright.UserRegistrationStatus;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];

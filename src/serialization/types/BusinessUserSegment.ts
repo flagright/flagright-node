@@ -6,11 +6,11 @@ import * as serializers from "..";
 import * as Flagright from "../../api";
 import * as core from "../../core";
 
-export const CompanyGeneralDetailsUserSegment: core.serialization.Schema<
-    serializers.CompanyGeneralDetailsUserSegment.Raw,
-    Flagright.CompanyGeneralDetailsUserSegment
+export const BusinessUserSegment: core.serialization.Schema<
+    serializers.BusinessUserSegment.Raw,
+    Flagright.BusinessUserSegment
 > = core.serialization.enum_(["SOLE_PROPRIETORSHIP", "LIMITED", "SMB", "SMALL", "MEDIUM", "LARGE", "UNKNOWN"]);
 
-export declare namespace CompanyGeneralDetailsUserSegment {
+export declare namespace BusinessUserSegment {
     type Raw = "SOLE_PROPRIETORSHIP" | "LIMITED" | "SMB" | "SMALL" | "MEDIUM" | "LARGE" | "UNKNOWN";
 }
