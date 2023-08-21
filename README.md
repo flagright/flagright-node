@@ -13,7 +13,7 @@ API documentation is available at <https://docs.flagright.com>.
 ```typescript
 import { FlagrightClient } from 'flagright';
 
-const client = new FlagrightClient({ apiKey: 'YOUR_API_KEY' })
+const client = new FlagrightClient({ apiKey: 'YOUR_API_KEY', environment: 'https://sandbox.flagright.com' })
 const response = await client.transactions.verify({
   body: {
     transactionId: 'my-transaction-id',
