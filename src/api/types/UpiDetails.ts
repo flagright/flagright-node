@@ -17,4 +17,6 @@ export interface UpiDetails {
     interfaceProvider?: string;
     /** Name of the account holder */
     name?: string;
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
 }

@@ -19,6 +19,7 @@ export const GenericBankAccountDetails: core.serialization.ObjectSchema<
     bankAddress: core.serialization.lazyObject(async () => (await import("..")).Address).optional(),
     specialInstructions: core.serialization.string().optional(),
     paymentChannel: core.serialization.string().optional(),
+    tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
 });
 
 export declare namespace GenericBankAccountDetails {
@@ -32,5 +33,6 @@ export declare namespace GenericBankAccountDetails {
         bankAddress?: serializers.Address.Raw | null;
         specialInstructions?: string | null;
         paymentChannel?: string | null;
+        tags?: serializers.Tag.Raw[] | null;
     }
 }

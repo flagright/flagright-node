@@ -16,6 +16,9 @@ export const LegalEntity: core.serialization.ObjectSchema<serializers.LegalEntit
             .lazyObject(async () => (await import("..")).CompanyRegistrationDetails)
             .optional(),
         reasonForAccountOpening: core.serialization.list(core.serialization.string()).optional(),
+        sourceOfFunds: core.serialization
+            .list(core.serialization.lazy(async () => (await import("..")).SourceOfFunds))
+            .optional(),
         contactDetails: core.serialization.lazyObject(async () => (await import("..")).ContactDetails).optional(),
     });
 
@@ -25,6 +28,7 @@ export declare namespace LegalEntity {
         companyFinancialDetails?: serializers.CompanyFinancialDetails.Raw | null;
         companyRegistrationDetails?: serializers.CompanyRegistrationDetails.Raw | null;
         reasonForAccountOpening?: string[] | null;
+        sourceOfFunds?: serializers.SourceOfFunds.Raw[] | null;
         contactDetails?: serializers.ContactDetails.Raw | null;
     }
 }

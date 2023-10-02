@@ -11,6 +11,8 @@ export interface UserOptional {
     userDetails?: Flagright.UserDetails;
     userStateDetails?: Flagright.UserStateDetails;
     kycStatusDetails?: Flagright.KycStatusDetails;
+    employmentStatus?: Flagright.EmploymentStatus;
+    occupation?: string;
     /** User's legal identity documents - See Document Model for details */
     legalDocuments?: Flagright.LegalDocument[];
     contactDetails?: Flagright.ContactDetails;
@@ -18,6 +20,7 @@ export interface UserOptional {
     riskLevel?: Flagright.RiskLevel;
     acquisitionChannel?: Flagright.AcquisitionChannel;
     reasonForAccountOpening?: string[];
+    sourceOfFunds?: Flagright.SourceOfFunds[];
     userSegment?: Flagright.ConsumerUserSegment;
     pepStatus?: Flagright.PepStatus[];
     /** Additional information that can be added via tags */

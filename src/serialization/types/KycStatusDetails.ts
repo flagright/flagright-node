@@ -12,11 +12,13 @@ export const KycStatusDetails: core.serialization.ObjectSchema<
 > = core.serialization.object({
     reason: core.serialization.string().optional(),
     status: core.serialization.lazy(async () => (await import("..")).KycStatus).optional(),
+    userId: core.serialization.string().optional(),
 });
 
 export declare namespace KycStatusDetails {
     interface Raw {
         reason?: string | null;
         status?: serializers.KycStatus.Raw | null;
+        userId?: string | null;
     }
 }

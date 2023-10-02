@@ -16,6 +16,7 @@ export const SwiftDetails: core.serialization.ObjectSchema<serializers.SwiftDeta
         name: core.serialization.string().optional(),
         bankAddress: core.serialization.lazyObject(async () => (await import("..")).Address).optional(),
         specialInstructions: core.serialization.string().optional(),
+        tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
     });
 
 export declare namespace SwiftDetails {
@@ -28,5 +29,6 @@ export declare namespace SwiftDetails {
         name?: string | null;
         bankAddress?: serializers.Address.Raw | null;
         specialInstructions?: string | null;
+        tags?: serializers.Tag.Raw[] | null;
     }
 }

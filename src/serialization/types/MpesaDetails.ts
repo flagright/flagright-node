@@ -12,6 +12,7 @@ export const MpesaDetails: core.serialization.ObjectSchema<serializers.MpesaDeta
         businessShortCode: core.serialization.string(),
         transactionType: core.serialization.lazy(async () => (await import("..")).MpesaDetailsTransactionType),
         phoneNumber: core.serialization.string(),
+        tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
     });
 
 export declare namespace MpesaDetails {
@@ -20,5 +21,6 @@ export declare namespace MpesaDetails {
         businessShortCode: string;
         transactionType: serializers.MpesaDetailsTransactionType.Raw;
         phoneNumber: string;
+        tags?: serializers.Tag.Raw[] | null;
     }
 }

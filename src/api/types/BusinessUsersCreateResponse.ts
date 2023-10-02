@@ -4,9 +4,6 @@
 
 import * as Flagright from "..";
 
-export interface BusinessUsersCreateResponse extends Flagright.RulesResults {
+export interface BusinessUsersCreateResponse extends Flagright.BusinessUsersResponse {
     message?: string;
-    /** user ID the risk score pertains to <span style="white-space: nowrap">`non-empty`</span> */
-    userId: string;
-    riskScoreDetails?: Flagright.RiskScoreDetails;
 }

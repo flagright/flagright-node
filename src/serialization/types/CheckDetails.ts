@@ -15,6 +15,7 @@ export const CheckDetails: core.serialization.ObjectSchema<serializers.CheckDeta
         deliveryStatus: core.serialization.lazy(async () => (await import("..")).CheckDetailsDeliveryStatus).optional(),
         etaTimestamp: core.serialization.number().optional(),
         shippingAddress: core.serialization.lazyObject(async () => (await import("..")).Address).optional(),
+        tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
     });
 
 export declare namespace CheckDetails {
@@ -26,5 +27,6 @@ export declare namespace CheckDetails {
         deliveryStatus?: serializers.CheckDetailsDeliveryStatus.Raw | null;
         etaTimestamp?: number | null;
         shippingAddress?: serializers.Address.Raw | null;
+        tags?: serializers.Tag.Raw[] | null;
     }
 }

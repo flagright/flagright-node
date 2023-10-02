@@ -12,6 +12,7 @@ export const WebhookEventData: core.serialization.Schema<serializers.WebhookEven
         core.serialization.lazyObject(async () => (await import("..")).CaseClosedDetails),
         core.serialization.lazyObject(async () => (await import("..")).AlertClosedDetails),
         core.serialization.lazyObject(async () => (await import("..")).TransactionStatusDetails),
+        core.serialization.lazyObject(async () => (await import("..")).KycStatusDetails),
     ]);
 
 export declare namespace WebhookEventData {
@@ -19,5 +20,6 @@ export declare namespace WebhookEventData {
         | serializers.UserStateDetails.Raw
         | serializers.CaseClosedDetails.Raw
         | serializers.AlertClosedDetails.Raw
-        | serializers.TransactionStatusDetails.Raw;
+        | serializers.TransactionStatusDetails.Raw
+        | serializers.KycStatusDetails.Raw;
 }

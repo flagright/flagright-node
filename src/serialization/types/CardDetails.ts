@@ -22,6 +22,7 @@ export const CardDetails: core.serialization.ObjectSchema<serializers.CardDetail
         paymentChannel: core.serialization.string().optional(),
         cardType: core.serialization.lazy(async () => (await import("..")).CardDetailsCardType).optional(),
         merchantDetails: core.serialization.lazyObject(async () => (await import("..")).CardMerchantDetails).optional(),
+        tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
     });
 
 export declare namespace CardDetails {
@@ -40,5 +41,6 @@ export declare namespace CardDetails {
         paymentChannel?: string | null;
         cardType?: serializers.CardDetailsCardType.Raw | null;
         merchantDetails?: serializers.CardMerchantDetails.Raw | null;
+        tags?: serializers.Tag.Raw[] | null;
     }
 }

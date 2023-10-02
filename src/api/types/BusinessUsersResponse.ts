@@ -11,4 +11,6 @@ export interface BusinessUsersResponse {
     /** user ID the risk score pertains to <span style="white-space: nowrap">`non-empty`</span> */
     userId: string;
     riskScoreDetails?: Flagright.RiskScoreDetails;
+    hitRules?: Flagright.HitRulesDetails[];
+    executedRules?: Flagright.ExecutedRulesResult[];
 }

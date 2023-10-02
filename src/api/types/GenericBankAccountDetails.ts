@@ -23,4 +23,6 @@ export interface GenericBankAccountDetails {
     /** Special instructions to be specified if any */
     specialInstructions?: string;
     paymentChannel?: string;
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
 }

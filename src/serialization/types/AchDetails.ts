@@ -15,6 +15,7 @@ export const AchDetails: core.serialization.ObjectSchema<serializers.AchDetails.
         name: core.serialization.string().optional(),
         bankAddress: core.serialization.lazyObject(async () => (await import("..")).Address).optional(),
         beneficiaryName: core.serialization.string().optional(),
+        tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
     });
 
 export declare namespace AchDetails {
@@ -26,5 +27,6 @@ export declare namespace AchDetails {
         name?: string | null;
         bankAddress?: serializers.Address.Raw | null;
         beneficiaryName?: string | null;
+        tags?: serializers.Tag.Raw[] | null;
     }
 }

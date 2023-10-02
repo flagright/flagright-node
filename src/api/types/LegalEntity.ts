@@ -11,7 +11,7 @@ export interface LegalEntity {
     companyGeneralDetails: Flagright.CompanyGeneralDetails;
     companyFinancialDetails?: Flagright.CompanyFinancialDetails;
     companyRegistrationDetails?: Flagright.CompanyRegistrationDetails;
-    /** Reason for opening the account at financial institution */
     reasonForAccountOpening?: string[];
+    sourceOfFunds?: Flagright.SourceOfFunds[];
     contactDetails?: Flagright.ContactDetails;
 }

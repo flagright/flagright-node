@@ -15,4 +15,6 @@ export interface MpesaDetails {
     transactionType: Flagright.MpesaDetailsTransactionType;
     /** Contact Number of the account holder */
     phoneNumber: string;
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
 }

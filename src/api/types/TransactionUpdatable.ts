@@ -23,7 +23,8 @@ export interface TransactionUpdatable {
     promotionCodeUsed?: boolean;
     /** Reference field for the transaction indicating the purpose of the transaction etc. <span style="white-space: nowrap">`non-empty`</span> */
     reference?: string;
-    deviceData?: Flagright.DeviceData;
+    originDeviceData?: Flagright.DeviceData;
+    destinationDeviceData?: Flagright.DeviceData;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
 }

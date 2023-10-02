@@ -29,4 +29,6 @@ export interface CardDetails {
     paymentChannel?: string;
     cardType?: Flagright.CardDetailsCardType;
     merchantDetails?: Flagright.CardMerchantDetails;
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
 }

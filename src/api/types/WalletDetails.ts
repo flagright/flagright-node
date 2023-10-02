@@ -17,7 +17,9 @@ export interface WalletDetails {
     paymentChannel?: string;
     /** Name of the account holder for a specific wallet */
     name?: string;
-    tags?: Flagright.Tag;
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
     /** Phone number associated with the wallet, if any */
     walletPhoneNumber?: string;
+    walletBalance?: Flagright.Amount;
 }

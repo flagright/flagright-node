@@ -27,7 +27,8 @@ export const TransactionUpdatable: core.serialization.ObjectSchema<
     productType: core.serialization.string().optional(),
     promotionCodeUsed: core.serialization.boolean().optional(),
     reference: core.serialization.string().optional(),
-    deviceData: core.serialization.lazyObject(async () => (await import("..")).DeviceData).optional(),
+    originDeviceData: core.serialization.lazyObject(async () => (await import("..")).DeviceData).optional(),
+    destinationDeviceData: core.serialization.lazyObject(async () => (await import("..")).DeviceData).optional(),
     tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
 });
 
@@ -42,7 +43,8 @@ export declare namespace TransactionUpdatable {
         productType?: string | null;
         promotionCodeUsed?: boolean | null;
         reference?: string | null;
-        deviceData?: serializers.DeviceData.Raw | null;
+        originDeviceData?: serializers.DeviceData.Raw | null;
+        destinationDeviceData?: serializers.DeviceData.Raw | null;
         tags?: serializers.Tag.Raw[] | null;
     }
 }

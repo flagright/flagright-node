@@ -22,4 +22,6 @@ export interface SwiftDetails {
     bankAddress?: Flagright.Address;
     /** Special instructions if any */
     specialInstructions?: string;
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
 }

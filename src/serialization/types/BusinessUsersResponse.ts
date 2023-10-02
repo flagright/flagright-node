@@ -12,11 +12,19 @@ export const BusinessUsersResponse: core.serialization.ObjectSchema<
 > = core.serialization.object({
     userId: core.serialization.string(),
     riskScoreDetails: core.serialization.lazyObject(async () => (await import("..")).RiskScoreDetails).optional(),
+    hitRules: core.serialization
+        .list(core.serialization.lazyObject(async () => (await import("..")).HitRulesDetails))
+        .optional(),
+    executedRules: core.serialization
+        .list(core.serialization.lazyObject(async () => (await import("..")).ExecutedRulesResult))
+        .optional(),
 });
 
 export declare namespace BusinessUsersResponse {
     interface Raw {
         userId: string;
         riskScoreDetails?: serializers.RiskScoreDetails.Raw | null;
+        hitRules?: serializers.HitRulesDetails.Raw[] | null;
+        executedRules?: serializers.ExecutedRulesResult.Raw[] | null;
     }
 }

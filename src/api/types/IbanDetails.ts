@@ -19,7 +19,8 @@ export interface IbanDetails {
     iban?: string;
     /** Name of the bank account holder */
     name?: string;
-    tags?: Flagright.Tag;
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
     /** Branch code of the bank. In some countries, this can be the same as the bank's SWIFT code */
     bankBranchCode?: string;
     paymentChannel?: string;

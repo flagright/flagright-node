@@ -12,15 +12,11 @@ export const BusinessUsersCreateResponse: core.serialization.ObjectSchema<
 > = core.serialization
     .object({
         message: core.serialization.string().optional(),
-        userId: core.serialization.string(),
-        riskScoreDetails: core.serialization.lazyObject(async () => (await import("..")).RiskScoreDetails).optional(),
     })
-    .extend(core.serialization.lazyObject(async () => (await import("..")).RulesResults));
+    .extend(core.serialization.lazyObject(async () => (await import("..")).BusinessUsersResponse));
 
 export declare namespace BusinessUsersCreateResponse {
-    interface Raw extends serializers.RulesResults.Raw {
+    interface Raw extends serializers.BusinessUsersResponse.Raw {
         message?: string | null;
-        userId: string;
-        riskScoreDetails?: serializers.RiskScoreDetails.Raw | null;
     }
 }
