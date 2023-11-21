@@ -12,7 +12,7 @@ export const TransactionBase: core.serialization.ObjectSchema<
 > = core.serialization.object({
     type_: core.serialization.property(
         "type",
-        core.serialization.lazy(async () => (await import("..")).TransactionType).optional()
+        core.serialization.lazy(async () => (await import("..")).TransactionType)
     ),
     transactionId: core.serialization.string(),
     timestamp: core.serialization.number(),
@@ -22,7 +22,7 @@ export const TransactionBase: core.serialization.ObjectSchema<
 
 export declare namespace TransactionBase {
     interface Raw {
-        type?: serializers.TransactionType.Raw | null;
+        type: serializers.TransactionType.Raw;
         transactionId: string;
         timestamp: number;
         originUserId?: string | null;

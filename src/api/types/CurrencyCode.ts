@@ -66,6 +66,10 @@ export type CurrencyCode =
     | "CVX"
     | "CZK"
     | "DAI"
+    | "DIF"
+    | "LSR"
+    | "SRC"
+    | "BRB"
     | "DASH"
     | "DCR"
     | "DFI"
@@ -338,6 +342,10 @@ export const CurrencyCode = {
     Cvx: "CVX",
     Czk: "CZK",
     Dai: "DAI",
+    Dif: "DIF",
+    Lsr: "LSR",
+    Src: "SRC",
+    Brb: "BRB",
     Dash: "DASH",
     Dcr: "DCR",
     Dfi: "DFI",

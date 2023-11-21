@@ -8,6 +8,8 @@ import * as core from "../../core";
 
 export const RuleHitMeta: core.serialization.ObjectSchema<serializers.RuleHitMeta.Raw, Flagright.RuleHitMeta> =
     core.serialization.object({
+        subjectType: core.serialization.lazy(async () => (await import("..")).CaseSubjectType).optional(),
+        createCaseFor: core.serialization.lazy(async () => (await import("..")).CaseSubjectType).optional(),
         hitDirections: core.serialization
             .list(core.serialization.lazy(async () => (await import("..")).RuleHitDirection))
             .optional(),
@@ -21,6 +23,8 @@ export const RuleHitMeta: core.serialization.ObjectSchema<serializers.RuleHitMet
 
 export declare namespace RuleHitMeta {
     interface Raw {
+        subjectType?: serializers.CaseSubjectType.Raw | null;
+        createCaseFor?: serializers.CaseSubjectType.Raw | null;
         hitDirections?: serializers.RuleHitDirection.Raw[] | null;
         falsePositiveDetails?: serializers.FalsePositiveDetails.Raw | null;
         sanctionsDetails?: serializers.SanctionsDetails.Raw[] | null;

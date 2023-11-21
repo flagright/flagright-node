@@ -71,6 +71,10 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "CVX",
         "CZK",
         "DAI",
+        "DIF",
+        "LSR",
+        "SRC",
+        "BRB",
         "DASH",
         "DCR",
         "DFI",
@@ -345,6 +349,10 @@ export declare namespace CurrencyCode {
         | "CVX"
         | "CZK"
         | "DAI"
+        | "DIF"
+        | "LSR"
+        | "SRC"
+        | "BRB"
         | "DASH"
         | "DCR"
         | "DFI"
