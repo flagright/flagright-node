@@ -8,8 +8,6 @@ import * as Flagright from "..";
  * Details of rule execution, for internal purposes only
  */
 export interface RuleHitMeta {
-    subjectType?: Flagright.CaseSubjectType;
-    createCaseFor?: Flagright.CaseSubjectType;
     hitDirections?: Flagright.RuleHitDirection[];
     falsePositiveDetails?: Flagright.FalsePositiveDetails;
     sanctionsDetails?: Flagright.SanctionsDetails[];

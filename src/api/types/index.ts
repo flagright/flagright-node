@@ -60,7 +60,6 @@ export * from "./TransactionLimitsPaymentMethodLimits";
 export * from "./RuleAction";
 export * from "./RuleHitMeta";
 export * from "./RuleHitDirection";
-export * from "./CaseSubjectType";
 export * from "./RuleNature";
 export * from "./RuleLabels";
 export * from "./CaseManagementEvent";
