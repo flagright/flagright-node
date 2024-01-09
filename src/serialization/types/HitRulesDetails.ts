@@ -10,7 +10,7 @@ export const HitRulesDetails: core.serialization.ObjectSchema<
     serializers.HitRulesDetails.Raw,
     Flagright.HitRulesDetails
 > = core.serialization.object({
-    ruleId: core.serialization.string(),
+    ruleId: core.serialization.string().optional(),
     ruleInstanceId: core.serialization.string(),
     ruleName: core.serialization.string(),
     ruleDescription: core.serialization.string(),
@@ -22,7 +22,7 @@ export const HitRulesDetails: core.serialization.ObjectSchema<
 
 export declare namespace HitRulesDetails {
     interface Raw {
-        ruleId: string;
+        ruleId?: string | null;
         ruleInstanceId: string;
         ruleName: string;
         ruleDescription: string;

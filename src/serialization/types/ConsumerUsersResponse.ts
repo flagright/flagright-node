@@ -11,7 +11,7 @@ export const ConsumerUsersResponse: core.serialization.ObjectSchema<
     Flagright.ConsumerUsersResponse
 > = core.serialization.object({
     userId: core.serialization.string(),
-    riskScoreDetails: core.serialization.lazyObject(async () => (await import("..")).RiskScoreDetails).optional(),
+    riskScoreDetails: core.serialization.lazyObject(async () => (await import("..")).UserRiskScoreDetails).optional(),
     hitRules: core.serialization
         .list(core.serialization.lazyObject(async () => (await import("..")).HitRulesDetails))
         .optional(),
@@ -23,7 +23,7 @@ export const ConsumerUsersResponse: core.serialization.ObjectSchema<
 export declare namespace ConsumerUsersResponse {
     interface Raw {
         userId: string;
-        riskScoreDetails?: serializers.RiskScoreDetails.Raw | null;
+        riskScoreDetails?: serializers.UserRiskScoreDetails.Raw | null;
         hitRules?: serializers.HitRulesDetails.Raw[] | null;
         executedRules?: serializers.ExecutedRulesResult.Raw[] | null;
     }

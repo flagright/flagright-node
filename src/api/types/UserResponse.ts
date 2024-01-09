@@ -5,5 +5,5 @@
 import * as Flagright from "..";
 
 export interface UserResponse extends Flagright.UserWithRulesResult {
-    riskScoreDetails?: Flagright.RiskScoreDetails;
+    riskScoreDetails?: Flagright.UserRiskScoreDetails;
 }

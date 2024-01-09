@@ -5,5 +5,5 @@
 import * as Flagright from "..";
 
 export interface BusinessResponse extends Flagright.BusinessWithRulesResult {
-    riskScoreDetails?: Flagright.RiskScoreDetails;
+    riskScoreDetails?: Flagright.UserRiskScoreDetails;
 }

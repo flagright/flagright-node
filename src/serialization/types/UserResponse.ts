@@ -10,13 +10,13 @@ export const UserResponse: core.serialization.ObjectSchema<serializers.UserRespo
     core.serialization
         .object({
             riskScoreDetails: core.serialization
-                .lazyObject(async () => (await import("..")).RiskScoreDetails)
+                .lazyObject(async () => (await import("..")).UserRiskScoreDetails)
                 .optional(),
         })
         .extend(core.serialization.lazyObject(async () => (await import("..")).UserWithRulesResult));
 
 export declare namespace UserResponse {
     interface Raw extends serializers.UserWithRulesResult.Raw {
-        riskScoreDetails?: serializers.RiskScoreDetails.Raw | null;
+        riskScoreDetails?: serializers.UserRiskScoreDetails.Raw | null;
     }
 }

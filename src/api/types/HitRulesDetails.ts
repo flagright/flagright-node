@@ -9,7 +9,7 @@ import * as Flagright from "..";
  */
 export interface HitRulesDetails {
     /** Unique rule identifier */
-    ruleId: string;
+    ruleId?: string;
     ruleInstanceId: string;
     /** Name of the rule */
     ruleName: string;

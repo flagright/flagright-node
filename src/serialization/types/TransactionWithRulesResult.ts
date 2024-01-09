@@ -18,6 +18,9 @@ export const TransactionWithRulesResult: core.serialization.ObjectSchema<
             core.serialization.lazyObject(async () => (await import("..")).HitRulesDetails)
         ),
         status: core.serialization.lazy(async () => (await import("..")).RuleAction),
+        riskScoreDetails: core.serialization
+            .lazyObject(async () => (await import("..")).TransactionRiskScoringResult)
+            .optional(),
     })
     .extend(core.serialization.lazyObject(async () => (await import("..")).Transaction));
 
@@ -26,5 +29,6 @@ export declare namespace TransactionWithRulesResult {
         executedRules: serializers.ExecutedRulesResult.Raw[];
         hitRules: serializers.HitRulesDetails.Raw[];
         status: serializers.RuleAction.Raw;
+        riskScoreDetails?: serializers.TransactionRiskScoringResult.Raw | null;
     }
 }

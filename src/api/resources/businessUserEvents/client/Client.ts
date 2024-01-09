@@ -68,7 +68,7 @@ export class BusinessUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.3.0",
+                "X-Fern-SDK-Version": "1.3.1",
             },
             contentType: "application/json",
             queryParameters: _queryParams,

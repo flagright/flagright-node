@@ -10,7 +10,7 @@ import * as Flagright from "..";
 export interface ConsumerUsersResponse {
     /** user ID the risk score pertains to */
     userId: string;
-    riskScoreDetails?: Flagright.RiskScoreDetails;
+    riskScoreDetails?: Flagright.UserRiskScoreDetails;
     hitRules?: Flagright.HitRulesDetails[];
     executedRules?: Flagright.ExecutedRulesResult[];
 }

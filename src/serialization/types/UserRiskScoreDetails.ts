@@ -6,9 +6,9 @@ import * as serializers from "..";
 import * as Flagright from "../../api";
 import * as core from "../../core";
 
-export const RiskScoreDetails: core.serialization.ObjectSchema<
-    serializers.RiskScoreDetails.Raw,
-    Flagright.RiskScoreDetails
+export const UserRiskScoreDetails: core.serialization.ObjectSchema<
+    serializers.UserRiskScoreDetails.Raw,
+    Flagright.UserRiskScoreDetails
 > = core.serialization.object({
     kycRiskScore: core.serialization.number().optional(),
     craRiskScore: core.serialization.number().optional(),
@@ -16,7 +16,7 @@ export const RiskScoreDetails: core.serialization.ObjectSchema<
     craRiskLevel: core.serialization.lazy(async () => (await import("..")).RiskLevel).optional(),
 });
 
-export declare namespace RiskScoreDetails {
+export declare namespace UserRiskScoreDetails {
     interface Raw {
         kycRiskScore?: number | null;
         craRiskScore?: number | null;

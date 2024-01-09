@@ -13,6 +13,9 @@ export const TransactionMonitoringResult: core.serialization.ObjectSchema<
     .object({
         transactionId: core.serialization.string(),
         status: core.serialization.lazy(async () => (await import("..")).RuleAction),
+        riskScoreDetails: core.serialization
+            .lazyObject(async () => (await import("..")).TransactionRiskScoringResult)
+            .optional(),
     })
     .extend(core.serialization.lazyObject(async () => (await import("..")).RulesResults));
 
@@ -20,5 +23,6 @@ export declare namespace TransactionMonitoringResult {
     interface Raw extends serializers.RulesResults.Raw {
         transactionId: string;
         status: serializers.RuleAction.Raw;
+        riskScoreDetails?: serializers.TransactionRiskScoringResult.Raw | null;
     }
 }

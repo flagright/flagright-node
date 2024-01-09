@@ -11,12 +11,14 @@ export const BusinessResponse: core.serialization.ObjectSchema<
     Flagright.BusinessResponse
 > = core.serialization
     .object({
-        riskScoreDetails: core.serialization.lazyObject(async () => (await import("..")).RiskScoreDetails).optional(),
+        riskScoreDetails: core.serialization
+            .lazyObject(async () => (await import("..")).UserRiskScoreDetails)
+            .optional(),
     })
     .extend(core.serialization.lazyObject(async () => (await import("..")).BusinessWithRulesResult));
 
 export declare namespace BusinessResponse {
     interface Raw extends serializers.BusinessWithRulesResult.Raw {
-        riskScoreDetails?: serializers.RiskScoreDetails.Raw | null;
+        riskScoreDetails?: serializers.UserRiskScoreDetails.Raw | null;
     }
 }

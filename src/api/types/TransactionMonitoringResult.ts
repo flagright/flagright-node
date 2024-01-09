@@ -8,4 +8,5 @@ export interface TransactionMonitoringResult extends Flagright.RulesResults {
     /** Transaction ID that the results pertain to */
     transactionId: string;
     status: Flagright.RuleAction;
+    riskScoreDetails?: Flagright.TransactionRiskScoringResult;
 }

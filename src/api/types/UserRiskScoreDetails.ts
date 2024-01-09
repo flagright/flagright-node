@@ -4,7 +4,7 @@
 
 import * as Flagright from "..";
 
-export interface RiskScoreDetails {
+export interface UserRiskScoreDetails {
     kycRiskScore?: number;
     craRiskScore?: number;
     kycRiskLevel?: Flagright.RiskLevel;

@@ -11,4 +11,5 @@ export interface TransactionWithRulesResult extends Flagright.Transaction {
     executedRules: Flagright.ExecutedRulesResult[];
     hitRules: Flagright.HitRulesDetails[];
     status: Flagright.RuleAction;
+    riskScoreDetails?: Flagright.TransactionRiskScoringResult;
 }
