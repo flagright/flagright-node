@@ -7,7 +7,6 @@ export interface CardMerchantDetails {
     category?: string;
     mcc?: string;
     city?: string;
-    /** <span style="white-space: nowrap">`<= 2 characters`</span> */
     country?: string;
     state?: string;
     postCode?: string;

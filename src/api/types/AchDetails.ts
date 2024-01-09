@@ -8,12 +8,11 @@ import * as Flagright from "..";
  * Model for ACH payment method
  */
 export interface AchDetails {
-    method: Flagright.AchPaymentMethod;
-    /** Routing number of the bank <span style="white-space: nowrap">`non-empty`</span> */
+    /** Routing number of the bank */
     routingNumber?: string;
-    /** Bank account number of the individual <span style="white-space: nowrap">`non-empty`</span> */
+    /** Bank account number of the individual */
     accountNumber?: string;
-    /** Name of the bank <span style="white-space: nowrap">`non-empty`</span> */
+    /** Name of the bank */
     bankName?: string;
     /** Name of the account holder */
     name?: string;

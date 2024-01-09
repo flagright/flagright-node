@@ -8,7 +8,6 @@ import * as core from "../../core";
 
 export const CheckDetails: core.serialization.ObjectSchema<serializers.CheckDetails.Raw, Flagright.CheckDetails> =
     core.serialization.object({
-        method: core.serialization.lazy(async () => (await import("..")).CheckPaymentMethod),
         checkNumber: core.serialization.string().optional(),
         checkIdentifier: core.serialization.string().optional(),
         name: core.serialization.string().optional(),
@@ -20,7 +19,6 @@ export const CheckDetails: core.serialization.ObjectSchema<serializers.CheckDeta
 
 export declare namespace CheckDetails {
     interface Raw {
-        method: serializers.CheckPaymentMethod.Raw;
         checkNumber?: string | null;
         checkIdentifier?: string | null;
         name?: string | null;

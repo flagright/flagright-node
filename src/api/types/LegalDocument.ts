@@ -8,9 +8,9 @@ import * as Flagright from "..";
  * LegalDocument model generalizes User's identity document type (ex: Passport)
  */
 export interface LegalDocument {
-    /** User's identity document type such as passport, national ID etc. <span style="white-space: nowrap">`non-empty`</span> */
+    /** User's identity document type such as passport, national ID etc. */
     documentType: string;
-    /** User's unique identity document number such as passport number <span style="white-space: nowrap">`non-empty`</span> */
+    /** User's unique identity document number such as passport number */
     documentNumber: string;
     /** User's identity document issuance date (UNIX timestamp in milliseconds) */
     documentIssuedDate?: number;

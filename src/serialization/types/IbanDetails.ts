@@ -8,7 +8,6 @@ import * as core from "../../core";
 
 export const IbanDetails: core.serialization.ObjectSchema<serializers.IbanDetails.Raw, Flagright.IbanDetails> =
     core.serialization.object({
-        method: core.serialization.lazy(async () => (await import("..")).IbanPaymentMethod),
         bic: core.serialization.property("BIC", core.serialization.string().optional()),
         bankName: core.serialization.string().optional(),
         bankAddress: core.serialization.lazyObject(async () => (await import("..")).Address).optional(),
@@ -22,7 +21,6 @@ export const IbanDetails: core.serialization.ObjectSchema<serializers.IbanDetail
 
 export declare namespace IbanDetails {
     interface Raw {
-        method: serializers.IbanPaymentMethod.Raw;
         BIC?: string | null;
         bankName?: string | null;
         bankAddress?: serializers.Address.Raw | null;

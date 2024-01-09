@@ -8,11 +8,11 @@ import * as Flagright from "..";
  * Model for list of rules failed execution. It means rules could not be run
  */
 export interface FailedRulesResult {
-    /** Unique rule identifier <span style="white-space: nowrap">`non-empty`</span> */
+    /** Unique rule identifier */
     ruleId: string;
-    /** Name of the rule <span style="white-space: nowrap">`non-empty`</span> */
+    /** Name of the rule */
     ruleName: string;
-    /** Description of the rule <span style="white-space: nowrap">`non-empty`</span> */
+    /** Description of the rule */
     ruleDescription: string;
     failureException: Flagright.RuleFailureException;
 }

@@ -3,8 +3,8 @@
  */
 
 export interface RuleFailureException {
-    /** Unique rule identifier <span style="white-space: nowrap">`non-empty`</span> */
+    /** Unique rule identifier */
     exceptionName: string;
-    /** Name of the rule <span style="white-space: nowrap">`non-empty`</span> */
+    /** Name of the rule */
     exceptionDescription: string;
 }

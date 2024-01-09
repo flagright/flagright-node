@@ -9,10 +9,7 @@ import * as core from "../../core";
 export const WebhookEvent: core.serialization.ObjectSchema<serializers.WebhookEvent.Raw, Flagright.WebhookEvent> =
     core.serialization.object({
         id: core.serialization.string(),
-        type_: core.serialization.property(
-            "type",
-            core.serialization.lazy(async () => (await import("..")).WebhookEventType)
-        ),
+        type: core.serialization.lazy(async () => (await import("..")).WebhookEventType),
         triggeredBy: core.serialization.lazy(async () => (await import("..")).WebhookEventTriggeredBy).optional(),
         data: core.serialization.lazy(async () => (await import("..")).WebhookEventData),
         createdTimestamp: core.serialization.number(),

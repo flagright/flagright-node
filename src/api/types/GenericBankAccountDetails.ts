@@ -8,12 +8,11 @@ import * as Flagright from "..";
  * Model for any generic bank account
  */
 export interface GenericBankAccountDetails {
-    method: Flagright.GeneralBankAccountPaymentMethod;
-    /** Bank account number <span style="white-space: nowrap">`non-empty`</span> */
+    /** Bank account number */
     accountNumber?: string;
     /** Bank account type. E.g. Checking, Savings etc. */
     accountType?: string;
-    /** Name of the bank <span style="white-space: nowrap">`non-empty`</span> */
+    /** Name of the bank */
     bankName?: string;
     /** Unique identifier of the bank. In some countries, this can be the same as the bank's SWIFT code */
     bankCode?: string;

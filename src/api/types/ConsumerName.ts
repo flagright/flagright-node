@@ -6,10 +6,10 @@
  * Model for a generic consumer name
  */
 export interface ConsumerName {
-    /** First name of the user <span style="white-space: nowrap">`non-empty`</span> */
+    /** First name of the user */
     firstName: string;
-    /** Middle name of the user <span style="white-space: nowrap">`non-empty`</span> */
+    /** Middle name of the user */
     middleName?: string;
-    /** Last name of the user <span style="white-space: nowrap">`non-empty`</span> */
+    /** Last name of the user */
     lastName?: string;
 }

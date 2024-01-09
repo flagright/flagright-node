@@ -21,7 +21,7 @@ export interface TransactionUpdatable {
     productType?: string;
     /** Whether a promotion code was used or not the transaction */
     promotionCodeUsed?: boolean;
-    /** Reference field for the transaction indicating the purpose of the transaction etc. <span style="white-space: nowrap">`non-empty`</span> */
+    /** Reference field for the transaction indicating the purpose of the transaction etc. */
     reference?: string;
     originDeviceData?: Flagright.DeviceData;
     destinationDeviceData?: Flagright.DeviceData;

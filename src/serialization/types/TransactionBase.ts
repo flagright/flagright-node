@@ -10,10 +10,7 @@ export const TransactionBase: core.serialization.ObjectSchema<
     serializers.TransactionBase.Raw,
     Flagright.TransactionBase
 > = core.serialization.object({
-    type_: core.serialization.property(
-        "type",
-        core.serialization.lazy(async () => (await import("..")).TransactionType)
-    ),
+    type: core.serialization.lazy(async () => (await import("..")).TransactionType),
     transactionId: core.serialization.string(),
     timestamp: core.serialization.number(),
     originUserId: core.serialization.string().optional(),

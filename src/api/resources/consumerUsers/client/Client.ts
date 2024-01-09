@@ -17,6 +17,7 @@ export declare namespace ConsumerUsers {
 
     interface RequestOptions {
         timeoutInSeconds?: number;
+        maxRetries?: number;
     }
 }
 
@@ -34,9 +35,8 @@ export class ConsumerUsers {
      *
      * Each consumer User entity needs three mandatory fields:
      *
-     * * `userId` - Unique identifier for the user
-     * * `createdTimestamp` - UNIX timestamp in *milliseconds* for when the User is created in your system
-     *
+     * - `userId` - Unique identifier for the user
+     * - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
@@ -55,11 +55,12 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.2.1",
+                "X-Fern-SDK-Version": "1.3.0",
             },
             contentType: "application/json",
             body: await serializers.User.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.ConsumerUsersCreateResponse.parseOrThrow(_response.body, {
@@ -121,10 +122,11 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.2.1",
+                "X-Fern-SDK-Version": "1.3.0",
             },
             contentType: "application/json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.UserResponse.parseOrThrow(_response.body, {

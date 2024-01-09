@@ -8,7 +8,7 @@ import * as Flagright from "..";
  * Model for business user company registration details
  */
 export interface CompanyRegistrationDetails {
-    /** Commercial registry registration number for the company in its registration country <span style="white-space: nowrap">`non-empty`</span> */
+    /** Commercial registry registration number for the company in its registration country */
     registrationIdentifier: string;
     registrationCountry: Flagright.CountryCode;
     /** Tax ID number of the registered entity */

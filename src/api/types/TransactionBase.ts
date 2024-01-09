@@ -8,8 +8,8 @@ import * as Flagright from "..";
  * Model for transaction base Payload
  */
 export interface TransactionBase {
-    type_: Flagright.TransactionType;
-    /** Unique transaction identifier <span style="white-space: nowrap">`non-empty`</span> */
+    type: Flagright.TransactionType;
+    /** Unique transaction identifier */
     transactionId: string;
     /** Timestamp of when transaction took place */
     timestamp: number;

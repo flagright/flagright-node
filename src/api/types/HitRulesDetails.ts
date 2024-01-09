@@ -8,12 +8,12 @@ import * as Flagright from "..";
  * Model for list of hit rules
  */
 export interface HitRulesDetails {
-    /** Unique rule identifier <span style="white-space: nowrap">`non-empty`</span> */
+    /** Unique rule identifier */
     ruleId: string;
     ruleInstanceId: string;
-    /** Name of the rule <span style="white-space: nowrap">`non-empty`</span> */
+    /** Name of the rule */
     ruleName: string;
-    /** Description of the rule <span style="white-space: nowrap">`non-empty`</span> */
+    /** Description of the rule */
     ruleDescription: string;
     ruleAction: Flagright.RuleAction;
     ruleHitMeta?: Flagright.RuleHitMeta;

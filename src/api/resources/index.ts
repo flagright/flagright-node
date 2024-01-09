@@ -1,7 +1,10 @@
 export * as transactions from "./transactions";
-export * as transactionEvents from "./transactionEvents";
+export * from "./transactions/types";
 export * as consumerUsers from "./consumerUsers";
+export * from "./consumerUsers/types";
 export * as businessUsers from "./businessUsers";
+export * from "./businessUsers/types";
+export * as transactionEvents from "./transactionEvents";
 export * as consumerUserEvents from "./consumerUserEvents";
 export * as businessUserEvents from "./businessUserEvents";
 export * from "./transactions/client/requests";

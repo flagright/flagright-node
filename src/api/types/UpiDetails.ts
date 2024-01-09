@@ -8,12 +8,11 @@ import * as Flagright from "..";
  * Model for UPI payment method
  */
 export interface UpiDetails {
-    method: Flagright.UpiPaymentMethod;
-    /** UPI Id number <span style="white-space: nowrap">`non-empty`</span> */
+    /** UPI Id number */
     upiId: string;
-    /** Bank provider name <span style="white-space: nowrap">`non-empty`</span> */
+    /** Bank provider name */
     bankProvider?: string;
-    /** Interface provider name <span style="white-space: nowrap">`non-empty`</span> */
+    /** Interface provider name */
     interfaceProvider?: string;
     /** Name of the account holder */
     name?: string;

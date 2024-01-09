@@ -9,27 +9,68 @@ import * as core from "../../core";
 export const BusinessOptionalSavedPaymentDetailsItem: core.serialization.Schema<
     serializers.BusinessOptionalSavedPaymentDetailsItem.Raw,
     Flagright.BusinessOptionalSavedPaymentDetailsItem
-> = core.serialization.undiscriminatedUnion([
-    core.serialization.lazyObject(async () => (await import("..")).CardDetails),
-    core.serialization.lazyObject(async () => (await import("..")).GenericBankAccountDetails),
-    core.serialization.lazyObject(async () => (await import("..")).IbanDetails),
-    core.serialization.lazyObject(async () => (await import("..")).AchDetails),
-    core.serialization.lazyObject(async () => (await import("..")).SwiftDetails),
-    core.serialization.lazyObject(async () => (await import("..")).MpesaDetails),
-    core.serialization.lazyObject(async () => (await import("..")).UpiDetails),
-    core.serialization.lazyObject(async () => (await import("..")).WalletDetails),
-    core.serialization.lazyObject(async () => (await import("..")).CheckDetails),
-]);
+> = core.serialization
+    .union("method", {
+        CARD: core.serialization.lazyObject(async () => (await import("..")).CardDetails),
+        GENERIC_BANK_ACCOUNT: core.serialization.lazyObject(async () => (await import("..")).GenericBankAccountDetails),
+        IBAN: core.serialization.lazyObject(async () => (await import("..")).IbanDetails),
+        ACH: core.serialization.lazyObject(async () => (await import("..")).AchDetails),
+        SWIFT: core.serialization.lazyObject(async () => (await import("..")).SwiftDetails),
+        MPESA: core.serialization.lazyObject(async () => (await import("..")).MpesaDetails),
+        UPI: core.serialization.lazyObject(async () => (await import("..")).UpiDetails),
+        WALLET: core.serialization.lazyObject(async () => (await import("..")).WalletDetails),
+        CHECK: core.serialization.lazyObject(async () => (await import("..")).CheckDetails),
+    })
+    .transform<Flagright.BusinessOptionalSavedPaymentDetailsItem>({
+        transform: (value) => value,
+        untransform: (value) => value,
+    });
 
 export declare namespace BusinessOptionalSavedPaymentDetailsItem {
     type Raw =
-        | serializers.CardDetails.Raw
-        | serializers.GenericBankAccountDetails.Raw
-        | serializers.IbanDetails.Raw
-        | serializers.AchDetails.Raw
-        | serializers.SwiftDetails.Raw
-        | serializers.MpesaDetails.Raw
-        | serializers.UpiDetails.Raw
-        | serializers.WalletDetails.Raw
-        | serializers.CheckDetails.Raw;
+        | BusinessOptionalSavedPaymentDetailsItem.Card
+        | BusinessOptionalSavedPaymentDetailsItem.GenericBankAccount
+        | BusinessOptionalSavedPaymentDetailsItem.Iban
+        | BusinessOptionalSavedPaymentDetailsItem.Ach
+        | BusinessOptionalSavedPaymentDetailsItem.Swift
+        | BusinessOptionalSavedPaymentDetailsItem.Mpesa
+        | BusinessOptionalSavedPaymentDetailsItem.Upi
+        | BusinessOptionalSavedPaymentDetailsItem.Wallet
+        | BusinessOptionalSavedPaymentDetailsItem.Check;
+
+    interface Card extends serializers.CardDetails.Raw {
+        method: "CARD";
+    }
+
+    interface GenericBankAccount extends serializers.GenericBankAccountDetails.Raw {
+        method: "GENERIC_BANK_ACCOUNT";
+    }
+
+    interface Iban extends serializers.IbanDetails.Raw {
+        method: "IBAN";
+    }
+
+    interface Ach extends serializers.AchDetails.Raw {
+        method: "ACH";
+    }
+
+    interface Swift extends serializers.SwiftDetails.Raw {
+        method: "SWIFT";
+    }
+
+    interface Mpesa extends serializers.MpesaDetails.Raw {
+        method: "MPESA";
+    }
+
+    interface Upi extends serializers.UpiDetails.Raw {
+        method: "UPI";
+    }
+
+    interface Wallet extends serializers.WalletDetails.Raw {
+        method: "WALLET";
+    }
+
+    interface Check extends serializers.CheckDetails.Raw {
+        method: "CHECK";
+    }
 }

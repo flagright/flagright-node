@@ -8,17 +8,16 @@ import * as Flagright from "..";
  * Model for credit or debit card details
  */
 export interface CardDetails {
-    method: Flagright.CardPaymentMethod;
-    /** Unique card fingerprint that helps identify a specific card without having to use explicit card number. This is likely available at your card payment scheme provider <span style="white-space: nowrap">`non-empty`</span> */
+    /** Unique card fingerprint that helps identify a specific card without having to use explicit card number. This is likely available at your card payment scheme provider */
     cardFingerprint?: string;
     cardIssuedCountry?: Flagright.CountryCode;
-    /** Reference for the transaction <span style="white-space: nowrap">`non-empty`</span> */
+    /** Reference for the transaction */
     transactionReferenceField?: string;
     /** Whether 3ds was successfully enforced for the transaction */
-    _3DsDone?: boolean;
+    "3DsDone"?: boolean;
     nameOnCard?: Flagright.ConsumerName;
     cardExpiry?: Flagright.CardExpiry;
-    /** Last 4 digits of Card <span style="white-space: nowrap">`<= 4 characters`</span> */
+    /** Last 4 digits of Card */
     cardLast4Digits?: string;
     /** Brand of Card */
     cardBrand?: Flagright.CardDetailsCardBrand;

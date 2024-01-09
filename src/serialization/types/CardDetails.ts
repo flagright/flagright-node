@@ -8,11 +8,10 @@ import * as core from "../../core";
 
 export const CardDetails: core.serialization.ObjectSchema<serializers.CardDetails.Raw, Flagright.CardDetails> =
     core.serialization.object({
-        method: core.serialization.lazy(async () => (await import("..")).CardPaymentMethod),
         cardFingerprint: core.serialization.string().optional(),
         cardIssuedCountry: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
         transactionReferenceField: core.serialization.string().optional(),
-        _3DsDone: core.serialization.property("3dsDone", core.serialization.boolean().optional()),
+        "3DsDone": core.serialization.property("3dsDone", core.serialization.boolean().optional()),
         nameOnCard: core.serialization.lazyObject(async () => (await import("..")).ConsumerName).optional(),
         cardExpiry: core.serialization.lazyObject(async () => (await import("..")).CardExpiry).optional(),
         cardLast4Digits: core.serialization.string().optional(),
@@ -27,7 +26,6 @@ export const CardDetails: core.serialization.ObjectSchema<serializers.CardDetail
 
 export declare namespace CardDetails {
     interface Raw {
-        method: serializers.CardPaymentMethod.Raw;
         cardFingerprint?: string | null;
         cardIssuedCountry?: serializers.CountryCode.Raw | null;
         transactionReferenceField?: string | null;

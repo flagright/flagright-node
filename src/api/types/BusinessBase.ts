@@ -8,7 +8,7 @@ import * as Flagright from "..";
  * Model for a business user base fields
  */
 export interface BusinessBase {
-    /** Unique user ID for the user <span style="white-space: nowrap">`non-empty`</span> */
+    /** Unique user ID for the user */
     userId: string;
     /** Timestamp when the user was created */
     createdTimestamp: number;

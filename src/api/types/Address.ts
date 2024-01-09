@@ -10,13 +10,13 @@ import * as Flagright from "..";
 export interface Address {
     /** Address lines of the user's residence address */
     addressLines: unknown[];
-    /** Post code of the user's residence address <span style="white-space: nowrap">`non-empty`</span> */
+    /** Post code of the user's residence address */
     postcode?: string;
-    /** City of the user's residence address <span style="white-space: nowrap">`non-empty`</span> */
+    /** City of the user's residence address */
     city: string;
-    /** State of the user's residence address <span style="white-space: nowrap">`non-empty`</span> */
+    /** State of the user's residence address */
     state?: string;
-    /** User's country of residence <span style="white-space: nowrap">`non-empty`</span> */
+    /** User's country of residence */
     country: string;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];

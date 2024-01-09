@@ -4,6 +4,5 @@
 
 export interface PepStatus {
     isPepHit: boolean;
-    /** <span style="white-space: nowrap">`<= 2 characters`</span> */
     pepCountry?: string;
 }

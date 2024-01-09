@@ -8,8 +8,7 @@ import * as Flagright from "..";
  * Model for Mpesa payment method
  */
 export interface MpesaDetails {
-    method: Flagright.MpesaPaymentMethod;
-    /** Business code <span style="white-space: nowrap">`non-empty`</span> */
+    /** Business code */
     businessShortCode: string;
     /** Type of transaction */
     transactionType: Flagright.MpesaDetailsTransactionType;

@@ -11,7 +11,7 @@ export interface TransactionEvent {
     transactionState: Flagright.TransactionState;
     /** Timestamp of the event */
     timestamp: number;
-    /** Transaction ID the event pertains to <span style="white-space: nowrap">`non-empty`</span> */
+    /** Transaction ID the event pertains to */
     transactionId: string;
     /** Unique event ID */
     eventId?: string;

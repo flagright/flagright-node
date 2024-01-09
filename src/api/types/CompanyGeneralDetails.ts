@@ -8,12 +8,13 @@ import * as Flagright from "..";
  * Model for business user company general details
  */
 export interface CompanyGeneralDetails {
-    /** Legal name of the company <span style="white-space: nowrap">`non-empty`</span> */
+    /** Legal name of the company */
     legalName: string;
     /** The industry the business operates in for a business customer */
     businessIndustry?: string[];
     /** The key products and services provided by the company */
     mainProductsServicesSold?: string[];
+    /** Segmentation of the business user */
     userSegment?: Flagright.BusinessUserSegment;
     userRegistrationStatus?: Flagright.UserRegistrationStatus;
     /** Additional information that can be added via tags */

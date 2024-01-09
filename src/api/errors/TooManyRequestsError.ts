@@ -7,6 +7,7 @@ import * as errors from "../../errors";
 export class TooManyRequestsError extends errors.FlagrightError {
     constructor(body?: unknown) {
         super({
+            message: "TooManyRequestsError",
             statusCode: 429,
             body: body,
         });

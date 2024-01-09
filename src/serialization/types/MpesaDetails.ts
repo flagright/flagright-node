@@ -8,7 +8,6 @@ import * as core from "../../core";
 
 export const MpesaDetails: core.serialization.ObjectSchema<serializers.MpesaDetails.Raw, Flagright.MpesaDetails> =
     core.serialization.object({
-        method: core.serialization.lazy(async () => (await import("..")).MpesaPaymentMethod),
         businessShortCode: core.serialization.string(),
         transactionType: core.serialization.lazy(async () => (await import("..")).MpesaDetailsTransactionType),
         phoneNumber: core.serialization.string(),
@@ -17,7 +16,6 @@ export const MpesaDetails: core.serialization.ObjectSchema<serializers.MpesaDeta
 
 export declare namespace MpesaDetails {
     interface Raw {
-        method: serializers.MpesaPaymentMethod.Raw;
         businessShortCode: string;
         transactionType: serializers.MpesaDetailsTransactionType.Raw;
         phoneNumber: string;

@@ -8,7 +8,6 @@ import * as core from "../../core";
 
 export const SwiftDetails: core.serialization.ObjectSchema<serializers.SwiftDetails.Raw, Flagright.SwiftDetails> =
     core.serialization.object({
-        method: core.serialization.lazy(async () => (await import("..")).SwiftPaymentMethod),
         swiftCode: core.serialization.string().optional(),
         accountNumber: core.serialization.string().optional(),
         accountType: core.serialization.string().optional(),
@@ -21,7 +20,6 @@ export const SwiftDetails: core.serialization.ObjectSchema<serializers.SwiftDeta
 
 export declare namespace SwiftDetails {
     interface Raw {
-        method: serializers.SwiftPaymentMethod.Raw;
         swiftCode?: string | null;
         accountNumber?: string | null;
         accountType?: string | null;

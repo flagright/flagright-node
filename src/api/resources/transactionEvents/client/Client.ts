@@ -17,6 +17,7 @@ export declare namespace TransactionEvents {
 
     interface RequestOptions {
         timeoutInSeconds?: number;
+        maxRetries?: number;
     }
 }
 
@@ -30,8 +31,8 @@ export class TransactionEvents {
      *
      * Transaction events are created after the initial `POST /transactions` call (which creates a transaction) and are used to:
      *
-     * * Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-lifecycle-through-transaction-events)
-     * * Update the transaction details, using the `updatedTransactionAttributes` field.
+     * - Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-lifecycle-through-transaction-events)
+     * - Update the transaction details, using the `updatedTransactionAttributes` field.
      *
      * > If you have neither of the above two use cases, you do not need to use transaction events.
      *
@@ -39,12 +40,11 @@ export class TransactionEvents {
      *
      * Each transaction event needs three mandatory fields:
      *
-     * * `transactionState` - STATE of the transaction -> value is set to `CREATED` after `POST /transactions` call
-     * * `timestamp`- the timestamp of when the event was created or occured in your system
-     * * `transactionId` - The ID of the transaction for which this event is generated.
+     * - `transactionState` - STATE of the transaction -> value is set to `CREATED` after `POST /transactions` call
+     * - `timestamp`- the timestamp of when the event was created or occured in your system
+     * - `transactionId` - The ID of the transaction for which this event is generated.
      *
      * In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
-     *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
@@ -63,11 +63,12 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.2.1",
+                "X-Fern-SDK-Version": "1.3.0",
             },
             contentType: "application/json",
             body: await serializers.TransactionEvent.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.TransactionEventMonitoringResult.parseOrThrow(_response.body, {
@@ -115,7 +116,6 @@ export class TransactionEvents {
      * `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-event).
      *
      * You can retrieve any transaction event you create using the [POST Transaction Events](https://docs.flagright.com/docs/flagright-api/d7c4dc4d02850-create-a-transaction-event) call.
-     *
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      */
@@ -133,10 +133,11 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.2.1",
+                "X-Fern-SDK-Version": "1.3.0",
             },
             contentType: "application/json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.TransactionEvent.parseOrThrow(_response.body, {

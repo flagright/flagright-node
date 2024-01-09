@@ -6,8 +6,8 @@
  * Generic key-value pair model to append a custom variable being sent to Flagright API
  */
 export interface Tag {
-    /** Key value when you are creating a custom variable <span style="white-space: nowrap">`non-empty`</span> */
+    /** Key value when you are creating a custom variable */
     key: string;
-    /** Value for a given key when you are creating a custom variable <span style="white-space: nowrap">`non-empty`</span> */
+    /** Value for a given key when you are creating a custom variable */
     value: string;
 }

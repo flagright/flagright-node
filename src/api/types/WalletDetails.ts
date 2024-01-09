@@ -8,10 +8,9 @@ import * as Flagright from "..";
  * Standardized model for a Generic wallet transaction
  */
 export interface WalletDetails {
-    method: Flagright.WalletPaymentMethod;
     /** Wallet type if there are various types of wallets belonging to the same user. E.g. Checking, savings, vault, different currency wallets etc. */
     walletType: string;
-    /** Unique ID of the wallet <span style="white-space: nowrap">`non-empty`</span> */
+    /** Unique ID of the wallet */
     walletId?: string;
     /** Payment Channel used through wallet */
     paymentChannel?: string;

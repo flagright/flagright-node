@@ -6,7 +6,7 @@
  * Model for User details
  */
 export interface UserBase {
-    /** Unique user ID <span style="white-space: nowrap">`non-empty`</span> */
+    /** Unique user ID */
     userId: string;
     /** Timestamp when userId is created */
     createdTimestamp: number;

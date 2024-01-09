@@ -8,7 +8,6 @@ import * as core from "../../core";
 
 export const UpiDetails: core.serialization.ObjectSchema<serializers.UpiDetails.Raw, Flagright.UpiDetails> =
     core.serialization.object({
-        method: core.serialization.lazy(async () => (await import("..")).UpiPaymentMethod),
         upiId: core.serialization.property("upiID", core.serialization.string()),
         bankProvider: core.serialization.string().optional(),
         interfaceProvider: core.serialization.string().optional(),
@@ -18,7 +17,6 @@ export const UpiDetails: core.serialization.ObjectSchema<serializers.UpiDetails.
 
 export declare namespace UpiDetails {
     interface Raw {
-        method: serializers.UpiPaymentMethod.Raw;
         upiID: string;
         bankProvider?: string | null;
         interfaceProvider?: string | null;

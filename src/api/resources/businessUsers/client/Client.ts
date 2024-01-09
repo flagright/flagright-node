@@ -17,6 +17,7 @@ export declare namespace BusinessUsers {
 
     interface RequestOptions {
         timeoutInSeconds?: number;
+        maxRetries?: number;
     }
 }
 
@@ -32,12 +33,11 @@ export class BusinessUsers {
      *
      * ### Payload
      *
-     *
      * Each consumer Business entity needs three mandatory fields:
      *
-     * * `userId` - Unique identifier for the user
-     * * `legalEntity` - Details of the business legal entity (CompanyGeneralDetails, FinancialDetails etc) - only `legalName`in `CompanyGeneralDetails` is mandatory
-     * * `createdTimestamp` - UNIX timestamp in *milliseconds* for when the User is created in your system
+     * - `userId` - Unique identifier for the user
+     * - `legalEntity` - Details of the business legal entity (CompanyGeneralDetails, FinancialDetails etc) - only `legalName`in `CompanyGeneralDetails` is mandatory
+     * - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
@@ -56,11 +56,12 @@ export class BusinessUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.2.1",
+                "X-Fern-SDK-Version": "1.3.0",
             },
             contentType: "application/json",
             body: await serializers.Business.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.BusinessUsersCreateResponse.parseOrThrow(_response.body, {
@@ -125,10 +126,11 @@ export class BusinessUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.2.1",
+                "X-Fern-SDK-Version": "1.3.0",
             },
             contentType: "application/json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.BusinessResponse.parseOrThrow(_response.body, {

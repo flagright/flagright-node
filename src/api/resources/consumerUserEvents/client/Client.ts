@@ -5,7 +5,6 @@
 import * as environments from "../../../../environments";
 import * as core from "../../../../core";
 import * as Flagright from "../../..";
-import { default as URLSearchParams } from "@ungap/url-search-params";
 import * as serializers from "../../../../serialization";
 import urlJoin from "url-join";
 import * as errors from "../../../../errors";
@@ -18,6 +17,7 @@ export declare namespace ConsumerUserEvents {
 
     interface RequestOptions {
         timeoutInSeconds?: number;
+        maxRetries?: number;
     }
 }
 
@@ -31,8 +31,8 @@ export class ConsumerUserEvents {
      *
      * User events are created after the initial `POST /consumer/users` call (which creates a user) and are used to:
      *
-     * * Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
-     * * Update the user details, using the `updatedConsumerUserAttributes` field.
+     * - Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
+     * - Update the user details, using the `updatedConsumerUserAttributes` field.
      *
      * > If you have neither of the above two use cases, you do not need to use user events.
      *
@@ -40,11 +40,10 @@ export class ConsumerUserEvents {
      *
      * Each user event needs three mandatory fields:
      *
-     * * `timestamp`- the timestamp of when the event was created or occured in your system
-     * * `userId` - The ID of the transaction for which this event is generated.
+     * - `timestamp`- the timestamp of when the event was created or occured in your system
+     * - `userId` - The ID of the transaction for which this event is generated.
      *
      * In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
-     *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
@@ -54,9 +53,9 @@ export class ConsumerUserEvents {
         requestOptions?: ConsumerUserEvents.RequestOptions
     ): Promise<Flagright.UserWithRulesResult> {
         const { allowUserTypeConversion, ..._body } = request;
-        const _queryParams = new URLSearchParams();
+        const _queryParams: Record<string, string | string[]> = {};
         if (allowUserTypeConversion != null) {
-            _queryParams.append("allowUserTypeConversion", allowUserTypeConversion);
+            _queryParams["allowUserTypeConversion"] = allowUserTypeConversion;
         }
 
         const _response = await core.fetcher({
@@ -69,12 +68,13 @@ export class ConsumerUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.2.1",
+                "X-Fern-SDK-Version": "1.3.0",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
             body: await serializers.ConsumerUserEvent.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.UserWithRulesResult.parseOrThrow(_response.body, {

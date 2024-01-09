@@ -8,10 +8,9 @@ import * as Flagright from "..";
  * Standardized model for Bank Details
  */
 export interface IbanDetails {
-    method: Flagright.IbanPaymentMethod;
-    /** Identifier for the bank. Can be routing number, BIK number, SWIFT code, BIC number etc. <span style="white-space: nowrap">`non-empty`</span> */
+    /** Identifier for the bank. Can be routing number, BIK number, SWIFT code, BIC number etc. */
     bic?: string;
-    /** Name of the bank <span style="white-space: nowrap">`non-empty`</span> */
+    /** Name of the bank */
     bankName?: string;
     bankAddress?: Flagright.Address;
     country?: Flagright.CountryCode;

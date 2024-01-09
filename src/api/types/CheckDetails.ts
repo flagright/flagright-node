@@ -5,7 +5,6 @@
 import * as Flagright from "..";
 
 export interface CheckDetails {
-    method: Flagright.CheckPaymentMethod;
     checkNumber?: string;
     checkIdentifier?: string;
     name?: string;

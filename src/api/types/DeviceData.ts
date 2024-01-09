@@ -12,20 +12,20 @@ export interface DeviceData {
     deviceLatitude?: number;
     /** Device longitude at a give timestamp for an event or transaction */
     deviceLongitude?: number;
-    /** IP address of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> */
+    /** IP address of the device at a given timestamp for an event or transaction */
     ipAddress?: string;
-    /** Device identifier number <span style="white-space: nowrap">`non-empty`</span> */
+    /** Device identifier number */
     deviceIdentifier?: string;
     /** Whether VPN was used at a given timestamp for an event or transaction */
     vpnUsed?: boolean;
-    /** Operating system of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> */
+    /** Operating system of the device at a given timestamp for an event or transaction */
     operatingSystem?: string;
-    /** The maker of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> */
+    /** The maker of the device at a given timestamp for an event or transaction */
     deviceMaker?: string;
-    /** The model of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> */
+    /** The model of the device at a given timestamp for an event or transaction */
     deviceModel?: string;
-    /** The year the device was manufactured at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> */
+    /** The year the device was manufactured at a given timestamp for an event or transaction */
     deviceYear?: string;
-    /** The version of the app your user is using on their device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> */
+    /** The version of the app your user is using on their device at a given timestamp for an event or transaction */
     appVersion?: string;
 }

@@ -8,7 +8,7 @@ import * as Flagright from "..";
  * Model for consumer user risk score response
  */
 export interface ConsumerUsersResponse {
-    /** user ID the risk score pertains to <span style="white-space: nowrap">`non-empty`</span> */
+    /** user ID the risk score pertains to */
     userId: string;
     riskScoreDetails?: Flagright.RiskScoreDetails;
     hitRules?: Flagright.HitRulesDetails[];

@@ -8,7 +8,6 @@ import * as core from "../../core";
 
 export const AchDetails: core.serialization.ObjectSchema<serializers.AchDetails.Raw, Flagright.AchDetails> =
     core.serialization.object({
-        method: core.serialization.lazy(async () => (await import("..")).AchPaymentMethod),
         routingNumber: core.serialization.string().optional(),
         accountNumber: core.serialization.string().optional(),
         bankName: core.serialization.string().optional(),
@@ -20,7 +19,6 @@ export const AchDetails: core.serialization.ObjectSchema<serializers.AchDetails.
 
 export declare namespace AchDetails {
     interface Raw {
-        method: serializers.AchPaymentMethod.Raw;
         routingNumber?: string | null;
         accountNumber?: string | null;
         bankName?: string | null;

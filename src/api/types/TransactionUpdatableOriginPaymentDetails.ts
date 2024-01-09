@@ -8,12 +8,50 @@ import * as Flagright from "..";
  * Payment details of the origin. It can be a bank account number, wallet ID, card fingerprint etc.
  */
 export type TransactionUpdatableOriginPaymentDetails =
-    | Flagright.CardDetails
-    | Flagright.GenericBankAccountDetails
-    | Flagright.IbanDetails
-    | Flagright.AchDetails
-    | Flagright.SwiftDetails
-    | Flagright.MpesaDetails
-    | Flagright.UpiDetails
-    | Flagright.WalletDetails
-    | Flagright.CheckDetails;
+    | Flagright.TransactionUpdatableOriginPaymentDetails.Card
+    | Flagright.TransactionUpdatableOriginPaymentDetails.GenericBankAccount
+    | Flagright.TransactionUpdatableOriginPaymentDetails.Iban
+    | Flagright.TransactionUpdatableOriginPaymentDetails.Ach
+    | Flagright.TransactionUpdatableOriginPaymentDetails.Swift
+    | Flagright.TransactionUpdatableOriginPaymentDetails.Mpesa
+    | Flagright.TransactionUpdatableOriginPaymentDetails.Upi
+    | Flagright.TransactionUpdatableOriginPaymentDetails.Wallet
+    | Flagright.TransactionUpdatableOriginPaymentDetails.Check;
+
+export declare namespace TransactionUpdatableOriginPaymentDetails {
+    interface Card extends Flagright.CardDetails {
+        method: "CARD";
+    }
+
+    interface GenericBankAccount extends Flagright.GenericBankAccountDetails {
+        method: "GENERIC_BANK_ACCOUNT";
+    }
+
+    interface Iban extends Flagright.IbanDetails {
+        method: "IBAN";
+    }
+
+    interface Ach extends Flagright.AchDetails {
+        method: "ACH";
+    }
+
+    interface Swift extends Flagright.SwiftDetails {
+        method: "SWIFT";
+    }
+
+    interface Mpesa extends Flagright.MpesaDetails {
+        method: "MPESA";
+    }
+
+    interface Upi extends Flagright.UpiDetails {
+        method: "UPI";
+    }
+
+    interface Wallet extends Flagright.WalletDetails {
+        method: "WALLET";
+    }
+
+    interface Check extends Flagright.CheckDetails {
+        method: "CHECK";
+    }
+}

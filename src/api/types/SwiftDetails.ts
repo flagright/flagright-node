@@ -8,14 +8,13 @@ import * as Flagright from "..";
  * Model for SWIFT payment method
  */
 export interface SwiftDetails {
-    method: Flagright.SwiftPaymentMethod;
-    /** SWIFT code of the financial institution <span style="white-space: nowrap">`non-empty`</span> */
+    /** SWIFT code of the financial institution */
     swiftCode?: string;
-    /** Account number <span style="white-space: nowrap">`non-empty`</span> */
+    /** Account number */
     accountNumber?: string;
     /** Account type. E.g. Checking, Savings etc. */
     accountType?: string;
-    /** Name of the bank <span style="white-space: nowrap">`non-empty`</span> */
+    /** Name of the bank */
     bankName?: string;
     /** Name of the account holder */
     name?: string;

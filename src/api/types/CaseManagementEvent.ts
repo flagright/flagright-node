@@ -14,7 +14,7 @@ export interface CaseManagementEvent {
     timestamp: number;
     /** Case status reason. E.g. Closed & False Positive, Closed & Investigation Completed etc. */
     caseStatusReason: Flagright.CaseManagementEventCaseStatusReason;
-    /** Transaction ID the case pertains to <span style="white-space: nowrap">`non-empty`</span> */
+    /** Transaction ID the case pertains to */
     transactionId?: string;
     /** User ID the case pertains to */
     userId?: string;

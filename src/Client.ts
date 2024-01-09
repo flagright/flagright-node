@@ -19,6 +19,7 @@ export declare namespace FlagrightClient {
 
     interface RequestOptions {
         timeoutInSeconds?: number;
+        maxRetries?: number;
     }
 }
 
