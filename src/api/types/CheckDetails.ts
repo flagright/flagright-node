@@ -8,7 +8,7 @@ export interface CheckDetails {
     checkNumber?: string;
     checkIdentifier?: string;
     name?: string;
-    deliveryStatus?: Flagright.CheckDetailsDeliveryStatus;
+    deliveryStatus?: Flagright.CheckDeliveryStatus;
     etaTimestamp?: number;
     shippingAddress?: Flagright.Address;
     /** Additional information that can be added via tags */

@@ -10,8 +10,7 @@ import * as Flagright from "..";
 export interface MpesaDetails {
     /** Business code */
     businessShortCode: string;
-    /** Type of transaction */
-    transactionType: Flagright.MpesaDetailsTransactionType;
+    transactionType: Flagright.MpesaTransactionType;
     /** Contact Number of the account holder */
     phoneNumber: string;
     /** Additional information that can be added via tags */

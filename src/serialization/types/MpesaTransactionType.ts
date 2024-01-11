@@ -6,9 +6,9 @@ import * as serializers from "..";
 import * as Flagright from "../../api";
 import * as core from "../../core";
 
-export const MpesaDetailsTransactionType: core.serialization.Schema<
-    serializers.MpesaDetailsTransactionType.Raw,
-    Flagright.MpesaDetailsTransactionType
+export const MpesaTransactionType: core.serialization.Schema<
+    serializers.MpesaTransactionType.Raw,
+    Flagright.MpesaTransactionType
 > = core.serialization.enum_([
     "CustomerPayBillOnline",
     "CustomerBuyGoodsOnline",
@@ -17,7 +17,7 @@ export const MpesaDetailsTransactionType: core.serialization.Schema<
     "PromotionPayment",
 ]);
 
-export declare namespace MpesaDetailsTransactionType {
+export declare namespace MpesaTransactionType {
     type Raw =
         | "CustomerPayBillOnline"
         | "CustomerBuyGoodsOnline"

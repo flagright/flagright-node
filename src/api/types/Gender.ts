@@ -5,9 +5,9 @@
 /**
  * Gender of the individual - Male, Female or Non-Binary
  */
-export type UserDetailsGender = "M" | "F" | "NB";
+export type Gender = "M" | "F" | "NB";
 
-export const UserDetailsGender = {
+export const Gender = {
     M: "M",
     F: "F",
     Nb: "NB",

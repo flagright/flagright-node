@@ -5,14 +5,14 @@
 /**
  * Type of transaction
  */
-export type MpesaDetailsTransactionType =
+export type MpesaTransactionType =
     | "CustomerPayBillOnline"
     | "CustomerBuyGoodsOnline"
     | "SalaryPayment"
     | "BusinessPayment"
     | "PromotionPayment";
 
-export const MpesaDetailsTransactionType = {
+export const MpesaTransactionType = {
     CustomerPayBillOnline: "CustomerPayBillOnline",
     CustomerBuyGoodsOnline: "CustomerBuyGoodsOnline",
     SalaryPayment: "SalaryPayment",

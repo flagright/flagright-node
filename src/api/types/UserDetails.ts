@@ -13,6 +13,5 @@ export interface UserDetails {
     dateOfBirth?: string;
     countryOfResidence?: Flagright.CountryCode;
     countryOfNationality?: Flagright.CountryCode;
-    /** Gender of the individual - Male, Female or Non-Binary */
-    gender?: Flagright.UserDetailsGender;
+    gender?: Flagright.Gender;
 }

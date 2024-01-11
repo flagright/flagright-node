@@ -19,14 +19,12 @@ export interface CardDetails {
     cardExpiry?: Flagright.CardExpiry;
     /** Last 4 digits of Card */
     cardLast4Digits?: string;
-    /** Brand of Card */
-    cardBrand?: Flagright.CardDetailsCardBrand;
-    /** Funding of Card */
-    cardFunding?: Flagright.CardDetailsCardFunding;
+    cardBrand?: Flagright.CardBrand;
+    cardFunding?: Flagright.CardFunding;
     /** Authentication of Card */
     cardAuthenticated?: boolean;
     paymentChannel?: string;
-    cardType?: Flagright.CardDetailsCardType;
+    cardType?: Flagright.CardType;
     merchantDetails?: Flagright.CardMerchantDetails;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];

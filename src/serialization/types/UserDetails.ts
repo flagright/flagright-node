@@ -12,7 +12,7 @@ export const UserDetails: core.serialization.ObjectSchema<serializers.UserDetail
         dateOfBirth: core.serialization.string().optional(),
         countryOfResidence: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
         countryOfNationality: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
-        gender: core.serialization.lazy(async () => (await import("..")).UserDetailsGender).optional(),
+        gender: core.serialization.lazy(async () => (await import("..")).Gender).optional(),
     });
 
 export declare namespace UserDetails {
@@ -21,6 +21,6 @@ export declare namespace UserDetails {
         dateOfBirth?: string | null;
         countryOfResidence?: serializers.CountryCode.Raw | null;
         countryOfNationality?: serializers.CountryCode.Raw | null;
-        gender?: serializers.UserDetailsGender.Raw | null;
+        gender?: serializers.Gender.Raw | null;
     }
 }

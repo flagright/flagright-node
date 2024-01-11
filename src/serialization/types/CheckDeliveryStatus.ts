@@ -6,11 +6,11 @@ import * as serializers from "..";
 import * as Flagright from "../../api";
 import * as core from "../../core";
 
-export const CheckDetailsDeliveryStatus: core.serialization.Schema<
-    serializers.CheckDetailsDeliveryStatus.Raw,
-    Flagright.CheckDetailsDeliveryStatus
+export const CheckDeliveryStatus: core.serialization.Schema<
+    serializers.CheckDeliveryStatus.Raw,
+    Flagright.CheckDeliveryStatus
 > = core.serialization.enum_(["COMPLETED", "PENDING", "SETTLED", "CANCELED", "REFUND", "DECLINED"]);
 
-export declare namespace CheckDetailsDeliveryStatus {
+export declare namespace CheckDeliveryStatus {
     type Raw = "COMPLETED" | "PENDING" | "SETTLED" | "CANCELED" | "REFUND" | "DECLINED";
 }

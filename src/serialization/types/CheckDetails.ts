@@ -11,7 +11,7 @@ export const CheckDetails: core.serialization.ObjectSchema<serializers.CheckDeta
         checkNumber: core.serialization.string().optional(),
         checkIdentifier: core.serialization.string().optional(),
         name: core.serialization.string().optional(),
-        deliveryStatus: core.serialization.lazy(async () => (await import("..")).CheckDetailsDeliveryStatus).optional(),
+        deliveryStatus: core.serialization.lazy(async () => (await import("..")).CheckDeliveryStatus).optional(),
         etaTimestamp: core.serialization.number().optional(),
         shippingAddress: core.serialization.lazyObject(async () => (await import("..")).Address).optional(),
         tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
@@ -22,7 +22,7 @@ export declare namespace CheckDetails {
         checkNumber?: string | null;
         checkIdentifier?: string | null;
         name?: string | null;
-        deliveryStatus?: serializers.CheckDetailsDeliveryStatus.Raw | null;
+        deliveryStatus?: serializers.CheckDeliveryStatus.Raw | null;
         etaTimestamp?: number | null;
         shippingAddress?: serializers.Address.Raw | null;
         tags?: serializers.Tag.Raw[] | null;

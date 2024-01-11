@@ -5,9 +5,9 @@
 /**
  * Funding of Card
  */
-export type CardDetailsCardFunding = "CREDIT" | "DEBIT" | "PREPAID";
+export type CardFunding = "CREDIT" | "DEBIT" | "PREPAID";
 
-export const CardDetailsCardFunding = {
+export const CardFunding = {
     Credit: "CREDIT",
     Debit: "DEBIT",
     Prepaid: "PREPAID",

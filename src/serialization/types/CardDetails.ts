@@ -15,11 +15,11 @@ export const CardDetails: core.serialization.ObjectSchema<serializers.CardDetail
         nameOnCard: core.serialization.lazyObject(async () => (await import("..")).ConsumerName).optional(),
         cardExpiry: core.serialization.lazyObject(async () => (await import("..")).CardExpiry).optional(),
         cardLast4Digits: core.serialization.string().optional(),
-        cardBrand: core.serialization.lazy(async () => (await import("..")).CardDetailsCardBrand).optional(),
-        cardFunding: core.serialization.lazy(async () => (await import("..")).CardDetailsCardFunding).optional(),
+        cardBrand: core.serialization.lazy(async () => (await import("..")).CardBrand).optional(),
+        cardFunding: core.serialization.lazy(async () => (await import("..")).CardFunding).optional(),
         cardAuthenticated: core.serialization.boolean().optional(),
         paymentChannel: core.serialization.string().optional(),
-        cardType: core.serialization.lazy(async () => (await import("..")).CardDetailsCardType).optional(),
+        cardType: core.serialization.lazy(async () => (await import("..")).CardType).optional(),
         merchantDetails: core.serialization.lazyObject(async () => (await import("..")).CardMerchantDetails).optional(),
         tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
     });
@@ -33,11 +33,11 @@ export declare namespace CardDetails {
         nameOnCard?: serializers.ConsumerName.Raw | null;
         cardExpiry?: serializers.CardExpiry.Raw | null;
         cardLast4Digits?: string | null;
-        cardBrand?: serializers.CardDetailsCardBrand.Raw | null;
-        cardFunding?: serializers.CardDetailsCardFunding.Raw | null;
+        cardBrand?: serializers.CardBrand.Raw | null;
+        cardFunding?: serializers.CardFunding.Raw | null;
         cardAuthenticated?: boolean | null;
         paymentChannel?: string | null;
-        cardType?: serializers.CardDetailsCardType.Raw | null;
+        cardType?: serializers.CardType.Raw | null;
         merchantDetails?: serializers.CardMerchantDetails.Raw | null;
         tags?: serializers.Tag.Raw[] | null;
     }

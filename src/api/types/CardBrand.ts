@@ -5,16 +5,9 @@
 /**
  * Brand of Card
  */
-export type CardDetailsCardBrand =
-    | "VISA"
-    | "MASTERCARD"
-    | "AMERICAN_EXPRESS"
-    | "DISCOVER"
-    | "UNIONPAY"
-    | "RUPAY"
-    | "JCB";
+export type CardBrand = "VISA" | "MASTERCARD" | "AMERICAN_EXPRESS" | "DISCOVER" | "UNIONPAY" | "RUPAY" | "JCB";
 
-export const CardDetailsCardBrand = {
+export const CardBrand = {
     Visa: "VISA",
     Mastercard: "MASTERCARD",
     AmericanExpress: "AMERICAN_EXPRESS",
