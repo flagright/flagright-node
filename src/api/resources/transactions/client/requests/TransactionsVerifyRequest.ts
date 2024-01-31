@@ -4,6 +4,63 @@
 
 import * as Flagright from "../../../..";
 
+/**
+ * @example
+ *     {
+ *         validateOriginUserId: Flagright.BooleanString.True,
+ *         validateDestinationUserId: Flagright.BooleanString.True,
+ *         body: {
+ *             transactionState: Flagright.TransactionState.Created,
+ *             originAmountDetails: {
+ *                 transactionAmount: 800,
+ *                 transactionCurrency: Flagright.CurrencyCode.Eur,
+ *                 country: Flagright.CountryCode.De
+ *             },
+ *             destinationAmountDetails: {
+ *                 transactionAmount: 68351.34,
+ *                 transactionCurrency: Flagright.CurrencyCode.Inr,
+ *                 country: Flagright.CountryCode.In
+ *             },
+ *             promotionCodeUsed: true,
+ *             reference: "loan repayment",
+ *             originDeviceData: {
+ *                 batteryLevel: 95,
+ *                 deviceLatitude: 13.0033,
+ *                 deviceLongitude: 76.1004,
+ *                 ipAddress: "10.23.191.2",
+ *                 deviceIdentifier: "3c49f915d04485e34caba",
+ *                 vpnUsed: false,
+ *                 operatingSystem: "Android 11.2",
+ *                 deviceMaker: "ASUS",
+ *                 deviceModel: "Zenphone M2 Pro Max",
+ *                 deviceYear: "2018",
+ *                 appVersion: "1.1.0"
+ *             },
+ *             destinationDeviceData: {
+ *                 batteryLevel: 95,
+ *                 deviceLatitude: 13.0033,
+ *                 deviceLongitude: 76.1004,
+ *                 ipAddress: "10.23.191.2",
+ *                 deviceIdentifier: "3c49f915d04485e34caba",
+ *                 vpnUsed: false,
+ *                 operatingSystem: "Android 11.2",
+ *                 deviceMaker: "ASUS",
+ *                 deviceModel: "Zenphone M2 Pro Max",
+ *                 deviceYear: "2018",
+ *                 appVersion: "1.1.0"
+ *             },
+ *             tags: [{
+ *                     key: "customKey",
+ *                     value: "customValue"
+ *                 }],
+ *             type: Flagright.TransactionType.Deposit,
+ *             transactionId: "7b80a539eea6e78acbd6d458e5971482",
+ *             timestamp: 1641654664000,
+ *             originUserId: "8650a2611d0771cba03310f74bf6",
+ *             destinationUserId: "9350a2611e0771cba03310f74bf6"
+ *         }
+ *     }
+ */
 export interface TransactionsVerifyRequest {
     /**
      * Boolean string whether Flagright should validate if provided originUserId exist. True by default

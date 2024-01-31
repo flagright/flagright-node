@@ -6,6 +6,7 @@ export * from "./User";
 export * from "./Person";
 export * from "./LegalDocument";
 export * from "./Tag";
+export * from "./EmailId";
 export * from "./Transaction";
 export * from "./TransactionUpdatableOriginPaymentDetails";
 export * from "./TransactionUpdatableDestinationPaymentDetails";

@@ -47,7 +47,64 @@ export class Transactions {
      * - `destinationPaymentDetails` - Payment details (if any) used at the destination (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
+     * @throws {@link Flagright.ForbiddenError}
      * @throws {@link Flagright.TooManyRequestsError}
+     *
+     * @example
+     *     await flagright.transactions.verify({
+     *         validateOriginUserId: Flagright.BooleanString.True,
+     *         validateDestinationUserId: Flagright.BooleanString.True,
+     *         body: {
+     *             transactionState: Flagright.TransactionState.Created,
+     *             originAmountDetails: {
+     *                 transactionAmount: 800,
+     *                 transactionCurrency: Flagright.CurrencyCode.Eur,
+     *                 country: Flagright.CountryCode.De
+     *             },
+     *             destinationAmountDetails: {
+     *                 transactionAmount: 68351.34,
+     *                 transactionCurrency: Flagright.CurrencyCode.Inr,
+     *                 country: Flagright.CountryCode.In
+     *             },
+     *             promotionCodeUsed: true,
+     *             reference: "loan repayment",
+     *             originDeviceData: {
+     *                 batteryLevel: 95,
+     *                 deviceLatitude: 13.0033,
+     *                 deviceLongitude: 76.1004,
+     *                 ipAddress: "10.23.191.2",
+     *                 deviceIdentifier: "3c49f915d04485e34caba",
+     *                 vpnUsed: false,
+     *                 operatingSystem: "Android 11.2",
+     *                 deviceMaker: "ASUS",
+     *                 deviceModel: "Zenphone M2 Pro Max",
+     *                 deviceYear: "2018",
+     *                 appVersion: "1.1.0"
+     *             },
+     *             destinationDeviceData: {
+     *                 batteryLevel: 95,
+     *                 deviceLatitude: 13.0033,
+     *                 deviceLongitude: 76.1004,
+     *                 ipAddress: "10.23.191.2",
+     *                 deviceIdentifier: "3c49f915d04485e34caba",
+     *                 vpnUsed: false,
+     *                 operatingSystem: "Android 11.2",
+     *                 deviceMaker: "ASUS",
+     *                 deviceModel: "Zenphone M2 Pro Max",
+     *                 deviceYear: "2018",
+     *                 appVersion: "1.1.0"
+     *             },
+     *             tags: [{
+     *                     key: "customKey",
+     *                     value: "customValue"
+     *                 }],
+     *             type: Flagright.TransactionType.Deposit,
+     *             transactionId: "7b80a539eea6e78acbd6d458e5971482",
+     *             timestamp: 1641654664000,
+     *             originUserId: "8650a2611d0771cba03310f74bf6",
+     *             destinationUserId: "9350a2611e0771cba03310f74bf6"
+     *         }
+     *     })
      */
     public async verify(
         request: Flagright.TransactionsVerifyRequest,
@@ -73,7 +130,7 @@ export class Transactions {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.3.3",
+                "X-Fern-SDK-Version": "1.3.4",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -96,6 +153,8 @@ export class Transactions {
                     throw new Flagright.BadRequestError(_response.error.body);
                 case 401:
                     throw new Flagright.UnauthorizedError(_response.error.body);
+                case 403:
+                    throw new Flagright.ForbiddenError(_response.error.body);
                 case 429:
                     throw new Flagright.TooManyRequestsError(_response.error.body);
                 default:
@@ -129,6 +188,9 @@ export class Transactions {
      * Calling `GET /transactions/{transactionId}` will return the entire transaction payload and rule execution results for the transaction with the corresponding `transactionId`
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
+     *
+     * @example
+     *     await flagright.transactions.get("string")
      */
     public async get(
         transactionId: string,
@@ -144,7 +206,7 @@ export class Transactions {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.3.3",
+                "X-Fern-SDK-Version": "1.3.4",
             },
             contentType: "application/json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,

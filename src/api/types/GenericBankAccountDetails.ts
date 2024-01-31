@@ -19,6 +19,7 @@ export interface GenericBankAccountDetails {
     /** Name of the account holder */
     name?: string;
     bankAddress?: Flagright.Address;
+    emailId?: Flagright.EmailId;
     /** Special instructions to be specified if any */
     specialInstructions?: string;
     paymentChannel?: string;

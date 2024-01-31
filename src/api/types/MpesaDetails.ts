@@ -13,6 +13,7 @@ export interface MpesaDetails {
     transactionType: Flagright.MpesaTransactionType;
     /** Contact Number of the account holder */
     phoneNumber: string;
+    emailId?: Flagright.EmailId;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
 }

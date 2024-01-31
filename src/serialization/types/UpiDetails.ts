@@ -12,6 +12,7 @@ export const UpiDetails: core.serialization.ObjectSchema<serializers.UpiDetails.
         bankProvider: core.serialization.string().optional(),
         interfaceProvider: core.serialization.string().optional(),
         name: core.serialization.string().optional(),
+        emailId: core.serialization.lazy(async () => (await import("..")).EmailId).optional(),
         tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
     });
 
@@ -21,6 +22,7 @@ export declare namespace UpiDetails {
         bankProvider?: string | null;
         interfaceProvider?: string | null;
         name?: string | null;
+        emailId?: serializers.EmailId.Raw | null;
         tags?: serializers.Tag.Raw[] | null;
     }
 }

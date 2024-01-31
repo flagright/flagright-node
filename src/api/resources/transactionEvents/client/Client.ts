@@ -48,6 +48,41 @@ export class TransactionEvents {
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
+     *
+     * @example
+     *     await flagright.transactionEvents.create({
+     *         transactionState: Flagright.TransactionState.Successful,
+     *         timestamp: 1431231244001,
+     *         transactionId: "443dea26147a406b957d9ee3a1247b11",
+     *         eventId: "aaeeb166147a406b957dd9147a406b957",
+     *         eventDescription: "Transaction created",
+     *         updatedTransactionAttributes: {
+     *             transactionState: Flagright.TransactionState.Created,
+     *             originAmountDetails: {
+     *                 transactionAmount: 1.1,
+     *                 transactionCurrency: Flagright.CurrencyCode.OneInch,
+     *                 country: Flagright.CountryCode.Af
+     *             },
+     *             destinationAmountDetails: {
+     *                 transactionAmount: 1.1,
+     *                 transactionCurrency: Flagright.CurrencyCode.OneInch,
+     *                 country: Flagright.CountryCode.Af
+     *             },
+     *             originDeviceData: {},
+     *             destinationDeviceData: {},
+     *             tags: [{
+     *                     key: "string",
+     *                     value: "string"
+     *                 }]
+     *         },
+     *         metaData: {
+     *             batteryLevel: 76.3,
+     *             deviceLatitude: 13.009711,
+     *             deviceLongitude: 76.102898,
+     *             ipAddress: "79.144.2.20",
+     *             vpnUsed: true
+     *         }
+     *     })
      */
     public async create(
         request: Flagright.TransactionEvent,
@@ -63,7 +98,7 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.3.3",
+                "X-Fern-SDK-Version": "1.3.4",
             },
             contentType: "application/json",
             body: await serializers.TransactionEvent.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
@@ -118,6 +153,9 @@ export class TransactionEvents {
      * You can retrieve any transaction event you create using the [POST Transaction Events](https://docs.flagright.com/docs/flagright-api/d7c4dc4d02850-create-a-transaction-event) call.
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
+     *
+     * @example
+     *     await flagright.transactionEvents.get("string")
      */
     public async get(
         eventId: string,
@@ -133,7 +171,7 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.3.3",
+                "X-Fern-SDK-Version": "1.3.4",
             },
             contentType: "application/json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,

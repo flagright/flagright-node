@@ -19,6 +19,7 @@ export interface AchDetails {
     bankAddress?: Flagright.Address;
     /** Beneficiary name of the account */
     beneficiaryName?: string;
+    emailId?: Flagright.EmailId;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
 }

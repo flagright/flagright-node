@@ -19,6 +19,7 @@ export interface SwiftDetails {
     /** Name of the account holder */
     name?: string;
     bankAddress?: Flagright.Address;
+    emailId?: Flagright.EmailId;
     /** Special instructions if any */
     specialInstructions?: string;
     /** Additional information that can be added via tags */
