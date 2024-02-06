@@ -7,8 +7,25 @@ import * as Flagright from "../../api";
 import * as core from "../../core";
 
 export const KycStatus: core.serialization.Schema<serializers.KycStatus.Raw, Flagright.KycStatus> =
-    core.serialization.enum_(["SUCCESSFUL", "FAILED", "NOT_STARTED", "IN_PROGRESS", "MANUAL_REVIEW"]);
+    core.serialization.enum_([
+        "SUCCESSFUL",
+        "FAILED",
+        "NOT_STARTED",
+        "IN_PROGRESS",
+        "EXPIRED",
+        "NEW",
+        "CANCELLED",
+        "MANUAL_REVIEW",
+    ]);
 
 export declare namespace KycStatus {
-    type Raw = "SUCCESSFUL" | "FAILED" | "NOT_STARTED" | "IN_PROGRESS" | "MANUAL_REVIEW";
+    type Raw =
+        | "SUCCESSFUL"
+        | "FAILED"
+        | "NOT_STARTED"
+        | "IN_PROGRESS"
+        | "EXPIRED"
+        | "NEW"
+        | "CANCELLED"
+        | "MANUAL_REVIEW";
 }

@@ -4,6 +4,8 @@
 
 export type EmploymentStatus =
     | "UNEMPLOYED"
+    | "EMPLOYED"
+    | "SELF_EMPLOYED"
     | "STUDENT"
     | "FULL_TIME"
     | "PART_TIME"
@@ -13,6 +15,8 @@ export type EmploymentStatus =
 
 export const EmploymentStatus = {
     Unemployed: "UNEMPLOYED",
+    Employed: "EMPLOYED",
+    SelfEmployed: "SELF_EMPLOYED",
     Student: "STUDENT",
     FullTime: "FULL_TIME",
     PartTime: "PART_TIME",

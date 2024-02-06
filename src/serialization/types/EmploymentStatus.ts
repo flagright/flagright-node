@@ -9,6 +9,8 @@ import * as core from "../../core";
 export const EmploymentStatus: core.serialization.Schema<serializers.EmploymentStatus.Raw, Flagright.EmploymentStatus> =
     core.serialization.enum_([
         "UNEMPLOYED",
+        "EMPLOYED",
+        "SELF_EMPLOYED",
         "STUDENT",
         "FULL_TIME",
         "PART_TIME",
@@ -18,5 +20,14 @@ export const EmploymentStatus: core.serialization.Schema<serializers.EmploymentS
     ]);
 
 export declare namespace EmploymentStatus {
-    type Raw = "UNEMPLOYED" | "STUDENT" | "FULL_TIME" | "PART_TIME" | "SOLE_PROPRIETOR" | "PENSIONER" | "COMPANY_OWNER";
+    type Raw =
+        | "UNEMPLOYED"
+        | "EMPLOYED"
+        | "SELF_EMPLOYED"
+        | "STUDENT"
+        | "FULL_TIME"
+        | "PART_TIME"
+        | "SOLE_PROPRIETOR"
+        | "PENSIONER"
+        | "COMPANY_OWNER";
 }

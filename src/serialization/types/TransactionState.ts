@@ -16,8 +16,18 @@ export const TransactionState: core.serialization.Schema<serializers.Transaction
         "SUSPENDED",
         "REFUNDED",
         "SUCCESSFUL",
+        "REVERSED",
     ]);
 
 export declare namespace TransactionState {
-    type Raw = "CREATED" | "PROCESSING" | "SENT" | "EXPIRED" | "DECLINED" | "SUSPENDED" | "REFUNDED" | "SUCCESSFUL";
+    type Raw =
+        | "CREATED"
+        | "PROCESSING"
+        | "SENT"
+        | "EXPIRED"
+        | "DECLINED"
+        | "SUSPENDED"
+        | "REFUNDED"
+        | "SUCCESSFUL"
+        | "REVERSED";
 }

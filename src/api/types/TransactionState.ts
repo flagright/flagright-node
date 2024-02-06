@@ -13,7 +13,8 @@ export type TransactionState =
     | "DECLINED"
     | "SUSPENDED"
     | "REFUNDED"
-    | "SUCCESSFUL";
+    | "SUCCESSFUL"
+    | "REVERSED";
 
 export const TransactionState = {
     Created: "CREATED",
@@ -24,4 +25,5 @@ export const TransactionState = {
     Suspended: "SUSPENDED",
     Refunded: "REFUNDED",
     Successful: "SUCCESSFUL",
+    Reversed: "REVERSED",
 } as const;
