@@ -78,6 +78,7 @@ export * from "./PepStatus";
 export * from "./KycStatusDetails";
 export * from "./UserStateDetails";
 export * from "./CaseClosedDetails";
+export * from "./CaseOpenedDetails";
 export * from "./AlertClosedDetails";
 export * from "./TransactionStatusDetails";
 export * from "./RiskLevel";

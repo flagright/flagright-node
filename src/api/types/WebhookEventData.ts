@@ -7,6 +7,7 @@ import * as Flagright from "..";
 export type WebhookEventData =
     | Flagright.UserStateDetails
     | Flagright.CaseClosedDetails
+    | Flagright.CaseOpenedDetails
     | Flagright.AlertClosedDetails
     | Flagright.TransactionStatusDetails
     | Flagright.KycStatusDetails;

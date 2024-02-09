@@ -10,6 +10,7 @@ export const WebhookEventData: core.serialization.Schema<serializers.WebhookEven
     core.serialization.undiscriminatedUnion([
         core.serialization.lazyObject(async () => (await import("..")).UserStateDetails),
         core.serialization.lazyObject(async () => (await import("..")).CaseClosedDetails),
+        core.serialization.lazyObject(async () => (await import("..")).CaseOpenedDetails),
         core.serialization.lazyObject(async () => (await import("..")).AlertClosedDetails),
         core.serialization.lazyObject(async () => (await import("..")).TransactionStatusDetails),
         core.serialization.lazyObject(async () => (await import("..")).KycStatusDetails),
@@ -19,6 +20,7 @@ export declare namespace WebhookEventData {
     type Raw =
         | serializers.UserStateDetails.Raw
         | serializers.CaseClosedDetails.Raw
+        | serializers.CaseOpenedDetails.Raw
         | serializers.AlertClosedDetails.Raw
         | serializers.TransactionStatusDetails.Raw
         | serializers.KycStatusDetails.Raw;
