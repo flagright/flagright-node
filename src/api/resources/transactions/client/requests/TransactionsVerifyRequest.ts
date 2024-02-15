@@ -7,10 +7,7 @@ import * as Flagright from "../../../..";
 /**
  * @example
  *     {
- *         validateOriginUserId: Flagright.BooleanString.True,
- *         validateDestinationUserId: Flagright.BooleanString.True,
  *         body: {
- *             transactionState: Flagright.TransactionState.Created,
  *             originAmountDetails: {
  *                 transactionAmount: 800,
  *                 transactionCurrency: Flagright.CurrencyCode.Eur,
@@ -50,6 +47,9 @@ import * as Flagright from "../../../..";
  *                 appVersion: "1.1.0"
  *             },
  *             tags: [{
+ *                     key: "customKey",
+ *                     value: "customValue"
+ *                 }, {
  *                     key: "customKey",
  *                     value: "customValue"
  *                 }],

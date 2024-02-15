@@ -27,11 +27,11 @@ export class TransactionEvents {
     /**
      * ## POST Transaction Events
      *
-     * `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-event)
+     * `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/guides/overview/entities#transaction-event)
      *
      * Transaction events are created after the initial `POST /transactions` call (which creates a transaction) and are used to:
      *
-     * - Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-lifecycle-through-transaction-events)
+     * - Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/guides/overview/entities#transaction-lifecycle-through-transaction-events)
      * - Update the transaction details, using the `updatedTransactionAttributes` field.
      *
      * > If you have neither of the above two use cases, you do not need to use transaction events.
@@ -57,22 +57,50 @@ export class TransactionEvents {
      *         eventId: "aaeeb166147a406b957dd9147a406b957",
      *         eventDescription: "Transaction created",
      *         updatedTransactionAttributes: {
-     *             transactionState: Flagright.TransactionState.Created,
      *             originAmountDetails: {
-     *                 transactionAmount: 1.1,
-     *                 transactionCurrency: Flagright.CurrencyCode.OneInch,
-     *                 country: Flagright.CountryCode.Af
+     *                 transactionAmount: 800,
+     *                 transactionCurrency: Flagright.CurrencyCode.Eur,
+     *                 country: Flagright.CountryCode.De
      *             },
      *             destinationAmountDetails: {
-     *                 transactionAmount: 1.1,
-     *                 transactionCurrency: Flagright.CurrencyCode.OneInch,
-     *                 country: Flagright.CountryCode.Af
+     *                 transactionAmount: 68351.34,
+     *                 transactionCurrency: Flagright.CurrencyCode.Inr,
+     *                 country: Flagright.CountryCode.In
      *             },
-     *             originDeviceData: {},
-     *             destinationDeviceData: {},
+     *             promotionCodeUsed: true,
+     *             reference: "loan repayment",
+     *             originDeviceData: {
+     *                 batteryLevel: 95,
+     *                 deviceLatitude: 13.0033,
+     *                 deviceLongitude: 76.1004,
+     *                 ipAddress: "10.23.191.2",
+     *                 deviceIdentifier: "3c49f915d04485e34caba",
+     *                 vpnUsed: false,
+     *                 operatingSystem: "Android 11.2",
+     *                 deviceMaker: "ASUS",
+     *                 deviceModel: "Zenphone M2 Pro Max",
+     *                 deviceYear: "2018",
+     *                 appVersion: "1.1.0"
+     *             },
+     *             destinationDeviceData: {
+     *                 batteryLevel: 95,
+     *                 deviceLatitude: 13.0033,
+     *                 deviceLongitude: 76.1004,
+     *                 ipAddress: "10.23.191.2",
+     *                 deviceIdentifier: "3c49f915d04485e34caba",
+     *                 vpnUsed: false,
+     *                 operatingSystem: "Android 11.2",
+     *                 deviceMaker: "ASUS",
+     *                 deviceModel: "Zenphone M2 Pro Max",
+     *                 deviceYear: "2018",
+     *                 appVersion: "1.1.0"
+     *             },
      *             tags: [{
-     *                     key: "string",
-     *                     value: "string"
+     *                     key: "customKey",
+     *                     value: "customValue"
+     *                 }, {
+     *                     key: "customKey",
+     *                     value: "customValue"
      *                 }]
      *         },
      *         metaData: {
@@ -98,7 +126,7 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.3.6",
+                "X-Fern-SDK-Version": "1.4.2",
             },
             contentType: "application/json",
             body: await serializers.TransactionEvent.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
@@ -148,14 +176,14 @@ export class TransactionEvents {
     /**
      * ### GET Transaction Events
      *
-     * `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-event).
+     * `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/guides/overview/entities#transaction-event).
      *
-     * You can retrieve any transaction event you create using the [POST Transaction Events](https://docs.flagright.com/docs/flagright-api/d7c4dc4d02850-create-a-transaction-event) call.
+     * You can retrieve any transaction event you create using the [POST Transaction Events](https://docs.flagright.com/api-reference/api-reference/transaction-events/create) call.
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await flagright.transactionEvents.get("string")
+     *     await flagright.transactionEvents.get("eventId")
      */
     public async get(
         eventId: string,
@@ -171,7 +199,7 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.3.6",
+                "X-Fern-SDK-Version": "1.4.2",
             },
             contentType: "application/json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,

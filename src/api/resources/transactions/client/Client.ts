@@ -27,20 +27,20 @@ export class Transactions {
     /**
      * ## POST Transactions
      *
-     * `/transactions` endpoint allows you to operate on the [Transaction entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction)
+     * `/transactions` endpoint allows you to operate on the [Transaction entity.](https://docs.flagright.com/guides/overview/entities#transaction)
      *
      * In order to pass the payload of a transaction to Flagright and verify the transaciton, you will need to call this endpoint with the transaction payload. Not all fields are mandatory, you will only need to pass in the fields that you have and are relevant for your compliance setup.
      *
      * ### Payload
      *
-     * Here are some of the most used payload fields explained (you can find the full payload [schema below](https://docs.flagright.com/docs/flagright-api/87742ed31b30e-verify-a-transaction#request-body) with 1 line descriptions):
+     * Here are some of the most used payload fields explained (you can find the full payload [schema below](https://docs.flagright.com/api-reference/api-reference/transactions/verify#request) with 1 line descriptions):
      *
      * - `type`: Type of transaction (Ex: `WITHDRAWAL`, `DEPOSIT`, `TRANSFER` etc).
      * - `transactionId` - Unique Identifier for the transaction. Flagright API will generate a `transactionId` if this field is left empty
      * - `timestamp` - UNIX timestamp in _milliseconds_ of when the transaction took place
-     * - `transactionState` - The state of the transaction, set to `CREATED` by default. [More details here](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships-in-the-api#transaction-lifecycle-through-transaction-events)
-     * - `originUserId` - Unique identifier (if any) of the user who is sending the money. This user must be created within the Flagright system before using the [create a consumer user](https://docs.flagright.com/docs/flagright-api/18132cd454603-create-a-consumer-user) or [create a business user](https://docs.flagright.com/docs/flagright-api/f651463db29d8-create-a-business-user) endpoint
-     * - `destinationUserId` - Unique identifier (if any) of the user who is receiving the money. This user must be created within the Flagright system before using the [create a consumer user](https://docs.flagright.com/docs/flagright-api/18132cd454603-create-a-consumer-user) or [create a business user](https://docs.flagright.com/docs/flagright-api/f651463db29d8-create-a-business-user) endpoint
+     * - `transactionState` - The state of the transaction, set to `CREATED` by default. [More details here](https://docs.flagright.com/guides/overview/entities#transaction-lifecycle-through-transaction-events)
+     * - `originUserId` - Unique identifier (if any) of the user who is sending the money. This user must be created within the Flagright system before using the [create a consumer user](https://docs.flagright.com/api-reference/api-reference/consumer-users/create) or [create a business user](https://docs.flagright.com/api-reference/api-reference/business-users/create) endpoint
+     * - `destinationUserId` - Unique identifier (if any) of the user who is receiving the money. This user must be created within the Flagright system before using the [create a consumer user](https://docs.flagright.com/api-reference/api-reference/consumer-users/create) or [create a business user](https://docs.flagright.com/api-reference/api-reference/business-users/create) endpoint
      * - `originAmountDetails` - Details of the amount being sent from the origin
      * - `destinationAmountDetails` - Details of the amount being received at the destination
      * - `originPaymentDetails` - Payment details (if any) used at the origin (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
@@ -52,10 +52,7 @@ export class Transactions {
      *
      * @example
      *     await flagright.transactions.verify({
-     *         validateOriginUserId: Flagright.BooleanString.True,
-     *         validateDestinationUserId: Flagright.BooleanString.True,
      *         body: {
-     *             transactionState: Flagright.TransactionState.Created,
      *             originAmountDetails: {
      *                 transactionAmount: 800,
      *                 transactionCurrency: Flagright.CurrencyCode.Eur,
@@ -97,6 +94,9 @@ export class Transactions {
      *             tags: [{
      *                     key: "customKey",
      *                     value: "customValue"
+     *                 }, {
+     *                     key: "customKey",
+     *                     value: "customValue"
      *                 }],
      *             type: Flagright.TransactionType.Deposit,
      *             transactionId: "7b80a539eea6e78acbd6d458e5971482",
@@ -130,7 +130,7 @@ export class Transactions {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.3.6",
+                "X-Fern-SDK-Version": "1.4.2",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -183,14 +183,14 @@ export class Transactions {
     /**
      * ### GET Transactions
      *
-     * `/transactions` endpoint allows you to operate on the [Transaction entity](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction).
+     * `/transactions` endpoint allows you to operate on the [Transaction entity](https://docs.flagright.com/guides/overview/entities#transaction).
      *
      * Calling `GET /transactions/{transactionId}` will return the entire transaction payload and rule execution results for the transaction with the corresponding `transactionId`
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await flagright.transactions.get("string")
+     *     await flagright.transactions.get("transactionId")
      */
     public async get(
         transactionId: string,
@@ -206,7 +206,7 @@ export class Transactions {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.3.6",
+                "X-Fern-SDK-Version": "1.4.2",
             },
             contentType: "application/json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,

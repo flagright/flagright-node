@@ -4,10 +4,7 @@
 
 import * as Flagright from "..";
 
-export interface WebhookEvent {
-    id: string;
+export interface WebhookEvent extends Flagright.WebhookEvent {
     type: Flagright.WebhookEventType;
-    triggeredBy?: Flagright.WebhookEventTriggeredBy;
     data: Flagright.WebhookEventData;
-    createdTimestamp: number;
 }

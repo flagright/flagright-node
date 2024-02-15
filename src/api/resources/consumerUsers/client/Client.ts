@@ -27,7 +27,7 @@ export class ConsumerUsers {
     /**
      * ## POST Consumer User
      *
-     * `/consumer/user` endpoint allows you to operate on the [Consumer user entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#user)
+     * `/consumer/user` endpoint allows you to operate on the Consumer user entity.
      *
      * In order to pass the payload of a User to Flagright and verify the User, you will need to call this endpoint with the User payload. Not all fields are mandatory, you will only need to pass in the fields that you have and are relevant for your compliance setup.
      *
@@ -51,16 +51,8 @@ export class ConsumerUsers {
      *             },
      *             dateOfBirth: "1991-01-01",
      *             countryOfResidence: Flagright.CountryCode.Us,
-     *             countryOfNationality: Flagright.CountryCode.De,
-     *             gender: Flagright.Gender.M
+     *             countryOfNationality: Flagright.CountryCode.De
      *         },
-     *         userStateDetails: {
-     *             state: Flagright.UserState.Unacceptable
-     *         },
-     *         kycStatusDetails: {
-     *             status: Flagright.KycStatus.Successful
-     *         },
-     *         employmentStatus: Flagright.EmploymentStatus.Unemployed,
      *         legalDocuments: [{
      *                 documentType: "passport",
      *                 documentNumber: "Z9431P",
@@ -70,15 +62,38 @@ export class ConsumerUsers {
      *                 tags: [{
      *                         key: "customerType",
      *                         value: "wallet"
+     *                     }, {
+     *                         key: "customKey",
+     *                         value: "customValue"
      *                     }],
      *                 nameOnDocument: {
-     *                     firstName: "string"
+     *                     firstName: "Baran",
+     *                     middleName: "Realblood",
+     *                     lastName: "Ozkan"
+     *                 }
+     *             }, {
+     *                 documentType: "passport",
+     *                 documentNumber: "Z9431P",
+     *                 documentIssuedDate: 1639939034000,
+     *                 documentExpirationDate: 1839939034000,
+     *                 documentIssuedCountry: Flagright.CountryCode.De,
+     *                 tags: [{
+     *                         key: "customerType",
+     *                         value: "wallet"
+     *                     }, {
+     *                         key: "customKey",
+     *                         value: "customValue"
+     *                     }],
+     *                 nameOnDocument: {
+     *                     firstName: "Baran",
+     *                     middleName: "Realblood",
+     *                     lastName: "Ozkan"
      *                 }
      *             }],
      *         contactDetails: {
-     *             emailIds: ["baran@flagright.com"],
-     *             contactNumbers: ["+37112345432"],
-     *             websites: ["flagright.com"],
+     *             emailIds: ["baran@flagright.com", "emailIds"],
+     *             contactNumbers: ["+37112345432", "contactNumbers"],
+     *             websites: ["flagright.com", "websites"],
      *             addresses: [{
      *                     addressLines: ["Klara-Franke Str 20"],
      *                     postcode: "10557",
@@ -88,396 +103,55 @@ export class ConsumerUsers {
      *                     tags: [{
      *                             key: "customKey",
      *                             value: "customValue"
+     *                         }, {
+     *                             key: "customKey",
+     *                             value: "customValue"
+     *                         }]
+     *                 }, {
+     *                     addressLines: ["Klara-Franke Str 20"],
+     *                     postcode: "10557",
+     *                     city: "Berlin",
+     *                     state: "Berlin",
+     *                     country: "Germany",
+     *                     tags: [{
+     *                             key: "customKey",
+     *                             value: "customValue"
+     *                         }, {
+     *                             key: "customKey",
+     *                             value: "customValue"
      *                         }]
      *                 }]
      *         },
      *         transactionLimits: {
      *             maximumDailyTransactionLimit: {
-     *                 amountValue: 1.1,
-     *                 amountCurrency: Flagright.CurrencyCode.OneInch
+     *                 amountValue: 800,
+     *                 amountCurrency: Flagright.CurrencyCode.Gbp
      *             },
      *             maximumWeeklyTransactionLimit: {
-     *                 amountValue: 1.1,
-     *                 amountCurrency: Flagright.CurrencyCode.OneInch
+     *                 amountValue: 800,
+     *                 amountCurrency: Flagright.CurrencyCode.Gbp
      *             },
      *             maximumMonthlyTransactionLimit: {
-     *                 amountValue: 1.1,
-     *                 amountCurrency: Flagright.CurrencyCode.OneInch
+     *                 amountValue: 800,
+     *                 amountCurrency: Flagright.CurrencyCode.Gbp
      *             },
      *             maximumQuarterlyTransactionLimit: {
-     *                 amountValue: 1.1,
-     *                 amountCurrency: Flagright.CurrencyCode.OneInch
+     *                 amountValue: 800,
+     *                 amountCurrency: Flagright.CurrencyCode.Gbp
      *             },
      *             maximumTransactionLimit: {
-     *                 amountValue: 1.1,
-     *                 amountCurrency: Flagright.CurrencyCode.OneInch
+     *                 amountValue: 800,
+     *                 amountCurrency: Flagright.CurrencyCode.Gbp
      *             },
      *             maximumYearlyTransactionLimit: {
-     *                 amountValue: 1.1,
-     *                 amountCurrency: Flagright.CurrencyCode.OneInch
-     *             },
-     *             paymentMethodLimits: {
-     *                 ach: {
-     *                     transactionCountLimit: {},
-     *                     transactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     },
-     *                     averageTransactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     }
-     *                 },
-     *                 card: {
-     *                     transactionCountLimit: {},
-     *                     transactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     },
-     *                     averageTransactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     }
-     *                 },
-     *                 iban: {
-     *                     transactionCountLimit: {},
-     *                     transactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     },
-     *                     averageTransactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     }
-     *                 },
-     *                 upi: {
-     *                     transactionCountLimit: {},
-     *                     transactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     },
-     *                     averageTransactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     }
-     *                 },
-     *                 genericBankAccount: {
-     *                     transactionCountLimit: {},
-     *                     transactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     },
-     *                     averageTransactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     }
-     *                 },
-     *                 mpesa: {
-     *                     transactionCountLimit: {},
-     *                     transactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     },
-     *                     averageTransactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     }
-     *                 },
-     *                 swift: {
-     *                     transactionCountLimit: {},
-     *                     transactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     },
-     *                     averageTransactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     }
-     *                 },
-     *                 wallet: {
-     *                     transactionCountLimit: {},
-     *                     transactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     },
-     *                     averageTransactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     }
-     *                 },
-     *                 check: {
-     *                     transactionCountLimit: {},
-     *                     transactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     },
-     *                     averageTransactionAmountLimit: {
-     *                         day: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         week: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         month: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         },
-     *                         year: {
-     *                             amountValue: 1.1,
-     *                             amountCurrency: Flagright.CurrencyCode.OneInch
-     *                         }
-     *                     }
-     *                 }
+     *                 amountValue: 800,
+     *                 amountCurrency: Flagright.CurrencyCode.Gbp
      *             }
      *         },
-     *         riskLevel: Flagright.RiskLevel.VeryHigh,
-     *         acquisitionChannel: Flagright.AcquisitionChannel.Organic,
-     *         sourceOfFunds: [Flagright.SourceOfFunds.Earnings],
-     *         userSegment: Flagright.ConsumerUserSegment.Retail,
-     *         pepStatus: [{
-     *                 isPepHit: true
-     *             }],
      *         tags: [{
+     *                 key: "customKey",
+     *                 value: "customValue"
+     *             }, {
      *                 key: "customKey",
      *                 value: "customValue"
      *             }],
@@ -499,7 +173,7 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.3.6",
+                "X-Fern-SDK-Version": "1.4.2",
             },
             contentType: "application/json",
             body: await serializers.User.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
@@ -549,14 +223,14 @@ export class ConsumerUsers {
     /**
      * ### GET Consumer User
      *
-     * `/consumer/user` endpoint allows you to operate on the [Consumer User entity](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#user).
+     * `/consumer/user` endpoint allows you to operate on the Consumer User entity.
      *
      * Calling `GET /consumer/user/{userId}` will return the entire user payload and rule execution results for the user with the corresponding `userId`
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await flagright.consumerUsers.get("string")
+     *     await flagright.consumerUsers.get("userId")
      */
     public async get(userId: string, requestOptions?: ConsumerUsers.RequestOptions): Promise<Flagright.UserResponse> {
         const _response = await core.fetcher({
@@ -569,7 +243,7 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.3.6",
+                "X-Fern-SDK-Version": "1.4.2",
             },
             contentType: "application/json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,

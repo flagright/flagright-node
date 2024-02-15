@@ -6,11 +6,11 @@ import * as serializers from "..";
 import * as Flagright from "../../api";
 import * as core from "../../core";
 
-export const WebhookEventTriggeredBy: core.serialization.Schema<
-    serializers.WebhookEventTriggeredBy.Raw,
-    Flagright.WebhookEventTriggeredBy
+export const WebhookEventBaseTriggeredBy: core.serialization.Schema<
+    serializers.WebhookEventBaseTriggeredBy.Raw,
+    Flagright.WebhookEventBaseTriggeredBy
 > = core.serialization.enum_(["MANUAL", "SYSTEM"]);
 
-export declare namespace WebhookEventTriggeredBy {
+export declare namespace WebhookEventBaseTriggeredBy {
     type Raw = "MANUAL" | "SYSTEM";
 }
