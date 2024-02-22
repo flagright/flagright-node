@@ -13,7 +13,7 @@ export interface CompanyRegistrationDetails {
     registrationCountry: Flagright.CountryCode;
     /** Tax ID number of the registered entity */
     taxIdentifier?: string;
-    /** Type of legal entity. Ex: Limited Liability */
+    /** Type of legal entity, e.g., Limited Liability */
     legalEntityType?: string;
     dateOfRegistration?: string;
     /** Additional information that can be added via tags */

@@ -10,7 +10,7 @@ import * as Flagright from "..";
 export interface CompanyGeneralDetails {
     /** Legal name of the company */
     legalName: string;
-    /** The industry the business operates in for a business customer */
+    /** The industry in which the business operates for a business customer */
     businessIndustry?: string[];
     /** The key products and services provided by the company */
     mainProductsServicesSold?: string[];

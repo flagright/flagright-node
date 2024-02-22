@@ -33,7 +33,7 @@ export class ConsumerUsers {
      *
      * ### Payload
      *
-     * Each consumer User entity needs three mandatory fields:
+     * Each consumer user needs two mandatory fields:
      *
      * - `userId` - Unique identifier for the user
      * - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
@@ -173,7 +173,7 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.4.2",
+                "X-Fern-SDK-Version": "1.4.3",
             },
             contentType: "application/json",
             body: await serializers.User.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
@@ -243,7 +243,7 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.4.2",
+                "X-Fern-SDK-Version": "1.4.3",
             },
             contentType: "application/json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
