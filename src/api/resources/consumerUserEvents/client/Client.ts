@@ -188,7 +188,7 @@ export class ConsumerUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.4.3",
+                "X-Fern-SDK-Version": "1.4.4",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
