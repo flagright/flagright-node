@@ -4,7 +4,7 @@
 
 import * as Flagright from "..";
 
-export interface WebhookEvent extends Flagright.WebhookEvent {
+export interface WebhookEvent extends Flagright.WebhookEventBase {
     type: Flagright.WebhookEventType;
     data: Flagright.WebhookEventData;
 }

@@ -12,10 +12,10 @@ export const WebhookEvent: core.serialization.ObjectSchema<serializers.WebhookEv
             type: core.serialization.lazy(async () => (await import("..")).WebhookEventType),
             data: core.serialization.lazy(async () => (await import("..")).WebhookEventData),
         })
-        .extend(core.serialization.lazyObject(async () => (await import("..")).WebhookEvent));
+        .extend(core.serialization.lazyObject(async () => (await import("..")).WebhookEventBase));
 
 export declare namespace WebhookEvent {
-    interface Raw extends serializers.WebhookEvent.Raw {
+    interface Raw extends serializers.WebhookEventBase.Raw {
         type: serializers.WebhookEventType.Raw;
         data: serializers.WebhookEventData.Raw;
     }
