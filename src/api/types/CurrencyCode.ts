@@ -5,142 +5,219 @@
 export type CurrencyCode =
     | "1INCH"
     | "AAVE"
+    | "ABT"
+    | "ACH"
+    | "ACS"
     | "ADA"
     | "AED"
+    | "AERGO"
+    | "AERO"
     | "AFN"
+    | "AGLD"
+    | "AIOZ"
+    | "ALCX"
+    | "ALEPH"
     | "ALGO"
+    | "ALICE"
     | "ALL"
     | "AMD"
     | "AMP"
     | "ANG"
+    | "ANKR"
+    | "ANT"
     | "AOA"
-    | "AR"
+    | "APE"
+    | "API3"
+    | "APT"
+    | "ARB"
+    | "ARPA"
     | "ARS"
+    | "ASM"
+    | "AST"
+    | "ATA"
     | "ATOM"
+    | "AUCTION"
     | "AUD"
+    | "AUDIO"
+    | "AURORA"
     | "AVAX"
+    | "AVT"
     | "AWG"
+    | "AXL"
     | "AXS"
     | "AZN"
+    | "BADGER"
+    | "BAL"
     | "BAM"
+    | "BAND"
     | "BAT"
     | "BBD"
     | "BCH"
     | "BDT"
     | "BGN"
     | "BHD"
+    | "BICO"
     | "BIF"
+    | "BIGTIME"
+    | "BIT"
+    | "BLUR"
+    | "BLZ"
     | "BMD"
-    | "BNB"
     | "BND"
+    | "BNT"
     | "BOB"
+    | "BOBA"
+    | "BOND"
+    | "BONK"
     | "BRL"
     | "BSD"
     | "BSV"
     | "BTC"
-    | "BTCB"
-    | "BTG"
     | "BTN"
+    | "BTRST"
     | "BUSD"
     | "BWP"
     | "BYN"
     | "BYR"
     | "BZD"
+    | "C98"
     | "CAD"
-    | "CAKE"
+    | "CBETH"
     | "CDF"
-    | "CELO"
+    | "CELR"
+    | "CGLD"
     | "CHF"
     | "CHZ"
     | "CLF"
     | "CLP"
+    | "CLV"
+    | "CNH"
     | "CNY"
     | "COMP"
     | "COP"
+    | "COTI"
+    | "COVAL"
     | "CRC"
     | "CRO"
+    | "CRPT"
     | "CRV"
+    | "CTSI"
+    | "CTX"
     | "CUC"
     | "CUP"
+    | "CVC"
     | "CVE"
     | "CVX"
     | "CZK"
     | "DAI"
-    | "DIF"
-    | "LSR"
-    | "SRC"
-    | "BRB"
+    | "DAR"
     | "DASH"
-    | "DCR"
-    | "DFI"
+    | "DDX"
+    | "DESO"
+    | "DEXT"
+    | "DIA"
+    | "DIMO"
     | "DJF"
     | "DKK"
+    | "DNT"
     | "DOGE"
     | "DOP"
     | "DOT"
+    | "DREP"
+    | "DYP"
     | "DZD"
+    | "EEK"
     | "EGLD"
     | "EGP"
+    | "ELA"
     | "ENJ"
+    | "ENS"
     | "EOS"
     | "ERN"
     | "ETB"
     | "ETC"
     | "ETH"
+    | "ETH2"
     | "EUR"
-    | "FEI"
+    | "EUROC"
+    | "FARM"
+    | "FET"
+    | "FIDA"
     | "FIL"
+    | "FIS"
     | "FJD"
     | "FKP"
     | "FLOW"
-    | "FRAX"
-    | "FTM"
-    | "FTT"
+    | "FLR"
+    | "FORT"
+    | "FORTH"
+    | "FOX"
+    | "FX"
+    | "GAL"
     | "GALA"
     | "GBP"
     | "GEL"
+    | "GFI"
     | "GGP"
     | "GHS"
+    | "GHST"
     | "GIP"
+    | "GLM"
     | "GMD"
+    | "GMT"
     | "GNF"
     | "GNO"
+    | "GNT"
+    | "GODS"
     | "GRT"
-    | "GT"
+    | "GST"
+    | "GTC"
     | "GTQ"
+    | "GUSD"
     | "GYD"
+    | "GYEN"
     | "HBAR"
+    | "HFT"
+    | "HIGH"
     | "HKD"
     | "HNL"
     | "HNT"
-    | "HOT"
+    | "HONEY"
+    | "HOPR"
     | "HRK"
-    | "HT"
     | "HTG"
     | "HUF"
     | "ICP"
+    | "IDEX"
     | "IDR"
     | "ILS"
+    | "ILV"
     | "IMP"
+    | "IMX"
+    | "INDEX"
     | "INJ"
     | "INR"
+    | "INV"
+    | "IOTX"
     | "IQD"
     | "IRR"
     | "ISK"
+    | "JASMY"
     | "JEP"
     | "JMD"
     | "JOD"
     | "JPY"
+    | "JTO"
+    | "JUP"
     | "KAVA"
-    | "KCS"
-    | "KDA"
+    | "KEEP"
     | "KES"
     | "KGS"
     | "KHR"
-    | "KLAY"
     | "KMF"
     | "KNC"
     | "KPW"
+    | "KRL"
     | "KRW"
     | "KSM"
     | "KWD"
@@ -148,275 +225,458 @@ export type CurrencyCode =
     | "KZT"
     | "LAK"
     | "LBP"
-    | "LEO"
+    | "LCX"
+    | "LDO"
     | "LINK"
+    | "LIT"
     | "LKR"
+    | "LOKA"
+    | "LOOM"
+    | "LPT"
+    | "LQTY"
     | "LRC"
     | "LRD"
+    | "LSETH"
     | "LSL"
     | "LTC"
     | "LTL"
-    | "LUNA"
     | "LVL"
     | "LYD"
     | "MAD"
+    | "MAGIC"
     | "MANA"
+    | "MASK"
+    | "MATH"
     | "MATIC"
+    | "MCO2"
     | "MDL"
+    | "MDT"
+    | "MEDIA"
+    | "METIS"
     | "MGA"
     | "MINA"
-    | "MIOTA"
+    | "MIR"
     | "MKD"
     | "MKR"
+    | "MLN"
     | "MMK"
+    | "MNDE"
     | "MNT"
+    | "MOBILE"
+    | "MONA"
     | "MOP"
+    | "MPL"
     | "MRO"
+    | "MRU"
+    | "MSOL"
+    | "MTL"
+    | "MULTI"
     | "MUR"
+    | "MUSE"
     | "MVR"
     | "MWK"
+    | "MXC"
     | "MXN"
     | "MYR"
     | "MZN"
     | "NAD"
+    | "NCT"
     | "NEAR"
-    | "NEO"
-    | "NEXO"
+    | "NEST"
     | "NGN"
     | "NIO"
+    | "NKN"
+    | "NMR"
     | "NOK"
     | "NPR"
+    | "NU"
     | "NZD"
-    | "OKB"
+    | "OCEAN"
+    | "OGN"
+    | "OMG"
     | "OMR"
-    | "ONE"
+    | "ONDO"
+    | "OOKI"
+    | "OP"
+    | "ORCA"
+    | "ORN"
+    | "OSMO"
+    | "OXT"
     | "PAB"
-    | "PAXG"
+    | "PAX"
     | "PEN"
+    | "PERP"
     | "PGK"
     | "PHP"
     | "PKR"
+    | "PLA"
     | "PLN"
+    | "PLU"
+    | "PNG"
+    | "POLS"
+    | "POLY"
+    | "POND"
+    | "POWR"
+    | "PRIME"
+    | "PRO"
+    | "PRQ"
+    | "PUNDIX"
     | "PYG"
+    | "PYR"
+    | "PYUSD"
     | "QAR"
+    | "QI"
     | "QNT"
-    | "QTUM"
+    | "QSP"
+    | "QUICK"
+    | "RAD"
+    | "RAI"
+    | "RARE"
+    | "RARI"
+    | "RBN"
+    | "REN"
+    | "RENDER"
+    | "REP"
+    | "REPV2"
+    | "REQ"
+    | "RGT"
+    | "RLC"
+    | "RLY"
+    | "RNDR"
     | "RON"
+    | "ROSE"
+    | "RPL"
     | "RSD"
     | "RUB"
-    | "RUNE"
     | "RWF"
     | "SAND"
     | "SAR"
     | "SBD"
     | "SCR"
     | "SDG"
+    | "SEAM"
+    | "SEI"
     | "SEK"
     | "SGD"
     | "SHIB"
     | "SHP"
-    | "SLE"
+    | "SHPING"
+    | "SKK"
+    | "SKL"
     | "SLL"
+    | "SNT"
+    | "SNX"
     | "SOL"
     | "SOS"
+    | "SPA"
+    | "SPELL"
     | "SRD"
+    | "SSP"
     | "STD"
+    | "STG"
+    | "STORJ"
+    | "STRK"
     | "STX"
+    | "SUI"
+    | "SUKU"
+    | "SUPER"
+    | "SUSHI"
     | "SVC"
+    | "SWFTC"
+    | "SYLO"
+    | "SYN"
     | "SYP"
     | "SZL"
+    | "T"
     | "THB"
-    | "THETA"
+    | "TIA"
+    | "TIME"
     | "TJS"
+    | "TMM"
     | "TMT"
     | "TND"
+    | "TONE"
     | "TOP"
-    | "TRX"
+    | "TRAC"
+    | "TRB"
+    | "TRIBE"
+    | "TRU"
     | "TRY"
     | "TTD"
-    | "TTT"
-    | "TUSD"
+    | "TVK"
     | "TWD"
     | "TZS"
     | "UAH"
     | "UGX"
+    | "UMA"
+    | "UNFI"
     | "UNI"
+    | "UPI"
     | "USD"
     | "USDC"
-    | "USDP"
     | "USDT"
+    | "UST"
     | "UYU"
     | "UZS"
+    | "VARA"
     | "VEF"
+    | "VELO"
+    | "VES"
     | "VET"
+    | "VGX"
     | "VND"
+    | "VOXEL"
+    | "VTHO"
     | "VUV"
-    | "WAVES"
+    | "WAMPL"
+    | "WAXL"
     | "WBTC"
-    | "WEMIX"
+    | "WCFG"
+    | "WLUNA"
     | "WST"
     | "XAF"
     | "XAG"
     | "XAU"
     | "XCD"
-    | "XCH"
-    | "XDC"
+    | "XCN"
     | "XDR"
-    | "XEC"
-    | "XEM"
     | "XLM"
-    | "XMR"
+    | "XMON"
     | "XOF"
+    | "XPD"
     | "XPF"
+    | "XPT"
     | "XRP"
     | "XTZ"
+    | "XYO"
     | "YER"
+    | "YFI"
+    | "YFII"
     | "ZAR"
     | "ZEC"
-    | "ZIL"
+    | "ZEN"
+    | "ZETA"
     | "ZMK"
     | "ZMW"
-    | "ZWL";
+    | "ZRX"
+    | "ZWD";
 
 export const CurrencyCode = {
     OneInch: "1INCH",
     Aave: "AAVE",
+    Abt: "ABT",
+    Ach: "ACH",
+    Acs: "ACS",
     Ada: "ADA",
     Aed: "AED",
+    Aergo: "AERGO",
+    Aero: "AERO",
     Afn: "AFN",
+    Agld: "AGLD",
+    Aioz: "AIOZ",
+    Alcx: "ALCX",
+    Aleph: "ALEPH",
     Algo: "ALGO",
+    Alice: "ALICE",
     All: "ALL",
     Amd: "AMD",
     Amp: "AMP",
     Ang: "ANG",
+    Ankr: "ANKR",
+    Ant: "ANT",
     Aoa: "AOA",
-    Ar: "AR",
+    Ape: "APE",
+    Api3: "API3",
+    Apt: "APT",
+    Arb: "ARB",
+    Arpa: "ARPA",
     Ars: "ARS",
+    Asm: "ASM",
+    Ast: "AST",
+    Ata: "ATA",
     Atom: "ATOM",
+    Auction: "AUCTION",
     Aud: "AUD",
+    Audio: "AUDIO",
+    Aurora: "AURORA",
     Avax: "AVAX",
+    Avt: "AVT",
     Awg: "AWG",
+    Axl: "AXL",
     Axs: "AXS",
     Azn: "AZN",
+    Badger: "BADGER",
+    Bal: "BAL",
     Bam: "BAM",
+    Band: "BAND",
     Bat: "BAT",
     Bbd: "BBD",
     Bch: "BCH",
     Bdt: "BDT",
     Bgn: "BGN",
     Bhd: "BHD",
+    Bico: "BICO",
     Bif: "BIF",
+    Bigtime: "BIGTIME",
+    Bit: "BIT",
+    Blur: "BLUR",
+    Blz: "BLZ",
     Bmd: "BMD",
-    Bnb: "BNB",
     Bnd: "BND",
+    Bnt: "BNT",
     Bob: "BOB",
+    Boba: "BOBA",
+    Bond: "BOND",
+    Bonk: "BONK",
     Brl: "BRL",
     Bsd: "BSD",
     Bsv: "BSV",
     Btc: "BTC",
-    Btcb: "BTCB",
-    Btg: "BTG",
     Btn: "BTN",
+    Btrst: "BTRST",
     Busd: "BUSD",
     Bwp: "BWP",
     Byn: "BYN",
     Byr: "BYR",
     Bzd: "BZD",
+    C98: "C98",
     Cad: "CAD",
-    Cake: "CAKE",
+    Cbeth: "CBETH",
     Cdf: "CDF",
-    Celo: "CELO",
+    Celr: "CELR",
+    Cgld: "CGLD",
     Chf: "CHF",
     Chz: "CHZ",
     Clf: "CLF",
     Clp: "CLP",
+    Clv: "CLV",
+    Cnh: "CNH",
     Cny: "CNY",
     Comp: "COMP",
     Cop: "COP",
+    Coti: "COTI",
+    Coval: "COVAL",
     Crc: "CRC",
     Cro: "CRO",
+    Crpt: "CRPT",
     Crv: "CRV",
+    Ctsi: "CTSI",
+    Ctx: "CTX",
     Cuc: "CUC",
     Cup: "CUP",
+    Cvc: "CVC",
     Cve: "CVE",
     Cvx: "CVX",
     Czk: "CZK",
     Dai: "DAI",
-    Dif: "DIF",
-    Lsr: "LSR",
-    Src: "SRC",
-    Brb: "BRB",
+    Dar: "DAR",
     Dash: "DASH",
-    Dcr: "DCR",
-    Dfi: "DFI",
+    Ddx: "DDX",
+    Deso: "DESO",
+    Dext: "DEXT",
+    Dia: "DIA",
+    Dimo: "DIMO",
     Djf: "DJF",
     Dkk: "DKK",
+    Dnt: "DNT",
     Doge: "DOGE",
     Dop: "DOP",
     Dot: "DOT",
+    Drep: "DREP",
+    Dyp: "DYP",
     Dzd: "DZD",
+    Eek: "EEK",
     Egld: "EGLD",
     Egp: "EGP",
+    Ela: "ELA",
     Enj: "ENJ",
+    Ens: "ENS",
     Eos: "EOS",
     Ern: "ERN",
     Etb: "ETB",
     Etc: "ETC",
     Eth: "ETH",
+    Eth2: "ETH2",
     Eur: "EUR",
-    Fei: "FEI",
+    Euroc: "EUROC",
+    Farm: "FARM",
+    Fet: "FET",
+    Fida: "FIDA",
     Fil: "FIL",
+    Fis: "FIS",
     Fjd: "FJD",
     Fkp: "FKP",
     Flow: "FLOW",
-    Frax: "FRAX",
-    Ftm: "FTM",
-    Ftt: "FTT",
+    Flr: "FLR",
+    Fort: "FORT",
+    Forth: "FORTH",
+    Fox: "FOX",
+    Fx: "FX",
+    Gal: "GAL",
     Gala: "GALA",
     Gbp: "GBP",
     Gel: "GEL",
+    Gfi: "GFI",
     Ggp: "GGP",
     Ghs: "GHS",
+    Ghst: "GHST",
     Gip: "GIP",
+    Glm: "GLM",
     Gmd: "GMD",
+    Gmt: "GMT",
     Gnf: "GNF",
     Gno: "GNO",
+    Gnt: "GNT",
+    Gods: "GODS",
     Grt: "GRT",
-    Gt: "GT",
+    Gst: "GST",
+    Gtc: "GTC",
     Gtq: "GTQ",
+    Gusd: "GUSD",
     Gyd: "GYD",
+    Gyen: "GYEN",
     Hbar: "HBAR",
+    Hft: "HFT",
+    High: "HIGH",
     Hkd: "HKD",
     Hnl: "HNL",
     Hnt: "HNT",
-    Hot: "HOT",
+    Honey: "HONEY",
+    Hopr: "HOPR",
     Hrk: "HRK",
-    Ht: "HT",
     Htg: "HTG",
     Huf: "HUF",
     Icp: "ICP",
+    Idex: "IDEX",
     Idr: "IDR",
     Ils: "ILS",
+    Ilv: "ILV",
     Imp: "IMP",
+    Imx: "IMX",
+    Index: "INDEX",
     Inj: "INJ",
     Inr: "INR",
+    Inv: "INV",
+    Iotx: "IOTX",
     Iqd: "IQD",
     Irr: "IRR",
     Isk: "ISK",
+    Jasmy: "JASMY",
     Jep: "JEP",
     Jmd: "JMD",
     Jod: "JOD",
     Jpy: "JPY",
+    Jto: "JTO",
+    Jup: "JUP",
     Kava: "KAVA",
-    Kcs: "KCS",
-    Kda: "KDA",
+    Keep: "KEEP",
     Kes: "KES",
     Kgs: "KGS",
     Khr: "KHR",
-    Klay: "KLAY",
     Kmf: "KMF",
     Knc: "KNC",
     Kpw: "KPW",
+    Krl: "KRL",
     Krw: "KRW",
     Ksm: "KSM",
     Kwd: "KWD",
@@ -424,133 +684,239 @@ export const CurrencyCode = {
     Kzt: "KZT",
     Lak: "LAK",
     Lbp: "LBP",
-    Leo: "LEO",
+    Lcx: "LCX",
+    Ldo: "LDO",
     Link: "LINK",
+    Lit: "LIT",
     Lkr: "LKR",
+    Loka: "LOKA",
+    Loom: "LOOM",
+    Lpt: "LPT",
+    Lqty: "LQTY",
     Lrc: "LRC",
     Lrd: "LRD",
+    Lseth: "LSETH",
     Lsl: "LSL",
     Ltc: "LTC",
     Ltl: "LTL",
-    Luna: "LUNA",
     Lvl: "LVL",
     Lyd: "LYD",
     Mad: "MAD",
+    Magic: "MAGIC",
     Mana: "MANA",
+    Mask: "MASK",
+    Math: "MATH",
     Matic: "MATIC",
+    Mco2: "MCO2",
     Mdl: "MDL",
+    Mdt: "MDT",
+    Media: "MEDIA",
+    Metis: "METIS",
     Mga: "MGA",
     Mina: "MINA",
-    Miota: "MIOTA",
+    Mir: "MIR",
     Mkd: "MKD",
     Mkr: "MKR",
+    Mln: "MLN",
     Mmk: "MMK",
+    Mnde: "MNDE",
     Mnt: "MNT",
+    Mobile: "MOBILE",
+    Mona: "MONA",
     Mop: "MOP",
+    Mpl: "MPL",
     Mro: "MRO",
+    Mru: "MRU",
+    Msol: "MSOL",
+    Mtl: "MTL",
+    Multi: "MULTI",
     Mur: "MUR",
+    Muse: "MUSE",
     Mvr: "MVR",
     Mwk: "MWK",
+    Mxc: "MXC",
     Mxn: "MXN",
     Myr: "MYR",
     Mzn: "MZN",
     Nad: "NAD",
+    Nct: "NCT",
     Near: "NEAR",
-    Neo: "NEO",
-    Nexo: "NEXO",
+    Nest: "NEST",
     Ngn: "NGN",
     Nio: "NIO",
+    Nkn: "NKN",
+    Nmr: "NMR",
     Nok: "NOK",
     Npr: "NPR",
+    Nu: "NU",
     Nzd: "NZD",
-    Okb: "OKB",
+    Ocean: "OCEAN",
+    Ogn: "OGN",
+    Omg: "OMG",
     Omr: "OMR",
-    One: "ONE",
+    Ondo: "ONDO",
+    Ooki: "OOKI",
+    Op: "OP",
+    Orca: "ORCA",
+    Orn: "ORN",
+    Osmo: "OSMO",
+    Oxt: "OXT",
     Pab: "PAB",
-    Paxg: "PAXG",
+    Pax: "PAX",
     Pen: "PEN",
+    Perp: "PERP",
     Pgk: "PGK",
     Php: "PHP",
     Pkr: "PKR",
+    Pla: "PLA",
     Pln: "PLN",
+    Plu: "PLU",
+    Png: "PNG",
+    Pols: "POLS",
+    Poly: "POLY",
+    Pond: "POND",
+    Powr: "POWR",
+    Prime: "PRIME",
+    Pro: "PRO",
+    Prq: "PRQ",
+    Pundix: "PUNDIX",
     Pyg: "PYG",
+    Pyr: "PYR",
+    Pyusd: "PYUSD",
     Qar: "QAR",
+    Qi: "QI",
     Qnt: "QNT",
-    Qtum: "QTUM",
+    Qsp: "QSP",
+    Quick: "QUICK",
+    Rad: "RAD",
+    Rai: "RAI",
+    Rare: "RARE",
+    Rari: "RARI",
+    Rbn: "RBN",
+    Ren: "REN",
+    Render: "RENDER",
+    Rep: "REP",
+    Repv2: "REPV2",
+    Req: "REQ",
+    Rgt: "RGT",
+    Rlc: "RLC",
+    Rly: "RLY",
+    Rndr: "RNDR",
     Ron: "RON",
+    Rose: "ROSE",
+    Rpl: "RPL",
     Rsd: "RSD",
     Rub: "RUB",
-    Rune: "RUNE",
     Rwf: "RWF",
     Sand: "SAND",
     Sar: "SAR",
     Sbd: "SBD",
     Scr: "SCR",
     Sdg: "SDG",
+    Seam: "SEAM",
+    Sei: "SEI",
     Sek: "SEK",
     Sgd: "SGD",
     Shib: "SHIB",
     Shp: "SHP",
-    Sle: "SLE",
+    Shping: "SHPING",
+    Skk: "SKK",
+    Skl: "SKL",
     Sll: "SLL",
+    Snt: "SNT",
+    Snx: "SNX",
     Sol: "SOL",
     Sos: "SOS",
+    Spa: "SPA",
+    Spell: "SPELL",
     Srd: "SRD",
+    Ssp: "SSP",
     Std: "STD",
+    Stg: "STG",
+    Storj: "STORJ",
+    Strk: "STRK",
     Stx: "STX",
+    Sui: "SUI",
+    Suku: "SUKU",
+    Super: "SUPER",
+    Sushi: "SUSHI",
     Svc: "SVC",
+    Swftc: "SWFTC",
+    Sylo: "SYLO",
+    Syn: "SYN",
     Syp: "SYP",
     Szl: "SZL",
+    T: "T",
     Thb: "THB",
-    Theta: "THETA",
+    Tia: "TIA",
+    Time: "TIME",
     Tjs: "TJS",
+    Tmm: "TMM",
     Tmt: "TMT",
     Tnd: "TND",
+    Tone: "TONE",
     Top: "TOP",
-    Trx: "TRX",
+    Trac: "TRAC",
+    Trb: "TRB",
+    Tribe: "TRIBE",
+    Tru: "TRU",
     Try: "TRY",
     Ttd: "TTD",
-    Ttt: "TTT",
-    Tusd: "TUSD",
+    Tvk: "TVK",
     Twd: "TWD",
     Tzs: "TZS",
     Uah: "UAH",
     Ugx: "UGX",
+    Uma: "UMA",
+    Unfi: "UNFI",
     Uni: "UNI",
+    Upi: "UPI",
     Usd: "USD",
     Usdc: "USDC",
-    Usdp: "USDP",
     Usdt: "USDT",
+    Ust: "UST",
     Uyu: "UYU",
     Uzs: "UZS",
+    Vara: "VARA",
     Vef: "VEF",
+    Velo: "VELO",
+    Ves: "VES",
     Vet: "VET",
+    Vgx: "VGX",
     Vnd: "VND",
+    Voxel: "VOXEL",
+    Vtho: "VTHO",
     Vuv: "VUV",
-    Waves: "WAVES",
+    Wampl: "WAMPL",
+    Waxl: "WAXL",
     Wbtc: "WBTC",
-    Wemix: "WEMIX",
+    Wcfg: "WCFG",
+    Wluna: "WLUNA",
     Wst: "WST",
     Xaf: "XAF",
     Xag: "XAG",
     Xau: "XAU",
     Xcd: "XCD",
-    Xch: "XCH",
-    Xdc: "XDC",
+    Xcn: "XCN",
     Xdr: "XDR",
-    Xec: "XEC",
-    Xem: "XEM",
     Xlm: "XLM",
-    Xmr: "XMR",
+    Xmon: "XMON",
     Xof: "XOF",
+    Xpd: "XPD",
     Xpf: "XPF",
+    Xpt: "XPT",
     Xrp: "XRP",
     Xtz: "XTZ",
+    Xyo: "XYO",
     Yer: "YER",
+    Yfi: "YFI",
+    Yfii: "YFII",
     Zar: "ZAR",
     Zec: "ZEC",
-    Zil: "ZIL",
+    Zen: "ZEN",
+    Zeta: "ZETA",
     Zmk: "ZMK",
     Zmw: "ZMW",
-    Zwl: "ZWL",
+    Zrx: "ZRX",
+    Zwd: "ZWD",
 } as const;

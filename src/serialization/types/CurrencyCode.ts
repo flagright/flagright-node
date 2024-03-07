@@ -10,142 +10,219 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
     core.serialization.enum_([
         "1INCH",
         "AAVE",
+        "ABT",
+        "ACH",
+        "ACS",
         "ADA",
         "AED",
+        "AERGO",
+        "AERO",
         "AFN",
+        "AGLD",
+        "AIOZ",
+        "ALCX",
+        "ALEPH",
         "ALGO",
+        "ALICE",
         "ALL",
         "AMD",
         "AMP",
         "ANG",
+        "ANKR",
+        "ANT",
         "AOA",
-        "AR",
+        "APE",
+        "API3",
+        "APT",
+        "ARB",
+        "ARPA",
         "ARS",
+        "ASM",
+        "AST",
+        "ATA",
         "ATOM",
+        "AUCTION",
         "AUD",
+        "AUDIO",
+        "AURORA",
         "AVAX",
+        "AVT",
         "AWG",
+        "AXL",
         "AXS",
         "AZN",
+        "BADGER",
+        "BAL",
         "BAM",
+        "BAND",
         "BAT",
         "BBD",
         "BCH",
         "BDT",
         "BGN",
         "BHD",
+        "BICO",
         "BIF",
+        "BIGTIME",
+        "BIT",
+        "BLUR",
+        "BLZ",
         "BMD",
-        "BNB",
         "BND",
+        "BNT",
         "BOB",
+        "BOBA",
+        "BOND",
+        "BONK",
         "BRL",
         "BSD",
         "BSV",
         "BTC",
-        "BTCB",
-        "BTG",
         "BTN",
+        "BTRST",
         "BUSD",
         "BWP",
         "BYN",
         "BYR",
         "BZD",
+        "C98",
         "CAD",
-        "CAKE",
+        "CBETH",
         "CDF",
-        "CELO",
+        "CELR",
+        "CGLD",
         "CHF",
         "CHZ",
         "CLF",
         "CLP",
+        "CLV",
+        "CNH",
         "CNY",
         "COMP",
         "COP",
+        "COTI",
+        "COVAL",
         "CRC",
         "CRO",
+        "CRPT",
         "CRV",
+        "CTSI",
+        "CTX",
         "CUC",
         "CUP",
+        "CVC",
         "CVE",
         "CVX",
         "CZK",
         "DAI",
-        "DIF",
-        "LSR",
-        "SRC",
-        "BRB",
+        "DAR",
         "DASH",
-        "DCR",
-        "DFI",
+        "DDX",
+        "DESO",
+        "DEXT",
+        "DIA",
+        "DIMO",
         "DJF",
         "DKK",
+        "DNT",
         "DOGE",
         "DOP",
         "DOT",
+        "DREP",
+        "DYP",
         "DZD",
+        "EEK",
         "EGLD",
         "EGP",
+        "ELA",
         "ENJ",
+        "ENS",
         "EOS",
         "ERN",
         "ETB",
         "ETC",
         "ETH",
+        "ETH2",
         "EUR",
-        "FEI",
+        "EUROC",
+        "FARM",
+        "FET",
+        "FIDA",
         "FIL",
+        "FIS",
         "FJD",
         "FKP",
         "FLOW",
-        "FRAX",
-        "FTM",
-        "FTT",
+        "FLR",
+        "FORT",
+        "FORTH",
+        "FOX",
+        "FX",
+        "GAL",
         "GALA",
         "GBP",
         "GEL",
+        "GFI",
         "GGP",
         "GHS",
+        "GHST",
         "GIP",
+        "GLM",
         "GMD",
+        "GMT",
         "GNF",
         "GNO",
+        "GNT",
+        "GODS",
         "GRT",
-        "GT",
+        "GST",
+        "GTC",
         "GTQ",
+        "GUSD",
         "GYD",
+        "GYEN",
         "HBAR",
+        "HFT",
+        "HIGH",
         "HKD",
         "HNL",
         "HNT",
-        "HOT",
+        "HONEY",
+        "HOPR",
         "HRK",
-        "HT",
         "HTG",
         "HUF",
         "ICP",
+        "IDEX",
         "IDR",
         "ILS",
+        "ILV",
         "IMP",
+        "IMX",
+        "INDEX",
         "INJ",
         "INR",
+        "INV",
+        "IOTX",
         "IQD",
         "IRR",
         "ISK",
+        "JASMY",
         "JEP",
         "JMD",
         "JOD",
         "JPY",
+        "JTO",
+        "JUP",
         "KAVA",
-        "KCS",
-        "KDA",
+        "KEEP",
         "KES",
         "KGS",
         "KHR",
-        "KLAY",
         "KMF",
         "KNC",
         "KPW",
+        "KRL",
         "KRW",
         "KSM",
         "KWD",
@@ -153,277 +230,460 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "KZT",
         "LAK",
         "LBP",
-        "LEO",
+        "LCX",
+        "LDO",
         "LINK",
+        "LIT",
         "LKR",
+        "LOKA",
+        "LOOM",
+        "LPT",
+        "LQTY",
         "LRC",
         "LRD",
+        "LSETH",
         "LSL",
         "LTC",
         "LTL",
-        "LUNA",
         "LVL",
         "LYD",
         "MAD",
+        "MAGIC",
         "MANA",
+        "MASK",
+        "MATH",
         "MATIC",
+        "MCO2",
         "MDL",
+        "MDT",
+        "MEDIA",
+        "METIS",
         "MGA",
         "MINA",
-        "MIOTA",
+        "MIR",
         "MKD",
         "MKR",
+        "MLN",
         "MMK",
+        "MNDE",
         "MNT",
+        "MOBILE",
+        "MONA",
         "MOP",
+        "MPL",
         "MRO",
+        "MRU",
+        "MSOL",
+        "MTL",
+        "MULTI",
         "MUR",
+        "MUSE",
         "MVR",
         "MWK",
+        "MXC",
         "MXN",
         "MYR",
         "MZN",
         "NAD",
+        "NCT",
         "NEAR",
-        "NEO",
-        "NEXO",
+        "NEST",
         "NGN",
         "NIO",
+        "NKN",
+        "NMR",
         "NOK",
         "NPR",
+        "NU",
         "NZD",
-        "OKB",
+        "OCEAN",
+        "OGN",
+        "OMG",
         "OMR",
-        "ONE",
+        "ONDO",
+        "OOKI",
+        "OP",
+        "ORCA",
+        "ORN",
+        "OSMO",
+        "OXT",
         "PAB",
-        "PAXG",
+        "PAX",
         "PEN",
+        "PERP",
         "PGK",
         "PHP",
         "PKR",
+        "PLA",
         "PLN",
+        "PLU",
+        "PNG",
+        "POLS",
+        "POLY",
+        "POND",
+        "POWR",
+        "PRIME",
+        "PRO",
+        "PRQ",
+        "PUNDIX",
         "PYG",
+        "PYR",
+        "PYUSD",
         "QAR",
+        "QI",
         "QNT",
-        "QTUM",
+        "QSP",
+        "QUICK",
+        "RAD",
+        "RAI",
+        "RARE",
+        "RARI",
+        "RBN",
+        "REN",
+        "RENDER",
+        "REP",
+        "REPV2",
+        "REQ",
+        "RGT",
+        "RLC",
+        "RLY",
+        "RNDR",
         "RON",
+        "ROSE",
+        "RPL",
         "RSD",
         "RUB",
-        "RUNE",
         "RWF",
         "SAND",
         "SAR",
         "SBD",
         "SCR",
         "SDG",
+        "SEAM",
+        "SEI",
         "SEK",
         "SGD",
         "SHIB",
         "SHP",
-        "SLE",
+        "SHPING",
+        "SKK",
+        "SKL",
         "SLL",
+        "SNT",
+        "SNX",
         "SOL",
         "SOS",
+        "SPA",
+        "SPELL",
         "SRD",
+        "SSP",
         "STD",
+        "STG",
+        "STORJ",
+        "STRK",
         "STX",
+        "SUI",
+        "SUKU",
+        "SUPER",
+        "SUSHI",
         "SVC",
+        "SWFTC",
+        "SYLO",
+        "SYN",
         "SYP",
         "SZL",
+        "T",
         "THB",
-        "THETA",
+        "TIA",
+        "TIME",
         "TJS",
+        "TMM",
         "TMT",
         "TND",
+        "TONE",
         "TOP",
-        "TRX",
+        "TRAC",
+        "TRB",
+        "TRIBE",
+        "TRU",
         "TRY",
         "TTD",
-        "TTT",
-        "TUSD",
+        "TVK",
         "TWD",
         "TZS",
         "UAH",
         "UGX",
+        "UMA",
+        "UNFI",
         "UNI",
+        "UPI",
         "USD",
         "USDC",
-        "USDP",
         "USDT",
+        "UST",
         "UYU",
         "UZS",
+        "VARA",
         "VEF",
+        "VELO",
+        "VES",
         "VET",
+        "VGX",
         "VND",
+        "VOXEL",
+        "VTHO",
         "VUV",
-        "WAVES",
+        "WAMPL",
+        "WAXL",
         "WBTC",
-        "WEMIX",
+        "WCFG",
+        "WLUNA",
         "WST",
         "XAF",
         "XAG",
         "XAU",
         "XCD",
-        "XCH",
-        "XDC",
+        "XCN",
         "XDR",
-        "XEC",
-        "XEM",
         "XLM",
-        "XMR",
+        "XMON",
         "XOF",
+        "XPD",
         "XPF",
+        "XPT",
         "XRP",
         "XTZ",
+        "XYO",
         "YER",
+        "YFI",
+        "YFII",
         "ZAR",
         "ZEC",
-        "ZIL",
+        "ZEN",
+        "ZETA",
         "ZMK",
         "ZMW",
-        "ZWL",
+        "ZRX",
+        "ZWD",
     ]);
 
 export declare namespace CurrencyCode {
     type Raw =
         | "1INCH"
         | "AAVE"
+        | "ABT"
+        | "ACH"
+        | "ACS"
         | "ADA"
         | "AED"
+        | "AERGO"
+        | "AERO"
         | "AFN"
+        | "AGLD"
+        | "AIOZ"
+        | "ALCX"
+        | "ALEPH"
         | "ALGO"
+        | "ALICE"
         | "ALL"
         | "AMD"
         | "AMP"
         | "ANG"
+        | "ANKR"
+        | "ANT"
         | "AOA"
-        | "AR"
+        | "APE"
+        | "API3"
+        | "APT"
+        | "ARB"
+        | "ARPA"
         | "ARS"
+        | "ASM"
+        | "AST"
+        | "ATA"
         | "ATOM"
+        | "AUCTION"
         | "AUD"
+        | "AUDIO"
+        | "AURORA"
         | "AVAX"
+        | "AVT"
         | "AWG"
+        | "AXL"
         | "AXS"
         | "AZN"
+        | "BADGER"
+        | "BAL"
         | "BAM"
+        | "BAND"
         | "BAT"
         | "BBD"
         | "BCH"
         | "BDT"
         | "BGN"
         | "BHD"
+        | "BICO"
         | "BIF"
+        | "BIGTIME"
+        | "BIT"
+        | "BLUR"
+        | "BLZ"
         | "BMD"
-        | "BNB"
         | "BND"
+        | "BNT"
         | "BOB"
+        | "BOBA"
+        | "BOND"
+        | "BONK"
         | "BRL"
         | "BSD"
         | "BSV"
         | "BTC"
-        | "BTCB"
-        | "BTG"
         | "BTN"
+        | "BTRST"
         | "BUSD"
         | "BWP"
         | "BYN"
         | "BYR"
         | "BZD"
+        | "C98"
         | "CAD"
-        | "CAKE"
+        | "CBETH"
         | "CDF"
-        | "CELO"
+        | "CELR"
+        | "CGLD"
         | "CHF"
         | "CHZ"
         | "CLF"
         | "CLP"
+        | "CLV"
+        | "CNH"
         | "CNY"
         | "COMP"
         | "COP"
+        | "COTI"
+        | "COVAL"
         | "CRC"
         | "CRO"
+        | "CRPT"
         | "CRV"
+        | "CTSI"
+        | "CTX"
         | "CUC"
         | "CUP"
+        | "CVC"
         | "CVE"
         | "CVX"
         | "CZK"
         | "DAI"
-        | "DIF"
-        | "LSR"
-        | "SRC"
-        | "BRB"
+        | "DAR"
         | "DASH"
-        | "DCR"
-        | "DFI"
+        | "DDX"
+        | "DESO"
+        | "DEXT"
+        | "DIA"
+        | "DIMO"
         | "DJF"
         | "DKK"
+        | "DNT"
         | "DOGE"
         | "DOP"
         | "DOT"
+        | "DREP"
+        | "DYP"
         | "DZD"
+        | "EEK"
         | "EGLD"
         | "EGP"
+        | "ELA"
         | "ENJ"
+        | "ENS"
         | "EOS"
         | "ERN"
         | "ETB"
         | "ETC"
         | "ETH"
+        | "ETH2"
         | "EUR"
-        | "FEI"
+        | "EUROC"
+        | "FARM"
+        | "FET"
+        | "FIDA"
         | "FIL"
+        | "FIS"
         | "FJD"
         | "FKP"
         | "FLOW"
-        | "FRAX"
-        | "FTM"
-        | "FTT"
+        | "FLR"
+        | "FORT"
+        | "FORTH"
+        | "FOX"
+        | "FX"
+        | "GAL"
         | "GALA"
         | "GBP"
         | "GEL"
+        | "GFI"
         | "GGP"
         | "GHS"
+        | "GHST"
         | "GIP"
+        | "GLM"
         | "GMD"
+        | "GMT"
         | "GNF"
         | "GNO"
+        | "GNT"
+        | "GODS"
         | "GRT"
-        | "GT"
+        | "GST"
+        | "GTC"
         | "GTQ"
+        | "GUSD"
         | "GYD"
+        | "GYEN"
         | "HBAR"
+        | "HFT"
+        | "HIGH"
         | "HKD"
         | "HNL"
         | "HNT"
-        | "HOT"
+        | "HONEY"
+        | "HOPR"
         | "HRK"
-        | "HT"
         | "HTG"
         | "HUF"
         | "ICP"
+        | "IDEX"
         | "IDR"
         | "ILS"
+        | "ILV"
         | "IMP"
+        | "IMX"
+        | "INDEX"
         | "INJ"
         | "INR"
+        | "INV"
+        | "IOTX"
         | "IQD"
         | "IRR"
         | "ISK"
+        | "JASMY"
         | "JEP"
         | "JMD"
         | "JOD"
         | "JPY"
+        | "JTO"
+        | "JUP"
         | "KAVA"
-        | "KCS"
-        | "KDA"
+        | "KEEP"
         | "KES"
         | "KGS"
         | "KHR"
-        | "KLAY"
         | "KMF"
         | "KNC"
         | "KPW"
+        | "KRL"
         | "KRW"
         | "KSM"
         | "KWD"
@@ -431,133 +691,239 @@ export declare namespace CurrencyCode {
         | "KZT"
         | "LAK"
         | "LBP"
-        | "LEO"
+        | "LCX"
+        | "LDO"
         | "LINK"
+        | "LIT"
         | "LKR"
+        | "LOKA"
+        | "LOOM"
+        | "LPT"
+        | "LQTY"
         | "LRC"
         | "LRD"
+        | "LSETH"
         | "LSL"
         | "LTC"
         | "LTL"
-        | "LUNA"
         | "LVL"
         | "LYD"
         | "MAD"
+        | "MAGIC"
         | "MANA"
+        | "MASK"
+        | "MATH"
         | "MATIC"
+        | "MCO2"
         | "MDL"
+        | "MDT"
+        | "MEDIA"
+        | "METIS"
         | "MGA"
         | "MINA"
-        | "MIOTA"
+        | "MIR"
         | "MKD"
         | "MKR"
+        | "MLN"
         | "MMK"
+        | "MNDE"
         | "MNT"
+        | "MOBILE"
+        | "MONA"
         | "MOP"
+        | "MPL"
         | "MRO"
+        | "MRU"
+        | "MSOL"
+        | "MTL"
+        | "MULTI"
         | "MUR"
+        | "MUSE"
         | "MVR"
         | "MWK"
+        | "MXC"
         | "MXN"
         | "MYR"
         | "MZN"
         | "NAD"
+        | "NCT"
         | "NEAR"
-        | "NEO"
-        | "NEXO"
+        | "NEST"
         | "NGN"
         | "NIO"
+        | "NKN"
+        | "NMR"
         | "NOK"
         | "NPR"
+        | "NU"
         | "NZD"
-        | "OKB"
+        | "OCEAN"
+        | "OGN"
+        | "OMG"
         | "OMR"
-        | "ONE"
+        | "ONDO"
+        | "OOKI"
+        | "OP"
+        | "ORCA"
+        | "ORN"
+        | "OSMO"
+        | "OXT"
         | "PAB"
-        | "PAXG"
+        | "PAX"
         | "PEN"
+        | "PERP"
         | "PGK"
         | "PHP"
         | "PKR"
+        | "PLA"
         | "PLN"
+        | "PLU"
+        | "PNG"
+        | "POLS"
+        | "POLY"
+        | "POND"
+        | "POWR"
+        | "PRIME"
+        | "PRO"
+        | "PRQ"
+        | "PUNDIX"
         | "PYG"
+        | "PYR"
+        | "PYUSD"
         | "QAR"
+        | "QI"
         | "QNT"
-        | "QTUM"
+        | "QSP"
+        | "QUICK"
+        | "RAD"
+        | "RAI"
+        | "RARE"
+        | "RARI"
+        | "RBN"
+        | "REN"
+        | "RENDER"
+        | "REP"
+        | "REPV2"
+        | "REQ"
+        | "RGT"
+        | "RLC"
+        | "RLY"
+        | "RNDR"
         | "RON"
+        | "ROSE"
+        | "RPL"
         | "RSD"
         | "RUB"
-        | "RUNE"
         | "RWF"
         | "SAND"
         | "SAR"
         | "SBD"
         | "SCR"
         | "SDG"
+        | "SEAM"
+        | "SEI"
         | "SEK"
         | "SGD"
         | "SHIB"
         | "SHP"
-        | "SLE"
+        | "SHPING"
+        | "SKK"
+        | "SKL"
         | "SLL"
+        | "SNT"
+        | "SNX"
         | "SOL"
         | "SOS"
+        | "SPA"
+        | "SPELL"
         | "SRD"
+        | "SSP"
         | "STD"
+        | "STG"
+        | "STORJ"
+        | "STRK"
         | "STX"
+        | "SUI"
+        | "SUKU"
+        | "SUPER"
+        | "SUSHI"
         | "SVC"
+        | "SWFTC"
+        | "SYLO"
+        | "SYN"
         | "SYP"
         | "SZL"
+        | "T"
         | "THB"
-        | "THETA"
+        | "TIA"
+        | "TIME"
         | "TJS"
+        | "TMM"
         | "TMT"
         | "TND"
+        | "TONE"
         | "TOP"
-        | "TRX"
+        | "TRAC"
+        | "TRB"
+        | "TRIBE"
+        | "TRU"
         | "TRY"
         | "TTD"
-        | "TTT"
-        | "TUSD"
+        | "TVK"
         | "TWD"
         | "TZS"
         | "UAH"
         | "UGX"
+        | "UMA"
+        | "UNFI"
         | "UNI"
+        | "UPI"
         | "USD"
         | "USDC"
-        | "USDP"
         | "USDT"
+        | "UST"
         | "UYU"
         | "UZS"
+        | "VARA"
         | "VEF"
+        | "VELO"
+        | "VES"
         | "VET"
+        | "VGX"
         | "VND"
+        | "VOXEL"
+        | "VTHO"
         | "VUV"
-        | "WAVES"
+        | "WAMPL"
+        | "WAXL"
         | "WBTC"
-        | "WEMIX"
+        | "WCFG"
+        | "WLUNA"
         | "WST"
         | "XAF"
         | "XAG"
         | "XAU"
         | "XCD"
-        | "XCH"
-        | "XDC"
+        | "XCN"
         | "XDR"
-        | "XEC"
-        | "XEM"
         | "XLM"
-        | "XMR"
+        | "XMON"
         | "XOF"
+        | "XPD"
         | "XPF"
+        | "XPT"
         | "XRP"
         | "XTZ"
+        | "XYO"
         | "YER"
+        | "YFI"
+        | "YFII"
         | "ZAR"
         | "ZEC"
-        | "ZIL"
+        | "ZEN"
+        | "ZETA"
         | "ZMK"
         | "ZMW"
-        | "ZWL";
+        | "ZRX"
+        | "ZWD";
 }
