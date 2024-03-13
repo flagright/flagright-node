@@ -10,7 +10,8 @@ export type KycStatus =
     | "EXPIRED"
     | "NEW"
     | "CANCELLED"
-    | "MANUAL_REVIEW";
+    | "MANUAL_REVIEW"
+    | "EDD_IN_PROGRESS";
 
 export const KycStatus = {
     Successful: "SUCCESSFUL",
@@ -21,4 +22,5 @@ export const KycStatus = {
     New: "NEW",
     Cancelled: "CANCELLED",
     ManualReview: "MANUAL_REVIEW",
+    EddInProgress: "EDD_IN_PROGRESS",
 } as const;

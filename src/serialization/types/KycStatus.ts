@@ -16,6 +16,7 @@ export const KycStatus: core.serialization.Schema<serializers.KycStatus.Raw, Fla
         "NEW",
         "CANCELLED",
         "MANUAL_REVIEW",
+        "EDD_IN_PROGRESS",
     ]);
 
 export declare namespace KycStatus {
@@ -27,5 +28,6 @@ export declare namespace KycStatus {
         | "EXPIRED"
         | "NEW"
         | "CANCELLED"
-        | "MANUAL_REVIEW";
+        | "MANUAL_REVIEW"
+        | "EDD_IN_PROGRESS";
 }
