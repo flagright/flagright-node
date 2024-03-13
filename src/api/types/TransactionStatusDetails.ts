@@ -8,4 +8,5 @@ export interface TransactionStatusDetails {
     transactionId: string;
     reasons: string[];
     status: Flagright.RuleAction;
+    comment?: string;
 }

@@ -13,6 +13,7 @@ export const TransactionStatusDetails: core.serialization.ObjectSchema<
     transactionId: core.serialization.string(),
     reasons: core.serialization.list(core.serialization.string()),
     status: core.serialization.lazy(async () => (await import("..")).RuleAction),
+    comment: core.serialization.string().optional(),
 });
 
 export declare namespace TransactionStatusDetails {
@@ -20,5 +21,6 @@ export declare namespace TransactionStatusDetails {
         transactionId: string;
         reasons: string[];
         status: serializers.RuleAction.Raw;
+        comment?: string | null;
     }
 }
