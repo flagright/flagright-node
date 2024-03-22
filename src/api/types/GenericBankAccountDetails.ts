@@ -16,6 +16,7 @@ export interface GenericBankAccountDetails {
     bankName?: string;
     /** Unique identifier of the bank. In some countries, this can be the same as the bank's SWIFT code */
     bankCode?: string;
+    country?: Flagright.CountryCode;
     /** Name of the account holder */
     name?: string;
     bankAddress?: Flagright.Address;
