@@ -17,6 +17,9 @@ export const BusinessWithRulesResult: core.serialization.ObjectSchema<
         hitRules: core.serialization
             .list(core.serialization.lazyObject(async () => (await import("..")).HitRulesDetails))
             .optional(),
+        riskScoreDetails: core.serialization
+            .lazyObject(async () => (await import("..")).UserRiskScoreDetails)
+            .optional(),
     })
     .extend(core.serialization.lazyObject(async () => (await import("..")).Business));
 
@@ -24,5 +27,6 @@ export declare namespace BusinessWithRulesResult {
     interface Raw extends serializers.Business.Raw {
         executedRules?: serializers.ExecutedRulesResult.Raw[] | null;
         hitRules?: serializers.HitRulesDetails.Raw[] | null;
+        riskScoreDetails?: serializers.UserRiskScoreDetails.Raw | null;
     }
 }

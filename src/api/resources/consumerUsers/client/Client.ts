@@ -173,7 +173,7 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.4.13",
+                "X-Fern-SDK-Version": "1.4.14",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -234,7 +234,10 @@ export class ConsumerUsers {
      * @example
      *     await flagright.consumerUsers.get("userId")
      */
-    public async get(userId: string, requestOptions?: ConsumerUsers.RequestOptions): Promise<Flagright.UserResponse> {
+    public async get(
+        userId: string,
+        requestOptions?: ConsumerUsers.RequestOptions
+    ): Promise<Flagright.UserWithRulesResult> {
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.FlagrightEnvironment.Default,
@@ -245,7 +248,7 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.4.13",
+                "X-Fern-SDK-Version": "1.4.14",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -254,7 +257,7 @@ export class ConsumerUsers {
             maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
-            return await serializers.UserResponse.parseOrThrow(_response.body, {
+            return await serializers.UserWithRulesResult.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,

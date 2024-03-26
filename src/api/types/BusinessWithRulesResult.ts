@@ -10,4 +10,5 @@ import * as Flagright from "..";
 export interface BusinessWithRulesResult extends Flagright.Business {
     executedRules?: Flagright.ExecutedRulesResult[];
     hitRules?: Flagright.HitRulesDetails[];
+    riskScoreDetails?: Flagright.UserRiskScoreDetails;
 }

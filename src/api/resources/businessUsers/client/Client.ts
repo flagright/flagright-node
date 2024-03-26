@@ -301,7 +301,7 @@ export class BusinessUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.4.13",
+                "X-Fern-SDK-Version": "1.4.14",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -365,7 +365,7 @@ export class BusinessUsers {
     public async get(
         userId: string,
         requestOptions?: BusinessUsers.RequestOptions
-    ): Promise<Flagright.BusinessResponse> {
+    ): Promise<Flagright.BusinessWithRulesResult> {
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.FlagrightEnvironment.Default,
@@ -376,7 +376,7 @@ export class BusinessUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.4.13",
+                "X-Fern-SDK-Version": "1.4.14",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -385,7 +385,7 @@ export class BusinessUsers {
             maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
-            return await serializers.BusinessResponse.parseOrThrow(_response.body, {
+            return await serializers.BusinessWithRulesResult.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,

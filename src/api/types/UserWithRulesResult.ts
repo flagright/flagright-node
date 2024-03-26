@@ -10,4 +10,5 @@ import * as Flagright from "..";
 export interface UserWithRulesResult extends Flagright.User {
     executedRules?: Flagright.ExecutedRulesResult[];
     hitRules?: Flagright.HitRulesDetails[];
+    riskScoreDetails?: Flagright.UserRiskScoreDetails;
 }

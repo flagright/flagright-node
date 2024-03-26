@@ -7,4 +7,5 @@ import * as Flagright from "..";
 export interface TransactionEventMonitoringResult extends Flagright.RulesResults {
     eventId: string;
     transaction: Flagright.Transaction;
+    riskScoreDetails?: Flagright.TransactionRiskScoringResult;
 }

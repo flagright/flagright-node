@@ -17,6 +17,9 @@ export const UserWithRulesResult: core.serialization.ObjectSchema<
         hitRules: core.serialization
             .list(core.serialization.lazyObject(async () => (await import("..")).HitRulesDetails))
             .optional(),
+        riskScoreDetails: core.serialization
+            .lazyObject(async () => (await import("..")).UserRiskScoreDetails)
+            .optional(),
     })
     .extend(core.serialization.lazyObject(async () => (await import("..")).User));
 
@@ -24,5 +27,6 @@ export declare namespace UserWithRulesResult {
     interface Raw extends serializers.User.Raw {
         executedRules?: serializers.ExecutedRulesResult.Raw[] | null;
         hitRules?: serializers.HitRulesDetails.Raw[] | null;
+        riskScoreDetails?: serializers.UserRiskScoreDetails.Raw | null;
     }
 }
