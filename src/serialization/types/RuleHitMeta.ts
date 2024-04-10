@@ -17,6 +17,7 @@ export const RuleHitMeta: core.serialization.ObjectSchema<serializers.RuleHitMet
         sanctionsDetails: core.serialization
             .list(core.serialization.lazyObject(async () => (await import("..")).SanctionsDetails))
             .optional(),
+        isOngoingScreeningHit: core.serialization.boolean().optional(),
     });
 
 export declare namespace RuleHitMeta {
@@ -24,5 +25,6 @@ export declare namespace RuleHitMeta {
         hitDirections?: serializers.RuleHitDirection.Raw[] | null;
         falsePositiveDetails?: serializers.FalsePositiveDetails.Raw | null;
         sanctionsDetails?: serializers.SanctionsDetails.Raw[] | null;
+        isOngoingScreeningHit?: boolean | null;
     }
 }

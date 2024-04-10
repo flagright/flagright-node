@@ -50,463 +50,465 @@ export class BusinessUserEvents {
      *
      * @example
      *     await flagright.businessUserEvents.create({
-     *         timestamp: 1.1,
-     *         userId: "userId",
-     *         updatedBusinessUserAttributes: {
-     *             legalEntity: {
-     *                 companyGeneralDetails: {
-     *                     legalName: "Ozkan Hazelnut Export JSC",
-     *                     businessIndustry: ["Farming", "businessIndustry"],
-     *                     mainProductsServicesSold: ["Hazelnut", "mainProductsServicesSold"],
-     *                     tags: [{
-     *                             key: "customKey",
-     *                             value: "customValue"
-     *                         }]
+     *         body: {
+     *             timestamp: 1.1,
+     *             userId: "userId",
+     *             updatedBusinessUserAttributes: {
+     *                 legalEntity: {
+     *                     companyGeneralDetails: {
+     *                         legalName: "Ozkan Hazelnut Export JSC",
+     *                         businessIndustry: ["Farming", "businessIndustry"],
+     *                         mainProductsServicesSold: ["Hazelnut", "mainProductsServicesSold"],
+     *                         tags: [{
+     *                                 key: "customKey",
+     *                                 value: "customValue"
+     *                             }]
+     *                     },
+     *                     companyFinancialDetails: {
+     *                         expectedTransactionAmountPerMonth: {
+     *                             amountValue: 800,
+     *                             amountCurrency: Flagright.CurrencyCode.Gbp
+     *                         },
+     *                         expectedTurnoverPerMonth: {
+     *                             amountValue: 8000,
+     *                             amountCurrency: Flagright.CurrencyCode.Usd
+     *                         },
+     *                         tags: [{
+     *                                 key: "customKey",
+     *                                 value: "customValue"
+     *                             }]
+     *                     },
+     *                     companyRegistrationDetails: {
+     *                         registrationIdentifier: "PSJ554342",
+     *                         registrationCountry: Flagright.CountryCode.De,
+     *                         tags: [{
+     *                                 key: "customKey",
+     *                                 value: "customValue"
+     *                             }]
+     *                     },
+     *                     reasonForAccountOpening: ["string", "reasonForAccountOpening"],
+     *                     contactDetails: {
+     *                         addresses: [{
+     *                                 addressLines: ["Klara-Franke Str 20"],
+     *                                 postcode: "10557",
+     *                                 city: "Berlin",
+     *                                 state: "Berlin",
+     *                                 country: "Germany",
+     *                                 tags: [{
+     *                                         key: "customKey",
+     *                                         value: "customValue"
+     *                                     }, {
+     *                                         key: "customKey",
+     *                                         value: "customValue"
+     *                                     }]
+     *                             }, {
+     *                                 addressLines: ["Klara-Franke Str 20"],
+     *                                 postcode: "10557",
+     *                                 city: "Berlin",
+     *                                 state: "Berlin",
+     *                                 country: "Germany",
+     *                                 tags: [{
+     *                                         key: "customKey",
+     *                                         value: "customValue"
+     *                                     }, {
+     *                                         key: "customKey",
+     *                                         value: "customValue"
+     *                                     }]
+     *                             }]
+     *                     }
      *                 },
-     *                 companyFinancialDetails: {
-     *                     expectedTransactionAmountPerMonth: {
+     *                 shareHolders: [{
+     *                         generalDetails: {
+     *                             name: {
+     *                                 firstName: "Baran",
+     *                                 middleName: "Realblood",
+     *                                 lastName: "Ozkan"
+     *                             },
+     *                             dateOfBirth: "1991-01-01",
+     *                             countryOfResidence: Flagright.CountryCode.Us,
+     *                             countryOfNationality: Flagright.CountryCode.De
+     *                         },
+     *                         legalDocuments: [{
+     *                                 documentType: "passport",
+     *                                 documentNumber: "Z9431P",
+     *                                 documentIssuedDate: 1639939034000,
+     *                                 documentExpirationDate: 1839939034000,
+     *                                 documentIssuedCountry: Flagright.CountryCode.De,
+     *                                 tags: [{
+     *                                         key: "customerType",
+     *                                         value: "wallet"
+     *                                     }, {
+     *                                         key: "customKey",
+     *                                         value: "customValue"
+     *                                     }],
+     *                                 nameOnDocument: {
+     *                                     firstName: "Baran",
+     *                                     middleName: "Realblood",
+     *                                     lastName: "Ozkan"
+     *                                 }
+     *                             }, {
+     *                                 documentType: "passport",
+     *                                 documentNumber: "Z9431P",
+     *                                 documentIssuedDate: 1639939034000,
+     *                                 documentExpirationDate: 1839939034000,
+     *                                 documentIssuedCountry: Flagright.CountryCode.De,
+     *                                 tags: [{
+     *                                         key: "customerType",
+     *                                         value: "wallet"
+     *                                     }, {
+     *                                         key: "customKey",
+     *                                         value: "customValue"
+     *                                     }],
+     *                                 nameOnDocument: {
+     *                                     firstName: "Baran",
+     *                                     middleName: "Realblood",
+     *                                     lastName: "Ozkan"
+     *                                 }
+     *                             }],
+     *                         contactDetails: {
+     *                             emailIds: ["baran@flagright.com", "emailIds"],
+     *                             contactNumbers: ["+371 123132", "contactNumbers"],
+     *                             websites: ["flagright.com", "websites"],
+     *                             addresses: [{
+     *                                     addressLines: ["Klara-Franke Str 20"],
+     *                                     postcode: "10557",
+     *                                     city: "Berlin",
+     *                                     state: "Berlin",
+     *                                     country: "Germany",
+     *                                     tags: [{
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }, {
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }]
+     *                                 }, {
+     *                                     addressLines: ["Klara-Franke Str 20"],
+     *                                     postcode: "10557",
+     *                                     city: "Berlin",
+     *                                     state: "Berlin",
+     *                                     country: "Germany",
+     *                                     tags: [{
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }, {
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }]
+     *                                 }]
+     *                         },
+     *                         tags: [{
+     *                                 key: "customKey",
+     *                                 value: "customValue"
+     *                             }, {
+     *                                 key: "customKey",
+     *                                 value: "customValue"
+     *                             }]
+     *                     }, {
+     *                         generalDetails: {
+     *                             name: {
+     *                                 firstName: "Baran",
+     *                                 middleName: "Realblood",
+     *                                 lastName: "Ozkan"
+     *                             },
+     *                             dateOfBirth: "1991-01-01",
+     *                             countryOfResidence: Flagright.CountryCode.Us,
+     *                             countryOfNationality: Flagright.CountryCode.De
+     *                         },
+     *                         legalDocuments: [{
+     *                                 documentType: "passport",
+     *                                 documentNumber: "Z9431P",
+     *                                 documentIssuedDate: 1639939034000,
+     *                                 documentExpirationDate: 1839939034000,
+     *                                 documentIssuedCountry: Flagright.CountryCode.De,
+     *                                 tags: [{
+     *                                         key: "customerType",
+     *                                         value: "wallet"
+     *                                     }, {
+     *                                         key: "customKey",
+     *                                         value: "customValue"
+     *                                     }],
+     *                                 nameOnDocument: {
+     *                                     firstName: "Baran",
+     *                                     middleName: "Realblood",
+     *                                     lastName: "Ozkan"
+     *                                 }
+     *                             }, {
+     *                                 documentType: "passport",
+     *                                 documentNumber: "Z9431P",
+     *                                 documentIssuedDate: 1639939034000,
+     *                                 documentExpirationDate: 1839939034000,
+     *                                 documentIssuedCountry: Flagright.CountryCode.De,
+     *                                 tags: [{
+     *                                         key: "customerType",
+     *                                         value: "wallet"
+     *                                     }, {
+     *                                         key: "customKey",
+     *                                         value: "customValue"
+     *                                     }],
+     *                                 nameOnDocument: {
+     *                                     firstName: "Baran",
+     *                                     middleName: "Realblood",
+     *                                     lastName: "Ozkan"
+     *                                 }
+     *                             }],
+     *                         contactDetails: {
+     *                             emailIds: ["baran@flagright.com", "emailIds"],
+     *                             contactNumbers: ["+371 123132", "contactNumbers"],
+     *                             websites: ["flagright.com", "websites"],
+     *                             addresses: [{
+     *                                     addressLines: ["Klara-Franke Str 20"],
+     *                                     postcode: "10557",
+     *                                     city: "Berlin",
+     *                                     state: "Berlin",
+     *                                     country: "Germany",
+     *                                     tags: [{
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }, {
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }]
+     *                                 }, {
+     *                                     addressLines: ["Klara-Franke Str 20"],
+     *                                     postcode: "10557",
+     *                                     city: "Berlin",
+     *                                     state: "Berlin",
+     *                                     country: "Germany",
+     *                                     tags: [{
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }, {
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }]
+     *                                 }]
+     *                         },
+     *                         tags: [{
+     *                                 key: "customKey",
+     *                                 value: "customValue"
+     *                             }, {
+     *                                 key: "customKey",
+     *                                 value: "customValue"
+     *                             }]
+     *                     }],
+     *                 directors: [{
+     *                         generalDetails: {
+     *                             name: {
+     *                                 firstName: "Baran",
+     *                                 middleName: "Realblood",
+     *                                 lastName: "Ozkan"
+     *                             },
+     *                             dateOfBirth: "1991-01-01",
+     *                             countryOfResidence: Flagright.CountryCode.Us,
+     *                             countryOfNationality: Flagright.CountryCode.De
+     *                         },
+     *                         legalDocuments: [{
+     *                                 documentType: "passport",
+     *                                 documentNumber: "Z9431P",
+     *                                 documentIssuedDate: 1639939034000,
+     *                                 documentExpirationDate: 1839939034000,
+     *                                 documentIssuedCountry: Flagright.CountryCode.De,
+     *                                 tags: [{
+     *                                         key: "customerType",
+     *                                         value: "wallet"
+     *                                     }, {
+     *                                         key: "customKey",
+     *                                         value: "customValue"
+     *                                     }],
+     *                                 nameOnDocument: {
+     *                                     firstName: "Baran",
+     *                                     middleName: "Realblood",
+     *                                     lastName: "Ozkan"
+     *                                 }
+     *                             }, {
+     *                                 documentType: "passport",
+     *                                 documentNumber: "Z9431P",
+     *                                 documentIssuedDate: 1639939034000,
+     *                                 documentExpirationDate: 1839939034000,
+     *                                 documentIssuedCountry: Flagright.CountryCode.De,
+     *                                 tags: [{
+     *                                         key: "customerType",
+     *                                         value: "wallet"
+     *                                     }, {
+     *                                         key: "customKey",
+     *                                         value: "customValue"
+     *                                     }],
+     *                                 nameOnDocument: {
+     *                                     firstName: "Baran",
+     *                                     middleName: "Realblood",
+     *                                     lastName: "Ozkan"
+     *                                 }
+     *                             }],
+     *                         contactDetails: {
+     *                             emailIds: ["baran@flagright.com", "emailIds"],
+     *                             contactNumbers: ["+371 123132", "contactNumbers"],
+     *                             websites: ["flagright.com", "websites"],
+     *                             addresses: [{
+     *                                     addressLines: ["Klara-Franke Str 20"],
+     *                                     postcode: "10557",
+     *                                     city: "Berlin",
+     *                                     state: "Berlin",
+     *                                     country: "Germany",
+     *                                     tags: [{
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }, {
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }]
+     *                                 }, {
+     *                                     addressLines: ["Klara-Franke Str 20"],
+     *                                     postcode: "10557",
+     *                                     city: "Berlin",
+     *                                     state: "Berlin",
+     *                                     country: "Germany",
+     *                                     tags: [{
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }, {
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }]
+     *                                 }]
+     *                         },
+     *                         tags: [{
+     *                                 key: "customKey",
+     *                                 value: "customValue"
+     *                             }, {
+     *                                 key: "customKey",
+     *                                 value: "customValue"
+     *                             }]
+     *                     }, {
+     *                         generalDetails: {
+     *                             name: {
+     *                                 firstName: "Baran",
+     *                                 middleName: "Realblood",
+     *                                 lastName: "Ozkan"
+     *                             },
+     *                             dateOfBirth: "1991-01-01",
+     *                             countryOfResidence: Flagright.CountryCode.Us,
+     *                             countryOfNationality: Flagright.CountryCode.De
+     *                         },
+     *                         legalDocuments: [{
+     *                                 documentType: "passport",
+     *                                 documentNumber: "Z9431P",
+     *                                 documentIssuedDate: 1639939034000,
+     *                                 documentExpirationDate: 1839939034000,
+     *                                 documentIssuedCountry: Flagright.CountryCode.De,
+     *                                 tags: [{
+     *                                         key: "customerType",
+     *                                         value: "wallet"
+     *                                     }, {
+     *                                         key: "customKey",
+     *                                         value: "customValue"
+     *                                     }],
+     *                                 nameOnDocument: {
+     *                                     firstName: "Baran",
+     *                                     middleName: "Realblood",
+     *                                     lastName: "Ozkan"
+     *                                 }
+     *                             }, {
+     *                                 documentType: "passport",
+     *                                 documentNumber: "Z9431P",
+     *                                 documentIssuedDate: 1639939034000,
+     *                                 documentExpirationDate: 1839939034000,
+     *                                 documentIssuedCountry: Flagright.CountryCode.De,
+     *                                 tags: [{
+     *                                         key: "customerType",
+     *                                         value: "wallet"
+     *                                     }, {
+     *                                         key: "customKey",
+     *                                         value: "customValue"
+     *                                     }],
+     *                                 nameOnDocument: {
+     *                                     firstName: "Baran",
+     *                                     middleName: "Realblood",
+     *                                     lastName: "Ozkan"
+     *                                 }
+     *                             }],
+     *                         contactDetails: {
+     *                             emailIds: ["baran@flagright.com", "emailIds"],
+     *                             contactNumbers: ["+371 123132", "contactNumbers"],
+     *                             websites: ["flagright.com", "websites"],
+     *                             addresses: [{
+     *                                     addressLines: ["Klara-Franke Str 20"],
+     *                                     postcode: "10557",
+     *                                     city: "Berlin",
+     *                                     state: "Berlin",
+     *                                     country: "Germany",
+     *                                     tags: [{
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }, {
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }]
+     *                                 }, {
+     *                                     addressLines: ["Klara-Franke Str 20"],
+     *                                     postcode: "10557",
+     *                                     city: "Berlin",
+     *                                     state: "Berlin",
+     *                                     country: "Germany",
+     *                                     tags: [{
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }, {
+     *                                             key: "customKey",
+     *                                             value: "customValue"
+     *                                         }]
+     *                                 }]
+     *                         },
+     *                         tags: [{
+     *                                 key: "customKey",
+     *                                 value: "customValue"
+     *                             }, {
+     *                                 key: "customKey",
+     *                                 value: "customValue"
+     *                             }]
+     *                     }],
+     *                 transactionLimits: {
+     *                     maximumDailyTransactionLimit: {
      *                         amountValue: 800,
      *                         amountCurrency: Flagright.CurrencyCode.Gbp
      *                     },
-     *                     expectedTurnoverPerMonth: {
-     *                         amountValue: 8000,
-     *                         amountCurrency: Flagright.CurrencyCode.Usd
+     *                     maximumWeeklyTransactionLimit: {
+     *                         amountValue: 800,
+     *                         amountCurrency: Flagright.CurrencyCode.Gbp
      *                     },
-     *                     tags: [{
-     *                             key: "customKey",
-     *                             value: "customValue"
-     *                         }]
+     *                     maximumMonthlyTransactionLimit: {
+     *                         amountValue: 800,
+     *                         amountCurrency: Flagright.CurrencyCode.Gbp
+     *                     },
+     *                     maximumQuarterlyTransactionLimit: {
+     *                         amountValue: 800,
+     *                         amountCurrency: Flagright.CurrencyCode.Gbp
+     *                     },
+     *                     maximumTransactionLimit: {
+     *                         amountValue: 800,
+     *                         amountCurrency: Flagright.CurrencyCode.Gbp
+     *                     },
+     *                     maximumYearlyTransactionLimit: {
+     *                         amountValue: 800,
+     *                         amountCurrency: Flagright.CurrencyCode.Gbp
+     *                     }
      *                 },
-     *                 companyRegistrationDetails: {
-     *                     registrationIdentifier: "PSJ554342",
-     *                     registrationCountry: Flagright.CountryCode.De,
-     *                     tags: [{
-     *                             key: "customKey",
-     *                             value: "customValue"
-     *                         }]
-     *                 },
-     *                 reasonForAccountOpening: ["string", "reasonForAccountOpening"],
-     *                 contactDetails: {
-     *                     addresses: [{
-     *                             addressLines: ["Klara-Franke Str 20"],
-     *                             postcode: "10557",
-     *                             city: "Berlin",
-     *                             state: "Berlin",
-     *                             country: "Germany",
-     *                             tags: [{
-     *                                     key: "customKey",
-     *                                     value: "customValue"
-     *                                 }, {
-     *                                     key: "customKey",
-     *                                     value: "customValue"
-     *                                 }]
-     *                         }, {
-     *                             addressLines: ["Klara-Franke Str 20"],
-     *                             postcode: "10557",
-     *                             city: "Berlin",
-     *                             state: "Berlin",
-     *                             country: "Germany",
-     *                             tags: [{
-     *                                     key: "customKey",
-     *                                     value: "customValue"
-     *                                 }, {
-     *                                     key: "customKey",
-     *                                     value: "customValue"
-     *                                 }]
-     *                         }]
-     *                 }
-     *             },
-     *             shareHolders: [{
-     *                     generalDetails: {
-     *                         name: {
-     *                             firstName: "Baran",
-     *                             middleName: "Realblood",
-     *                             lastName: "Ozkan"
-     *                         },
-     *                         dateOfBirth: "1991-01-01",
-     *                         countryOfResidence: Flagright.CountryCode.Us,
-     *                         countryOfNationality: Flagright.CountryCode.De
-     *                     },
-     *                     legalDocuments: [{
-     *                             documentType: "passport",
-     *                             documentNumber: "Z9431P",
-     *                             documentIssuedDate: 1639939034000,
-     *                             documentExpirationDate: 1839939034000,
-     *                             documentIssuedCountry: Flagright.CountryCode.De,
-     *                             tags: [{
-     *                                     key: "customerType",
-     *                                     value: "wallet"
-     *                                 }, {
-     *                                     key: "customKey",
-     *                                     value: "customValue"
-     *                                 }],
-     *                             nameOnDocument: {
-     *                                 firstName: "Baran",
-     *                                 middleName: "Realblood",
-     *                                 lastName: "Ozkan"
-     *                             }
-     *                         }, {
-     *                             documentType: "passport",
-     *                             documentNumber: "Z9431P",
-     *                             documentIssuedDate: 1639939034000,
-     *                             documentExpirationDate: 1839939034000,
-     *                             documentIssuedCountry: Flagright.CountryCode.De,
-     *                             tags: [{
-     *                                     key: "customerType",
-     *                                     value: "wallet"
-     *                                 }, {
-     *                                     key: "customKey",
-     *                                     value: "customValue"
-     *                                 }],
-     *                             nameOnDocument: {
-     *                                 firstName: "Baran",
-     *                                 middleName: "Realblood",
-     *                                 lastName: "Ozkan"
-     *                             }
-     *                         }],
-     *                     contactDetails: {
-     *                         emailIds: ["baran@flagright.com", "emailIds"],
-     *                         contactNumbers: ["+371 123132", "contactNumbers"],
-     *                         websites: ["flagright.com", "websites"],
-     *                         addresses: [{
-     *                                 addressLines: ["Klara-Franke Str 20"],
-     *                                 postcode: "10557",
-     *                                 city: "Berlin",
-     *                                 state: "Berlin",
-     *                                 country: "Germany",
-     *                                 tags: [{
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }, {
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }]
-     *                             }, {
-     *                                 addressLines: ["Klara-Franke Str 20"],
-     *                                 postcode: "10557",
-     *                                 city: "Berlin",
-     *                                 state: "Berlin",
-     *                                 country: "Germany",
-     *                                 tags: [{
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }, {
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }]
-     *                             }]
-     *                     },
-     *                     tags: [{
-     *                             key: "customKey",
-     *                             value: "customValue"
-     *                         }, {
-     *                             key: "customKey",
-     *                             value: "customValue"
-     *                         }]
-     *                 }, {
-     *                     generalDetails: {
-     *                         name: {
-     *                             firstName: "Baran",
-     *                             middleName: "Realblood",
-     *                             lastName: "Ozkan"
-     *                         },
-     *                         dateOfBirth: "1991-01-01",
-     *                         countryOfResidence: Flagright.CountryCode.Us,
-     *                         countryOfNationality: Flagright.CountryCode.De
-     *                     },
-     *                     legalDocuments: [{
-     *                             documentType: "passport",
-     *                             documentNumber: "Z9431P",
-     *                             documentIssuedDate: 1639939034000,
-     *                             documentExpirationDate: 1839939034000,
-     *                             documentIssuedCountry: Flagright.CountryCode.De,
-     *                             tags: [{
-     *                                     key: "customerType",
-     *                                     value: "wallet"
-     *                                 }, {
-     *                                     key: "customKey",
-     *                                     value: "customValue"
-     *                                 }],
-     *                             nameOnDocument: {
-     *                                 firstName: "Baran",
-     *                                 middleName: "Realblood",
-     *                                 lastName: "Ozkan"
-     *                             }
-     *                         }, {
-     *                             documentType: "passport",
-     *                             documentNumber: "Z9431P",
-     *                             documentIssuedDate: 1639939034000,
-     *                             documentExpirationDate: 1839939034000,
-     *                             documentIssuedCountry: Flagright.CountryCode.De,
-     *                             tags: [{
-     *                                     key: "customerType",
-     *                                     value: "wallet"
-     *                                 }, {
-     *                                     key: "customKey",
-     *                                     value: "customValue"
-     *                                 }],
-     *                             nameOnDocument: {
-     *                                 firstName: "Baran",
-     *                                 middleName: "Realblood",
-     *                                 lastName: "Ozkan"
-     *                             }
-     *                         }],
-     *                     contactDetails: {
-     *                         emailIds: ["baran@flagright.com", "emailIds"],
-     *                         contactNumbers: ["+371 123132", "contactNumbers"],
-     *                         websites: ["flagright.com", "websites"],
-     *                         addresses: [{
-     *                                 addressLines: ["Klara-Franke Str 20"],
-     *                                 postcode: "10557",
-     *                                 city: "Berlin",
-     *                                 state: "Berlin",
-     *                                 country: "Germany",
-     *                                 tags: [{
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }, {
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }]
-     *                             }, {
-     *                                 addressLines: ["Klara-Franke Str 20"],
-     *                                 postcode: "10557",
-     *                                 city: "Berlin",
-     *                                 state: "Berlin",
-     *                                 country: "Germany",
-     *                                 tags: [{
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }, {
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }]
-     *                             }]
-     *                     },
-     *                     tags: [{
-     *                             key: "customKey",
-     *                             value: "customValue"
-     *                         }, {
-     *                             key: "customKey",
-     *                             value: "customValue"
-     *                         }]
-     *                 }],
-     *             directors: [{
-     *                     generalDetails: {
-     *                         name: {
-     *                             firstName: "Baran",
-     *                             middleName: "Realblood",
-     *                             lastName: "Ozkan"
-     *                         },
-     *                         dateOfBirth: "1991-01-01",
-     *                         countryOfResidence: Flagright.CountryCode.Us,
-     *                         countryOfNationality: Flagright.CountryCode.De
-     *                     },
-     *                     legalDocuments: [{
-     *                             documentType: "passport",
-     *                             documentNumber: "Z9431P",
-     *                             documentIssuedDate: 1639939034000,
-     *                             documentExpirationDate: 1839939034000,
-     *                             documentIssuedCountry: Flagright.CountryCode.De,
-     *                             tags: [{
-     *                                     key: "customerType",
-     *                                     value: "wallet"
-     *                                 }, {
-     *                                     key: "customKey",
-     *                                     value: "customValue"
-     *                                 }],
-     *                             nameOnDocument: {
-     *                                 firstName: "Baran",
-     *                                 middleName: "Realblood",
-     *                                 lastName: "Ozkan"
-     *                             }
-     *                         }, {
-     *                             documentType: "passport",
-     *                             documentNumber: "Z9431P",
-     *                             documentIssuedDate: 1639939034000,
-     *                             documentExpirationDate: 1839939034000,
-     *                             documentIssuedCountry: Flagright.CountryCode.De,
-     *                             tags: [{
-     *                                     key: "customerType",
-     *                                     value: "wallet"
-     *                                 }, {
-     *                                     key: "customKey",
-     *                                     value: "customValue"
-     *                                 }],
-     *                             nameOnDocument: {
-     *                                 firstName: "Baran",
-     *                                 middleName: "Realblood",
-     *                                 lastName: "Ozkan"
-     *                             }
-     *                         }],
-     *                     contactDetails: {
-     *                         emailIds: ["baran@flagright.com", "emailIds"],
-     *                         contactNumbers: ["+371 123132", "contactNumbers"],
-     *                         websites: ["flagright.com", "websites"],
-     *                         addresses: [{
-     *                                 addressLines: ["Klara-Franke Str 20"],
-     *                                 postcode: "10557",
-     *                                 city: "Berlin",
-     *                                 state: "Berlin",
-     *                                 country: "Germany",
-     *                                 tags: [{
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }, {
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }]
-     *                             }, {
-     *                                 addressLines: ["Klara-Franke Str 20"],
-     *                                 postcode: "10557",
-     *                                 city: "Berlin",
-     *                                 state: "Berlin",
-     *                                 country: "Germany",
-     *                                 tags: [{
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }, {
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }]
-     *                             }]
-     *                     },
-     *                     tags: [{
-     *                             key: "customKey",
-     *                             value: "customValue"
-     *                         }, {
-     *                             key: "customKey",
-     *                             value: "customValue"
-     *                         }]
-     *                 }, {
-     *                     generalDetails: {
-     *                         name: {
-     *                             firstName: "Baran",
-     *                             middleName: "Realblood",
-     *                             lastName: "Ozkan"
-     *                         },
-     *                         dateOfBirth: "1991-01-01",
-     *                         countryOfResidence: Flagright.CountryCode.Us,
-     *                         countryOfNationality: Flagright.CountryCode.De
-     *                     },
-     *                     legalDocuments: [{
-     *                             documentType: "passport",
-     *                             documentNumber: "Z9431P",
-     *                             documentIssuedDate: 1639939034000,
-     *                             documentExpirationDate: 1839939034000,
-     *                             documentIssuedCountry: Flagright.CountryCode.De,
-     *                             tags: [{
-     *                                     key: "customerType",
-     *                                     value: "wallet"
-     *                                 }, {
-     *                                     key: "customKey",
-     *                                     value: "customValue"
-     *                                 }],
-     *                             nameOnDocument: {
-     *                                 firstName: "Baran",
-     *                                 middleName: "Realblood",
-     *                                 lastName: "Ozkan"
-     *                             }
-     *                         }, {
-     *                             documentType: "passport",
-     *                             documentNumber: "Z9431P",
-     *                             documentIssuedDate: 1639939034000,
-     *                             documentExpirationDate: 1839939034000,
-     *                             documentIssuedCountry: Flagright.CountryCode.De,
-     *                             tags: [{
-     *                                     key: "customerType",
-     *                                     value: "wallet"
-     *                                 }, {
-     *                                     key: "customKey",
-     *                                     value: "customValue"
-     *                                 }],
-     *                             nameOnDocument: {
-     *                                 firstName: "Baran",
-     *                                 middleName: "Realblood",
-     *                                 lastName: "Ozkan"
-     *                             }
-     *                         }],
-     *                     contactDetails: {
-     *                         emailIds: ["baran@flagright.com", "emailIds"],
-     *                         contactNumbers: ["+371 123132", "contactNumbers"],
-     *                         websites: ["flagright.com", "websites"],
-     *                         addresses: [{
-     *                                 addressLines: ["Klara-Franke Str 20"],
-     *                                 postcode: "10557",
-     *                                 city: "Berlin",
-     *                                 state: "Berlin",
-     *                                 country: "Germany",
-     *                                 tags: [{
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }, {
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }]
-     *                             }, {
-     *                                 addressLines: ["Klara-Franke Str 20"],
-     *                                 postcode: "10557",
-     *                                 city: "Berlin",
-     *                                 state: "Berlin",
-     *                                 country: "Germany",
-     *                                 tags: [{
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }, {
-     *                                         key: "customKey",
-     *                                         value: "customValue"
-     *                                     }]
-     *                             }]
-     *                     },
-     *                     tags: [{
-     *                             key: "customKey",
-     *                             value: "customValue"
-     *                         }, {
-     *                             key: "customKey",
-     *                             value: "customValue"
-     *                         }]
-     *                 }],
-     *             transactionLimits: {
-     *                 maximumDailyTransactionLimit: {
-     *                     amountValue: 800,
-     *                     amountCurrency: Flagright.CurrencyCode.Gbp
-     *                 },
-     *                 maximumWeeklyTransactionLimit: {
-     *                     amountValue: 800,
-     *                     amountCurrency: Flagright.CurrencyCode.Gbp
-     *                 },
-     *                 maximumMonthlyTransactionLimit: {
-     *                     amountValue: 800,
-     *                     amountCurrency: Flagright.CurrencyCode.Gbp
-     *                 },
-     *                 maximumQuarterlyTransactionLimit: {
-     *                     amountValue: 800,
-     *                     amountCurrency: Flagright.CurrencyCode.Gbp
-     *                 },
-     *                 maximumTransactionLimit: {
-     *                     amountValue: 800,
-     *                     amountCurrency: Flagright.CurrencyCode.Gbp
-     *                 },
-     *                 maximumYearlyTransactionLimit: {
-     *                     amountValue: 800,
-     *                     amountCurrency: Flagright.CurrencyCode.Gbp
-     *                 }
-     *             },
-     *             tags: [{
-     *                     key: "customKey",
-     *                     value: "customValue"
-     *                 }, {
-     *                     key: "customKey",
-     *                     value: "customValue"
-     *                 }]
+     *                 tags: [{
+     *                         key: "customKey",
+     *                         value: "customValue"
+     *                     }, {
+     *                         key: "customKey",
+     *                         value: "customValue"
+     *                     }]
+     *             }
      *         }
      *     })
      */
     public async create(
-        request: Flagright.BusinessUserEvent,
+        request: Flagright.BusinessUserEventsCreateRequest,
         requestOptions?: BusinessUserEvents.RequestOptions
     ): Promise<Flagright.BusinessWithRulesResult> {
-        const { allowUserTypeConversion, ..._body } = request;
+        const { allowUserTypeConversion, body: _body } = request;
         const _queryParams: Record<string, string | string[]> = {};
         if (allowUserTypeConversion != null) {
             _queryParams["allowUserTypeConversion"] = allowUserTypeConversion;
@@ -522,7 +524,7 @@ export class BusinessUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.4.14",
+                "X-Fern-SDK-Version": "1.5.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -545,6 +547,76 @@ export class BusinessUserEvents {
             switch (_response.error.statusCode) {
                 case 400:
                     throw new Flagright.BadRequestError(_response.error.body);
+                case 401:
+                    throw new Flagright.UnauthorizedError(_response.error.body);
+                case 429:
+                    throw new Flagright.TooManyRequestsError(_response.error.body);
+                default:
+                    throw new errors.FlagrightError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                    });
+            }
+        }
+
+        switch (_response.error.reason) {
+            case "non-json":
+                throw new errors.FlagrightError({
+                    statusCode: _response.error.statusCode,
+                    body: _response.error.rawBody,
+                });
+            case "timeout":
+                throw new errors.FlagrightTimeoutError();
+            case "unknown":
+                throw new errors.FlagrightError({
+                    message: _response.error.errorMessage,
+                });
+        }
+    }
+
+    /**
+     * ### GET a Business User Event
+     *
+     * You can retrieve any business user event you created using the [POST Business User Events](/api-reference/api-reference/business-user-events/create) call.
+     * @throws {@link Flagright.UnauthorizedError}
+     * @throws {@link Flagright.TooManyRequestsError}
+     *
+     * @example
+     *     await flagright.businessUserEvents.get("eventId")
+     */
+    public async get(
+        eventId: string,
+        requestOptions?: BusinessUserEvents.RequestOptions
+    ): Promise<Flagright.BusinessUserEvent> {
+        const _response = await core.fetcher({
+            url: urlJoin(
+                (await core.Supplier.get(this._options.environment)) ?? environments.FlagrightEnvironment.Default,
+                `events/business/user/${eventId}`
+            ),
+            method: "GET",
+            headers: {
+                "x-api-key": await core.Supplier.get(this._options.apiKey),
+                "X-Fern-Language": "JavaScript",
+                "X-Fern-SDK-Name": "flagright",
+                "X-Fern-SDK-Version": "1.5.0",
+                "X-Fern-Runtime": core.RUNTIME.type,
+                "X-Fern-Runtime-Version": core.RUNTIME.version,
+            },
+            contentType: "application/json",
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
+        });
+        if (_response.ok) {
+            return await serializers.BusinessUserEvent.parseOrThrow(_response.body, {
+                unrecognizedObjectKeys: "passthrough",
+                allowUnrecognizedUnionMembers: true,
+                allowUnrecognizedEnumValues: true,
+                breadcrumbsPrefix: ["response"],
+            });
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
                 case 401:
                     throw new Flagright.UnauthorizedError(_response.error.body);
                 case 429:

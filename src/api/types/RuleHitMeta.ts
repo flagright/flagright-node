@@ -11,4 +11,5 @@ export interface RuleHitMeta {
     hitDirections?: Flagright.RuleHitDirection[];
     falsePositiveDetails?: Flagright.FalsePositiveDetails;
     sanctionsDetails?: Flagright.SanctionsDetails[];
+    isOngoingScreeningHit?: boolean;
 }

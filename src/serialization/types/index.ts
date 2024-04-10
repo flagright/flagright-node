@@ -56,6 +56,8 @@ export * from "./RuleHitDirection";
 export * from "./RuleNature";
 export * from "./RuleLabels";
 export * from "./TransactionEvent";
+export * from "./ConsumerUserEvent";
+export * from "./BusinessUserEvent";
 export * from "./CaseManagementEventCaseStatus";
 export * from "./CaseManagementEventCaseStatusReason";
 export * from "./CaseManagementEvent";

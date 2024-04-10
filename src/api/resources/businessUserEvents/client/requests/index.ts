@@ -1,1 +1,1 @@
-export { BusinessUserEvent } from "./BusinessUserEvent";
+export { BusinessUserEventsCreateRequest } from "./BusinessUserEventsCreateRequest";

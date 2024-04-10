@@ -1,1 +1,1 @@
-export { ConsumerUserEvent } from "./ConsumerUserEvent";
+export { ConsumerUserEventsCreateRequest } from "./ConsumerUserEventsCreateRequest";

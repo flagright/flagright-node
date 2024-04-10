@@ -126,7 +126,7 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.4.14",
+                "X-Fern-SDK-Version": "1.5.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -180,7 +180,7 @@ export class TransactionEvents {
      *
      * `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](/guides/overview/entities#transaction-event).
      *
-     * You can retrieve any transaction event you create using the [POST Transaction Events](/api-reference/api-reference/transaction-events/create) call.
+     * You can retrieve any transaction event you created using the [POST Transaction Events](/api-reference/api-reference/transaction-events/create) call.
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
@@ -201,7 +201,7 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.4.14",
+                "X-Fern-SDK-Version": "1.5.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

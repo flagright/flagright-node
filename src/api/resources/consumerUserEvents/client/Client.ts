@@ -50,129 +50,131 @@ export class ConsumerUserEvents {
      *
      * @example
      *     await flagright.consumerUserEvents.create({
-     *         timestamp: 1.1,
-     *         userId: "userId",
-     *         updatedConsumerUserAttributes: {
-     *             userDetails: {
-     *                 name: {
-     *                     firstName: "Baran",
-     *                     middleName: "Realblood",
-     *                     lastName: "Ozkan"
+     *         body: {
+     *             timestamp: 1.1,
+     *             userId: "userId",
+     *             updatedConsumerUserAttributes: {
+     *                 userDetails: {
+     *                     name: {
+     *                         firstName: "Baran",
+     *                         middleName: "Realblood",
+     *                         lastName: "Ozkan"
+     *                     },
+     *                     dateOfBirth: "1991-01-01",
+     *                     countryOfResidence: Flagright.CountryCode.Us,
+     *                     countryOfNationality: Flagright.CountryCode.De
      *                 },
-     *                 dateOfBirth: "1991-01-01",
-     *                 countryOfResidence: Flagright.CountryCode.Us,
-     *                 countryOfNationality: Flagright.CountryCode.De
-     *             },
-     *             legalDocuments: [{
-     *                     documentType: "passport",
-     *                     documentNumber: "Z9431P",
-     *                     documentIssuedDate: 1639939034000,
-     *                     documentExpirationDate: 1839939034000,
-     *                     documentIssuedCountry: Flagright.CountryCode.De,
-     *                     tags: [{
-     *                             key: "customerType",
-     *                             value: "wallet"
-     *                         }, {
-     *                             key: "customKey",
-     *                             value: "customValue"
-     *                         }],
-     *                     nameOnDocument: {
-     *                         firstName: "Baran",
-     *                         middleName: "Realblood",
-     *                         lastName: "Ozkan"
-     *                     }
-     *                 }, {
-     *                     documentType: "passport",
-     *                     documentNumber: "Z9431P",
-     *                     documentIssuedDate: 1639939034000,
-     *                     documentExpirationDate: 1839939034000,
-     *                     documentIssuedCountry: Flagright.CountryCode.De,
-     *                     tags: [{
-     *                             key: "customerType",
-     *                             value: "wallet"
-     *                         }, {
-     *                             key: "customKey",
-     *                             value: "customValue"
-     *                         }],
-     *                     nameOnDocument: {
-     *                         firstName: "Baran",
-     *                         middleName: "Realblood",
-     *                         lastName: "Ozkan"
-     *                     }
-     *                 }],
-     *             contactDetails: {
-     *                 emailIds: ["baran@flagright.com", "emailIds"],
-     *                 contactNumbers: ["+37112345432", "contactNumbers"],
-     *                 websites: ["flagright.com", "websites"],
-     *                 addresses: [{
-     *                         addressLines: ["Klara-Franke Str 20"],
-     *                         postcode: "10557",
-     *                         city: "Berlin",
-     *                         state: "Berlin",
-     *                         country: "Germany",
+     *                 legalDocuments: [{
+     *                         documentType: "passport",
+     *                         documentNumber: "Z9431P",
+     *                         documentIssuedDate: 1639939034000,
+     *                         documentExpirationDate: 1839939034000,
+     *                         documentIssuedCountry: Flagright.CountryCode.De,
      *                         tags: [{
-     *                                 key: "customKey",
-     *                                 value: "customValue"
+     *                                 key: "customerType",
+     *                                 value: "wallet"
      *                             }, {
      *                                 key: "customKey",
      *                                 value: "customValue"
-     *                             }]
+     *                             }],
+     *                         nameOnDocument: {
+     *                             firstName: "Baran",
+     *                             middleName: "Realblood",
+     *                             lastName: "Ozkan"
+     *                         }
      *                     }, {
-     *                         addressLines: ["Klara-Franke Str 20"],
-     *                         postcode: "10557",
-     *                         city: "Berlin",
-     *                         state: "Berlin",
-     *                         country: "Germany",
+     *                         documentType: "passport",
+     *                         documentNumber: "Z9431P",
+     *                         documentIssuedDate: 1639939034000,
+     *                         documentExpirationDate: 1839939034000,
+     *                         documentIssuedCountry: Flagright.CountryCode.De,
      *                         tags: [{
-     *                                 key: "customKey",
-     *                                 value: "customValue"
+     *                                 key: "customerType",
+     *                                 value: "wallet"
      *                             }, {
      *                                 key: "customKey",
      *                                 value: "customValue"
-     *                             }]
+     *                             }],
+     *                         nameOnDocument: {
+     *                             firstName: "Baran",
+     *                             middleName: "Realblood",
+     *                             lastName: "Ozkan"
+     *                         }
+     *                     }],
+     *                 contactDetails: {
+     *                     emailIds: ["baran@flagright.com", "emailIds"],
+     *                     contactNumbers: ["+37112345432", "contactNumbers"],
+     *                     websites: ["flagright.com", "websites"],
+     *                     addresses: [{
+     *                             addressLines: ["Klara-Franke Str 20"],
+     *                             postcode: "10557",
+     *                             city: "Berlin",
+     *                             state: "Berlin",
+     *                             country: "Germany",
+     *                             tags: [{
+     *                                     key: "customKey",
+     *                                     value: "customValue"
+     *                                 }, {
+     *                                     key: "customKey",
+     *                                     value: "customValue"
+     *                                 }]
+     *                         }, {
+     *                             addressLines: ["Klara-Franke Str 20"],
+     *                             postcode: "10557",
+     *                             city: "Berlin",
+     *                             state: "Berlin",
+     *                             country: "Germany",
+     *                             tags: [{
+     *                                     key: "customKey",
+     *                                     value: "customValue"
+     *                                 }, {
+     *                                     key: "customKey",
+     *                                     value: "customValue"
+     *                                 }]
+     *                         }]
+     *                 },
+     *                 transactionLimits: {
+     *                     maximumDailyTransactionLimit: {
+     *                         amountValue: 800,
+     *                         amountCurrency: Flagright.CurrencyCode.Gbp
+     *                     },
+     *                     maximumWeeklyTransactionLimit: {
+     *                         amountValue: 800,
+     *                         amountCurrency: Flagright.CurrencyCode.Gbp
+     *                     },
+     *                     maximumMonthlyTransactionLimit: {
+     *                         amountValue: 800,
+     *                         amountCurrency: Flagright.CurrencyCode.Gbp
+     *                     },
+     *                     maximumQuarterlyTransactionLimit: {
+     *                         amountValue: 800,
+     *                         amountCurrency: Flagright.CurrencyCode.Gbp
+     *                     },
+     *                     maximumTransactionLimit: {
+     *                         amountValue: 800,
+     *                         amountCurrency: Flagright.CurrencyCode.Gbp
+     *                     },
+     *                     maximumYearlyTransactionLimit: {
+     *                         amountValue: 800,
+     *                         amountCurrency: Flagright.CurrencyCode.Gbp
+     *                     }
+     *                 },
+     *                 tags: [{
+     *                         key: "customKey",
+     *                         value: "customValue"
+     *                     }, {
+     *                         key: "customKey",
+     *                         value: "customValue"
      *                     }]
-     *             },
-     *             transactionLimits: {
-     *                 maximumDailyTransactionLimit: {
-     *                     amountValue: 800,
-     *                     amountCurrency: Flagright.CurrencyCode.Gbp
-     *                 },
-     *                 maximumWeeklyTransactionLimit: {
-     *                     amountValue: 800,
-     *                     amountCurrency: Flagright.CurrencyCode.Gbp
-     *                 },
-     *                 maximumMonthlyTransactionLimit: {
-     *                     amountValue: 800,
-     *                     amountCurrency: Flagright.CurrencyCode.Gbp
-     *                 },
-     *                 maximumQuarterlyTransactionLimit: {
-     *                     amountValue: 800,
-     *                     amountCurrency: Flagright.CurrencyCode.Gbp
-     *                 },
-     *                 maximumTransactionLimit: {
-     *                     amountValue: 800,
-     *                     amountCurrency: Flagright.CurrencyCode.Gbp
-     *                 },
-     *                 maximumYearlyTransactionLimit: {
-     *                     amountValue: 800,
-     *                     amountCurrency: Flagright.CurrencyCode.Gbp
-     *                 }
-     *             },
-     *             tags: [{
-     *                     key: "customKey",
-     *                     value: "customValue"
-     *                 }, {
-     *                     key: "customKey",
-     *                     value: "customValue"
-     *                 }]
+     *             }
      *         }
      *     })
      */
     public async create(
-        request: Flagright.ConsumerUserEvent,
+        request: Flagright.ConsumerUserEventsCreateRequest,
         requestOptions?: ConsumerUserEvents.RequestOptions
     ): Promise<Flagright.UserWithRulesResult> {
-        const { allowUserTypeConversion, ..._body } = request;
+        const { allowUserTypeConversion, body: _body } = request;
         const _queryParams: Record<string, string | string[]> = {};
         if (allowUserTypeConversion != null) {
             _queryParams["allowUserTypeConversion"] = allowUserTypeConversion;
@@ -188,7 +190,7 @@ export class ConsumerUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.4.14",
+                "X-Fern-SDK-Version": "1.5.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -211,6 +213,76 @@ export class ConsumerUserEvents {
             switch (_response.error.statusCode) {
                 case 400:
                     throw new Flagright.BadRequestError(_response.error.body);
+                case 401:
+                    throw new Flagright.UnauthorizedError(_response.error.body);
+                case 429:
+                    throw new Flagright.TooManyRequestsError(_response.error.body);
+                default:
+                    throw new errors.FlagrightError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                    });
+            }
+        }
+
+        switch (_response.error.reason) {
+            case "non-json":
+                throw new errors.FlagrightError({
+                    statusCode: _response.error.statusCode,
+                    body: _response.error.rawBody,
+                });
+            case "timeout":
+                throw new errors.FlagrightTimeoutError();
+            case "unknown":
+                throw new errors.FlagrightError({
+                    message: _response.error.errorMessage,
+                });
+        }
+    }
+
+    /**
+     * ### GET a Consumer User Event
+     *
+     * You can retrieve any consumer user event you created using the [POST Consumer User Events](/api-reference/api-reference/consumer-user-events/create) call.
+     * @throws {@link Flagright.UnauthorizedError}
+     * @throws {@link Flagright.TooManyRequestsError}
+     *
+     * @example
+     *     await flagright.consumerUserEvents.get("eventId")
+     */
+    public async get(
+        eventId: string,
+        requestOptions?: ConsumerUserEvents.RequestOptions
+    ): Promise<Flagright.ConsumerUserEvent> {
+        const _response = await core.fetcher({
+            url: urlJoin(
+                (await core.Supplier.get(this._options.environment)) ?? environments.FlagrightEnvironment.Default,
+                `events/consumer/user/${eventId}`
+            ),
+            method: "GET",
+            headers: {
+                "x-api-key": await core.Supplier.get(this._options.apiKey),
+                "X-Fern-Language": "JavaScript",
+                "X-Fern-SDK-Name": "flagright",
+                "X-Fern-SDK-Version": "1.5.0",
+                "X-Fern-Runtime": core.RUNTIME.type,
+                "X-Fern-Runtime-Version": core.RUNTIME.version,
+            },
+            contentType: "application/json",
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
+        });
+        if (_response.ok) {
+            return await serializers.ConsumerUserEvent.parseOrThrow(_response.body, {
+                unrecognizedObjectKeys: "passthrough",
+                allowUnrecognizedUnionMembers: true,
+                allowUnrecognizedEnumValues: true,
+                breadcrumbsPrefix: ["response"],
+            });
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
                 case 401:
                     throw new Flagright.UnauthorizedError(_response.error.body);
                 case 429:
