@@ -42,6 +42,7 @@ export * from "./BusinessUsersResponse";
 export * from "./ConsumerUsersResponse";
 export * from "./CardDetails";
 export * from "./IbanDetails";
+export * from "./WalletDetailsNetwork";
 export * from "./WalletDetails";
 export * from "./AchDetails";
 export * from "./SwiftDetails";

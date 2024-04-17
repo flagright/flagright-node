@@ -16,6 +16,7 @@ export const WalletDetails: core.serialization.ObjectSchema<serializers.WalletDe
         tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
         walletPhoneNumber: core.serialization.string().optional(),
         walletBalance: core.serialization.lazyObject(async () => (await import("..")).Amount).optional(),
+        network: core.serialization.lazy(async () => (await import("..")).WalletDetailsNetwork).optional(),
     });
 
 export declare namespace WalletDetails {
@@ -28,5 +29,6 @@ export declare namespace WalletDetails {
         tags?: serializers.Tag.Raw[] | null;
         walletPhoneNumber?: string | null;
         walletBalance?: serializers.Amount.Raw | null;
+        network?: serializers.WalletDetailsNetwork.Raw | null;
     }
 }
