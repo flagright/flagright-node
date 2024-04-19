@@ -6,37 +6,35 @@ import * as serializers from "..";
 import * as Flagright from "../../api";
 import * as core from "../../core";
 
-export const WalletDetailsNetwork: core.serialization.Schema<
-    serializers.WalletDetailsNetwork.Raw,
-    Flagright.WalletDetailsNetwork
-> = core.serialization.enum_([
-    "BITCOIN",
-    "ETHEREUM",
-    "POLYGON",
-    "BNB_SMART_CHAIN",
-    "BNB_BEACON_CHAIN",
-    "ARBITRUM_L2",
-    "SOLANA",
-    "AVALANCHE_C_CHAIN",
-    "LITECOIN",
-    "BITCOIN_CASH",
-    "RIPPLE",
-    "STELLAR",
-    "EOS_PUBLIC",
-    "TRON",
-    "CARDANO",
-    "POLKADOT",
-    "NEAR_PROTOCOL",
-    "COSMOS",
-    "DOGECOIN",
-    "OPTIMISM_MAINNET",
-    "FANTOM",
-    "HEDERA",
-    "ALGORAND",
-    "CELESTIA",
-]);
+export const WalletNetwork: core.serialization.Schema<serializers.WalletNetwork.Raw, Flagright.WalletNetwork> =
+    core.serialization.enum_([
+        "BITCOIN",
+        "ETHEREUM",
+        "POLYGON",
+        "BNB_SMART_CHAIN",
+        "BNB_BEACON_CHAIN",
+        "ARBITRUM_L2",
+        "SOLANA",
+        "AVALANCHE_C_CHAIN",
+        "LITECOIN",
+        "BITCOIN_CASH",
+        "RIPPLE",
+        "STELLAR",
+        "EOS_PUBLIC",
+        "TRON",
+        "CARDANO",
+        "POLKADOT",
+        "NEAR_PROTOCOL",
+        "COSMOS",
+        "DOGECOIN",
+        "OPTIMISM_MAINNET",
+        "FANTOM",
+        "HEDERA",
+        "ALGORAND",
+        "CELESTIA",
+    ]);
 
-export declare namespace WalletDetailsNetwork {
+export declare namespace WalletNetwork {
     type Raw =
         | "BITCOIN"
         | "ETHEREUM"

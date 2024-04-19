@@ -5,7 +5,7 @@
 /**
  * Network of the wallet
  */
-export type WalletDetailsNetwork =
+export type WalletNetwork =
     | "BITCOIN"
     | "ETHEREUM"
     | "POLYGON"
@@ -31,7 +31,7 @@ export type WalletDetailsNetwork =
     | "ALGORAND"
     | "CELESTIA";
 
-export const WalletDetailsNetwork = {
+export const WalletNetwork = {
     Bitcoin: "BITCOIN",
     Ethereum: "ETHEREUM",
     Polygon: "POLYGON",

@@ -22,6 +22,5 @@ export interface WalletDetails {
     /** Phone number associated with the wallet, if any */
     walletPhoneNumber?: string;
     walletBalance?: Flagright.Amount;
-    /** Network of the wallet */
-    network?: Flagright.WalletDetailsNetwork;
+    network?: Flagright.WalletNetwork;
 }
