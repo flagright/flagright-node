@@ -49,9 +49,6 @@ import * as Flagright from "../../../..";
  *             tags: [{
  *                     key: "customKey",
  *                     value: "customValue"
- *                 }, {
- *                     key: "customKey",
- *                     value: "customValue"
  *                 }],
  *             type: Flagright.TransactionType.Deposit,
  *             transactionId: "7b80a539eea6e78acbd6d458e5971482",

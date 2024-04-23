@@ -56,53 +56,6 @@ export class TransactionEvents {
      *         transactionId: "443dea26147a406b957d9ee3a1247b11",
      *         eventId: "aaeeb166147a406b957dd9147a406b957",
      *         eventDescription: "Transaction created",
-     *         updatedTransactionAttributes: {
-     *             originAmountDetails: {
-     *                 transactionAmount: 800,
-     *                 transactionCurrency: Flagright.CurrencyCode.Eur,
-     *                 country: Flagright.CountryCode.De
-     *             },
-     *             destinationAmountDetails: {
-     *                 transactionAmount: 68351.34,
-     *                 transactionCurrency: Flagright.CurrencyCode.Inr,
-     *                 country: Flagright.CountryCode.In
-     *             },
-     *             promotionCodeUsed: true,
-     *             reference: "loan repayment",
-     *             originDeviceData: {
-     *                 batteryLevel: 95,
-     *                 deviceLatitude: 13.0033,
-     *                 deviceLongitude: 76.1004,
-     *                 ipAddress: "10.23.191.2",
-     *                 deviceIdentifier: "3c49f915d04485e34caba",
-     *                 vpnUsed: false,
-     *                 operatingSystem: "Android 11.2",
-     *                 deviceMaker: "ASUS",
-     *                 deviceModel: "Zenphone M2 Pro Max",
-     *                 deviceYear: "2018",
-     *                 appVersion: "1.1.0"
-     *             },
-     *             destinationDeviceData: {
-     *                 batteryLevel: 95,
-     *                 deviceLatitude: 13.0033,
-     *                 deviceLongitude: 76.1004,
-     *                 ipAddress: "10.23.191.2",
-     *                 deviceIdentifier: "3c49f915d04485e34caba",
-     *                 vpnUsed: false,
-     *                 operatingSystem: "Android 11.2",
-     *                 deviceMaker: "ASUS",
-     *                 deviceModel: "Zenphone M2 Pro Max",
-     *                 deviceYear: "2018",
-     *                 appVersion: "1.1.0"
-     *             },
-     *             tags: [{
-     *                     key: "customKey",
-     *                     value: "customValue"
-     *                 }, {
-     *                     key: "customKey",
-     *                     value: "customValue"
-     *                 }]
-     *         },
      *         metaData: {
      *             batteryLevel: 76.3,
      *             deviceLatitude: 13.009711,
@@ -126,7 +79,7 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.5.2",
+                "X-Fern-SDK-Version": "1.5.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -201,7 +154,7 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.5.2",
+                "X-Fern-SDK-Version": "1.5.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

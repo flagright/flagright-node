@@ -94,9 +94,6 @@ export class Transactions {
      *             tags: [{
      *                     key: "customKey",
      *                     value: "customValue"
-     *                 }, {
-     *                     key: "customKey",
-     *                     value: "customValue"
      *                 }],
      *             type: Flagright.TransactionType.Deposit,
      *             transactionId: "7b80a539eea6e78acbd6d458e5971482",
@@ -130,7 +127,7 @@ export class Transactions {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.5.2",
+                "X-Fern-SDK-Version": "1.5.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -208,7 +205,7 @@ export class Transactions {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.5.2",
+                "X-Fern-SDK-Version": "1.5.3",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
