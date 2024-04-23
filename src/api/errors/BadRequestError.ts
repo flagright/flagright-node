@@ -3,9 +3,10 @@
  */
 
 import * as errors from "../../errors";
+import * as Flagright from "..";
 
 export class BadRequestError extends errors.FlagrightError {
-    constructor(body?: unknown) {
+    constructor(body: Flagright.ApiErrorResponse) {
         super({
             message: "BadRequestError",
             statusCode: 400,

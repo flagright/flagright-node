@@ -3,9 +3,10 @@
  */
 
 import * as errors from "../../errors";
+import * as Flagright from "..";
 
 export class TooManyRequestsError extends errors.FlagrightError {
-    constructor(body?: unknown) {
+    constructor(body: Flagright.ApiErrorResponse) {
         super({
             message: "TooManyRequestsError",
             statusCode: 429,

@@ -102,7 +102,7 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.5.3",
+                "X-Fern-SDK-Version": "1.5.4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -123,11 +123,32 @@ export class ConsumerUsers {
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
-                    throw new Flagright.BadRequestError(_response.error.body);
+                    throw new Flagright.BadRequestError(
+                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
                 case 401:
-                    throw new Flagright.UnauthorizedError(_response.error.body);
+                    throw new Flagright.UnauthorizedError(
+                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
                 case 429:
-                    throw new Flagright.TooManyRequestsError(_response.error.body);
+                    throw new Flagright.TooManyRequestsError(
+                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,
@@ -157,6 +178,7 @@ export class ConsumerUsers {
      * `/consumer/user` endpoint allows you to operate on the Consumer User entity.
      *
      * Calling `GET /consumer/user/{userId}` will return the entire user payload and rule execution results for the user with the corresponding `userId`
+     * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
@@ -177,7 +199,7 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.5.3",
+                "X-Fern-SDK-Version": "1.5.4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -196,10 +218,33 @@ export class ConsumerUsers {
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
+                case 400:
+                    throw new Flagright.BadRequestError(
+                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
                 case 401:
-                    throw new Flagright.UnauthorizedError(_response.error.body);
+                    throw new Flagright.UnauthorizedError(
+                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
                 case 429:
-                    throw new Flagright.TooManyRequestsError(_response.error.body);
+                    throw new Flagright.TooManyRequestsError(
+                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,

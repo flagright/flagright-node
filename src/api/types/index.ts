@@ -123,3 +123,4 @@ export * from "./CardFunding";
 export * from "./CardType";
 export * from "./MpesaTransactionType";
 export * from "./CheckDeliveryStatus";
+export * from "./ApiErrorResponse";

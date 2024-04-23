@@ -47,7 +47,6 @@ export class Transactions {
      * - `destinationPaymentDetails` - Payment details (if any) used at the destination (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
-     * @throws {@link Flagright.ForbiddenError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
@@ -127,7 +126,7 @@ export class Transactions {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.5.3",
+                "X-Fern-SDK-Version": "1.5.4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -149,13 +148,32 @@ export class Transactions {
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
-                    throw new Flagright.BadRequestError(_response.error.body);
+                    throw new Flagright.BadRequestError(
+                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
                 case 401:
-                    throw new Flagright.UnauthorizedError(_response.error.body);
-                case 403:
-                    throw new Flagright.ForbiddenError(_response.error.body);
+                    throw new Flagright.UnauthorizedError(
+                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
                 case 429:
-                    throw new Flagright.TooManyRequestsError(_response.error.body);
+                    throw new Flagright.TooManyRequestsError(
+                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,
@@ -185,6 +203,7 @@ export class Transactions {
      * `/transactions` endpoint allows you to operate on the [Transaction entity](/guides/overview/entities#transaction).
      *
      * Calling `GET /transactions/{transactionId}` will return the entire transaction payload and rule execution results for the transaction with the corresponding `transactionId`
+     * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
@@ -205,7 +224,7 @@ export class Transactions {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.5.3",
+                "X-Fern-SDK-Version": "1.5.4",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -224,10 +243,33 @@ export class Transactions {
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
+                case 400:
+                    throw new Flagright.BadRequestError(
+                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
                 case 401:
-                    throw new Flagright.UnauthorizedError(_response.error.body);
+                    throw new Flagright.UnauthorizedError(
+                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
                 case 429:
-                    throw new Flagright.TooManyRequestsError(_response.error.body);
+                    throw new Flagright.TooManyRequestsError(
+                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,

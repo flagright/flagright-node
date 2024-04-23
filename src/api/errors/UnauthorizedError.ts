@@ -3,9 +3,10 @@
  */
 
 import * as errors from "../../errors";
+import * as Flagright from "..";
 
 export class UnauthorizedError extends errors.FlagrightError {
-    constructor(body?: unknown) {
+    constructor(body: Flagright.ApiErrorResponse) {
         super({
             message: "UnauthorizedError",
             statusCode: 401,
