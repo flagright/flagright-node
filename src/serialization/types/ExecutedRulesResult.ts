@@ -19,6 +19,7 @@ export const ExecutedRulesResult: core.serialization.ObjectSchema<
     ruleHitMeta: core.serialization.lazyObject(async () => (await import("..")).RuleHitMeta).optional(),
     labels: core.serialization.list(core.serialization.lazy(async () => (await import("..")).RuleLabels)).optional(),
     nature: core.serialization.lazy(async () => (await import("..")).RuleNature).optional(),
+    isShadow: core.serialization.boolean().optional(),
 });
 
 export declare namespace ExecutedRulesResult {
@@ -32,5 +33,6 @@ export declare namespace ExecutedRulesResult {
         ruleHitMeta?: serializers.RuleHitMeta.Raw | null;
         labels?: serializers.RuleLabels.Raw[] | null;
         nature?: serializers.RuleNature.Raw | null;
+        isShadow?: boolean | null;
     }
 }

@@ -20,4 +20,5 @@ export interface ExecutedRulesResult {
     ruleHitMeta?: Flagright.RuleHitMeta;
     labels?: Flagright.RuleLabels[];
     nature?: Flagright.RuleNature;
+    isShadow?: boolean;
 }
