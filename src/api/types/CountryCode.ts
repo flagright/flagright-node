@@ -249,6 +249,7 @@ export type CountryCode =
     | "WF"
     | "EH"
     | "YE"
+    | "XK"
     | "ZM"
     | "ZW"
     | "AX"
@@ -501,6 +502,7 @@ export const CountryCode = {
     Wf: "WF",
     Eh: "EH",
     Ye: "YE",
+    Xk: "XK",
     Zm: "ZM",
     Zw: "ZW",
     Ax: "AX",

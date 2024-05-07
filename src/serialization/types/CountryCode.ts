@@ -254,6 +254,7 @@ export const CountryCode: core.serialization.Schema<serializers.CountryCode.Raw,
         "WF",
         "EH",
         "YE",
+        "XK",
         "ZM",
         "ZW",
         "AX",
@@ -508,6 +509,7 @@ export declare namespace CountryCode {
         | "WF"
         | "EH"
         | "YE"
+        | "XK"
         | "ZM"
         | "ZW"
         | "AX"
