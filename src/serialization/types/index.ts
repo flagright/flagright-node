@@ -18,6 +18,7 @@ export * from "./TransactionMonitoringResult";
 export * from "./TransactionEventMonitoringResult";
 export * from "./RulesResults";
 export * from "./TransactionRiskScoringResult";
+export * from "./ExecutedRuleVars";
 export * from "./ExecutedRulesResult";
 export * from "./HitRulesDetails";
 export * from "./FailedRulesResult";

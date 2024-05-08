@@ -18,6 +18,7 @@ export interface ExecutedRulesResult {
     ruleAction: Flagright.RuleAction;
     ruleHit: boolean;
     ruleHitMeta?: Flagright.RuleHitMeta;
+    vars?: Flagright.ExecutedRuleVars[];
     labels?: Flagright.RuleLabels[];
     nature?: Flagright.RuleNature;
     isShadow?: boolean;
