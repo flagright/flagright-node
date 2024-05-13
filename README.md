@@ -14,11 +14,11 @@ API documentation is available at <https://docs.flagright.com>.
 ```typescript
 import { FlagrightClient } from 'flagright';
 
-const client = new FlagrightClient({ environment: 'https://sandbox.flagright.com', apiKey: 'YOUR_API_KEY', })
+const client = new FlagrightClient({ environment: 'https://sandbox.api.flagright.com', apiKey: 'YOUR_API_KEY', })
 const response = await client.transactions.verify({
   body: {
     transactionId: 'my-transaction-id',
-    type_: 'DEPOSIT',
+    type: 'DEPOSIT',
     timestamp: 1692624734000,
   },
 })
