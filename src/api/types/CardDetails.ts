@@ -27,6 +27,8 @@ export interface CardDetails {
     paymentChannel?: string;
     cardType?: Flagright.CardType;
     merchantDetails?: Flagright.CardMerchantDetails;
+    /** Risk score of the card from your network provider */
+    networkProviderRiskScore?: number;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
 }
