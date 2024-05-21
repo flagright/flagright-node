@@ -8,5 +8,7 @@ export * as transactionEvents from "./transactionEvents";
 export * as consumerUserEvents from "./consumerUserEvents";
 export * as businessUserEvents from "./businessUserEvents";
 export * from "./transactions/client/requests";
+export * from "./consumerUsers/client/requests";
+export * from "./businessUsers/client/requests";
 export * from "./consumerUserEvents/client/requests";
 export * from "./businessUserEvents/client/requests";

@@ -9,22 +9,56 @@ import * as core from "../../core";
 export const BusinessWithRulesResult: core.serialization.ObjectSchema<
     serializers.BusinessWithRulesResult.Raw,
     Flagright.BusinessWithRulesResult
-> = core.serialization
-    .object({
-        executedRules: core.serialization
-            .list(core.serialization.lazyObject(async () => (await import("..")).ExecutedRulesResult))
-            .optional(),
-        hitRules: core.serialization
-            .list(core.serialization.lazyObject(async () => (await import("..")).HitRulesDetails))
-            .optional(),
-        riskScoreDetails: core.serialization
-            .lazyObject(async () => (await import("..")).UserRiskScoreDetails)
-            .optional(),
-    })
-    .extend(core.serialization.lazyObject(async () => (await import("..")).Business));
+> = core.serialization.object({
+    userId: core.serialization.string(),
+    createdTimestamp: core.serialization.number(),
+    legalEntity: core.serialization.lazyObject(async () => (await import("..")).LegalEntity),
+    userStateDetails: core.serialization.lazyObject(async () => (await import("..")).UserStateDetails).optional(),
+    kycStatusDetails: core.serialization.lazyObject(async () => (await import("..")).KycStatusDetails).optional(),
+    shareHolders: core.serialization
+        .list(core.serialization.lazyObject(async () => (await import("..")).Person))
+        .optional(),
+    directors: core.serialization
+        .list(core.serialization.lazyObject(async () => (await import("..")).Person))
+        .optional(),
+    transactionLimits: core.serialization.lazyObject(async () => (await import("..")).TransactionLimits).optional(),
+    riskLevel: core.serialization.lazy(async () => (await import("..")).RiskLevel).optional(),
+    allowedPaymentMethods: core.serialization
+        .list(core.serialization.lazy(async () => (await import("..")).PaymentMethod))
+        .optional(),
+    linkedEntities: core.serialization.lazyObject(async () => (await import("..")).BusinessEntityLink).optional(),
+    acquisitionChannel: core.serialization.lazy(async () => (await import("..")).AcquisitionChannel).optional(),
+    savedPaymentDetails: core.serialization
+        .list(core.serialization.lazy(async () => (await import("..")).BusinessWithRulesResultSavedPaymentDetailsItem))
+        .optional(),
+    mccDetails: core.serialization.lazyObject(async () => (await import("..")).MccDetails).optional(),
+    tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
+    executedRules: core.serialization
+        .list(core.serialization.lazyObject(async () => (await import("..")).ExecutedRulesResult))
+        .optional(),
+    hitRules: core.serialization
+        .list(core.serialization.lazyObject(async () => (await import("..")).HitRulesDetails))
+        .optional(),
+    riskScoreDetails: core.serialization.lazyObject(async () => (await import("..")).UserRiskScoreDetails).optional(),
+});
 
 export declare namespace BusinessWithRulesResult {
-    interface Raw extends serializers.Business.Raw {
+    interface Raw {
+        userId: string;
+        createdTimestamp: number;
+        legalEntity: serializers.LegalEntity.Raw;
+        userStateDetails?: serializers.UserStateDetails.Raw | null;
+        kycStatusDetails?: serializers.KycStatusDetails.Raw | null;
+        shareHolders?: serializers.Person.Raw[] | null;
+        directors?: serializers.Person.Raw[] | null;
+        transactionLimits?: serializers.TransactionLimits.Raw | null;
+        riskLevel?: serializers.RiskLevel.Raw | null;
+        allowedPaymentMethods?: serializers.PaymentMethod.Raw[] | null;
+        linkedEntities?: serializers.BusinessEntityLink.Raw | null;
+        acquisitionChannel?: serializers.AcquisitionChannel.Raw | null;
+        savedPaymentDetails?: serializers.BusinessWithRulesResultSavedPaymentDetailsItem.Raw[] | null;
+        mccDetails?: serializers.MccDetails.Raw | null;
+        tags?: serializers.Tag.Raw[] | null;
         executedRules?: serializers.ExecutedRulesResult.Raw[] | null;
         hitRules?: serializers.HitRulesDetails.Raw[] | null;
         riskScoreDetails?: serializers.UserRiskScoreDetails.Raw | null;

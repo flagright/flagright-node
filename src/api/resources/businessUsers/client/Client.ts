@@ -44,15 +44,15 @@ export class BusinessUsers {
      *
      * @example
      *     await flagright.businessUsers.create({
+     *         userId: "userId",
+     *         createdTimestamp: 1.1,
      *         legalEntity: {
      *             companyGeneralDetails: {
      *                 legalName: "Ozkan Hazelnut Export JSC",
      *                 businessIndustry: ["Farming"],
      *                 mainProductsServicesSold: ["Hazelnut"]
      *             }
-     *         },
-     *         userId: "userId",
-     *         createdTimestamp: 1.1
+     *         }
      *     })
      */
     public async create(
@@ -69,7 +69,7 @@ export class BusinessUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.5.9",
+                "X-Fern-SDK-Version": "1.5.10",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -166,7 +166,7 @@ export class BusinessUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.5.9",
+                "X-Fern-SDK-Version": "1.5.10",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

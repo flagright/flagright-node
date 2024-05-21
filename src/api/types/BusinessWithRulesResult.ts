@@ -4,10 +4,27 @@
 
 import * as Flagright from "..";
 
-/**
- * Model for business payload with rules result
- */
-export interface BusinessWithRulesResult extends Flagright.Business {
+export interface BusinessWithRulesResult {
+    /** Unique user ID for the user */
+    userId: string;
+    /** Timestamp when the user was created */
+    createdTimestamp: number;
+    legalEntity: Flagright.LegalEntity;
+    userStateDetails?: Flagright.UserStateDetails;
+    kycStatusDetails?: Flagright.KycStatusDetails;
+    /** Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual */
+    shareHolders?: Flagright.Person[];
+    /** Director(s) of the company. Must be at least one */
+    directors?: Flagright.Person[];
+    transactionLimits?: Flagright.TransactionLimits;
+    riskLevel?: Flagright.RiskLevel;
+    allowedPaymentMethods?: Flagright.PaymentMethod[];
+    linkedEntities?: Flagright.BusinessEntityLink;
+    acquisitionChannel?: Flagright.AcquisitionChannel;
+    savedPaymentDetails?: Flagright.BusinessWithRulesResultSavedPaymentDetailsItem[];
+    mccDetails?: Flagright.MccDetails;
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
     executedRules?: Flagright.ExecutedRulesResult[];
     hitRules?: Flagright.HitRulesDetails[];
     riskScoreDetails?: Flagright.UserRiskScoreDetails;

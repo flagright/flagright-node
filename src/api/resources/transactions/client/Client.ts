@@ -52,6 +52,11 @@ export class Transactions {
      * @example
      *     await flagright.transactions.verify({
      *         body: {
+     *             type: Flagright.TransactionType.Deposit,
+     *             transactionId: "7b80a539eea6e78acbd6d458e5971482",
+     *             timestamp: 1641654664000,
+     *             originUserId: "8650a2611d0771cba03310f74bf6",
+     *             destinationUserId: "9350a2611e0771cba03310f74bf6",
      *             originAmountDetails: {
      *                 transactionAmount: 800,
      *                 transactionCurrency: Flagright.CurrencyCode.Eur,
@@ -93,12 +98,7 @@ export class Transactions {
      *             tags: [{
      *                     key: "customKey",
      *                     value: "customValue"
-     *                 }],
-     *             type: Flagright.TransactionType.Deposit,
-     *             transactionId: "7b80a539eea6e78acbd6d458e5971482",
-     *             timestamp: 1641654664000,
-     *             originUserId: "8650a2611d0771cba03310f74bf6",
-     *             destinationUserId: "9350a2611e0771cba03310f74bf6"
+     *                 }]
      *         }
      *     })
      */
@@ -126,7 +126,7 @@ export class Transactions {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.5.9",
+                "X-Fern-SDK-Version": "1.5.10",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -224,7 +224,7 @@ export class Transactions {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.5.9",
+                "X-Fern-SDK-Version": "1.5.10",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

@@ -7,11 +7,52 @@ import * as Flagright from "../../api";
 import * as core from "../../core";
 
 export const Transaction: core.serialization.ObjectSchema<serializers.Transaction.Raw, Flagright.Transaction> =
-    core.serialization
-        .object({})
-        .extend(core.serialization.lazyObject(async () => (await import("..")).TransactionBase))
-        .extend(core.serialization.lazyObject(async () => (await import("..")).TransactionUpdatable));
+    core.serialization.object({
+        type: core.serialization.lazy(async () => (await import("..")).TransactionType),
+        transactionId: core.serialization.string(),
+        timestamp: core.serialization.number(),
+        originUserId: core.serialization.string().optional(),
+        destinationUserId: core.serialization.string().optional(),
+        transactionState: core.serialization.lazy(async () => (await import("..")).TransactionState).optional(),
+        originAmountDetails: core.serialization
+            .lazyObject(async () => (await import("..")).TransactionAmountDetails)
+            .optional(),
+        destinationAmountDetails: core.serialization
+            .lazyObject(async () => (await import("..")).TransactionAmountDetails)
+            .optional(),
+        originPaymentDetails: core.serialization
+            .lazy(async () => (await import("..")).TransactionOriginPaymentDetails)
+            .optional(),
+        destinationPaymentDetails: core.serialization
+            .lazy(async () => (await import("..")).TransactionDestinationPaymentDetails)
+            .optional(),
+        relatedTransactionIds: core.serialization.list(core.serialization.string()).optional(),
+        productType: core.serialization.string().optional(),
+        promotionCodeUsed: core.serialization.boolean().optional(),
+        reference: core.serialization.string().optional(),
+        originDeviceData: core.serialization.lazyObject(async () => (await import("..")).DeviceData).optional(),
+        destinationDeviceData: core.serialization.lazyObject(async () => (await import("..")).DeviceData).optional(),
+        tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
+    });
 
 export declare namespace Transaction {
-    interface Raw extends serializers.TransactionBase.Raw, serializers.TransactionUpdatable.Raw {}
+    interface Raw {
+        type: serializers.TransactionType.Raw;
+        transactionId: string;
+        timestamp: number;
+        originUserId?: string | null;
+        destinationUserId?: string | null;
+        transactionState?: serializers.TransactionState.Raw | null;
+        originAmountDetails?: serializers.TransactionAmountDetails.Raw | null;
+        destinationAmountDetails?: serializers.TransactionAmountDetails.Raw | null;
+        originPaymentDetails?: serializers.TransactionOriginPaymentDetails.Raw | null;
+        destinationPaymentDetails?: serializers.TransactionDestinationPaymentDetails.Raw | null;
+        relatedTransactionIds?: string[] | null;
+        productType?: string | null;
+        promotionCodeUsed?: boolean | null;
+        reference?: string | null;
+        originDeviceData?: serializers.DeviceData.Raw | null;
+        destinationDeviceData?: serializers.DeviceData.Raw | null;
+        tags?: serializers.Tag.Raw[] | null;
+    }
 }

@@ -9,23 +9,61 @@ import * as core from "../../core";
 export const TransactionWithRulesResult: core.serialization.ObjectSchema<
     serializers.TransactionWithRulesResult.Raw,
     Flagright.TransactionWithRulesResult
-> = core.serialization
-    .object({
-        executedRules: core.serialization.list(
-            core.serialization.lazyObject(async () => (await import("..")).ExecutedRulesResult)
-        ),
-        hitRules: core.serialization.list(
-            core.serialization.lazyObject(async () => (await import("..")).HitRulesDetails)
-        ),
-        status: core.serialization.lazy(async () => (await import("..")).RuleAction),
-        riskScoreDetails: core.serialization
-            .lazyObject(async () => (await import("..")).TransactionRiskScoringResult)
-            .optional(),
-    })
-    .extend(core.serialization.lazyObject(async () => (await import("..")).Transaction));
+> = core.serialization.object({
+    type: core.serialization.lazy(async () => (await import("..")).TransactionType),
+    transactionId: core.serialization.string(),
+    timestamp: core.serialization.number(),
+    originUserId: core.serialization.string().optional(),
+    destinationUserId: core.serialization.string().optional(),
+    transactionState: core.serialization.lazy(async () => (await import("..")).TransactionState).optional(),
+    originAmountDetails: core.serialization
+        .lazyObject(async () => (await import("..")).TransactionAmountDetails)
+        .optional(),
+    destinationAmountDetails: core.serialization
+        .lazyObject(async () => (await import("..")).TransactionAmountDetails)
+        .optional(),
+    originPaymentDetails: core.serialization
+        .lazy(async () => (await import("..")).TransactionWithRulesResultOriginPaymentDetails)
+        .optional(),
+    destinationPaymentDetails: core.serialization
+        .lazy(async () => (await import("..")).TransactionWithRulesResultDestinationPaymentDetails)
+        .optional(),
+    relatedTransactionIds: core.serialization.list(core.serialization.string()).optional(),
+    productType: core.serialization.string().optional(),
+    promotionCodeUsed: core.serialization.boolean().optional(),
+    reference: core.serialization.string().optional(),
+    originDeviceData: core.serialization.lazyObject(async () => (await import("..")).DeviceData).optional(),
+    destinationDeviceData: core.serialization.lazyObject(async () => (await import("..")).DeviceData).optional(),
+    tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
+    executedRules: core.serialization.list(
+        core.serialization.lazyObject(async () => (await import("..")).ExecutedRulesResult)
+    ),
+    hitRules: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).HitRulesDetails)),
+    status: core.serialization.lazy(async () => (await import("..")).RuleAction),
+    riskScoreDetails: core.serialization
+        .lazyObject(async () => (await import("..")).TransactionRiskScoringResult)
+        .optional(),
+});
 
 export declare namespace TransactionWithRulesResult {
-    interface Raw extends serializers.Transaction.Raw {
+    interface Raw {
+        type: serializers.TransactionType.Raw;
+        transactionId: string;
+        timestamp: number;
+        originUserId?: string | null;
+        destinationUserId?: string | null;
+        transactionState?: serializers.TransactionState.Raw | null;
+        originAmountDetails?: serializers.TransactionAmountDetails.Raw | null;
+        destinationAmountDetails?: serializers.TransactionAmountDetails.Raw | null;
+        originPaymentDetails?: serializers.TransactionWithRulesResultOriginPaymentDetails.Raw | null;
+        destinationPaymentDetails?: serializers.TransactionWithRulesResultDestinationPaymentDetails.Raw | null;
+        relatedTransactionIds?: string[] | null;
+        productType?: string | null;
+        promotionCodeUsed?: boolean | null;
+        reference?: string | null;
+        originDeviceData?: serializers.DeviceData.Raw | null;
+        destinationDeviceData?: serializers.DeviceData.Raw | null;
+        tags?: serializers.Tag.Raw[] | null;
         executedRules: serializers.ExecutedRulesResult.Raw[];
         hitRules: serializers.HitRulesDetails.Raw[];
         status: serializers.RuleAction.Raw;

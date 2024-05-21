@@ -43,6 +43,8 @@ export class ConsumerUsers {
      *
      * @example
      *     await flagright.consumerUsers.create({
+     *         userId: "96647cfd9e8fe66ee0f3362e011e34e8",
+     *         createdTimestamp: 1641654664000,
      *         userDetails: {
      *             name: {
      *                 firstName: "Baran",
@@ -83,9 +85,7 @@ export class ConsumerUsers {
      *         tags: [{
      *                 key: "customKey",
      *                 value: "customValue"
-     *             }],
-     *         userId: "96647cfd9e8fe66ee0f3362e011e34e8",
-     *         createdTimestamp: 1641654664000
+     *             }]
      *     })
      */
     public async create(
@@ -102,7 +102,7 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.5.9",
+                "X-Fern-SDK-Version": "1.5.10",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -199,7 +199,7 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.5.9",
+                "X-Fern-SDK-Version": "1.5.10",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

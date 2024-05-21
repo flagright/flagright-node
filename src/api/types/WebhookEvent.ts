@@ -4,7 +4,13 @@
 
 import * as Flagright from "..";
 
-export interface WebhookEvent extends Flagright.WebhookEventBase {
+export interface WebhookEvent {
+    /** Unique identifier for the event */
+    id: string;
+    /** Event triggered by a user or system */
+    triggeredBy: Flagright.WebhookEventTriggeredBy;
+    /** Time at which the event was created. Measured in ms since the Unix epoch. */
+    createdTimestamp: number;
     type: Flagright.WebhookEventType;
     data: Flagright.WebhookEventData;
 }

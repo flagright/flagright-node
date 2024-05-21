@@ -8,6 +8,11 @@ import * as Flagright from "../../../..";
  * @example
  *     {
  *         body: {
+ *             type: Flagright.TransactionType.Deposit,
+ *             transactionId: "7b80a539eea6e78acbd6d458e5971482",
+ *             timestamp: 1641654664000,
+ *             originUserId: "8650a2611d0771cba03310f74bf6",
+ *             destinationUserId: "9350a2611e0771cba03310f74bf6",
  *             originAmountDetails: {
  *                 transactionAmount: 800,
  *                 transactionCurrency: Flagright.CurrencyCode.Eur,
@@ -49,12 +54,7 @@ import * as Flagright from "../../../..";
  *             tags: [{
  *                     key: "customKey",
  *                     value: "customValue"
- *                 }],
- *             type: Flagright.TransactionType.Deposit,
- *             transactionId: "7b80a539eea6e78acbd6d458e5971482",
- *             timestamp: 1641654664000,
- *             originUserId: "8650a2611d0771cba03310f74bf6",
- *             destinationUserId: "9350a2611e0771cba03310f74bf6"
+ *                 }]
  *         }
  *     }
  */

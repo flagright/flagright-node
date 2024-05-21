@@ -4,10 +4,35 @@
 
 import * as Flagright from "..";
 
-/**
- * Model for transaction payload with rules result
- */
-export interface TransactionWithRulesResult extends Flagright.Transaction {
+export interface TransactionWithRulesResult {
+    type: Flagright.TransactionType;
+    /** Unique transaction identifier */
+    transactionId: string;
+    /** Timestamp of when transaction took place */
+    timestamp: number;
+    /** UserId for where the transaction originates from */
+    originUserId?: string;
+    /** UserId for transaction's destination. In other words, where the value is being transferred to. */
+    destinationUserId?: string;
+    transactionState?: Flagright.TransactionState;
+    originAmountDetails?: Flagright.TransactionAmountDetails;
+    destinationAmountDetails?: Flagright.TransactionAmountDetails;
+    /** Payment details of the origin. It can be a bank account number, wallet ID, card fingerprint etc. */
+    originPaymentDetails?: Flagright.TransactionWithRulesResultOriginPaymentDetails;
+    /** Payment details of the destination. It can be a bank account number, wallet ID, card fingerprint etc. */
+    destinationPaymentDetails?: Flagright.TransactionWithRulesResultDestinationPaymentDetails;
+    /** IDs of transactions related to this transaction. Ex: refund, split bills */
+    relatedTransactionIds?: string[];
+    /** Type of produce being used by the consumer (ex wallets, payments etc) */
+    productType?: string;
+    /** Whether a promotion code was used or not the transaction */
+    promotionCodeUsed?: boolean;
+    /** Reference field for the transaction indicating the purpose of the transaction etc. */
+    reference?: string;
+    originDeviceData?: Flagright.DeviceData;
+    destinationDeviceData?: Flagright.DeviceData;
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
     executedRules: Flagright.ExecutedRulesResult[];
     hitRules: Flagright.HitRulesDetails[];
     status: Flagright.RuleAction;

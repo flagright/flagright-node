@@ -9,20 +9,24 @@ import * as core from "../../core";
 export const TransactionEventMonitoringResult: core.serialization.ObjectSchema<
     serializers.TransactionEventMonitoringResult.Raw,
     Flagright.TransactionEventMonitoringResult
-> = core.serialization
-    .object({
-        eventId: core.serialization.string(),
-        transaction: core.serialization.lazyObject(async () => (await import("..")).Transaction),
-        riskScoreDetails: core.serialization
-            .lazyObject(async () => (await import("..")).TransactionRiskScoringResult)
-            .optional(),
-    })
-    .extend(core.serialization.lazyObject(async () => (await import("..")).RulesResults));
+> = core.serialization.object({
+    eventId: core.serialization.string(),
+    transaction: core.serialization.lazyObject(async () => (await import("..")).Transaction),
+    riskScoreDetails: core.serialization
+        .lazyObject(async () => (await import("..")).TransactionRiskScoringResult)
+        .optional(),
+    executedRules: core.serialization.list(
+        core.serialization.lazyObject(async () => (await import("..")).ExecutedRulesResult)
+    ),
+    hitRules: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).HitRulesDetails)),
+});
 
 export declare namespace TransactionEventMonitoringResult {
-    interface Raw extends serializers.RulesResults.Raw {
+    interface Raw {
         eventId: string;
         transaction: serializers.Transaction.Raw;
         riskScoreDetails?: serializers.TransactionRiskScoringResult.Raw | null;
+        executedRules: serializers.ExecutedRulesResult.Raw[];
+        hitRules: serializers.HitRulesDetails.Raw[];
     }
 }

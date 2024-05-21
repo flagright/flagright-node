@@ -4,9 +4,13 @@
 
 import * as Flagright from "..";
 
-export interface TransactionMonitoringResult extends Flagright.RulesResults {
+export interface TransactionMonitoringResult {
     /** Transaction ID that the results pertain to */
     transactionId: string;
     status: Flagright.RuleAction;
     riskScoreDetails?: Flagright.TransactionRiskScoringResult;
+    /** Unique transaction identifier */
+    executedRules: Flagright.ExecutedRulesResult[];
+    /** Unique transaction identifier */
+    hitRules: Flagright.HitRulesDetails[];
 }

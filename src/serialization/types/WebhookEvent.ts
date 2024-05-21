@@ -7,15 +7,19 @@ import * as Flagright from "../../api";
 import * as core from "../../core";
 
 export const WebhookEvent: core.serialization.ObjectSchema<serializers.WebhookEvent.Raw, Flagright.WebhookEvent> =
-    core.serialization
-        .object({
-            type: core.serialization.lazy(async () => (await import("..")).WebhookEventType),
-            data: core.serialization.lazy(async () => (await import("..")).WebhookEventData),
-        })
-        .extend(core.serialization.lazyObject(async () => (await import("..")).WebhookEventBase));
+    core.serialization.object({
+        id: core.serialization.string(),
+        triggeredBy: core.serialization.lazy(async () => (await import("..")).WebhookEventTriggeredBy),
+        createdTimestamp: core.serialization.number(),
+        type: core.serialization.lazy(async () => (await import("..")).WebhookEventType),
+        data: core.serialization.lazy(async () => (await import("..")).WebhookEventData),
+    });
 
 export declare namespace WebhookEvent {
-    interface Raw extends serializers.WebhookEventBase.Raw {
+    interface Raw {
+        id: string;
+        triggeredBy: serializers.WebhookEventTriggeredBy.Raw;
+        createdTimestamp: number;
         type: serializers.WebhookEventType.Raw;
         data: serializers.WebhookEventData.Raw;
     }
