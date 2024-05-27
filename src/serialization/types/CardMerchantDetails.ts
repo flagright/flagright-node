@@ -14,7 +14,7 @@ export const CardMerchantDetails: core.serialization.ObjectSchema<
     category: core.serialization.string().optional(),
     mcc: core.serialization.property("MCC", core.serialization.string().optional()),
     city: core.serialization.string().optional(),
-    country: core.serialization.string().optional(),
+    country: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
     state: core.serialization.string().optional(),
     postCode: core.serialization.string().optional(),
 });
@@ -25,7 +25,7 @@ export declare namespace CardMerchantDetails {
         category?: string | null;
         MCC?: string | null;
         city?: string | null;
-        country?: string | null;
+        country?: serializers.CountryCode.Raw | null;
         state?: string | null;
         postCode?: string | null;
     }
