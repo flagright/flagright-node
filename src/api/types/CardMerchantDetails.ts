@@ -6,6 +6,7 @@ import * as Flagright from "..";
 
 export interface CardMerchantDetails {
     id?: string;
+    name?: string;
     category?: string;
     mcc?: string;
     city?: string;

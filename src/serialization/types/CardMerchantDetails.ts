@@ -11,6 +11,7 @@ export const CardMerchantDetails: core.serialization.ObjectSchema<
     Flagright.CardMerchantDetails
 > = core.serialization.object({
     id: core.serialization.string().optional(),
+    name: core.serialization.string().optional(),
     category: core.serialization.string().optional(),
     mcc: core.serialization.property("MCC", core.serialization.string().optional()),
     city: core.serialization.string().optional(),
@@ -22,6 +23,7 @@ export const CardMerchantDetails: core.serialization.ObjectSchema<
 export declare namespace CardMerchantDetails {
     interface Raw {
         id?: string | null;
+        name?: string | null;
         category?: string | null;
         MCC?: string | null;
         city?: string | null;
