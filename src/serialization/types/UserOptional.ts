@@ -28,6 +28,9 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
         pepStatus: core.serialization
             .list(core.serialization.lazyObject(async () => (await import("..")).PepStatus))
             .optional(),
+        savedPaymentDetails: core.serialization
+            .list(core.serialization.lazy(async () => (await import("..")).UserOptionalSavedPaymentDetailsItem))
+            .optional(),
         tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
     });
 
@@ -47,6 +50,7 @@ export declare namespace UserOptional {
         sourceOfFunds?: serializers.SourceOfFunds.Raw[] | null;
         userSegment?: serializers.ConsumerUserSegment.Raw | null;
         pepStatus?: serializers.PepStatus.Raw[] | null;
+        savedPaymentDetails?: serializers.UserOptionalSavedPaymentDetailsItem.Raw[] | null;
         tags?: serializers.Tag.Raw[] | null;
     }
 }

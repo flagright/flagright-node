@@ -1,5 +1,6 @@
 export * from "./Address";
 export * from "./UserBase";
+export * from "./UserOptionalSavedPaymentDetailsItem";
 export * from "./UserOptional";
 export * from "./ConsumerUserSegment";
 export * from "./Person";
@@ -117,6 +118,7 @@ export * from "./FalsePositiveDetails";
 export * from "./SanctionsDetails";
 export * from "./SanctionsDetailsEntityType";
 export * from "./BusinessEntityLink";
+export * from "./UserWithRulesResultSavedPaymentDetailsItem";
 export * from "./UserWithRulesResult";
 export * from "./UserRiskScoreDetails";
 export * from "./BusinessWithRulesResultSavedPaymentDetailsItem";

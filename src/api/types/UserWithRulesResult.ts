@@ -24,6 +24,7 @@ export interface UserWithRulesResult {
     sourceOfFunds?: Flagright.SourceOfFunds[];
     userSegment?: Flagright.ConsumerUserSegment;
     pepStatus?: Flagright.PepStatus[];
+    savedPaymentDetails?: Flagright.UserWithRulesResultSavedPaymentDetailsItem[];
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
     executedRules?: Flagright.ExecutedRulesResult[];

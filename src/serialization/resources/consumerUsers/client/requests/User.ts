@@ -37,6 +37,9 @@ export const User: core.serialization.Schema<serializers.User.Raw, Flagright.Use
     pepStatus: core.serialization
         .list(core.serialization.lazyObject(async () => (await import("../../../..")).PepStatus))
         .optional(),
+    savedPaymentDetails: core.serialization
+        .list(core.serialization.lazy(async () => (await import("../../../..")).UserSavedPaymentDetailsItem))
+        .optional(),
     tags: core.serialization
         .list(core.serialization.lazyObject(async () => (await import("../../../..")).Tag))
         .optional(),
@@ -60,6 +63,7 @@ export declare namespace User {
         sourceOfFunds?: serializers.SourceOfFunds.Raw[] | null;
         userSegment?: serializers.ConsumerUserSegment.Raw | null;
         pepStatus?: serializers.PepStatus.Raw[] | null;
+        savedPaymentDetails?: serializers.UserSavedPaymentDetailsItem.Raw[] | null;
         tags?: serializers.Tag.Raw[] | null;
     }
 }
