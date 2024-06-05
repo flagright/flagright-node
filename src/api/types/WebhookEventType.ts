@@ -7,7 +7,8 @@ export type WebhookEventType =
     | "USER_STATE_UPDATED"
     | "ALERT_CLOSED"
     | "TRANSACTION_STATUS_UPDATED"
-    | "KYC_STATUS_UPDATED";
+    | "KYC_STATUS_UPDATED"
+    | "CASE_OPENED";
 
 export const WebhookEventType = {
     CaseClosed: "CASE_CLOSED",
@@ -15,4 +16,5 @@ export const WebhookEventType = {
     AlertClosed: "ALERT_CLOSED",
     TransactionStatusUpdated: "TRANSACTION_STATUS_UPDATED",
     KycStatusUpdated: "KYC_STATUS_UPDATED",
+    CaseOpened: "CASE_OPENED",
 } as const;
