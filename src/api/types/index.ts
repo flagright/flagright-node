@@ -87,6 +87,7 @@ export * from "./UserStateDetails";
 export * from "./CaseClosedDetails";
 export * from "./CaseOpenedDetails";
 export * from "./AlertClosedDetails";
+export * from "./AlertOpenedDetails";
 export * from "./TransactionStatusDetails";
 export * from "./RiskLevel";
 export * from "./CardExpiry";

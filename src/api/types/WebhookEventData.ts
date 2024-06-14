@@ -9,5 +9,6 @@ export type WebhookEventData =
     | Flagright.CaseClosedDetails
     | Flagright.CaseOpenedDetails
     | Flagright.AlertClosedDetails
+    | Flagright.AlertOpenedDetails
     | Flagright.TransactionStatusDetails
     | Flagright.KycStatusDetails;
