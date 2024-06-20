@@ -23,6 +23,7 @@ export interface UserOptional {
     sourceOfFunds?: Flagright.SourceOfFunds[];
     userSegment?: Flagright.ConsumerUserSegment;
     pepStatus?: Flagright.PepStatus[];
+    linkedEntities?: Flagright.UserEntityLink;
     savedPaymentDetails?: Flagright.UserOptionalSavedPaymentDetailsItem[];
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];

@@ -18,7 +18,7 @@ export interface BusinessOptional {
     transactionLimits?: Flagright.TransactionLimits;
     riskLevel?: Flagright.RiskLevel;
     allowedPaymentMethods?: Flagright.PaymentMethod[];
-    linkedEntities?: Flagright.BusinessEntityLink;
+    linkedEntities?: Flagright.UserEntityLink;
     acquisitionChannel?: Flagright.AcquisitionChannel;
     savedPaymentDetails?: Flagright.BusinessOptionalSavedPaymentDetailsItem[];
     mccDetails?: Flagright.MccDetails;

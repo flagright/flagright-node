@@ -118,7 +118,7 @@ export * from "./TransactionLimit";
 export * from "./FalsePositiveDetails";
 export * from "./SanctionsDetails";
 export * from "./SanctionsDetailsEntityType";
-export * from "./BusinessEntityLink";
+export * from "./UserEntityLink";
 export * from "./UserWithRulesResultSavedPaymentDetailsItem";
 export * from "./UserWithRulesResult";
 export * from "./UserRiskScoreDetails";

@@ -24,7 +24,7 @@ export const BusinessOptional: core.serialization.ObjectSchema<
     allowedPaymentMethods: core.serialization
         .list(core.serialization.lazy(async () => (await import("..")).PaymentMethod))
         .optional(),
-    linkedEntities: core.serialization.lazyObject(async () => (await import("..")).BusinessEntityLink).optional(),
+    linkedEntities: core.serialization.lazyObject(async () => (await import("..")).UserEntityLink).optional(),
     acquisitionChannel: core.serialization.lazy(async () => (await import("..")).AcquisitionChannel).optional(),
     savedPaymentDetails: core.serialization
         .list(core.serialization.lazy(async () => (await import("..")).BusinessOptionalSavedPaymentDetailsItem))
@@ -43,7 +43,7 @@ export declare namespace BusinessOptional {
         transactionLimits?: serializers.TransactionLimits.Raw | null;
         riskLevel?: serializers.RiskLevel.Raw | null;
         allowedPaymentMethods?: serializers.PaymentMethod.Raw[] | null;
-        linkedEntities?: serializers.BusinessEntityLink.Raw | null;
+        linkedEntities?: serializers.UserEntityLink.Raw | null;
         acquisitionChannel?: serializers.AcquisitionChannel.Raw | null;
         savedPaymentDetails?: serializers.BusinessOptionalSavedPaymentDetailsItem.Raw[] | null;
         mccDetails?: serializers.MccDetails.Raw | null;

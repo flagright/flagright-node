@@ -33,7 +33,7 @@ export interface Business {
     transactionLimits?: Flagright.TransactionLimits;
     riskLevel?: Flagright.RiskLevel;
     allowedPaymentMethods?: Flagright.PaymentMethod[];
-    linkedEntities?: Flagright.BusinessEntityLink;
+    linkedEntities?: Flagright.UserEntityLink;
     acquisitionChannel?: Flagright.AcquisitionChannel;
     savedPaymentDetails?: Flagright.BusinessSavedPaymentDetailsItem[];
     mccDetails?: Flagright.MccDetails;
