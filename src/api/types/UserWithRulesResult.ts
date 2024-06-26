@@ -18,6 +18,7 @@ export interface UserWithRulesResult {
     legalDocuments?: Flagright.LegalDocument[];
     contactDetails?: Flagright.ContactDetails;
     transactionLimits?: Flagright.TransactionLimits;
+    expectedIncome?: Flagright.ExpectedIncome;
     riskLevel?: Flagright.RiskLevel;
     acquisitionChannel?: Flagright.AcquisitionChannel;
     reasonForAccountOpening?: string[];

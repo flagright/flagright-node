@@ -25,6 +25,7 @@ export const User: core.serialization.Schema<serializers.User.Raw, Flagright.Use
     transactionLimits: core.serialization
         .lazyObject(async () => (await import("../../../..")).TransactionLimits)
         .optional(),
+    expectedIncome: core.serialization.lazyObject(async () => (await import("../../../..")).ExpectedIncome).optional(),
     riskLevel: core.serialization.lazy(async () => (await import("../../../..")).RiskLevel).optional(),
     acquisitionChannel: core.serialization
         .lazy(async () => (await import("../../../..")).AcquisitionChannel)
@@ -58,6 +59,7 @@ export declare namespace User {
         legalDocuments?: serializers.LegalDocument.Raw[] | null;
         contactDetails?: serializers.ContactDetails.Raw | null;
         transactionLimits?: serializers.TransactionLimits.Raw | null;
+        expectedIncome?: serializers.ExpectedIncome.Raw | null;
         riskLevel?: serializers.RiskLevel.Raw | null;
         acquisitionChannel?: serializers.AcquisitionChannel.Raw | null;
         reasonForAccountOpening?: string[] | null;

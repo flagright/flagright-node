@@ -22,6 +22,7 @@ export const UserWithRulesResult: core.serialization.ObjectSchema<
         .optional(),
     contactDetails: core.serialization.lazyObject(async () => (await import("..")).ContactDetails).optional(),
     transactionLimits: core.serialization.lazyObject(async () => (await import("..")).TransactionLimits).optional(),
+    expectedIncome: core.serialization.lazyObject(async () => (await import("..")).ExpectedIncome).optional(),
     riskLevel: core.serialization.lazy(async () => (await import("..")).RiskLevel).optional(),
     acquisitionChannel: core.serialization.lazy(async () => (await import("..")).AcquisitionChannel).optional(),
     reasonForAccountOpening: core.serialization.list(core.serialization.string()).optional(),
@@ -58,6 +59,7 @@ export declare namespace UserWithRulesResult {
         legalDocuments?: serializers.LegalDocument.Raw[] | null;
         contactDetails?: serializers.ContactDetails.Raw | null;
         transactionLimits?: serializers.TransactionLimits.Raw | null;
+        expectedIncome?: serializers.ExpectedIncome.Raw | null;
         riskLevel?: serializers.RiskLevel.Raw | null;
         acquisitionChannel?: serializers.AcquisitionChannel.Raw | null;
         reasonForAccountOpening?: string[] | null;
