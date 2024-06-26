@@ -131,6 +131,7 @@ export * from "./Gender";
 export * from "./CardBrand";
 export * from "./CardFunding";
 export * from "./CardType";
+export * from "./PlaceOfBirth";
 export * from "./MpesaTransactionType";
 export * from "./CheckDeliveryStatus";
 export * from "./ApiErrorResponse";

@@ -13,6 +13,7 @@ export const UserDetails: core.serialization.ObjectSchema<serializers.UserDetail
         countryOfResidence: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
         countryOfNationality: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
         gender: core.serialization.lazy(async () => (await import("..")).Gender).optional(),
+        placeOfBirth: core.serialization.lazyObject(async () => (await import("..")).PlaceOfBirth).optional(),
     });
 
 export declare namespace UserDetails {
@@ -22,5 +23,6 @@ export declare namespace UserDetails {
         countryOfResidence?: serializers.CountryCode.Raw | null;
         countryOfNationality?: serializers.CountryCode.Raw | null;
         gender?: serializers.Gender.Raw | null;
+        placeOfBirth?: serializers.PlaceOfBirth.Raw | null;
     }
 }
