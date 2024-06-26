@@ -11,6 +11,7 @@ export interface CardDetails {
     /** Unique card fingerprint that helps identify a specific card without having to use explicit card number. This is likely available at your card payment scheme provider */
     cardFingerprint?: string;
     emailId?: Flagright.EmailId;
+    cardStatus?: Flagright.CardStatus;
     cardIssuedCountry?: Flagright.CountryCode;
     /** Reference for the transaction */
     transactionReferenceField?: string;

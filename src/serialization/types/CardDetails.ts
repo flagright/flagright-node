@@ -10,6 +10,7 @@ export const CardDetails: core.serialization.ObjectSchema<serializers.CardDetail
     core.serialization.object({
         cardFingerprint: core.serialization.string().optional(),
         emailId: core.serialization.lazy(async () => (await import("..")).EmailId).optional(),
+        cardStatus: core.serialization.lazy(async () => (await import("..")).CardStatus).optional(),
         cardIssuedCountry: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
         transactionReferenceField: core.serialization.string().optional(),
         "3DsDone": core.serialization.property("3dsDone", core.serialization.boolean().optional()),
@@ -31,6 +32,7 @@ export declare namespace CardDetails {
     interface Raw {
         cardFingerprint?: string | null;
         emailId?: serializers.EmailId.Raw | null;
+        cardStatus?: serializers.CardStatus.Raw | null;
         cardIssuedCountry?: serializers.CountryCode.Raw | null;
         transactionReferenceField?: string | null;
         "3dsDone"?: boolean | null;

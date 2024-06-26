@@ -44,6 +44,7 @@ export * from "./BusinessOptionalSavedPaymentDetailsItem";
 export * from "./BusinessOptional";
 export * from "./BusinessUsersResponse";
 export * from "./ConsumerUsersResponse";
+export * from "./CardStatus";
 export * from "./CardDetails";
 export * from "./IbanDetails";
 export * from "./WalletDetails";
