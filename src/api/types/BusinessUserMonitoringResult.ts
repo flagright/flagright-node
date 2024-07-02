@@ -7,7 +7,7 @@ import * as Flagright from "..";
 /**
  * Model for business user risk score response
  */
-export interface BusinessUsersResponse {
+export interface BusinessUserMonitoringResult {
     /** user ID the risk score pertains to */
     userId: string;
     riskScoreDetails?: Flagright.UserRiskScoreDetails;

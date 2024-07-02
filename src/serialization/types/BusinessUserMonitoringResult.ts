@@ -6,9 +6,9 @@ import * as serializers from "..";
 import * as Flagright from "../../api";
 import * as core from "../../core";
 
-export const BusinessUsersResponse: core.serialization.ObjectSchema<
-    serializers.BusinessUsersResponse.Raw,
-    Flagright.BusinessUsersResponse
+export const BusinessUserMonitoringResult: core.serialization.ObjectSchema<
+    serializers.BusinessUserMonitoringResult.Raw,
+    Flagright.BusinessUserMonitoringResult
 > = core.serialization.object({
     userId: core.serialization.string(),
     riskScoreDetails: core.serialization.lazyObject(async () => (await import("..")).UserRiskScoreDetails).optional(),
@@ -20,7 +20,7 @@ export const BusinessUsersResponse: core.serialization.ObjectSchema<
         .optional(),
 });
 
-export declare namespace BusinessUsersResponse {
+export declare namespace BusinessUserMonitoringResult {
     interface Raw {
         userId: string;
         riskScoreDetails?: serializers.UserRiskScoreDetails.Raw | null;

@@ -4,6 +4,6 @@
 
 import * as Flagright from "../../..";
 
-export interface BusinessUsersCreateResponse extends Flagright.BusinessUsersResponse {
+export interface BusinessUsersCreateResponse extends Flagright.BusinessUserMonitoringResult {
     message?: string;
 }

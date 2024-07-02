@@ -13,10 +13,10 @@ export const BusinessUsersCreateResponse: core.serialization.ObjectSchema<
     .object({
         message: core.serialization.string().optional(),
     })
-    .extend(core.serialization.lazyObject(async () => (await import("../../..")).BusinessUsersResponse));
+    .extend(core.serialization.lazyObject(async () => (await import("../../..")).BusinessUserMonitoringResult));
 
 export declare namespace BusinessUsersCreateResponse {
-    interface Raw extends serializers.BusinessUsersResponse.Raw {
+    interface Raw extends serializers.BusinessUserMonitoringResult.Raw {
         message?: string | null;
     }
 }
