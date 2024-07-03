@@ -13,6 +13,7 @@ export const BusinessWithRulesResult: core.serialization.ObjectSchema<
     userId: core.serialization.string(),
     createdTimestamp: core.serialization.number(),
     legalEntity: core.serialization.lazyObject(async () => (await import("..")).LegalEntity),
+    activatedTimestamp: core.serialization.number().optional(),
     userStateDetails: core.serialization.lazyObject(async () => (await import("..")).UserStateDetails).optional(),
     kycStatusDetails: core.serialization.lazyObject(async () => (await import("..")).KycStatusDetails).optional(),
     shareHolders: core.serialization
@@ -47,6 +48,7 @@ export declare namespace BusinessWithRulesResult {
         userId: string;
         createdTimestamp: number;
         legalEntity: serializers.LegalEntity.Raw;
+        activatedTimestamp?: number | null;
         userStateDetails?: serializers.UserStateDetails.Raw | null;
         kycStatusDetails?: serializers.KycStatusDetails.Raw | null;
         shareHolders?: serializers.Person.Raw[] | null;

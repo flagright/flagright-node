@@ -8,6 +8,8 @@ import * as Flagright from "..";
  * Model for a business user - optional fields
  */
 export interface BusinessOptional {
+    /** Timestamp when the user was activated */
+    activatedTimestamp?: number;
     userStateDetails?: Flagright.UserStateDetails;
     kycStatusDetails?: Flagright.KycStatusDetails;
     legalEntity?: Flagright.LegalEntity;

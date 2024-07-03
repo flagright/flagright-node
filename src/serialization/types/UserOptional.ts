@@ -8,6 +8,7 @@ import * as core from "../../core";
 
 export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptional.Raw, Flagright.UserOptional> =
     core.serialization.object({
+        activatedTimestamp: core.serialization.number().optional(),
         userDetails: core.serialization.lazyObject(async () => (await import("..")).UserDetails).optional(),
         userStateDetails: core.serialization.lazyObject(async () => (await import("..")).UserStateDetails).optional(),
         kycStatusDetails: core.serialization.lazyObject(async () => (await import("..")).KycStatusDetails).optional(),
@@ -38,6 +39,7 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
 
 export declare namespace UserOptional {
     interface Raw {
+        activatedTimestamp?: number | null;
         userDetails?: serializers.UserDetails.Raw | null;
         userStateDetails?: serializers.UserStateDetails.Raw | null;
         kycStatusDetails?: serializers.KycStatusDetails.Raw | null;

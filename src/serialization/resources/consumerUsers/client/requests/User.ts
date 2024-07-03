@@ -9,6 +9,7 @@ import * as core from "../../../../../core";
 export const User: core.serialization.Schema<serializers.User.Raw, Flagright.User> = core.serialization.object({
     userId: core.serialization.string(),
     createdTimestamp: core.serialization.number(),
+    activatedTimestamp: core.serialization.number().optional(),
     userDetails: core.serialization.lazyObject(async () => (await import("../../../..")).UserDetails).optional(),
     userStateDetails: core.serialization
         .lazyObject(async () => (await import("../../../..")).UserStateDetails)
@@ -51,6 +52,7 @@ export declare namespace User {
     interface Raw {
         userId: string;
         createdTimestamp: number;
+        activatedTimestamp?: number | null;
         userDetails?: serializers.UserDetails.Raw | null;
         userStateDetails?: serializers.UserStateDetails.Raw | null;
         kycStatusDetails?: serializers.KycStatusDetails.Raw | null;

@@ -9,6 +9,8 @@ export interface UserWithRulesResult {
     userId: string;
     /** Timestamp when userId is created */
     createdTimestamp: number;
+    /** Timestamp when user was activated */
+    activatedTimestamp?: number;
     userDetails?: Flagright.UserDetails;
     userStateDetails?: Flagright.UserStateDetails;
     kycStatusDetails?: Flagright.KycStatusDetails;

@@ -10,6 +10,7 @@ export const BusinessOptional: core.serialization.ObjectSchema<
     serializers.BusinessOptional.Raw,
     Flagright.BusinessOptional
 > = core.serialization.object({
+    activatedTimestamp: core.serialization.number().optional(),
     userStateDetails: core.serialization.lazyObject(async () => (await import("..")).UserStateDetails).optional(),
     kycStatusDetails: core.serialization.lazyObject(async () => (await import("..")).KycStatusDetails).optional(),
     legalEntity: core.serialization.lazyObject(async () => (await import("..")).LegalEntity).optional(),
@@ -35,6 +36,7 @@ export const BusinessOptional: core.serialization.ObjectSchema<
 
 export declare namespace BusinessOptional {
     interface Raw {
+        activatedTimestamp?: number | null;
         userStateDetails?: serializers.UserStateDetails.Raw | null;
         kycStatusDetails?: serializers.KycStatusDetails.Raw | null;
         legalEntity?: serializers.LegalEntity.Raw | null;

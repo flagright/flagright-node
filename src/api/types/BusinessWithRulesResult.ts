@@ -10,6 +10,8 @@ export interface BusinessWithRulesResult {
     /** Timestamp when the user was created */
     createdTimestamp: number;
     legalEntity: Flagright.LegalEntity;
+    /** Timestamp when the user was activated */
+    activatedTimestamp?: number;
     userStateDetails?: Flagright.UserStateDetails;
     kycStatusDetails?: Flagright.KycStatusDetails;
     /** Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual */

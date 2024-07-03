@@ -12,6 +12,7 @@ export const UserWithRulesResult: core.serialization.ObjectSchema<
 > = core.serialization.object({
     userId: core.serialization.string(),
     createdTimestamp: core.serialization.number(),
+    activatedTimestamp: core.serialization.number().optional(),
     userDetails: core.serialization.lazyObject(async () => (await import("..")).UserDetails).optional(),
     userStateDetails: core.serialization.lazyObject(async () => (await import("..")).UserStateDetails).optional(),
     kycStatusDetails: core.serialization.lazyObject(async () => (await import("..")).KycStatusDetails).optional(),
@@ -51,6 +52,7 @@ export declare namespace UserWithRulesResult {
     interface Raw {
         userId: string;
         createdTimestamp: number;
+        activatedTimestamp?: number | null;
         userDetails?: serializers.UserDetails.Raw | null;
         userStateDetails?: serializers.UserStateDetails.Raw | null;
         kycStatusDetails?: serializers.KycStatusDetails.Raw | null;

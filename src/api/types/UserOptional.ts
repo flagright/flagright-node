@@ -8,6 +8,8 @@ import * as Flagright from "..";
  * Model for User details
  */
 export interface UserOptional {
+    /** Timestamp when user was activated */
+    activatedTimestamp?: number;
     userDetails?: Flagright.UserDetails;
     userStateDetails?: Flagright.UserStateDetails;
     kycStatusDetails?: Flagright.KycStatusDetails;
