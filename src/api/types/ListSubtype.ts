@@ -13,6 +13,7 @@ export type ListSubtype =
     | "BANK_SWIFT_CODE"
     | "UPI_IDENTIFYING_NUMBER"
     | "IP_ADDRESS"
+    | "DEVICE_IDENTIFIER"
     | "STRING";
 
 export const ListSubtype = {
@@ -26,5 +27,6 @@ export const ListSubtype = {
     BankSwiftCode: "BANK_SWIFT_CODE",
     UpiIdentifyingNumber: "UPI_IDENTIFYING_NUMBER",
     IpAddress: "IP_ADDRESS",
+    DeviceIdentifier: "DEVICE_IDENTIFIER",
     String: "STRING",
 } as const;

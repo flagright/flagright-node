@@ -18,6 +18,7 @@ export const ListSubtype: core.serialization.Schema<serializers.ListSubtype.Raw,
         "BANK_SWIFT_CODE",
         "UPI_IDENTIFYING_NUMBER",
         "IP_ADDRESS",
+        "DEVICE_IDENTIFIER",
         "STRING",
     ]);
 
@@ -33,5 +34,6 @@ export declare namespace ListSubtype {
         | "BANK_SWIFT_CODE"
         | "UPI_IDENTIFYING_NUMBER"
         | "IP_ADDRESS"
+        | "DEVICE_IDENTIFIER"
         | "STRING";
 }
