@@ -17,6 +17,7 @@ export * from "./TransactionBase";
 export * from "./TransactionWithRulesResultOriginPaymentDetails";
 export * from "./TransactionWithRulesResultDestinationPaymentDetails";
 export * from "./TransactionWithRulesResult";
+export * from "./TransactionEventWithRulesResult";
 export * from "./DeviceData";
 export * from "./TransactionMonitoringResult";
 export * from "./TransactionEventMonitoringResult";
