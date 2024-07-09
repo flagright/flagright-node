@@ -9,12 +9,12 @@ import * as core from "../../core";
 export const PepStatus: core.serialization.ObjectSchema<serializers.PepStatus.Raw, Flagright.PepStatus> =
     core.serialization.object({
         isPepHit: core.serialization.boolean(),
-        pepCountry: core.serialization.string().optional(),
+        pepCountry: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
     });
 
 export declare namespace PepStatus {
     interface Raw {
         isPepHit: boolean;
-        pepCountry?: string | null;
+        pepCountry?: serializers.CountryCode.Raw | null;
     }
 }
