@@ -8,7 +8,7 @@ import * as core from "../../core";
 
 export const Address: core.serialization.ObjectSchema<serializers.Address.Raw, Flagright.Address> =
     core.serialization.object({
-        addressLines: core.serialization.list(core.serialization.unknown()),
+        addressLines: core.serialization.list(core.serialization.string()),
         postcode: core.serialization.string().optional(),
         city: core.serialization.string(),
         state: core.serialization.string().optional(),
@@ -18,7 +18,7 @@ export const Address: core.serialization.ObjectSchema<serializers.Address.Raw, F
 
 export declare namespace Address {
     interface Raw {
-        addressLines: unknown[];
+        addressLines: string[];
         postcode?: string | null;
         city: string;
         state?: string | null;

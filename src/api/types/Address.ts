@@ -9,7 +9,7 @@ import * as Flagright from "..";
  */
 export interface Address {
     /** Address lines of the user's residence address */
-    addressLines: unknown[];
+    addressLines: string[];
     /** Post code of the user's residence address */
     postcode?: string;
     /** City of the user's residence address */
