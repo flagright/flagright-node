@@ -120,6 +120,8 @@ export * from "./TransactionAmountLimit";
 export * from "./TransactionLimit";
 export * from "./FalsePositiveDetails";
 export * from "./SanctionsDetails";
+export * from "./SanctionsHitContext";
+export * from "./SanctionsScreeningEntity";
 export * from "./SanctionsDetailsEntityType";
 export * from "./UserEntityLink";
 export * from "./UserWithRulesResultSavedPaymentDetailsItem";

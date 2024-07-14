@@ -14,6 +14,8 @@ export const SanctionsDetails: core.serialization.ObjectSchema<
     searchId: core.serialization.string(),
     iban: core.serialization.string().optional(),
     entityType: core.serialization.lazy(async () => (await import("..")).SanctionsDetailsEntityType).optional(),
+    sanctionHitIds: core.serialization.list(core.serialization.string()).optional(),
+    hitContext: core.serialization.lazyObject(async () => (await import("..")).SanctionsHitContext).optional(),
 });
 
 export declare namespace SanctionsDetails {
@@ -22,5 +24,7 @@ export declare namespace SanctionsDetails {
         searchId: string;
         iban?: string | null;
         entityType?: serializers.SanctionsDetailsEntityType.Raw | null;
+        sanctionHitIds?: string[] | null;
+        hitContext?: serializers.SanctionsHitContext.Raw | null;
     }
 }

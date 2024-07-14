@@ -9,4 +9,6 @@ export interface SanctionsDetails {
     searchId: string;
     iban?: string;
     entityType?: Flagright.SanctionsDetailsEntityType;
+    sanctionHitIds?: string[];
+    hitContext?: Flagright.SanctionsHitContext;
 }
