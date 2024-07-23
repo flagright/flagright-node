@@ -20,6 +20,7 @@ export const CardDetails: core.serialization.ObjectSchema<serializers.CardDetail
         cardBrand: core.serialization.lazy(async () => (await import("..")).CardBrand).optional(),
         cardFunding: core.serialization.lazy(async () => (await import("..")).CardFunding).optional(),
         cardAuthenticated: core.serialization.boolean().optional(),
+        cardTokenized: core.serialization.boolean().optional(),
         cardPresent: core.serialization.boolean().optional(),
         paymentChannel: core.serialization.string().optional(),
         cardType: core.serialization.lazy(async () => (await import("..")).CardType).optional(),
@@ -42,6 +43,7 @@ export declare namespace CardDetails {
         cardBrand?: serializers.CardBrand.Raw | null;
         cardFunding?: serializers.CardFunding.Raw | null;
         cardAuthenticated?: boolean | null;
+        cardTokenized?: boolean | null;
         cardPresent?: boolean | null;
         paymentChannel?: string | null;
         cardType?: serializers.CardType.Raw | null;

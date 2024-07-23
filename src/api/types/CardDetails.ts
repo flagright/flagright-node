@@ -25,6 +25,8 @@ export interface CardDetails {
     cardFunding?: Flagright.CardFunding;
     /** Authentication of Card */
     cardAuthenticated?: boolean;
+    /** Was the card tokenized */
+    cardTokenized?: boolean;
     /** Card Present */
     cardPresent?: boolean;
     paymentChannel?: string;
