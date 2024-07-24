@@ -16,6 +16,7 @@ export const CardDetails: core.serialization.ObjectSchema<serializers.CardDetail
         "3DsDone": core.serialization.property("3dsDone", core.serialization.boolean().optional()),
         nameOnCard: core.serialization.lazyObject(async () => (await import("..")).ConsumerName).optional(),
         cardExpiry: core.serialization.lazyObject(async () => (await import("..")).CardExpiry).optional(),
+        posDetails: core.serialization.lazyObject(async () => (await import("..")).PosDetails).optional(),
         cardLast4Digits: core.serialization.string().optional(),
         cardBrand: core.serialization.lazy(async () => (await import("..")).CardBrand).optional(),
         cardFunding: core.serialization.lazy(async () => (await import("..")).CardFunding).optional(),
@@ -39,6 +40,7 @@ export declare namespace CardDetails {
         "3dsDone"?: boolean | null;
         nameOnCard?: serializers.ConsumerName.Raw | null;
         cardExpiry?: serializers.CardExpiry.Raw | null;
+        posDetails?: serializers.PosDetails.Raw | null;
         cardLast4Digits?: string | null;
         cardBrand?: serializers.CardBrand.Raw | null;
         cardFunding?: serializers.CardFunding.Raw | null;

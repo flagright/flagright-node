@@ -94,6 +94,8 @@ export * from "./AlertOpenedDetails";
 export * from "./TransactionStatusDetails";
 export * from "./RiskLevel";
 export * from "./CardExpiry";
+export * from "./PosDetails";
+export * from "./PosEntryMode";
 export * from "./TransactionType";
 export * from "./WebhookEventBaseTriggeredBy";
 export * from "./WebhookEventBase";

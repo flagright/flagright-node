@@ -19,6 +19,7 @@ export interface CardDetails {
     "3DsDone"?: boolean;
     nameOnCard?: Flagright.ConsumerName;
     cardExpiry?: Flagright.CardExpiry;
+    posDetails?: Flagright.PosDetails;
     /** Last 4 digits of Card */
     cardLast4Digits?: string;
     cardBrand?: Flagright.CardBrand;
