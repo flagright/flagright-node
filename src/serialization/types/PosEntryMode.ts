@@ -7,8 +7,49 @@ import * as Flagright from "../../api";
 import * as core from "../../core";
 
 export const PosEntryMode: core.serialization.Schema<serializers.PosEntryMode.Raw, Flagright.PosEntryMode> =
-    core.serialization.string();
+    core.serialization.enum_([
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "79",
+        "80",
+        "81",
+        "82",
+        "85",
+        "90",
+        "91",
+        "95",
+        "97",
+    ]);
 
 export declare namespace PosEntryMode {
-    type Raw = string;
+    type Raw =
+        | "0"
+        | "1"
+        | "2"
+        | "3"
+        | "4"
+        | "5"
+        | "6"
+        | "7"
+        | "8"
+        | "9"
+        | "10"
+        | "79"
+        | "80"
+        | "81"
+        | "82"
+        | "85"
+        | "90"
+        | "91"
+        | "95"
+        | "97";
 }
