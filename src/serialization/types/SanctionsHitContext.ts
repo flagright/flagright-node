@@ -11,18 +11,24 @@ export const SanctionsHitContext: core.serialization.ObjectSchema<
     Flagright.SanctionsHitContext
 > = core.serialization.object({
     entity: core.serialization.lazy(async () => (await import("..")).SanctionsScreeningEntity).optional(),
+    entityType: core.serialization.lazy(async () => (await import("..")).SanctionsDetailsEntityType).optional(),
     userId: core.serialization.string().optional(),
     transactionId: core.serialization.string().optional(),
     ruleInstanceId: core.serialization.string().optional(),
     iban: core.serialization.string().optional(),
+    yearOfBirth: core.serialization.number().optional(),
+    searchTerm: core.serialization.string().optional(),
 });
 
 export declare namespace SanctionsHitContext {
     interface Raw {
         entity?: serializers.SanctionsScreeningEntity.Raw | null;
+        entityType?: serializers.SanctionsDetailsEntityType.Raw | null;
         userId?: string | null;
         transactionId?: string | null;
         ruleInstanceId?: string | null;
         iban?: string | null;
+        yearOfBirth?: number | null;
+        searchTerm?: string | null;
     }
 }
