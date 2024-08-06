@@ -32,6 +32,7 @@ export interface CardDetails {
     cardPresent?: boolean;
     paymentChannel?: string;
     cardType?: Flagright.CardType;
+    cardBalance?: Flagright.Amount;
     merchantDetails?: Flagright.CardMerchantDetails;
     /** Risk score of the card from your network provider */
     networkProviderRiskScore?: number;
