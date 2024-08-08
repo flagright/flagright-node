@@ -5,7 +5,6 @@
 import * as Flagright from "..";
 
 export interface UserStateDetails {
-    userId?: string;
     reason?: string;
     state: Flagright.UserState;
 }

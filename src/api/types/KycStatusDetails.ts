@@ -7,5 +7,4 @@ import * as Flagright from "..";
 export interface KycStatusDetails {
     reason?: string;
     status?: Flagright.KycStatus;
-    userId?: string;
 }

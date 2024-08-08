@@ -10,14 +10,12 @@ export const UserStateDetails: core.serialization.ObjectSchema<
     serializers.UserStateDetails.Raw,
     Flagright.UserStateDetails
 > = core.serialization.object({
-    userId: core.serialization.string().optional(),
     reason: core.serialization.string().optional(),
     state: core.serialization.lazy(async () => (await import("..")).UserState),
 });
 
 export declare namespace UserStateDetails {
     interface Raw {
-        userId?: string | null;
         reason?: string | null;
         state: serializers.UserState.Raw;
     }
