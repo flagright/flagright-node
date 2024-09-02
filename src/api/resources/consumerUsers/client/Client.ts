@@ -94,7 +94,8 @@ export class ConsumerUsers {
     ): Promise<Flagright.ConsumerUsersCreateResponse> {
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.FlagrightEnvironment.Default,
+                (await core.Supplier.get(this._options.environment)) ??
+                    environments.FlagrightEnvironment.SandboxApiServerEu1,
                 "consumer/users"
             ),
             method: "POST",
@@ -102,7 +103,7 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.20",
+                "X-Fern-SDK-Version": "1.6.21",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -191,7 +192,8 @@ export class ConsumerUsers {
     ): Promise<Flagright.UserWithRulesResult> {
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.FlagrightEnvironment.Default,
+                (await core.Supplier.get(this._options.environment)) ??
+                    environments.FlagrightEnvironment.SandboxApiServerEu1,
                 `consumer/users/${userId}`
             ),
             method: "GET",
@@ -199,7 +201,7 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.20",
+                "X-Fern-SDK-Version": "1.6.21",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

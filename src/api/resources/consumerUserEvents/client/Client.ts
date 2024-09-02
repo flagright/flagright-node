@@ -66,7 +66,8 @@ export class ConsumerUserEvents {
 
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.FlagrightEnvironment.Default,
+                (await core.Supplier.get(this._options.environment)) ??
+                    environments.FlagrightEnvironment.SandboxApiServerEu1,
                 "events/consumer/user"
             ),
             method: "POST",
@@ -74,7 +75,7 @@ export class ConsumerUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.20",
+                "X-Fern-SDK-Version": "1.6.21",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -162,7 +163,8 @@ export class ConsumerUserEvents {
     ): Promise<Flagright.ConsumerUserEventWithRulesResult> {
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.FlagrightEnvironment.Default,
+                (await core.Supplier.get(this._options.environment)) ??
+                    environments.FlagrightEnvironment.SandboxApiServerEu1,
                 `events/consumer/user/${eventId}`
             ),
             method: "GET",
@@ -170,7 +172,7 @@ export class ConsumerUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.20",
+                "X-Fern-SDK-Version": "1.6.21",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

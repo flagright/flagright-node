@@ -118,7 +118,8 @@ export class Transactions {
 
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.FlagrightEnvironment.Default,
+                (await core.Supplier.get(this._options.environment)) ??
+                    environments.FlagrightEnvironment.SandboxApiServerEu1,
                 "transactions"
             ),
             method: "POST",
@@ -126,7 +127,7 @@ export class Transactions {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.20",
+                "X-Fern-SDK-Version": "1.6.21",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -216,7 +217,8 @@ export class Transactions {
     ): Promise<Flagright.TransactionWithRulesResult> {
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.FlagrightEnvironment.Default,
+                (await core.Supplier.get(this._options.environment)) ??
+                    environments.FlagrightEnvironment.SandboxApiServerEu1,
                 `transactions/${transactionId}`
             ),
             method: "GET",
@@ -224,7 +226,7 @@ export class Transactions {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.20",
+                "X-Fern-SDK-Version": "1.6.21",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

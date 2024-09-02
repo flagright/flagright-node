@@ -71,7 +71,8 @@ export class TransactionEvents {
     ): Promise<Flagright.TransactionEventMonitoringResult> {
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.FlagrightEnvironment.Default,
+                (await core.Supplier.get(this._options.environment)) ??
+                    environments.FlagrightEnvironment.SandboxApiServerEu1,
                 "events/transaction"
             ),
             method: "POST",
@@ -79,7 +80,7 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.20",
+                "X-Fern-SDK-Version": "1.6.21",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -168,7 +169,8 @@ export class TransactionEvents {
     ): Promise<Flagright.TransactionEventWithRulesResult> {
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ?? environments.FlagrightEnvironment.Default,
+                (await core.Supplier.get(this._options.environment)) ??
+                    environments.FlagrightEnvironment.SandboxApiServerEu1,
                 `events/transaction/${eventId}`
             ),
             method: "GET",
@@ -176,7 +178,7 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.20",
+                "X-Fern-SDK-Version": "1.6.21",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
