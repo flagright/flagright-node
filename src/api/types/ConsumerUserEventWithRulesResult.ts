@@ -4,10 +4,7 @@
 
 import * as Flagright from "..";
 
-/**
- * Model for business user-related events
- */
-export interface BusinessUserEvent {
+export interface ConsumerUserEventWithRulesResult {
     /** Timestamp of the event */
     timestamp: number;
     /** Transaction ID the event pertains to */
@@ -18,5 +15,8 @@ export interface BusinessUserEvent {
     reason?: string;
     /** Event description */
     eventDescription?: string;
-    updatedBusinessUserAttributes?: Flagright.BusinessOptional;
+    updatedConsumerUserAttributes?: Flagright.UserOptional;
+    executedRules?: Flagright.ExecutedRulesResult[];
+    hitRules?: Flagright.HitRulesDetails[];
+    riskScoreDetails?: Flagright.UserRiskScoreDetails;
 }

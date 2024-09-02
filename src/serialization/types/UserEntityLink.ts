@@ -9,12 +9,10 @@ import * as core from "../../core";
 export const UserEntityLink: core.serialization.ObjectSchema<serializers.UserEntityLink.Raw, Flagright.UserEntityLink> =
     core.serialization.object({
         parentUserId: core.serialization.string().optional(),
-        childUserIds: core.serialization.list(core.serialization.string()).optional(),
     });
 
 export declare namespace UserEntityLink {
     interface Raw {
         parentUserId?: string | null;
-        childUserIds?: string[] | null;
     }
 }

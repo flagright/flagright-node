@@ -50,17 +50,15 @@ export class BusinessUserEvents {
      *
      * @example
      *     await flagright.businessUserEvents.create({
-     *         body: {
-     *             timestamp: 1.1,
-     *             userId: "userId"
-     *         }
+     *         timestamp: 1.1,
+     *         userId: "userId"
      *     })
      */
     public async create(
-        request: Flagright.BusinessUserEventsCreateRequest,
+        request: Flagright.BusinessUserEvent,
         requestOptions?: BusinessUserEvents.RequestOptions
     ): Promise<Flagright.BusinessWithRulesResult> {
-        const { allowUserTypeConversion, body: _body } = request;
+        const { allowUserTypeConversion, ..._body } = request;
         const _queryParams: Record<string, string | string[]> = {};
         if (allowUserTypeConversion != null) {
             _queryParams["allowUserTypeConversion"] = allowUserTypeConversion;
@@ -76,7 +74,7 @@ export class BusinessUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.19",
+                "X-Fern-SDK-Version": "1.6.20",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -161,7 +159,7 @@ export class BusinessUserEvents {
     public async get(
         eventId: string,
         requestOptions?: BusinessUserEvents.RequestOptions
-    ): Promise<Flagright.BusinessUserEvent> {
+    ): Promise<Flagright.BusinessUserEventWithRulesResult> {
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.FlagrightEnvironment.Default,
@@ -172,7 +170,7 @@ export class BusinessUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.19",
+                "X-Fern-SDK-Version": "1.6.20",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -181,7 +179,7 @@ export class BusinessUserEvents {
             maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
-            return await serializers.BusinessUserEvent.parseOrThrow(_response.body, {
+            return await serializers.BusinessUserEventWithRulesResult.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,

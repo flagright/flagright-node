@@ -6,9 +6,9 @@ import * as serializers from "..";
 import * as Flagright from "../../api";
 import * as core from "../../core";
 
-export const ConsumerUserEvent: core.serialization.ObjectSchema<
-    serializers.ConsumerUserEvent.Raw,
-    Flagright.ConsumerUserEvent
+export const ConsumerUserEventWithRulesResult: core.serialization.ObjectSchema<
+    serializers.ConsumerUserEventWithRulesResult.Raw,
+    Flagright.ConsumerUserEventWithRulesResult
 > = core.serialization.object({
     timestamp: core.serialization.number(),
     userId: core.serialization.string(),
@@ -18,9 +18,16 @@ export const ConsumerUserEvent: core.serialization.ObjectSchema<
     updatedConsumerUserAttributes: core.serialization
         .lazyObject(async () => (await import("..")).UserOptional)
         .optional(),
+    executedRules: core.serialization
+        .list(core.serialization.lazyObject(async () => (await import("..")).ExecutedRulesResult))
+        .optional(),
+    hitRules: core.serialization
+        .list(core.serialization.lazyObject(async () => (await import("..")).HitRulesDetails))
+        .optional(),
+    riskScoreDetails: core.serialization.lazyObject(async () => (await import("..")).UserRiskScoreDetails).optional(),
 });
 
-export declare namespace ConsumerUserEvent {
+export declare namespace ConsumerUserEventWithRulesResult {
     interface Raw {
         timestamp: number;
         userId: string;
@@ -28,5 +35,8 @@ export declare namespace ConsumerUserEvent {
         reason?: string | null;
         eventDescription?: string | null;
         updatedConsumerUserAttributes?: serializers.UserOptional.Raw | null;
+        executedRules?: serializers.ExecutedRulesResult.Raw[] | null;
+        hitRules?: serializers.HitRulesDetails.Raw[] | null;
+        riskScoreDetails?: serializers.UserRiskScoreDetails.Raw | null;
     }
 }

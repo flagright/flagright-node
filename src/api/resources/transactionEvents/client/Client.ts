@@ -79,7 +79,7 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.19",
+                "X-Fern-SDK-Version": "1.6.20",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -165,7 +165,7 @@ export class TransactionEvents {
     public async get(
         eventId: string,
         requestOptions?: TransactionEvents.RequestOptions
-    ): Promise<Flagright.TransactionEvent> {
+    ): Promise<Flagright.TransactionEventWithRulesResult> {
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ?? environments.FlagrightEnvironment.Default,
@@ -176,7 +176,7 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.19",
+                "X-Fern-SDK-Version": "1.6.20",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -185,7 +185,7 @@ export class TransactionEvents {
             maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
-            return await serializers.TransactionEvent.parseOrThrow(_response.body, {
+            return await serializers.TransactionEventWithRulesResult.parseOrThrow(_response.body, {
                 unrecognizedObjectKeys: "passthrough",
                 allowUnrecognizedUnionMembers: true,
                 allowUnrecognizedEnumValues: true,

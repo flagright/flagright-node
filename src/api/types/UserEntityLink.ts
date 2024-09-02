@@ -4,5 +4,4 @@
 
 export interface UserEntityLink {
     parentUserId?: string;
-    childUserIds?: string[];
 }
