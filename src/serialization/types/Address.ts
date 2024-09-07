@@ -13,6 +13,7 @@ export const Address: core.serialization.ObjectSchema<serializers.Address.Raw, F
         city: core.serialization.string(),
         state: core.serialization.string().optional(),
         country: core.serialization.string(),
+        addressType: core.serialization.string().optional(),
         tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
     });
 
@@ -23,6 +24,7 @@ export declare namespace Address {
         city: string;
         state?: string | null;
         country: string;
+        addressType?: string | null;
         tags?: serializers.Tag.Raw[] | null;
     }
 }

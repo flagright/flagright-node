@@ -22,6 +22,7 @@ export const UserWithRulesResult: core.serialization.ObjectSchema<
         .list(core.serialization.lazyObject(async () => (await import("..")).LegalDocument))
         .optional(),
     contactDetails: core.serialization.lazyObject(async () => (await import("..")).ContactDetails).optional(),
+    employmentDetails: core.serialization.lazyObject(async () => (await import("..")).EmploymentDetails).optional(),
     transactionLimits: core.serialization.lazyObject(async () => (await import("..")).TransactionLimits).optional(),
     expectedIncome: core.serialization.lazyObject(async () => (await import("..")).ExpectedIncome).optional(),
     riskLevel: core.serialization.lazy(async () => (await import("..")).RiskLevel).optional(),
@@ -60,6 +61,7 @@ export declare namespace UserWithRulesResult {
         occupation?: string | null;
         legalDocuments?: serializers.LegalDocument.Raw[] | null;
         contactDetails?: serializers.ContactDetails.Raw | null;
+        employmentDetails?: serializers.EmploymentDetails.Raw | null;
         transactionLimits?: serializers.TransactionLimits.Raw | null;
         expectedIncome?: serializers.ExpectedIncome.Raw | null;
         riskLevel?: serializers.RiskLevel.Raw | null;

@@ -11,8 +11,11 @@ export interface UserDetails {
     name: Flagright.ConsumerName;
     /** Date of birth of the user (YYYY-MM-DD) */
     dateOfBirth?: string;
+    /** Internal category of the user */
+    userCategory?: string;
     countryOfResidence?: Flagright.CountryCode;
     countryOfNationality?: Flagright.CountryCode;
     gender?: Flagright.Gender;
+    martialStatus?: Flagright.MartialStatus;
     placeOfBirth?: Flagright.PlaceOfBirth;
 }

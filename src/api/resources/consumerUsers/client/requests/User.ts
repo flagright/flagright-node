@@ -67,6 +67,7 @@ export interface User {
     /** User's legal identity documents - See Document Model for details */
     legalDocuments?: Flagright.LegalDocument[];
     contactDetails?: Flagright.ContactDetails;
+    employmentDetails?: Flagright.EmploymentDetails;
     transactionLimits?: Flagright.TransactionLimits;
     expectedIncome?: Flagright.ExpectedIncome;
     riskLevel?: Flagright.RiskLevel;

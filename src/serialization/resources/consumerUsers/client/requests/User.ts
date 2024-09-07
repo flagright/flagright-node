@@ -23,6 +23,9 @@ export const User: core.serialization.Schema<serializers.User.Raw, Flagright.Use
         .list(core.serialization.lazyObject(async () => (await import("../../../..")).LegalDocument))
         .optional(),
     contactDetails: core.serialization.lazyObject(async () => (await import("../../../..")).ContactDetails).optional(),
+    employmentDetails: core.serialization
+        .lazyObject(async () => (await import("../../../..")).EmploymentDetails)
+        .optional(),
     transactionLimits: core.serialization
         .lazyObject(async () => (await import("../../../..")).TransactionLimits)
         .optional(),
@@ -60,6 +63,7 @@ export declare namespace User {
         occupation?: string | null;
         legalDocuments?: serializers.LegalDocument.Raw[] | null;
         contactDetails?: serializers.ContactDetails.Raw | null;
+        employmentDetails?: serializers.EmploymentDetails.Raw | null;
         transactionLimits?: serializers.TransactionLimits.Raw | null;
         expectedIncome?: serializers.ExpectedIncome.Raw | null;
         riskLevel?: serializers.RiskLevel.Raw | null;

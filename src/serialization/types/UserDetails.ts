@@ -10,9 +10,11 @@ export const UserDetails: core.serialization.ObjectSchema<serializers.UserDetail
     core.serialization.object({
         name: core.serialization.lazyObject(async () => (await import("..")).ConsumerName),
         dateOfBirth: core.serialization.string().optional(),
+        userCategory: core.serialization.string().optional(),
         countryOfResidence: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
         countryOfNationality: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
         gender: core.serialization.lazy(async () => (await import("..")).Gender).optional(),
+        martialStatus: core.serialization.lazy(async () => (await import("..")).MartialStatus).optional(),
         placeOfBirth: core.serialization.lazyObject(async () => (await import("..")).PlaceOfBirth).optional(),
     });
 
@@ -20,9 +22,11 @@ export declare namespace UserDetails {
     interface Raw {
         name: serializers.ConsumerName.Raw;
         dateOfBirth?: string | null;
+        userCategory?: string | null;
         countryOfResidence?: serializers.CountryCode.Raw | null;
         countryOfNationality?: serializers.CountryCode.Raw | null;
         gender?: serializers.Gender.Raw | null;
+        martialStatus?: serializers.MartialStatus.Raw | null;
         placeOfBirth?: serializers.PlaceOfBirth.Raw | null;
     }
 }

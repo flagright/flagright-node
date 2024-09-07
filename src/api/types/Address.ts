@@ -18,6 +18,8 @@ export interface Address {
     state?: string;
     /** User's country of residence */
     country: string;
+    /** Type of the address (ex - Residential, Postal, etc.) */
+    addressType?: string;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
 }
