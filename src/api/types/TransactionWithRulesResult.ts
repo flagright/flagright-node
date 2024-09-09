@@ -19,8 +19,8 @@ export interface TransactionWithRulesResult {
     destinationAmountDetails?: Flagright.TransactionAmountDetails;
     /** Payment details of the origin. It can be a bank account number, wallet ID, card fingerprint etc. */
     originPaymentDetails?: Flagright.TransactionWithRulesResultOriginPaymentDetails;
-    /** Payment details of the destination. It can be a bank account number, wallet ID, card fingerprint etc. */
     destinationPaymentDetails?: Flagright.TransactionWithRulesResultDestinationPaymentDetails;
+    originFundsInfo?: Flagright.OriginFundsInfo;
     /** IDs of transactions related to this transaction. Ex: refund, split bills */
     relatedTransactionIds?: string[];
     /** Type of produce being used by the consumer (ex wallets, payments etc) */

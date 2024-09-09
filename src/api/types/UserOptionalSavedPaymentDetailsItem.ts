@@ -13,7 +13,8 @@ export type UserOptionalSavedPaymentDetailsItem =
     | Flagright.UserOptionalSavedPaymentDetailsItem.Mpesa
     | Flagright.UserOptionalSavedPaymentDetailsItem.Upi
     | Flagright.UserOptionalSavedPaymentDetailsItem.Wallet
-    | Flagright.UserOptionalSavedPaymentDetailsItem.Check;
+    | Flagright.UserOptionalSavedPaymentDetailsItem.Check
+    | Flagright.UserOptionalSavedPaymentDetailsItem.Cash;
 
 export declare namespace UserOptionalSavedPaymentDetailsItem {
     interface Card extends Flagright.CardDetails {
@@ -50,5 +51,9 @@ export declare namespace UserOptionalSavedPaymentDetailsItem {
 
     interface Check extends Flagright.CheckDetails {
         method: "CHECK";
+    }
+
+    interface Cash extends Flagright.CheckDetails {
+        method: "CASH";
     }
 }

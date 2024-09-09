@@ -22,6 +22,7 @@ export const BusinessSavedPaymentDetailsItem: core.serialization.Schema<
         UPI: core.serialization.lazyObject(async () => (await import("../../..")).UpiDetails),
         WALLET: core.serialization.lazyObject(async () => (await import("../../..")).WalletDetails),
         CHECK: core.serialization.lazyObject(async () => (await import("../../..")).CheckDetails),
+        CASH: core.serialization.lazyObject(async () => (await import("../../..")).CheckDetails),
     })
     .transform<Flagright.BusinessSavedPaymentDetailsItem>({
         transform: (value) => value,
@@ -38,7 +39,8 @@ export declare namespace BusinessSavedPaymentDetailsItem {
         | BusinessSavedPaymentDetailsItem.Mpesa
         | BusinessSavedPaymentDetailsItem.Upi
         | BusinessSavedPaymentDetailsItem.Wallet
-        | BusinessSavedPaymentDetailsItem.Check;
+        | BusinessSavedPaymentDetailsItem.Check
+        | BusinessSavedPaymentDetailsItem.Cash;
 
     interface Card extends serializers.CardDetails.Raw {
         method: "CARD";
@@ -74,5 +76,9 @@ export declare namespace BusinessSavedPaymentDetailsItem {
 
     interface Check extends serializers.CheckDetails.Raw {
         method: "CHECK";
+    }
+
+    interface Cash extends serializers.CheckDetails.Raw {
+        method: "CASH";
     }
 }

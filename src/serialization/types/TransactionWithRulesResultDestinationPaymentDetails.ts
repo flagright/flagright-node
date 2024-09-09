@@ -20,6 +20,7 @@ export const TransactionWithRulesResultDestinationPaymentDetails: core.serializa
         SWIFT: core.serialization.lazyObject(async () => (await import("..")).SwiftDetails),
         MPESA: core.serialization.lazyObject(async () => (await import("..")).MpesaDetails),
         CHECK: core.serialization.lazyObject(async () => (await import("..")).CheckDetails),
+        CASH: core.serialization.lazyObject(async () => (await import("..")).CheckDetails),
     })
     .transform<Flagright.TransactionWithRulesResultDestinationPaymentDetails>({
         transform: (value) => value,
@@ -36,7 +37,8 @@ export declare namespace TransactionWithRulesResultDestinationPaymentDetails {
         | TransactionWithRulesResultDestinationPaymentDetails.Wallet
         | TransactionWithRulesResultDestinationPaymentDetails.Swift
         | TransactionWithRulesResultDestinationPaymentDetails.Mpesa
-        | TransactionWithRulesResultDestinationPaymentDetails.Check;
+        | TransactionWithRulesResultDestinationPaymentDetails.Check
+        | TransactionWithRulesResultDestinationPaymentDetails.Cash;
 
     interface Card extends serializers.CardDetails.Raw {
         method: "CARD";
@@ -72,5 +74,9 @@ export declare namespace TransactionWithRulesResultDestinationPaymentDetails {
 
     interface Check extends serializers.CheckDetails.Raw {
         method: "CHECK";
+    }
+
+    interface Cash extends serializers.CheckDetails.Raw {
+        method: "CASH";
     }
 }

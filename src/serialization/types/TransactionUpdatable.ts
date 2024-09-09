@@ -23,6 +23,7 @@ export const TransactionUpdatable: core.serialization.ObjectSchema<
     destinationPaymentDetails: core.serialization
         .lazy(async () => (await import("..")).TransactionUpdatableDestinationPaymentDetails)
         .optional(),
+    originFundsInfo: core.serialization.lazyObject(async () => (await import("..")).OriginFundsInfo).optional(),
     relatedTransactionIds: core.serialization.list(core.serialization.string()).optional(),
     productType: core.serialization.string().optional(),
     promotionCodeUsed: core.serialization.boolean().optional(),
@@ -39,6 +40,7 @@ export declare namespace TransactionUpdatable {
         destinationAmountDetails?: serializers.TransactionAmountDetails.Raw | null;
         originPaymentDetails?: serializers.TransactionUpdatableOriginPaymentDetails.Raw | null;
         destinationPaymentDetails?: serializers.TransactionUpdatableDestinationPaymentDetails.Raw | null;
+        originFundsInfo?: serializers.OriginFundsInfo.Raw | null;
         relatedTransactionIds?: string[] | null;
         productType?: string | null;
         promotionCodeUsed?: boolean | null;

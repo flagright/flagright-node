@@ -17,8 +17,19 @@ export const PaymentMethod: core.serialization.Schema<serializers.PaymentMethod.
         "SWIFT",
         "WALLET",
         "CHECK",
+        "CASH",
     ]);
 
 export declare namespace PaymentMethod {
-    type Raw = "ACH" | "CARD" | "IBAN" | "UPI" | "GENERIC_BANK_ACCOUNT" | "MPESA" | "SWIFT" | "WALLET" | "CHECK";
+    type Raw =
+        | "ACH"
+        | "CARD"
+        | "IBAN"
+        | "UPI"
+        | "GENERIC_BANK_ACCOUNT"
+        | "MPESA"
+        | "SWIFT"
+        | "WALLET"
+        | "CHECK"
+        | "CASH";
 }

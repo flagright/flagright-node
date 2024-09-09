@@ -4,9 +4,6 @@
 
 import * as Flagright from "..";
 
-/**
- * Payment details of the destination. It can be a bank account number, wallet ID, card fingerprint etc.
- */
 export type TransactionWithRulesResultDestinationPaymentDetails =
     | Flagright.TransactionWithRulesResultDestinationPaymentDetails.Card
     | Flagright.TransactionWithRulesResultDestinationPaymentDetails.GenericBankAccount
@@ -16,7 +13,8 @@ export type TransactionWithRulesResultDestinationPaymentDetails =
     | Flagright.TransactionWithRulesResultDestinationPaymentDetails.Wallet
     | Flagright.TransactionWithRulesResultDestinationPaymentDetails.Swift
     | Flagright.TransactionWithRulesResultDestinationPaymentDetails.Mpesa
-    | Flagright.TransactionWithRulesResultDestinationPaymentDetails.Check;
+    | Flagright.TransactionWithRulesResultDestinationPaymentDetails.Check
+    | Flagright.TransactionWithRulesResultDestinationPaymentDetails.Cash;
 
 export declare namespace TransactionWithRulesResultDestinationPaymentDetails {
     interface Card extends Flagright.CardDetails {
@@ -53,5 +51,9 @@ export declare namespace TransactionWithRulesResultDestinationPaymentDetails {
 
     interface Check extends Flagright.CheckDetails {
         method: "CHECK";
+    }
+
+    interface Cash extends Flagright.CheckDetails {
+        method: "CASH";
     }
 }

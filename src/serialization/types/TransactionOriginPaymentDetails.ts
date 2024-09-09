@@ -20,6 +20,7 @@ export const TransactionOriginPaymentDetails: core.serialization.Schema<
         UPI: core.serialization.lazyObject(async () => (await import("..")).UpiDetails),
         WALLET: core.serialization.lazyObject(async () => (await import("..")).WalletDetails),
         CHECK: core.serialization.lazyObject(async () => (await import("..")).CheckDetails),
+        CASH: core.serialization.lazyObject(async () => (await import("..")).CheckDetails),
     })
     .transform<Flagright.TransactionOriginPaymentDetails>({
         transform: (value) => value,
@@ -36,7 +37,8 @@ export declare namespace TransactionOriginPaymentDetails {
         | TransactionOriginPaymentDetails.Mpesa
         | TransactionOriginPaymentDetails.Upi
         | TransactionOriginPaymentDetails.Wallet
-        | TransactionOriginPaymentDetails.Check;
+        | TransactionOriginPaymentDetails.Check
+        | TransactionOriginPaymentDetails.Cash;
 
     interface Card extends serializers.CardDetails.Raw {
         method: "CARD";
@@ -72,5 +74,9 @@ export declare namespace TransactionOriginPaymentDetails {
 
     interface Check extends serializers.CheckDetails.Raw {
         method: "CHECK";
+    }
+
+    interface Cash extends serializers.CheckDetails.Raw {
+        method: "CASH";
     }
 }

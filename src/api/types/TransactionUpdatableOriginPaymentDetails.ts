@@ -16,7 +16,8 @@ export type TransactionUpdatableOriginPaymentDetails =
     | Flagright.TransactionUpdatableOriginPaymentDetails.Mpesa
     | Flagright.TransactionUpdatableOriginPaymentDetails.Upi
     | Flagright.TransactionUpdatableOriginPaymentDetails.Wallet
-    | Flagright.TransactionUpdatableOriginPaymentDetails.Check;
+    | Flagright.TransactionUpdatableOriginPaymentDetails.Check
+    | Flagright.TransactionUpdatableOriginPaymentDetails.Cash;
 
 export declare namespace TransactionUpdatableOriginPaymentDetails {
     interface Card extends Flagright.CardDetails {
@@ -53,5 +54,9 @@ export declare namespace TransactionUpdatableOriginPaymentDetails {
 
     interface Check extends Flagright.CheckDetails {
         method: "CHECK";
+    }
+
+    interface Cash extends Flagright.CheckDetails {
+        method: "CASH";
     }
 }

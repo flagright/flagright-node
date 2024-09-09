@@ -28,6 +28,7 @@ export const TransactionWithRulesResult: core.serialization.ObjectSchema<
     destinationPaymentDetails: core.serialization
         .lazy(async () => (await import("..")).TransactionWithRulesResultDestinationPaymentDetails)
         .optional(),
+    originFundsInfo: core.serialization.lazyObject(async () => (await import("..")).OriginFundsInfo).optional(),
     relatedTransactionIds: core.serialization.list(core.serialization.string()).optional(),
     productType: core.serialization.string().optional(),
     promotionCodeUsed: core.serialization.boolean().optional(),
@@ -57,6 +58,7 @@ export declare namespace TransactionWithRulesResult {
         destinationAmountDetails?: serializers.TransactionAmountDetails.Raw | null;
         originPaymentDetails?: serializers.TransactionWithRulesResultOriginPaymentDetails.Raw | null;
         destinationPaymentDetails?: serializers.TransactionWithRulesResultDestinationPaymentDetails.Raw | null;
+        originFundsInfo?: serializers.OriginFundsInfo.Raw | null;
         relatedTransactionIds?: string[] | null;
         productType?: string | null;
         promotionCodeUsed?: boolean | null;

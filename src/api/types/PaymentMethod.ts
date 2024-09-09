@@ -11,7 +11,8 @@ export type PaymentMethod =
     | "MPESA"
     | "SWIFT"
     | "WALLET"
-    | "CHECK";
+    | "CHECK"
+    | "CASH";
 
 export const PaymentMethod = {
     Ach: "ACH",
@@ -23,4 +24,5 @@ export const PaymentMethod = {
     Swift: "SWIFT",
     Wallet: "WALLET",
     Check: "CHECK",
+    Cash: "CASH",
 } as const;
