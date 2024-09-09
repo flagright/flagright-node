@@ -53,7 +53,7 @@ export declare namespace UserSavedPaymentDetailsItem {
         method: "CHECK";
     }
 
-    interface Cash extends Flagright.CheckDetails {
+    interface Cash extends Flagright.CashDetails {
         method: "CASH";
     }
 }

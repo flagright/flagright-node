@@ -121,6 +121,7 @@ export * from "./ListHeader";
 export * from "./PaymentMethod";
 export * from "./CardMerchantDetails";
 export * from "./CheckDetails";
+export * from "./CashDetails";
 export * from "./CountryCode";
 export * from "./CurrencyCode";
 export * from "./MccDetails";
