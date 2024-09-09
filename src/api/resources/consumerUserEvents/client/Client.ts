@@ -50,15 +50,17 @@ export class ConsumerUserEvents {
      *
      * @example
      *     await flagright.consumerUserEvents.create({
-     *         timestamp: 1.1,
-     *         userId: "userId"
+     *         body: {
+     *             timestamp: 1.1,
+     *             userId: "userId"
+     *         }
      *     })
      */
     public async create(
-        request: Flagright.ConsumerUserEvent,
+        request: Flagright.ConsumerUserEventsCreateRequest,
         requestOptions?: ConsumerUserEvents.RequestOptions
     ): Promise<Flagright.UserWithRulesResult> {
-        const { allowUserTypeConversion, ..._body } = request;
+        const { allowUserTypeConversion, body: _body } = request;
         const _queryParams: Record<string, string | string[]> = {};
         if (allowUserTypeConversion != null) {
             _queryParams["allowUserTypeConversion"] = allowUserTypeConversion;
@@ -75,7 +77,7 @@ export class ConsumerUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.22",
+                "X-Fern-SDK-Version": "1.6.23",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -172,7 +174,7 @@ export class ConsumerUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.22",
+                "X-Fern-SDK-Version": "1.6.23",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

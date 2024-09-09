@@ -5,6 +5,7 @@
 import * as environments from "./environments";
 import * as core from "./core";
 import { Transactions } from "./api/resources/transactions/client/Client";
+import { Batch } from "./api/resources/batch/client/Client";
 import { TransactionEvents } from "./api/resources/transactionEvents/client/Client";
 import { ConsumerUsers } from "./api/resources/consumerUsers/client/Client";
 import { BusinessUsers } from "./api/resources/businessUsers/client/Client";
@@ -30,6 +31,12 @@ export class FlagrightClient {
 
     public get transactions(): Transactions {
         return (this._transactions ??= new Transactions(this._options));
+    }
+
+    protected _batch: Batch | undefined;
+
+    public get batch(): Batch {
+        return (this._batch ??= new Batch(this._options));
     }
 
     protected _transactionEvents: TransactionEvents | undefined;
