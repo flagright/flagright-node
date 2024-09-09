@@ -17,6 +17,8 @@ export const EmploymentStatus: core.serialization.Schema<serializers.EmploymentS
         "SOLE_PROPRIETOR",
         "PENSIONER",
         "COMPANY_OWNER",
+        "OTHER",
+        "NA",
     ]);
 
 export declare namespace EmploymentStatus {
@@ -29,5 +31,7 @@ export declare namespace EmploymentStatus {
         | "PART_TIME"
         | "SOLE_PROPRIETOR"
         | "PENSIONER"
-        | "COMPANY_OWNER";
+        | "COMPANY_OWNER"
+        | "OTHER"
+        | "NA";
 }

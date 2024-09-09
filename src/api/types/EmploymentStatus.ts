@@ -11,7 +11,9 @@ export type EmploymentStatus =
     | "PART_TIME"
     | "SOLE_PROPRIETOR"
     | "PENSIONER"
-    | "COMPANY_OWNER";
+    | "COMPANY_OWNER"
+    | "OTHER"
+    | "NA";
 
 export const EmploymentStatus = {
     Unemployed: "UNEMPLOYED",
@@ -23,4 +25,6 @@ export const EmploymentStatus = {
     SoleProprietor: "SOLE_PROPRIETOR",
     Pensioner: "PENSIONER",
     CompanyOwner: "COMPANY_OWNER",
+    Other: "OTHER",
+    Na: "NA",
 } as const;
