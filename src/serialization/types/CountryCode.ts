@@ -254,10 +254,34 @@ export const CountryCode: core.serialization.Schema<serializers.CountryCode.Raw,
         "WF",
         "EH",
         "YE",
-        "XK",
         "ZM",
         "ZW",
         "AX",
+        "XA",
+        "XB",
+        "XC",
+        "XD",
+        "XE",
+        "XF",
+        "XG",
+        "XH",
+        "XI",
+        "XJ",
+        "XK",
+        "XL",
+        "XM",
+        "XN",
+        "XO",
+        "XP",
+        "XQ",
+        "XR",
+        "XS",
+        "XT",
+        "XU",
+        "XV",
+        "XW",
+        "XY",
+        "XZ",
         "N/A",
     ]);
 
@@ -509,9 +533,33 @@ export declare namespace CountryCode {
         | "WF"
         | "EH"
         | "YE"
-        | "XK"
         | "ZM"
         | "ZW"
         | "AX"
+        | "XA"
+        | "XB"
+        | "XC"
+        | "XD"
+        | "XE"
+        | "XF"
+        | "XG"
+        | "XH"
+        | "XI"
+        | "XJ"
+        | "XK"
+        | "XL"
+        | "XM"
+        | "XN"
+        | "XO"
+        | "XP"
+        | "XQ"
+        | "XR"
+        | "XS"
+        | "XT"
+        | "XU"
+        | "XV"
+        | "XW"
+        | "XY"
+        | "XZ"
         | "N/A";
 }

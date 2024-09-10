@@ -249,10 +249,34 @@ export type CountryCode =
     | "WF"
     | "EH"
     | "YE"
-    | "XK"
     | "ZM"
     | "ZW"
     | "AX"
+    | "XA"
+    | "XB"
+    | "XC"
+    | "XD"
+    | "XE"
+    | "XF"
+    | "XG"
+    | "XH"
+    | "XI"
+    | "XJ"
+    | "XK"
+    | "XL"
+    | "XM"
+    | "XN"
+    | "XO"
+    | "XP"
+    | "XQ"
+    | "XR"
+    | "XS"
+    | "XT"
+    | "XU"
+    | "XV"
+    | "XW"
+    | "XY"
+    | "XZ"
     | "N/A";
 
 export const CountryCode = {
@@ -502,9 +526,33 @@ export const CountryCode = {
     Wf: "WF",
     Eh: "EH",
     Ye: "YE",
-    Xk: "XK",
     Zm: "ZM",
     Zw: "ZW",
     Ax: "AX",
+    Xa: "XA",
+    Xb: "XB",
+    Xc: "XC",
+    Xd: "XD",
+    Xe: "XE",
+    Xf: "XF",
+    Xg: "XG",
+    Xh: "XH",
+    Xi: "XI",
+    Xj: "XJ",
+    Xk: "XK",
+    Xl: "XL",
+    Xm: "XM",
+    Xn: "XN",
+    Xo: "XO",
+    Xp: "XP",
+    Xq: "XQ",
+    Xr: "XR",
+    Xs: "XS",
+    Xt: "XT",
+    Xu: "XU",
+    Xv: "XV",
+    Xw: "XW",
+    Xy: "XY",
+    Xz: "XZ",
     NotApplicable: "N/A",
 } as const;
