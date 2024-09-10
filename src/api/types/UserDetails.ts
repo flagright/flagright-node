@@ -16,6 +16,6 @@ export interface UserDetails {
     countryOfResidence?: Flagright.CountryCode;
     countryOfNationality?: Flagright.CountryCode;
     gender?: Flagright.Gender;
-    martialStatus?: Flagright.MartialStatus;
+    maritalStatus?: Flagright.MaritalStatus;
     placeOfBirth?: Flagright.PlaceOfBirth;
 }

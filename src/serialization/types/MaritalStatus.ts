@@ -6,9 +6,9 @@ import * as serializers from "..";
 import * as Flagright from "../../api";
 import * as core from "../../core";
 
-export const MartialStatus: core.serialization.Schema<serializers.MartialStatus.Raw, Flagright.MartialStatus> =
+export const MaritalStatus: core.serialization.Schema<serializers.MaritalStatus.Raw, Flagright.MaritalStatus> =
     core.serialization.enum_(["DIVORCED", "MARRIED", "SINGLE", "WIDOWED", "NA"]);
 
-export declare namespace MartialStatus {
+export declare namespace MaritalStatus {
     type Raw = "DIVORCED" | "MARRIED" | "SINGLE" | "WIDOWED" | "NA";
 }

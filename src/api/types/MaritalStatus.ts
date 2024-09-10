@@ -3,11 +3,11 @@
  */
 
 /**
- * Martial status of the individual
+ * Marital status of the individual
  */
-export type MartialStatus = "DIVORCED" | "MARRIED" | "SINGLE" | "WIDOWED" | "NA";
+export type MaritalStatus = "DIVORCED" | "MARRIED" | "SINGLE" | "WIDOWED" | "NA";
 
-export const MartialStatus = {
+export const MaritalStatus = {
     Divorced: "DIVORCED",
     Married: "MARRIED",
     Single: "SINGLE",

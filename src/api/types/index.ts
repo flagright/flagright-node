@@ -141,7 +141,7 @@ export * from "./BusinessWithRulesResultSavedPaymentDetailsItem";
 export * from "./BusinessWithRulesResult";
 export * from "./BooleanString";
 export * from "./Gender";
-export * from "./MartialStatus";
+export * from "./MaritalStatus";
 export * from "./CardBrand";
 export * from "./CardFunding";
 export * from "./BatchResponse";
