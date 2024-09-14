@@ -8,7 +8,7 @@ import * as core from "../../core";
 
 export const UserDetails: core.serialization.ObjectSchema<serializers.UserDetails.Raw, Flagright.UserDetails> =
     core.serialization.object({
-        name: core.serialization.lazyObject(async () => (await import("..")).ConsumerName),
+        name: core.serialization.lazyObject(async () => (await import("..")).ConsumerName).optional(),
         dateOfBirth: core.serialization.string().optional(),
         userCategory: core.serialization.string().optional(),
         countryOfResidence: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
@@ -20,7 +20,7 @@ export const UserDetails: core.serialization.ObjectSchema<serializers.UserDetail
 
 export declare namespace UserDetails {
     interface Raw {
-        name: serializers.ConsumerName.Raw;
+        name?: serializers.ConsumerName.Raw | null;
         dateOfBirth?: string | null;
         userCategory?: string | null;
         countryOfResidence?: serializers.CountryCode.Raw | null;

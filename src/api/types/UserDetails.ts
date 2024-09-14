@@ -8,7 +8,7 @@ import * as Flagright from "..";
  * Model for consumer user personal details
  */
 export interface UserDetails {
-    name: Flagright.ConsumerName;
+    name?: Flagright.ConsumerName;
     /** Date of birth of the user (YYYY-MM-DD) */
     dateOfBirth?: string;
     /** Internal category of the user */
