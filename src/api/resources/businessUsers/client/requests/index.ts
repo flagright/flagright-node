@@ -1,1 +1,1 @@
-export { Business } from "./Business";
+export { BusinessUsersCreateRequest } from "./BusinessUsersCreateRequest";

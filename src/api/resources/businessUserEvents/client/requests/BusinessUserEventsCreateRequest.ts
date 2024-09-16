@@ -13,14 +13,14 @@ import * as Flagright from "../../../..";
  *         }
  *     }
  */
-export interface ConsumerUserEventsCreateRequest {
+export interface BusinessUserEventsCreateRequest {
     /**
-     * Boolean string whether Flagright should allow a Consumer user event to be applied to a Business user with the same user ID. This will converts a Business user to a Consumer user.
+     * Boolean string whether Flagright should allow a Business user event to be applied to a Consumer user with the same user ID. This will converts a Consumer user to a Business user.
      */
     allowUserTypeConversion?: Flagright.BooleanString;
     /**
      * Boolean string whether Flagright should lock the CRA risk level for the user.
      */
     lockCraRiskLevel?: Flagright.BooleanString;
-    body: Flagright.ConsumerUserEvent;
+    body: Flagright.BusinessUserEvent;
 }

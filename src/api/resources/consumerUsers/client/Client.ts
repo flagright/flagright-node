@@ -43,55 +43,63 @@ export class ConsumerUsers {
      *
      * @example
      *     await flagright.consumerUsers.create({
-     *         userId: "96647cfd9e8fe66ee0f3362e011e34e8",
-     *         createdTimestamp: 1641654664000,
-     *         userDetails: {
-     *             name: {
-     *                 firstName: "Baran",
-     *                 middleName: "Realblood",
-     *                 lastName: "Ozkan"
+     *         body: {
+     *             userId: "96647cfd9e8fe66ee0f3362e011e34e8",
+     *             createdTimestamp: 1641654664000,
+     *             userDetails: {
+     *                 name: {
+     *                     firstName: "Baran",
+     *                     middleName: "Realblood",
+     *                     lastName: "Ozkan"
+     *                 },
+     *                 dateOfBirth: "1991-01-01",
+     *                 countryOfResidence: Flagright.CountryCode.Us,
+     *                 countryOfNationality: Flagright.CountryCode.De
      *             },
-     *             dateOfBirth: "1991-01-01",
-     *             countryOfResidence: Flagright.CountryCode.Us,
-     *             countryOfNationality: Flagright.CountryCode.De
-     *         },
-     *         legalDocuments: [{
-     *                 documentType: "passport",
-     *                 documentNumber: "Z9431P",
-     *                 documentIssuedDate: 1639939034000,
-     *                 documentExpirationDate: 1839939034000,
-     *                 documentIssuedCountry: Flagright.CountryCode.De,
-     *                 tags: [{
-     *                         key: "customerType",
-     *                         value: "wallet"
-     *                     }]
-     *             }],
-     *         contactDetails: {
-     *             emailIds: ["baran@flagright.com"],
-     *             contactNumbers: ["+37112345432"],
-     *             websites: ["flagright.com"],
-     *             addresses: [{
-     *                     addressLines: ["Klara-Franke Str 20"],
-     *                     postcode: "10557",
-     *                     city: "Berlin",
-     *                     state: "Berlin",
-     *                     country: "Germany",
+     *             legalDocuments: [{
+     *                     documentType: "passport",
+     *                     documentNumber: "Z9431P",
+     *                     documentIssuedDate: 1639939034000,
+     *                     documentExpirationDate: 1839939034000,
+     *                     documentIssuedCountry: Flagright.CountryCode.De,
      *                     tags: [{
-     *                             key: "customKey",
-     *                             value: "customValue"
+     *                             key: "customerType",
+     *                             value: "wallet"
      *                         }]
+     *                 }],
+     *             contactDetails: {
+     *                 emailIds: ["baran@flagright.com"],
+     *                 contactNumbers: ["+37112345432"],
+     *                 websites: ["flagright.com"],
+     *                 addresses: [{
+     *                         addressLines: ["Klara-Franke Str 20"],
+     *                         postcode: "10557",
+     *                         city: "Berlin",
+     *                         state: "Berlin",
+     *                         country: "Germany",
+     *                         tags: [{
+     *                                 key: "customKey",
+     *                                 value: "customValue"
+     *                             }]
+     *                     }]
+     *             },
+     *             tags: [{
+     *                     key: "customKey",
+     *                     value: "customValue"
      *                 }]
-     *         },
-     *         tags: [{
-     *                 key: "customKey",
-     *                 value: "customValue"
-     *             }]
+     *         }
      *     })
      */
     public async create(
-        request: Flagright.User,
+        request: Flagright.ConsumerUsersCreateRequest,
         requestOptions?: ConsumerUsers.RequestOptions
     ): Promise<Flagright.ConsumerUsersCreateResponse> {
+        const { lockCraRiskLevel, body: _body } = request;
+        const _queryParams: Record<string, string | string[]> = {};
+        if (lockCraRiskLevel != null) {
+            _queryParams["lockCraRiskLevel"] = lockCraRiskLevel;
+        }
+
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ??
@@ -103,12 +111,13 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.29",
+                "X-Fern-SDK-Version": "1.6.30",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
             contentType: "application/json",
-            body: await serializers.User.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            queryParameters: _queryParams,
+            body: await serializers.User.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
         });
@@ -201,7 +210,7 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.29",
+                "X-Fern-SDK-Version": "1.6.30",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

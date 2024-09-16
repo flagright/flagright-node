@@ -44,21 +44,29 @@ export class BusinessUsers {
      *
      * @example
      *     await flagright.businessUsers.create({
-     *         userId: "userId",
-     *         createdTimestamp: 1.1,
-     *         legalEntity: {
-     *             companyGeneralDetails: {
-     *                 legalName: "Ozkan Hazelnut Export JSC",
-     *                 businessIndustry: ["Farming"],
-     *                 mainProductsServicesSold: ["Hazelnut"]
+     *         body: {
+     *             userId: "userId",
+     *             createdTimestamp: 1.1,
+     *             legalEntity: {
+     *                 companyGeneralDetails: {
+     *                     legalName: "Ozkan Hazelnut Export JSC",
+     *                     businessIndustry: ["Farming"],
+     *                     mainProductsServicesSold: ["Hazelnut"]
+     *                 }
      *             }
      *         }
      *     })
      */
     public async create(
-        request: Flagright.Business,
+        request: Flagright.BusinessUsersCreateRequest,
         requestOptions?: BusinessUsers.RequestOptions
     ): Promise<Flagright.BusinessUsersCreateResponse> {
+        const { lockCraRiskLevel, body: _body } = request;
+        const _queryParams: Record<string, string | string[]> = {};
+        if (lockCraRiskLevel != null) {
+            _queryParams["lockCraRiskLevel"] = lockCraRiskLevel;
+        }
+
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.environment)) ??
@@ -70,12 +78,13 @@ export class BusinessUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.29",
+                "X-Fern-SDK-Version": "1.6.30",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
             contentType: "application/json",
-            body: await serializers.Business.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            queryParameters: _queryParams,
+            body: await serializers.Business.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
         });
@@ -168,7 +177,7 @@ export class BusinessUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.29",
+                "X-Fern-SDK-Version": "1.6.30",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

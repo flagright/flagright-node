@@ -8,15 +8,23 @@ import * as core from "../../core";
 
 export const BatchResponse: core.serialization.ObjectSchema<serializers.BatchResponse.Raw, Flagright.BatchResponse> =
     core.serialization.object({
+        status: core.serialization.lazy(async () => (await import("..")).BatchResponseStatus),
+        batchId: core.serialization.string(),
+        successful: core.serialization.number(),
+        failed: core.serialization.number(),
+        failedRecords: core.serialization
+            .list(core.serialization.lazyObject(async () => (await import("..")).BatchResponseFailedRecord))
+            .optional(),
         message: core.serialization.string().optional(),
-        batchId: core.serialization.string().optional(),
-        status: core.serialization.string().optional(),
     });
 
 export declare namespace BatchResponse {
     interface Raw {
+        status: serializers.BatchResponseStatus.Raw;
+        batchId: string;
+        successful: number;
+        failed: number;
+        failedRecords?: serializers.BatchResponseFailedRecord.Raw[] | null;
         message?: string | null;
-        batchId?: string | null;
-        status?: string | null;
     }
 }

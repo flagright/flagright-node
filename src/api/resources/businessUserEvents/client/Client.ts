@@ -50,18 +50,24 @@ export class BusinessUserEvents {
      *
      * @example
      *     await flagright.businessUserEvents.create({
-     *         timestamp: 1.1,
-     *         userId: "userId"
+     *         body: {
+     *             timestamp: 1.1,
+     *             userId: "userId"
+     *         }
      *     })
      */
     public async create(
-        request: Flagright.BusinessUserEvent,
+        request: Flagright.BusinessUserEventsCreateRequest,
         requestOptions?: BusinessUserEvents.RequestOptions
     ): Promise<Flagright.BusinessWithRulesResult> {
-        const { allowUserTypeConversion, ..._body } = request;
+        const { allowUserTypeConversion, lockCraRiskLevel, body: _body } = request;
         const _queryParams: Record<string, string | string[]> = {};
         if (allowUserTypeConversion != null) {
             _queryParams["allowUserTypeConversion"] = allowUserTypeConversion;
+        }
+
+        if (lockCraRiskLevel != null) {
+            _queryParams["lockCraRiskLevel"] = lockCraRiskLevel;
         }
 
         const _response = await core.fetcher({
@@ -75,7 +81,7 @@ export class BusinessUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.29",
+                "X-Fern-SDK-Version": "1.6.30",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -172,7 +178,7 @@ export class BusinessUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.29",
+                "X-Fern-SDK-Version": "1.6.30",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

@@ -6,6 +6,3 @@ export * as businessUsers from "./businessUsers";
 export * from "./businessUsers/types";
 export * as batch from "./batch";
 export * from "./batch/client/requests";
-export * from "./businessUsers/client/requests";
-export * as businessUserEvents from "./businessUserEvents";
-export * from "./businessUserEvents/client/requests";
