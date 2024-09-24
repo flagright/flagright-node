@@ -39,7 +39,7 @@ export const UserWithRulesResult: core.serialization.ObjectSchema<
     savedPaymentDetails: core.serialization
         .list(core.serialization.lazy(async () => (await import("..")).UserWithRulesResultSavedPaymentDetailsItem))
         .optional(),
-    tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
+    tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).UserTag)).optional(),
     executedRules: core.serialization
         .list(core.serialization.lazyObject(async () => (await import("..")).ExecutedRulesResult))
         .optional(),
@@ -72,7 +72,7 @@ export declare namespace UserWithRulesResult {
         pepStatus?: serializers.PepStatus.Raw[] | null;
         linkedEntities?: serializers.UserEntityLink.Raw | null;
         savedPaymentDetails?: serializers.UserWithRulesResultSavedPaymentDetailsItem.Raw[] | null;
-        tags?: serializers.Tag.Raw[] | null;
+        tags?: serializers.UserTag.Raw[] | null;
         executedRules?: serializers.ExecutedRulesResult.Raw[] | null;
         hitRules?: serializers.HitRulesDetails.Raw[] | null;
         riskScoreDetails?: serializers.UserRiskScoreDetails.Raw | null;

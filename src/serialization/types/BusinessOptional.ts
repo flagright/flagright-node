@@ -31,7 +31,7 @@ export const BusinessOptional: core.serialization.ObjectSchema<
         .list(core.serialization.lazy(async () => (await import("..")).BusinessOptionalSavedPaymentDetailsItem))
         .optional(),
     mccDetails: core.serialization.lazyObject(async () => (await import("..")).MccDetails).optional(),
-    tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
+    tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).UserTag)).optional(),
 });
 
 export declare namespace BusinessOptional {
@@ -49,6 +49,6 @@ export declare namespace BusinessOptional {
         acquisitionChannel?: serializers.AcquisitionChannel.Raw | null;
         savedPaymentDetails?: serializers.BusinessOptionalSavedPaymentDetailsItem.Raw[] | null;
         mccDetails?: serializers.MccDetails.Raw | null;
-        tags?: serializers.Tag.Raw[] | null;
+        tags?: serializers.UserTag.Raw[] | null;
     }
 }

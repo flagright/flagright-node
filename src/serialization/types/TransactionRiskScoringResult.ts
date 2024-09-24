@@ -12,11 +12,19 @@ export const TransactionRiskScoringResult: core.serialization.ObjectSchema<
 > = core.serialization.object({
     trsScore: core.serialization.number(),
     trsRiskLevel: core.serialization.lazy(async () => (await import("..")).RiskLevel),
+    originUserCraRiskScore: core.serialization.number().optional(),
+    destinationUserCraRiskScore: core.serialization.number().optional(),
+    originUserCraRiskLevel: core.serialization.lazy(async () => (await import("..")).RiskLevel).optional(),
+    destinationUserCraRiskLevel: core.serialization.lazy(async () => (await import("..")).RiskLevel).optional(),
 });
 
 export declare namespace TransactionRiskScoringResult {
     interface Raw {
         trsScore: number;
         trsRiskLevel: serializers.RiskLevel.Raw;
+        originUserCraRiskScore?: number | null;
+        destinationUserCraRiskScore?: number | null;
+        originUserCraRiskLevel?: serializers.RiskLevel.Raw | null;
+        destinationUserCraRiskLevel?: serializers.RiskLevel.Raw | null;
     }
 }

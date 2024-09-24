@@ -35,7 +35,9 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
         savedPaymentDetails: core.serialization
             .list(core.serialization.lazy(async () => (await import("..")).UserOptionalSavedPaymentDetailsItem))
             .optional(),
-        tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
+        tags: core.serialization
+            .list(core.serialization.lazyObject(async () => (await import("..")).UserTag))
+            .optional(),
     });
 
 export declare namespace UserOptional {
@@ -59,6 +61,6 @@ export declare namespace UserOptional {
         pepStatus?: serializers.PepStatus.Raw[] | null;
         linkedEntities?: serializers.UserEntityLink.Raw | null;
         savedPaymentDetails?: serializers.UserOptionalSavedPaymentDetailsItem.Raw[] | null;
-        tags?: serializers.Tag.Raw[] | null;
+        tags?: serializers.UserTag.Raw[] | null;
     }
 }

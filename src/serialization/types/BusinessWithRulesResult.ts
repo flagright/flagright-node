@@ -33,7 +33,7 @@ export const BusinessWithRulesResult: core.serialization.ObjectSchema<
         .list(core.serialization.lazy(async () => (await import("..")).BusinessWithRulesResultSavedPaymentDetailsItem))
         .optional(),
     mccDetails: core.serialization.lazyObject(async () => (await import("..")).MccDetails).optional(),
-    tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
+    tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).UserTag)).optional(),
     executedRules: core.serialization
         .list(core.serialization.lazyObject(async () => (await import("..")).ExecutedRulesResult))
         .optional(),
@@ -60,7 +60,7 @@ export declare namespace BusinessWithRulesResult {
         acquisitionChannel?: serializers.AcquisitionChannel.Raw | null;
         savedPaymentDetails?: serializers.BusinessWithRulesResultSavedPaymentDetailsItem.Raw[] | null;
         mccDetails?: serializers.MccDetails.Raw | null;
-        tags?: serializers.Tag.Raw[] | null;
+        tags?: serializers.UserTag.Raw[] | null;
         executedRules?: serializers.ExecutedRulesResult.Raw[] | null;
         hitRules?: serializers.HitRulesDetails.Raw[] | null;
         riskScoreDetails?: serializers.UserRiskScoreDetails.Raw | null;

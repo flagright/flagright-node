@@ -6,15 +6,15 @@ import * as serializers from "..";
 import * as Flagright from "../../api";
 import * as core from "../../core";
 
-export const ExecutedRuleVars: core.serialization.ObjectSchema<
-    serializers.ExecutedRuleVars.Raw,
-    Flagright.ExecutedRuleVars
+export const ExecutedLogicVars: core.serialization.ObjectSchema<
+    serializers.ExecutedLogicVars.Raw,
+    Flagright.ExecutedLogicVars
 > = core.serialization.object({
     direction: core.serialization.lazy(async () => (await import("..")).RuleHitDirection).optional(),
     value: core.serialization.record(core.serialization.string(), core.serialization.unknown()),
 });
 
-export declare namespace ExecutedRuleVars {
+export declare namespace ExecutedLogicVars {
     interface Raw {
         direction?: serializers.RuleHitDirection.Raw | null;
         value: Record<string, unknown>;

@@ -36,7 +36,7 @@ export const User: core.serialization.ObjectSchema<serializers.User.Raw, Flagrig
     savedPaymentDetails: core.serialization
         .list(core.serialization.lazy(async () => (await import("..")).UserSavedPaymentDetailsItem))
         .optional(),
-    tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
+    tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).UserTag)).optional(),
 });
 
 export declare namespace User {
@@ -62,6 +62,6 @@ export declare namespace User {
         pepStatus?: serializers.PepStatus.Raw[] | null;
         linkedEntities?: serializers.UserEntityLink.Raw | null;
         savedPaymentDetails?: serializers.UserSavedPaymentDetailsItem.Raw[] | null;
-        tags?: serializers.Tag.Raw[] | null;
+        tags?: serializers.UserTag.Raw[] | null;
     }
 }

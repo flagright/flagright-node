@@ -26,7 +26,7 @@ export interface BusinessWithRulesResult {
     savedPaymentDetails?: Flagright.BusinessWithRulesResultSavedPaymentDetailsItem[];
     mccDetails?: Flagright.MccDetails;
     /** Additional information that can be added via tags */
-    tags?: Flagright.Tag[];
+    tags?: Flagright.UserTag[];
     executedRules?: Flagright.ExecutedRulesResult[];
     hitRules?: Flagright.HitRulesDetails[];
     riskScoreDetails?: Flagright.UserRiskScoreDetails;

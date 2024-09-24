@@ -18,7 +18,7 @@ export const ExecutedRulesResult: core.serialization.ObjectSchema<
     ruleHit: core.serialization.boolean(),
     ruleHitMeta: core.serialization.lazyObject(async () => (await import("..")).RuleHitMeta).optional(),
     vars: core.serialization
-        .list(core.serialization.lazyObject(async () => (await import("..")).ExecutedRuleVars))
+        .list(core.serialization.lazyObject(async () => (await import("..")).ExecutedLogicVars))
         .optional(),
     labels: core.serialization.list(core.serialization.lazy(async () => (await import("..")).RuleLabels)).optional(),
     nature: core.serialization.lazy(async () => (await import("..")).RuleNature).optional(),
@@ -34,7 +34,7 @@ export declare namespace ExecutedRulesResult {
         ruleAction: serializers.RuleAction.Raw;
         ruleHit: boolean;
         ruleHitMeta?: serializers.RuleHitMeta.Raw | null;
-        vars?: serializers.ExecutedRuleVars.Raw[] | null;
+        vars?: serializers.ExecutedLogicVars.Raw[] | null;
         labels?: serializers.RuleLabels.Raw[] | null;
         nature?: serializers.RuleNature.Raw | null;
         isShadow?: boolean | null;

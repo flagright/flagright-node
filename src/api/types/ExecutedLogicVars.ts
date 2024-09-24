@@ -4,7 +4,7 @@
 
 import * as Flagright from "..";
 
-export interface ExecutedRuleVars {
+export interface ExecutedLogicVars {
     direction?: Flagright.RuleHitDirection;
     value: Record<string, unknown>;
 }

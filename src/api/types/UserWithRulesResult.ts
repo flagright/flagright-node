@@ -31,7 +31,7 @@ export interface UserWithRulesResult {
     linkedEntities?: Flagright.UserEntityLink;
     savedPaymentDetails?: Flagright.UserWithRulesResultSavedPaymentDetailsItem[];
     /** Additional information that can be added via tags */
-    tags?: Flagright.Tag[];
+    tags?: Flagright.UserTag[];
     executedRules?: Flagright.ExecutedRulesResult[];
     hitRules?: Flagright.HitRulesDetails[];
     riskScoreDetails?: Flagright.UserRiskScoreDetails;

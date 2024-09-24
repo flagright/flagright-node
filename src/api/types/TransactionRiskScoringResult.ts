@@ -8,4 +8,10 @@ export interface TransactionRiskScoringResult {
     /** Transaction risk scoring score */
     trsScore: number;
     trsRiskLevel: Flagright.RiskLevel;
+    /** Origin user's CRA risk score */
+    originUserCraRiskScore?: number;
+    /** Destination user's CRA risk score */
+    destinationUserCraRiskScore?: number;
+    originUserCraRiskLevel?: Flagright.RiskLevel;
+    destinationUserCraRiskLevel?: Flagright.RiskLevel;
 }

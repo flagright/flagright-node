@@ -30,5 +30,5 @@ export interface UserOptional {
     linkedEntities?: Flagright.UserEntityLink;
     savedPaymentDetails?: Flagright.UserOptionalSavedPaymentDetailsItem[];
     /** Additional information that can be added via tags */
-    tags?: Flagright.Tag[];
+    tags?: Flagright.UserTag[];
 }
