@@ -35,6 +35,7 @@ export const UserWithRulesResult: core.serialization.ObjectSchema<
     pepStatus: core.serialization
         .list(core.serialization.lazyObject(async () => (await import("..")).PepStatus))
         .optional(),
+    lastTransactionTimestamp: core.serialization.number().optional(),
     linkedEntities: core.serialization.lazyObject(async () => (await import("..")).UserEntityLink).optional(),
     savedPaymentDetails: core.serialization
         .list(core.serialization.lazy(async () => (await import("..")).UserWithRulesResultSavedPaymentDetailsItem))
@@ -70,6 +71,7 @@ export declare namespace UserWithRulesResult {
         sourceOfFunds?: serializers.SourceOfFunds.Raw[] | null;
         userSegment?: serializers.ConsumerUserSegment.Raw | null;
         pepStatus?: serializers.PepStatus.Raw[] | null;
+        lastTransactionTimestamp?: number | null;
         linkedEntities?: serializers.UserEntityLink.Raw | null;
         savedPaymentDetails?: serializers.UserWithRulesResultSavedPaymentDetailsItem.Raw[] | null;
         tags?: serializers.UserTag.Raw[] | null;

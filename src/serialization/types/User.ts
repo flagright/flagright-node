@@ -32,6 +32,7 @@ export const User: core.serialization.ObjectSchema<serializers.User.Raw, Flagrig
     pepStatus: core.serialization
         .list(core.serialization.lazyObject(async () => (await import("..")).PepStatus))
         .optional(),
+    lastTransactionTimestamp: core.serialization.number().optional(),
     linkedEntities: core.serialization.lazyObject(async () => (await import("..")).UserEntityLink).optional(),
     savedPaymentDetails: core.serialization
         .list(core.serialization.lazy(async () => (await import("..")).UserSavedPaymentDetailsItem))
@@ -60,6 +61,7 @@ export declare namespace User {
         sourceOfFunds?: serializers.SourceOfFunds.Raw[] | null;
         userSegment?: serializers.ConsumerUserSegment.Raw | null;
         pepStatus?: serializers.PepStatus.Raw[] | null;
+        lastTransactionTimestamp?: number | null;
         linkedEntities?: serializers.UserEntityLink.Raw | null;
         savedPaymentDetails?: serializers.UserSavedPaymentDetailsItem.Raw[] | null;
         tags?: serializers.UserTag.Raw[] | null;

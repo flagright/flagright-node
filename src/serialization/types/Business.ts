@@ -25,6 +25,7 @@ export const Business: core.serialization.ObjectSchema<serializers.Business.Raw,
         allowedPaymentMethods: core.serialization
             .list(core.serialization.lazy(async () => (await import("..")).PaymentMethod))
             .optional(),
+        lastTransactionTimestamp: core.serialization.number().optional(),
         linkedEntities: core.serialization.lazyObject(async () => (await import("..")).UserEntityLink).optional(),
         acquisitionChannel: core.serialization.lazy(async () => (await import("..")).AcquisitionChannel).optional(),
         savedPaymentDetails: core.serialization
@@ -49,6 +50,7 @@ export declare namespace Business {
         transactionLimits?: serializers.TransactionLimits.Raw | null;
         riskLevel?: serializers.RiskLevel.Raw | null;
         allowedPaymentMethods?: serializers.PaymentMethod.Raw[] | null;
+        lastTransactionTimestamp?: number | null;
         linkedEntities?: serializers.UserEntityLink.Raw | null;
         acquisitionChannel?: serializers.AcquisitionChannel.Raw | null;
         savedPaymentDetails?: serializers.BusinessSavedPaymentDetailsItem.Raw[] | null;

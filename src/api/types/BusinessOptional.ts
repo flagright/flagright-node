@@ -20,6 +20,8 @@ export interface BusinessOptional {
     transactionLimits?: Flagright.TransactionLimits;
     riskLevel?: Flagright.RiskLevel;
     allowedPaymentMethods?: Flagright.PaymentMethod[];
+    /** Timestamp of the last successful transaction of the user */
+    lastTransactionTimestamp?: number;
     linkedEntities?: Flagright.UserEntityLink;
     acquisitionChannel?: Flagright.AcquisitionChannel;
     savedPaymentDetails?: Flagright.BusinessOptionalSavedPaymentDetailsItem[];

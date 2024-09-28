@@ -46,6 +46,7 @@ export class ConsumerUserEvents {
      * In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
+     * @throws {@link Flagright.ConflictError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
@@ -81,7 +82,7 @@ export class ConsumerUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.31",
+                "X-Fern-SDK-Version": "1.6.32",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -113,6 +114,15 @@ export class ConsumerUserEvents {
                     );
                 case 401:
                     throw new Flagright.UnauthorizedError(
+                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
+                case 409:
+                    throw new Flagright.ConflictError(
                         await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
@@ -178,7 +188,7 @@ export class ConsumerUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.31",
+                "X-Fern-SDK-Version": "1.6.32",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

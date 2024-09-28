@@ -28,6 +28,8 @@ export interface User {
     sourceOfFunds?: Flagright.SourceOfFunds[];
     userSegment?: Flagright.ConsumerUserSegment;
     pepStatus?: Flagright.PepStatus[];
+    /** Timestamp of the last successful transaction of the user */
+    lastTransactionTimestamp?: number;
     linkedEntities?: Flagright.UserEntityLink;
     savedPaymentDetails?: Flagright.UserSavedPaymentDetailsItem[];
     /** Additional information that can be added via tags */
