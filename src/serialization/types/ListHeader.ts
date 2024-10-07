@@ -14,6 +14,7 @@ export const ListHeader: core.serialization.ObjectSchema<serializers.ListHeader.
         metadata: core.serialization.lazyObject(async () => (await import("..")).ListMetadata).optional(),
         createdTimestamp: core.serialization.number(),
         size: core.serialization.number(),
+        version: core.serialization.number().optional(),
     });
 
 export declare namespace ListHeader {
@@ -24,5 +25,6 @@ export declare namespace ListHeader {
         metadata?: serializers.ListMetadata.Raw | null;
         createdTimestamp: number;
         size: number;
+        version?: number | null;
     }
 }

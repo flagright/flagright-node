@@ -7,7 +7,7 @@
  */
 export interface OriginFundsInfo {
     /** Source of funds for the transaction */
-    sourceOfFunds: string;
+    sourceOfFunds?: string;
     /** Source of wealth */
-    sourceOfWealth: string;
+    sourceOfWealth?: string;
 }

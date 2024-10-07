@@ -11,4 +11,5 @@ export interface ListHeader {
     metadata?: Flagright.ListMetadata;
     createdTimestamp: number;
     size: number;
+    version?: number;
 }

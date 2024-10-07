@@ -10,13 +10,13 @@ export const OriginFundsInfo: core.serialization.ObjectSchema<
     serializers.OriginFundsInfo.Raw,
     Flagright.OriginFundsInfo
 > = core.serialization.object({
-    sourceOfFunds: core.serialization.string(),
-    sourceOfWealth: core.serialization.string(),
+    sourceOfFunds: core.serialization.string().optional(),
+    sourceOfWealth: core.serialization.string().optional(),
 });
 
 export declare namespace OriginFundsInfo {
     interface Raw {
-        sourceOfFunds: string;
-        sourceOfWealth: string;
+        sourceOfFunds?: string | null;
+        sourceOfWealth?: string | null;
     }
 }

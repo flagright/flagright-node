@@ -97,6 +97,7 @@ export * from "./KycStatus";
 export * from "./EmploymentStatus";
 export * from "./PepStatus";
 export * from "./KycStatusDetails";
+export * from "./UserTagsUpdate";
 export * from "./UserStateDetails";
 export * from "./CaseClosedDetails";
 export * from "./CaseOpenedDetails";
