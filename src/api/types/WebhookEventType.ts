@@ -10,7 +10,8 @@ export type WebhookEventType =
     | "KYC_STATUS_UPDATED"
     | "CASE_OPENED"
     | "ALERT_OPENED"
-    | "USER_TAGS_UPDATED";
+    | "USER_TAGS_UPDATED"
+    | "CRA_RISK_LEVEL_UPDATED";
 
 export const WebhookEventType = {
     CaseClosed: "CASE_CLOSED",
@@ -21,4 +22,5 @@ export const WebhookEventType = {
     CaseOpened: "CASE_OPENED",
     AlertOpened: "ALERT_OPENED",
     UserTagsUpdated: "USER_TAGS_UPDATED",
+    CraRiskLevelUpdated: "CRA_RISK_LEVEL_UPDATED",
 } as const;

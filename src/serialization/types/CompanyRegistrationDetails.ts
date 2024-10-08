@@ -12,6 +12,7 @@ export const CompanyRegistrationDetails: core.serialization.ObjectSchema<
 > = core.serialization.object({
     registrationIdentifier: core.serialization.string(),
     registrationCountry: core.serialization.lazy(async () => (await import("..")).CountryCode),
+    taxResidenceCountry: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
     taxIdentifier: core.serialization.string().optional(),
     legalEntityType: core.serialization.string().optional(),
     dateOfRegistration: core.serialization.string().optional(),
@@ -22,6 +23,7 @@ export declare namespace CompanyRegistrationDetails {
     interface Raw {
         registrationIdentifier: string;
         registrationCountry: serializers.CountryCode.Raw;
+        taxResidenceCountry?: serializers.CountryCode.Raw | null;
         taxIdentifier?: string | null;
         legalEntityType?: string | null;
         dateOfRegistration?: string | null;

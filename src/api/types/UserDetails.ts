@@ -14,8 +14,11 @@ export interface UserDetails {
     /** Internal category of the user */
     userCategory?: string;
     countryOfResidence?: Flagright.CountryCode;
+    countryOfTaxResidence?: Flagright.CountryCode;
     countryOfNationality?: Flagright.CountryCode;
     gender?: Flagright.Gender;
     maritalStatus?: Flagright.MaritalStatus;
     placeOfBirth?: Flagright.PlaceOfBirth;
+    /** Alias names of the user */
+    alias?: string[];
 }

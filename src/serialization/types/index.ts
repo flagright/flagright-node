@@ -111,6 +111,7 @@ export * from "./PosEntryMode";
 export * from "./TransactionType";
 export * from "./WebhookEventBaseTriggeredBy";
 export * from "./WebhookEventBase";
+export * from "./CraRiskLevelUpdatedDetails";
 export * from "./WebhookEventTriggeredBy";
 export * from "./WebhookEventData";
 export * from "./WebhookEvent";
