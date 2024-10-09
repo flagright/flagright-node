@@ -96,6 +96,7 @@ export * from "./UserState";
 export * from "./KycStatus";
 export * from "./EmploymentStatus";
 export * from "./PepStatus";
+export * from "./PepRank";
 export * from "./KycStatusDetails";
 export * from "./UserTagsUpdate";
 export * from "./UserStateDetails";

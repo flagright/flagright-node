@@ -10,11 +10,13 @@ export const PepStatus: core.serialization.ObjectSchema<serializers.PepStatus.Ra
     core.serialization.object({
         isPepHit: core.serialization.boolean(),
         pepCountry: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
+        pepRank: core.serialization.lazy(async () => (await import("..")).PepRank).optional(),
     });
 
 export declare namespace PepStatus {
     interface Raw {
         isPepHit: boolean;
         pepCountry?: serializers.CountryCode.Raw | null;
+        pepRank?: serializers.PepRank.Raw | null;
     }
 }

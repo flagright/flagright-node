@@ -7,4 +7,5 @@ import * as Flagright from "..";
 export interface PepStatus {
     isPepHit: boolean;
     pepCountry?: Flagright.CountryCode;
+    pepRank?: Flagright.PepRank;
 }

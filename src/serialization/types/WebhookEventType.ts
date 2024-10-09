@@ -15,6 +15,7 @@ export const WebhookEventType: core.serialization.Schema<serializers.WebhookEven
         "KYC_STATUS_UPDATED",
         "CASE_OPENED",
         "ALERT_OPENED",
+        "PEP_STATUS_UPDATED",
         "USER_TAGS_UPDATED",
         "CRA_RISK_LEVEL_UPDATED",
     ]);
@@ -28,6 +29,7 @@ export declare namespace WebhookEventType {
         | "KYC_STATUS_UPDATED"
         | "CASE_OPENED"
         | "ALERT_OPENED"
+        | "PEP_STATUS_UPDATED"
         | "USER_TAGS_UPDATED"
         | "CRA_RISK_LEVEL_UPDATED";
 }
