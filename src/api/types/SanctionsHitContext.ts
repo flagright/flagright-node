@@ -5,7 +5,7 @@
 import * as Flagright from "..";
 
 export interface SanctionsHitContext {
-    entity?: Flagright.SanctionsScreeningEntity;
+    entity: Flagright.SanctionsScreeningEntity;
     entityType?: Flagright.SanctionsDetailsEntityType;
     userId?: string;
     transactionId?: string;

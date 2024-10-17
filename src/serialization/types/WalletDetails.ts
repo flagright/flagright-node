@@ -8,7 +8,7 @@ import * as core from "../../core";
 
 export const WalletDetails: core.serialization.ObjectSchema<serializers.WalletDetails.Raw, Flagright.WalletDetails> =
     core.serialization.object({
-        walletType: core.serialization.string(),
+        walletType: core.serialization.string().optional(),
         walletId: core.serialization.string().optional(),
         paymentChannel: core.serialization.string().optional(),
         name: core.serialization.string().optional(),
@@ -21,7 +21,7 @@ export const WalletDetails: core.serialization.ObjectSchema<serializers.WalletDe
 
 export declare namespace WalletDetails {
     interface Raw {
-        walletType: string;
+        walletType?: string | null;
         walletId?: string | null;
         paymentChannel?: string | null;
         name?: string | null;

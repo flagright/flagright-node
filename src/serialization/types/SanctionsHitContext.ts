@@ -10,7 +10,7 @@ export const SanctionsHitContext: core.serialization.ObjectSchema<
     serializers.SanctionsHitContext.Raw,
     Flagright.SanctionsHitContext
 > = core.serialization.object({
-    entity: core.serialization.lazy(async () => (await import("..")).SanctionsScreeningEntity).optional(),
+    entity: core.serialization.lazy(async () => (await import("..")).SanctionsScreeningEntity),
     entityType: core.serialization.lazy(async () => (await import("..")).SanctionsDetailsEntityType).optional(),
     userId: core.serialization.string().optional(),
     transactionId: core.serialization.string().optional(),
@@ -22,7 +22,7 @@ export const SanctionsHitContext: core.serialization.ObjectSchema<
 
 export declare namespace SanctionsHitContext {
     interface Raw {
-        entity?: serializers.SanctionsScreeningEntity.Raw | null;
+        entity: serializers.SanctionsScreeningEntity.Raw;
         entityType?: serializers.SanctionsDetailsEntityType.Raw | null;
         userId?: string | null;
         transactionId?: string | null;

@@ -9,7 +9,7 @@ import * as Flagright from "..";
  */
 export interface WalletDetails {
     /** Wallet type if there are various types of wallets belonging to the same user. E.g. Checking, savings, vault, different currency wallets etc. */
-    walletType: string;
+    walletType?: string;
     /** Unique ID of the wallet */
     walletId?: string;
     /** Payment Channel used through wallet */
