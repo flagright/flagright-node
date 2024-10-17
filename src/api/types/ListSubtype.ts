@@ -14,7 +14,8 @@ export type ListSubtype =
     | "UPI_IDENTIFYING_NUMBER"
     | "IP_ADDRESS"
     | "DEVICE_IDENTIFIER"
-    | "STRING";
+    | "STRING"
+    | "COUNTRY";
 
 export const ListSubtype = {
     UserId: "USER_ID",
@@ -29,4 +30,5 @@ export const ListSubtype = {
     IpAddress: "IP_ADDRESS",
     DeviceIdentifier: "DEVICE_IDENTIFIER",
     String: "STRING",
+    Country: "COUNTRY",
 } as const;

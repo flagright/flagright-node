@@ -20,6 +20,7 @@ export const ListSubtype: core.serialization.Schema<serializers.ListSubtype.Raw,
         "IP_ADDRESS",
         "DEVICE_IDENTIFIER",
         "STRING",
+        "COUNTRY",
     ]);
 
 export declare namespace ListSubtype {
@@ -35,5 +36,6 @@ export declare namespace ListSubtype {
         | "UPI_IDENTIFYING_NUMBER"
         | "IP_ADDRESS"
         | "DEVICE_IDENTIFIER"
-        | "STRING";
+        | "STRING"
+        | "COUNTRY";
 }
