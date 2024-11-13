@@ -12,6 +12,7 @@ export const GenericBankAccountDetails: core.serialization.ObjectSchema<
 > = core.serialization.object({
     accountNumber: core.serialization.string().optional(),
     accountType: core.serialization.string().optional(),
+    accountBalance: core.serialization.lazyObject(async () => (await import("..")).Amount).optional(),
     bankName: core.serialization.string().optional(),
     bankCode: core.serialization.string().optional(),
     country: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
@@ -27,6 +28,7 @@ export declare namespace GenericBankAccountDetails {
     interface Raw {
         accountNumber?: string | null;
         accountType?: string | null;
+        accountBalance?: serializers.Amount.Raw | null;
         bankName?: string | null;
         bankCode?: string | null;
         country?: serializers.CountryCode.Raw | null;

@@ -465,6 +465,23 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "ZMW",
         "ZRX",
         "ZWD",
+        "FDUSD",
+        "AGX",
+        "AUX",
+        "BNB",
+        "CUBE",
+        "EMON",
+        "FDGT",
+        "KGLD",
+        "LODE",
+        "PASS",
+        "PREMIA",
+        "TAB1",
+        "TD-USD",
+        "TRX",
+        "TYUGA",
+        "VIC",
+        "XAI",
     ]);
 
 export declare namespace CurrencyCode {
@@ -925,5 +942,22 @@ export declare namespace CurrencyCode {
         | "ZMK"
         | "ZMW"
         | "ZRX"
-        | "ZWD";
+        | "ZWD"
+        | "FDUSD"
+        | "AGX"
+        | "AUX"
+        | "BNB"
+        | "CUBE"
+        | "EMON"
+        | "FDGT"
+        | "KGLD"
+        | "LODE"
+        | "PASS"
+        | "PREMIA"
+        | "TAB1"
+        | "TD-USD"
+        | "TRX"
+        | "TYUGA"
+        | "VIC"
+        | "XAI";
 }

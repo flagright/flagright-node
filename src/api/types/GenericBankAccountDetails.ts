@@ -12,6 +12,7 @@ export interface GenericBankAccountDetails {
     accountNumber?: string;
     /** Bank account type. E.g. Checking, Savings etc. */
     accountType?: string;
+    accountBalance?: Flagright.Amount;
     /** Name of the bank */
     bankName?: string;
     /** Unique identifier of the bank. In some countries, this can be the same as the bank's SWIFT code */

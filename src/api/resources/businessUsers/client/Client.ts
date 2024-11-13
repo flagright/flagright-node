@@ -61,10 +61,18 @@ export class BusinessUsers {
         request: Flagright.BusinessUsersCreateRequest,
         requestOptions?: BusinessUsers.RequestOptions
     ): Promise<Flagright.BusinessUsersCreateResponse> {
-        const { lockCraRiskLevel, body: _body } = request;
+        const { lockCraRiskLevel, validateUserId, krsOnly, body: _body } = request;
         const _queryParams: Record<string, string | string[]> = {};
         if (lockCraRiskLevel != null) {
             _queryParams["lockCraRiskLevel"] = lockCraRiskLevel;
+        }
+
+        if (validateUserId != null) {
+            _queryParams["validateUserId"] = validateUserId;
+        }
+
+        if (krsOnly != null) {
+            _queryParams["_krsOnly"] = krsOnly;
         }
 
         const _response = await core.fetcher({
@@ -78,7 +86,7 @@ export class BusinessUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.37",
+                "X-Fern-SDK-Version": "1.6.38",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -177,7 +185,7 @@ export class BusinessUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.37",
+                "X-Fern-SDK-Version": "1.6.38",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

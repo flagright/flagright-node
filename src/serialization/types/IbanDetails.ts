@@ -13,6 +13,7 @@ export const IbanDetails: core.serialization.ObjectSchema<serializers.IbanDetail
         bankAddress: core.serialization.lazyObject(async () => (await import("..")).Address).optional(),
         country: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
         iban: core.serialization.property("IBAN", core.serialization.string().optional()),
+        accountBalance: core.serialization.lazyObject(async () => (await import("..")).Amount).optional(),
         name: core.serialization.string().optional(),
         emailId: core.serialization.lazy(async () => (await import("..")).EmailId).optional(),
         bankBranchCode: core.serialization.string().optional(),
@@ -27,6 +28,7 @@ export declare namespace IbanDetails {
         bankAddress?: serializers.Address.Raw | null;
         country?: serializers.CountryCode.Raw | null;
         IBAN?: string | null;
+        accountBalance?: serializers.Amount.Raw | null;
         name?: string | null;
         emailId?: serializers.EmailId.Raw | null;
         bankBranchCode?: string | null;

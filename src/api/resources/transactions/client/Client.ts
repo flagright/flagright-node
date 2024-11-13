@@ -106,7 +106,13 @@ export class Transactions {
         request: Flagright.TransactionsVerifyRequest,
         requestOptions?: Transactions.RequestOptions
     ): Promise<Flagright.TransactionsVerifyResponse> {
-        const { validateOriginUserId, validateDestinationUserId, body: _body } = request;
+        const {
+            validateOriginUserId,
+            validateDestinationUserId,
+            validateTransactionId,
+            trsOnly,
+            body: _body,
+        } = request;
         const _queryParams: Record<string, string | string[]> = {};
         if (validateOriginUserId != null) {
             _queryParams["validateOriginUserId"] = validateOriginUserId;
@@ -114,6 +120,14 @@ export class Transactions {
 
         if (validateDestinationUserId != null) {
             _queryParams["validateDestinationUserId"] = validateDestinationUserId;
+        }
+
+        if (validateTransactionId != null) {
+            _queryParams["validateTransactionId"] = validateTransactionId;
+        }
+
+        if (trsOnly != null) {
+            _queryParams["_trsOnly"] = trsOnly;
         }
 
         const _response = await core.fetcher({
@@ -127,7 +141,7 @@ export class Transactions {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.37",
+                "X-Fern-SDK-Version": "1.6.38",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -226,7 +240,7 @@ export class Transactions {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.37",
+                "X-Fern-SDK-Version": "1.6.38",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

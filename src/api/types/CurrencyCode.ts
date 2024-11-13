@@ -459,7 +459,24 @@ export type CurrencyCode =
     | "ZMK"
     | "ZMW"
     | "ZRX"
-    | "ZWD";
+    | "ZWD"
+    | "FDUSD"
+    | "AGX"
+    | "AUX"
+    | "BNB"
+    | "CUBE"
+    | "EMON"
+    | "FDGT"
+    | "KGLD"
+    | "LODE"
+    | "PASS"
+    | "PREMIA"
+    | "TAB1"
+    | "TD-USD"
+    | "TRX"
+    | "TYUGA"
+    | "VIC"
+    | "XAI";
 
 export const CurrencyCode = {
     OneInch: "1INCH",
@@ -919,4 +936,21 @@ export const CurrencyCode = {
     Zmw: "ZMW",
     Zrx: "ZRX",
     Zwd: "ZWD",
+    Fdusd: "FDUSD",
+    Agx: "AGX",
+    Aux: "AUX",
+    Bnb: "BNB",
+    Cube: "CUBE",
+    Emon: "EMON",
+    Fdgt: "FDGT",
+    Kgld: "KGLD",
+    Lode: "LODE",
+    Pass: "PASS",
+    Premia: "PREMIA",
+    Tab1: "TAB1",
+    TdUsd: "TD-USD",
+    Trx: "TRX",
+    Tyuga: "TYUGA",
+    Vic: "VIC",
+    Xai: "XAI",
 } as const;

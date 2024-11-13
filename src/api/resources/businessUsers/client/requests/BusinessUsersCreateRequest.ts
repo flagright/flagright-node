@@ -25,5 +25,10 @@ export interface BusinessUsersCreateRequest {
      * Boolean string whether Flagright should lock the CRA risk level for the user.
      */
     lockCraRiskLevel?: Flagright.BooleanString;
+    /**
+     * Boolean string whether Flagright should validate the userId
+     */
+    validateUserId?: Flagright.BooleanString;
+    krsOnly?: Flagright.BooleanString;
     body: Flagright.Business;
 }

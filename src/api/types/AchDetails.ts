@@ -12,6 +12,7 @@ export interface AchDetails {
     routingNumber?: string;
     /** Bank account number of the individual */
     accountNumber?: string;
+    accountBalance?: Flagright.Amount;
     /** Name of the bank */
     bankName?: string;
     /** Name of the account holder */

@@ -16,6 +16,7 @@ export interface IbanDetails {
     country?: Flagright.CountryCode;
     /** Account number of the user. Can be account number, IBAN number etc. */
     iban?: string;
+    accountBalance?: Flagright.Amount;
     /** Name of the bank account holder */
     name?: string;
     emailId?: Flagright.EmailId;

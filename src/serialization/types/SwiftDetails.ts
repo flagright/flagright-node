@@ -10,6 +10,7 @@ export const SwiftDetails: core.serialization.ObjectSchema<serializers.SwiftDeta
     core.serialization.object({
         swiftCode: core.serialization.string().optional(),
         accountNumber: core.serialization.string().optional(),
+        accountBalance: core.serialization.lazyObject(async () => (await import("..")).Amount).optional(),
         accountType: core.serialization.string().optional(),
         bankName: core.serialization.string().optional(),
         name: core.serialization.string().optional(),
@@ -23,6 +24,7 @@ export declare namespace SwiftDetails {
     interface Raw {
         swiftCode?: string | null;
         accountNumber?: string | null;
+        accountBalance?: serializers.Amount.Raw | null;
         accountType?: string | null;
         bankName?: string | null;
         name?: string | null;
