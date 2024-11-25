@@ -14,6 +14,7 @@ export const HitRulesDetails: core.serialization.ObjectSchema<
     ruleInstanceId: core.serialization.string(),
     ruleName: core.serialization.string(),
     ruleDescription: core.serialization.string(),
+    executedAt: core.serialization.number().optional(),
     ruleAction: core.serialization.lazy(async () => (await import("..")).RuleAction),
     ruleHitMeta: core.serialization.lazyObject(async () => (await import("..")).RuleHitMeta).optional(),
     labels: core.serialization.list(core.serialization.lazy(async () => (await import("..")).RuleLabels)).optional(),
@@ -27,6 +28,7 @@ export declare namespace HitRulesDetails {
         ruleInstanceId: string;
         ruleName: string;
         ruleDescription: string;
+        executedAt?: number | null;
         ruleAction: serializers.RuleAction.Raw;
         ruleHitMeta?: serializers.RuleHitMeta.Raw | null;
         labels?: serializers.RuleLabels.Raw[] | null;

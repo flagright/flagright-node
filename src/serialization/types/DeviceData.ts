@@ -12,6 +12,7 @@ export const DeviceData: core.serialization.ObjectSchema<serializers.DeviceData.
         deviceLatitude: core.serialization.number().optional(),
         deviceLongitude: core.serialization.number().optional(),
         ipAddress: core.serialization.string().optional(),
+        ipCountry: core.serialization.lazy(async () => (await import("..")).CountryCode).optional(),
         deviceIdentifier: core.serialization.string().optional(),
         vpnUsed: core.serialization.boolean().optional(),
         operatingSystem: core.serialization.string().optional(),
@@ -27,6 +28,7 @@ export declare namespace DeviceData {
         deviceLatitude?: number | null;
         deviceLongitude?: number | null;
         ipAddress?: string | null;
+        ipCountry?: serializers.CountryCode.Raw | null;
         deviceIdentifier?: string | null;
         vpnUsed?: boolean | null;
         operatingSystem?: string | null;

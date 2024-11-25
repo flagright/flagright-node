@@ -10,9 +10,9 @@ export const Address: core.serialization.ObjectSchema<serializers.Address.Raw, F
     core.serialization.object({
         addressLines: core.serialization.list(core.serialization.string()),
         postcode: core.serialization.string().optional(),
-        city: core.serialization.string(),
+        city: core.serialization.string().optional(),
         state: core.serialization.string().optional(),
-        country: core.serialization.string(),
+        country: core.serialization.string().optional(),
         addressType: core.serialization.string().optional(),
         tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
     });
@@ -21,9 +21,9 @@ export declare namespace Address {
     interface Raw {
         addressLines: string[];
         postcode?: string | null;
-        city: string;
+        city?: string | null;
         state?: string | null;
-        country: string;
+        country?: string | null;
         addressType?: string | null;
         tags?: serializers.Tag.Raw[] | null;
     }

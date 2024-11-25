@@ -7,6 +7,8 @@ export * from "./UserSavedPaymentDetailsItem";
 export * from "./User";
 export * from "./Person";
 export * from "./LegalDocument";
+export * from "./FileInfo";
+export * from "./PersonAttachment";
 export * from "./EmploymentDetails";
 export * from "./UserTag";
 export * from "./Tag";

@@ -8,6 +8,8 @@ import * as Flagright from "..";
  * Model for a generic individual - different from User model by not having userId field
  */
 export interface Person {
+    /** Unique user ID for the person */
+    userId?: string;
     generalDetails: Flagright.UserDetails;
     /** User's legal identity documents - See Document Model for details */
     legalDocuments?: Flagright.LegalDocument[];
@@ -15,4 +17,6 @@ export interface Person {
     pepStatus?: Flagright.PepStatus[];
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
+    /** User's attachments uploaded by business user */
+    attachments?: Flagright.PersonAttachment[];
 }

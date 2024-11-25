@@ -8,6 +8,7 @@ import * as core from "../../core";
 
 export const Person: core.serialization.ObjectSchema<serializers.Person.Raw, Flagright.Person> =
     core.serialization.object({
+        userId: core.serialization.string().optional(),
         generalDetails: core.serialization.lazyObject(async () => (await import("..")).UserDetails),
         legalDocuments: core.serialization
             .list(core.serialization.lazyObject(async () => (await import("..")).LegalDocument))
@@ -17,14 +18,19 @@ export const Person: core.serialization.ObjectSchema<serializers.Person.Raw, Fla
             .list(core.serialization.lazyObject(async () => (await import("..")).PepStatus))
             .optional(),
         tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).Tag)).optional(),
+        attachments: core.serialization
+            .list(core.serialization.lazyObject(async () => (await import("..")).PersonAttachment))
+            .optional(),
     });
 
 export declare namespace Person {
     interface Raw {
+        userId?: string | null;
         generalDetails: serializers.UserDetails.Raw;
         legalDocuments?: serializers.LegalDocument.Raw[] | null;
         contactDetails?: serializers.ContactDetails.Raw | null;
         pepStatus?: serializers.PepStatus.Raw[] | null;
         tags?: serializers.Tag.Raw[] | null;
+        attachments?: serializers.PersonAttachment.Raw[] | null;
     }
 }

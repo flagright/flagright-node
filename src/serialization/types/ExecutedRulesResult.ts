@@ -16,6 +16,7 @@ export const ExecutedRulesResult: core.serialization.ObjectSchema<
     ruleDescription: core.serialization.string(),
     ruleAction: core.serialization.lazy(async () => (await import("..")).RuleAction),
     ruleHit: core.serialization.boolean(),
+    executedAt: core.serialization.number().optional(),
     ruleHitMeta: core.serialization.lazyObject(async () => (await import("..")).RuleHitMeta).optional(),
     vars: core.serialization
         .list(core.serialization.lazyObject(async () => (await import("..")).ExecutedLogicVars))
@@ -33,6 +34,7 @@ export declare namespace ExecutedRulesResult {
         ruleDescription: string;
         ruleAction: serializers.RuleAction.Raw;
         ruleHit: boolean;
+        executedAt?: number | null;
         ruleHitMeta?: serializers.RuleHitMeta.Raw | null;
         vars?: serializers.ExecutedLogicVars.Raw[] | null;
         labels?: serializers.RuleLabels.Raw[] | null;

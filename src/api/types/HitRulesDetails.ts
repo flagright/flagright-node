@@ -15,6 +15,8 @@ export interface HitRulesDetails {
     ruleName: string;
     /** Description of the rule */
     ruleDescription: string;
+    /** Timestamp when the rule was hit */
+    executedAt?: number;
     ruleAction: Flagright.RuleAction;
     ruleHitMeta?: Flagright.RuleHitMeta;
     labels?: Flagright.RuleLabels[];
