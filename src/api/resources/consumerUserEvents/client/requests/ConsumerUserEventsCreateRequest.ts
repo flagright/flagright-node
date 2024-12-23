@@ -19,6 +19,10 @@ export interface ConsumerUserEventsCreateRequest {
      */
     allowUserTypeConversion?: Flagright.BooleanString;
     /**
+     * Boolean string whether Flagright should lock the KYC risk level for the user.
+     */
+    lockKycRiskLevel?: Flagright.BooleanString;
+    /**
      * Boolean string whether Flagright should lock the CRA risk level for the user.
      */
     lockCraRiskLevel?: Flagright.BooleanString;

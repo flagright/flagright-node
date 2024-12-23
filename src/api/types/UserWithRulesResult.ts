@@ -23,6 +23,7 @@ export interface UserWithRulesResult {
     transactionLimits?: Flagright.TransactionLimits;
     expectedIncome?: Flagright.ExpectedIncome;
     riskLevel?: Flagright.RiskLevel;
+    kycRiskLevel?: Flagright.RiskLevel;
     acquisitionChannel?: Flagright.AcquisitionChannel;
     reasonForAccountOpening?: string[];
     sourceOfFunds?: Flagright.SourceOfFunds[];
@@ -34,6 +35,8 @@ export interface UserWithRulesResult {
     savedPaymentDetails?: Flagright.UserWithRulesResultSavedPaymentDetailsItem[];
     /** Additional information that can be added via tags */
     tags?: Flagright.UserTag[];
+    /** Uploaded user's attachment */
+    attachments?: Flagright.PersonAttachment[];
     executedRules?: Flagright.ExecutedRulesResult[];
     hitRules?: Flagright.HitRulesDetails[];
     riskScoreDetails?: Flagright.UserRiskScoreDetails;

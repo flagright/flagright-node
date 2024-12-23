@@ -22,6 +22,7 @@ export const Business: core.serialization.ObjectSchema<serializers.Business.Raw,
             .optional(),
         transactionLimits: core.serialization.lazyObject(async () => (await import("..")).TransactionLimits).optional(),
         riskLevel: core.serialization.lazy(async () => (await import("..")).RiskLevel).optional(),
+        kycRiskLevel: core.serialization.lazy(async () => (await import("..")).RiskLevel).optional(),
         allowedPaymentMethods: core.serialization
             .list(core.serialization.lazy(async () => (await import("..")).PaymentMethod))
             .optional(),
@@ -34,6 +35,9 @@ export const Business: core.serialization.ObjectSchema<serializers.Business.Raw,
         mccDetails: core.serialization.lazyObject(async () => (await import("..")).MccDetails).optional(),
         tags: core.serialization
             .list(core.serialization.lazyObject(async () => (await import("..")).UserTag))
+            .optional(),
+        attachments: core.serialization
+            .list(core.serialization.lazyObject(async () => (await import("..")).PersonAttachment))
             .optional(),
     });
 
@@ -49,6 +53,7 @@ export declare namespace Business {
         directors?: serializers.Person.Raw[] | null;
         transactionLimits?: serializers.TransactionLimits.Raw | null;
         riskLevel?: serializers.RiskLevel.Raw | null;
+        kycRiskLevel?: serializers.RiskLevel.Raw | null;
         allowedPaymentMethods?: serializers.PaymentMethod.Raw[] | null;
         lastTransactionTimestamp?: number | null;
         linkedEntities?: serializers.UserEntityLink.Raw | null;
@@ -56,5 +61,6 @@ export declare namespace Business {
         savedPaymentDetails?: serializers.BusinessSavedPaymentDetailsItem.Raw[] | null;
         mccDetails?: serializers.MccDetails.Raw | null;
         tags?: serializers.UserTag.Raw[] | null;
+        attachments?: serializers.PersonAttachment.Raw[] | null;
     }
 }

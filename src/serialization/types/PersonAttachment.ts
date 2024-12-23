@@ -15,6 +15,7 @@ export const PersonAttachment: core.serialization.ObjectSchema<
     files: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).FileInfo)),
     userId: core.serialization.string(),
     createdAt: core.serialization.number().optional(),
+    deletedAt: core.serialization.number().optional(),
 });
 
 export declare namespace PersonAttachment {
@@ -24,5 +25,6 @@ export declare namespace PersonAttachment {
         files: serializers.FileInfo.Raw[];
         userId: string;
         createdAt?: number | null;
+        deletedAt?: number | null;
     }
 }

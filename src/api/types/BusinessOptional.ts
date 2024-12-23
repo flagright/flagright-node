@@ -19,6 +19,7 @@ export interface BusinessOptional {
     directors?: Flagright.Person[];
     transactionLimits?: Flagright.TransactionLimits;
     riskLevel?: Flagright.RiskLevel;
+    kycRiskLevel?: Flagright.RiskLevel;
     allowedPaymentMethods?: Flagright.PaymentMethod[];
     /** Timestamp of the last successful transaction of the user */
     lastTransactionTimestamp?: number;
@@ -28,4 +29,6 @@ export interface BusinessOptional {
     mccDetails?: Flagright.MccDetails;
     /** Additional information that can be added via tags */
     tags?: Flagright.UserTag[];
+    /** User's attachments uploaded by business user */
+    attachments?: Flagright.PersonAttachment[];
 }

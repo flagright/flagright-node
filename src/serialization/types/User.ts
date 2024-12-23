@@ -23,6 +23,7 @@ export const User: core.serialization.ObjectSchema<serializers.User.Raw, Flagrig
     transactionLimits: core.serialization.lazyObject(async () => (await import("..")).TransactionLimits).optional(),
     expectedIncome: core.serialization.lazyObject(async () => (await import("..")).ExpectedIncome).optional(),
     riskLevel: core.serialization.lazy(async () => (await import("..")).RiskLevel).optional(),
+    kycRiskLevel: core.serialization.lazy(async () => (await import("..")).RiskLevel).optional(),
     acquisitionChannel: core.serialization.lazy(async () => (await import("..")).AcquisitionChannel).optional(),
     reasonForAccountOpening: core.serialization.list(core.serialization.string()).optional(),
     sourceOfFunds: core.serialization
@@ -38,6 +39,9 @@ export const User: core.serialization.ObjectSchema<serializers.User.Raw, Flagrig
         .list(core.serialization.lazy(async () => (await import("..")).UserSavedPaymentDetailsItem))
         .optional(),
     tags: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).UserTag)).optional(),
+    attachments: core.serialization
+        .list(core.serialization.lazyObject(async () => (await import("..")).PersonAttachment))
+        .optional(),
 });
 
 export declare namespace User {
@@ -56,6 +60,7 @@ export declare namespace User {
         transactionLimits?: serializers.TransactionLimits.Raw | null;
         expectedIncome?: serializers.ExpectedIncome.Raw | null;
         riskLevel?: serializers.RiskLevel.Raw | null;
+        kycRiskLevel?: serializers.RiskLevel.Raw | null;
         acquisitionChannel?: serializers.AcquisitionChannel.Raw | null;
         reasonForAccountOpening?: string[] | null;
         sourceOfFunds?: serializers.SourceOfFunds.Raw[] | null;
@@ -65,5 +70,6 @@ export declare namespace User {
         linkedEntities?: serializers.UserEntityLink.Raw | null;
         savedPaymentDetails?: serializers.UserSavedPaymentDetailsItem.Raw[] | null;
         tags?: serializers.UserTag.Raw[] | null;
+        attachments?: serializers.PersonAttachment.Raw[] | null;
     }
 }

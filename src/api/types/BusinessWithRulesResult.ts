@@ -20,6 +20,7 @@ export interface BusinessWithRulesResult {
     directors?: Flagright.Person[];
     transactionLimits?: Flagright.TransactionLimits;
     riskLevel?: Flagright.RiskLevel;
+    kycRiskLevel?: Flagright.RiskLevel;
     allowedPaymentMethods?: Flagright.PaymentMethod[];
     /** Timestamp of the last successful transaction of the user */
     lastTransactionTimestamp?: number;
@@ -29,6 +30,8 @@ export interface BusinessWithRulesResult {
     mccDetails?: Flagright.MccDetails;
     /** Additional information that can be added via tags */
     tags?: Flagright.UserTag[];
+    /** User's attachments uploaded by business user */
+    attachments?: Flagright.PersonAttachment[];
     executedRules?: Flagright.ExecutedRulesResult[];
     hitRules?: Flagright.HitRulesDetails[];
     riskScoreDetails?: Flagright.UserRiskScoreDetails;

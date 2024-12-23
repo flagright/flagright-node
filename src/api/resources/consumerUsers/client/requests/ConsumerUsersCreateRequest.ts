@@ -60,6 +60,10 @@ export interface ConsumerUsersCreateRequest {
      */
     lockCraRiskLevel?: Flagright.BooleanString;
     /**
+     * Boolean string whether Flagright should lock the KYC risk level for the user.
+     */
+    lockKycRiskLevel?: Flagright.BooleanString;
+    /**
      * Boolean string whether Flagright should validate the userId
      */
     validateUserId?: Flagright.BooleanString;

@@ -61,10 +61,14 @@ export class ConsumerUserEvents {
         request: Flagright.ConsumerUserEventsCreateRequest,
         requestOptions?: ConsumerUserEvents.RequestOptions
     ): Promise<Flagright.UserWithRulesResult> {
-        const { allowUserTypeConversion, lockCraRiskLevel, body: _body } = request;
+        const { allowUserTypeConversion, lockKycRiskLevel, lockCraRiskLevel, body: _body } = request;
         const _queryParams: Record<string, string | string[]> = {};
         if (allowUserTypeConversion != null) {
             _queryParams["allowUserTypeConversion"] = allowUserTypeConversion;
+        }
+
+        if (lockKycRiskLevel != null) {
+            _queryParams["lockKycRiskLevel"] = lockKycRiskLevel;
         }
 
         if (lockCraRiskLevel != null) {
@@ -82,7 +86,7 @@ export class ConsumerUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.39",
+                "X-Fern-SDK-Version": "1.6.40",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -188,7 +192,7 @@ export class ConsumerUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.39",
+                "X-Fern-SDK-Version": "1.6.40",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

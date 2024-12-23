@@ -22,6 +22,7 @@ export interface UserOptional {
     transactionLimits?: Flagright.TransactionLimits;
     expectedIncome?: Flagright.ExpectedIncome;
     riskLevel?: Flagright.RiskLevel;
+    kycRiskLevel?: Flagright.RiskLevel;
     acquisitionChannel?: Flagright.AcquisitionChannel;
     reasonForAccountOpening?: string[];
     sourceOfFunds?: Flagright.SourceOfFunds[];
@@ -33,4 +34,6 @@ export interface UserOptional {
     savedPaymentDetails?: Flagright.UserOptionalSavedPaymentDetailsItem[];
     /** Additional information that can be added via tags */
     tags?: Flagright.UserTag[];
+    /** Uploaded user's attachment */
+    attachments?: Flagright.PersonAttachment[];
 }

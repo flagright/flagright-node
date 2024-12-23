@@ -14,4 +14,5 @@ export interface PersonAttachment {
     files: Flagright.FileInfo[];
     userId: string;
     createdAt?: number;
+    deletedAt?: number;
 }

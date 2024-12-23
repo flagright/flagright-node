@@ -22,6 +22,7 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
         transactionLimits: core.serialization.lazyObject(async () => (await import("..")).TransactionLimits).optional(),
         expectedIncome: core.serialization.lazyObject(async () => (await import("..")).ExpectedIncome).optional(),
         riskLevel: core.serialization.lazy(async () => (await import("..")).RiskLevel).optional(),
+        kycRiskLevel: core.serialization.lazy(async () => (await import("..")).RiskLevel).optional(),
         acquisitionChannel: core.serialization.lazy(async () => (await import("..")).AcquisitionChannel).optional(),
         reasonForAccountOpening: core.serialization.list(core.serialization.string()).optional(),
         sourceOfFunds: core.serialization
@@ -39,6 +40,9 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
         tags: core.serialization
             .list(core.serialization.lazyObject(async () => (await import("..")).UserTag))
             .optional(),
+        attachments: core.serialization
+            .list(core.serialization.lazyObject(async () => (await import("..")).PersonAttachment))
+            .optional(),
     });
 
 export declare namespace UserOptional {
@@ -55,6 +59,7 @@ export declare namespace UserOptional {
         transactionLimits?: serializers.TransactionLimits.Raw | null;
         expectedIncome?: serializers.ExpectedIncome.Raw | null;
         riskLevel?: serializers.RiskLevel.Raw | null;
+        kycRiskLevel?: serializers.RiskLevel.Raw | null;
         acquisitionChannel?: serializers.AcquisitionChannel.Raw | null;
         reasonForAccountOpening?: string[] | null;
         sourceOfFunds?: serializers.SourceOfFunds.Raw[] | null;
@@ -64,5 +69,6 @@ export declare namespace UserOptional {
         linkedEntities?: serializers.UserEntityLink.Raw | null;
         savedPaymentDetails?: serializers.UserOptionalSavedPaymentDetailsItem.Raw[] | null;
         tags?: serializers.UserTag.Raw[] | null;
+        attachments?: serializers.PersonAttachment.Raw[] | null;
     }
 }
