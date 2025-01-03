@@ -12,7 +12,8 @@ export type WebhookEventType =
     | "ALERT_OPENED"
     | "PEP_STATUS_UPDATED"
     | "USER_TAGS_UPDATED"
-    | "CRA_RISK_LEVEL_UPDATED";
+    | "CRA_RISK_LEVEL_UPDATED"
+    | "LIST_UPDATED";
 
 export const WebhookEventType = {
     CaseClosed: "CASE_CLOSED",
@@ -25,4 +26,5 @@ export const WebhookEventType = {
     PepStatusUpdated: "PEP_STATUS_UPDATED",
     UserTagsUpdated: "USER_TAGS_UPDATED",
     CraRiskLevelUpdated: "CRA_RISK_LEVEL_UPDATED",
+    ListUpdated: "LIST_UPDATED",
 } as const;
