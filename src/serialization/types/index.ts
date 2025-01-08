@@ -116,8 +116,6 @@ export * from "./WebhookEventBaseTriggeredBy";
 export * from "./WebhookEventBase";
 export * from "./CraRiskLevelUpdatedDetails";
 export * from "./ListUpdatedDetailsAction";
-export * from "./ListUpdatedDetailsItemsItemMetadata";
-export * from "./ListUpdatedDetailsItemsItem";
 export * from "./ListUpdatedDetails";
 export * from "./WebhookEventTriggeredBy";
 export * from "./WebhookEventData";

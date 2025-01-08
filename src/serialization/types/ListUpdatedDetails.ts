@@ -12,15 +12,13 @@ export const ListUpdatedDetails: core.serialization.ObjectSchema<
 > = core.serialization.object({
     listId: core.serialization.string(),
     action: core.serialization.lazy(async () => (await import("..")).ListUpdatedDetailsAction),
-    items: core.serialization.list(
-        core.serialization.lazyObject(async () => (await import("..")).ListUpdatedDetailsItemsItem)
-    ),
+    items: core.serialization.list(core.serialization.lazyObject(async () => (await import("..")).ListItem)),
 });
 
 export declare namespace ListUpdatedDetails {
     interface Raw {
         listId: string;
         action: serializers.ListUpdatedDetailsAction.Raw;
-        items: serializers.ListUpdatedDetailsItemsItem.Raw[];
+        items: serializers.ListItem.Raw[];
     }
 }

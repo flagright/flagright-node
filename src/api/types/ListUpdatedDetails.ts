@@ -7,5 +7,5 @@ import * as Flagright from "..";
 export interface ListUpdatedDetails {
     listId: string;
     action: Flagright.ListUpdatedDetailsAction;
-    items: Flagright.ListUpdatedDetailsItemsItem[];
+    items: Flagright.ListItem[];
 }
