@@ -126,6 +126,8 @@ export * from "./ListSubtype";
 export * from "./ListKeyMetadata";
 export * from "./ListData";
 export * from "./ListItem";
+export * from "./ListMetadataTtlUnit";
+export * from "./ListMetadataTtl";
 export * from "./ListMetadata";
 export * from "./ListExisted";
 export * from "./ListHeader";

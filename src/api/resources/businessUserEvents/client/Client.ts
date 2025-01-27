@@ -31,8 +31,8 @@ export class BusinessUserEvents {
      *
      * User events are created after the initial `POST /business/users` call (which creates a user) and are used to:
      *
-     * - Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
-     * - Update the user details, using the `updatedBusinessUserAttributes` field.
+     * * Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
+     * * Update the user details, using the `updatedBusinessUserAttributes` field.
      *
      * > If you have neither of the above two use cases, you do not need to use user events.
      *
@@ -40,8 +40,8 @@ export class BusinessUserEvents {
      *
      * Each user event needs three mandatory fields:
      *
-     * - `timestamp`- the timestamp of when the event was created or occured in your system
-     * - `userId` - The ID of the transaction for which this event is generated.
+     * * `timestamp`- the timestamp of when the event was created or occured in your system
+     * * `userId` - The ID of the transaction for which this event is generated.
      *
      * In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
      * @throws {@link Flagright.BadRequestError}
@@ -86,7 +86,7 @@ export class BusinessUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.43",
+                "X-Fern-SDK-Version": "1.6.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -168,7 +168,6 @@ export class BusinessUserEvents {
 
     /**
      * ### GET a Business User Event
-     *
      * You can retrieve any business user event you created using the [POST Business User Events](/api-reference/api-reference/business-user-events/create) call.
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
@@ -192,7 +191,7 @@ export class BusinessUserEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.43",
+                "X-Fern-SDK-Version": "1.6.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

@@ -31,8 +31,8 @@ export class TransactionEvents {
      *
      * Transaction events are created after the initial `POST /transactions` call (which creates a transaction) and are used to:
      *
-     * - Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](/guides/overview/entities#transaction-lifecycle-through-transaction-events)
-     * - Update the transaction details, using the `updatedTransactionAttributes` field.
+     * * Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](/guides/overview/entities#transaction-lifecycle-through-transaction-events)
+     * * Update the transaction details, using the `updatedTransactionAttributes` field.
      *
      * > If you have neither of the above two use cases, you do not need to use transaction events.
      *
@@ -40,9 +40,9 @@ export class TransactionEvents {
      *
      * Each transaction event needs three mandatory fields:
      *
-     * - `transactionState` - STATE of the transaction -> value is set to `CREATED` after `POST /transactions` call
-     * - `timestamp`- the timestamp of when the event was created or occured in your system
-     * - `transactionId` - The ID of the transaction for which this event is generated.
+     * * `transactionState` - STATE of the transaction -> value is set to `CREATED` after `POST /transactions` call
+     * * `timestamp`- the timestamp of when the event was created or occured in your system
+     * * `transactionId` - The ID of the transaction for which this event is generated.
      *
      * In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
      * @throws {@link Flagright.BadRequestError}
@@ -80,7 +80,7 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.43",
+                "X-Fern-SDK-Version": "1.6.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -178,7 +178,7 @@ export class TransactionEvents {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.43",
+                "X-Fern-SDK-Version": "1.6.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

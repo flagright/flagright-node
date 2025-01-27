@@ -10,11 +10,13 @@ export const ListItem: core.serialization.ObjectSchema<serializers.ListItem.Raw,
     core.serialization.object({
         key: core.serialization.string(),
         metadata: core.serialization.lazy(async () => (await import("..")).ListKeyMetadata).optional(),
+        ttl: core.serialization.number().optional(),
     });
 
 export declare namespace ListItem {
     interface Raw {
         key: string;
         metadata?: serializers.ListKeyMetadata.Raw | null;
+        ttl?: number | null;
     }
 }

@@ -35,8 +35,8 @@ export class ConsumerUsers {
      *
      * Each consumer user needs two mandatory fields:
      *
-     * - `userId` - Unique identifier for the user
-     * - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
+     * * `userId` - Unique identifier for the user
+     * * `createdTimestamp` - UNIX timestamp in *milliseconds* for when the User is created in your system
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
@@ -123,7 +123,7 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.43",
+                "X-Fern-SDK-Version": "1.6.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },
@@ -222,7 +222,7 @@ export class ConsumerUsers {
                 "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.43",
+                "X-Fern-SDK-Version": "1.6.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
             },

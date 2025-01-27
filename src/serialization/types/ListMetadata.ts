@@ -12,6 +12,7 @@ export const ListMetadata: core.serialization.ObjectSchema<serializers.ListMetad
         description: core.serialization.string().optional(),
         status: core.serialization.boolean().optional(),
         checksum: core.serialization.string().optional(),
+        ttl: core.serialization.lazyObject(async () => (await import("..")).ListMetadataTtl).optional(),
     });
 
 export declare namespace ListMetadata {
@@ -20,5 +21,6 @@ export declare namespace ListMetadata {
         description?: string | null;
         status?: boolean | null;
         checksum?: string | null;
+        ttl?: serializers.ListMetadataTtl.Raw | null;
     }
 }

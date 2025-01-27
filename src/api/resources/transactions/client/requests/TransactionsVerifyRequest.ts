@@ -23,6 +23,12 @@ import * as Flagright from "../../../..";
  *                 transactionCurrency: Flagright.CurrencyCode.Inr,
  *                 country: Flagright.CountryCode.In
  *             },
+ *             originPaymentDetails: {
+ *                 method: "CASH"
+ *             },
+ *             destinationPaymentDetails: {
+ *                 method: "CASH"
+ *             },
  *             promotionCodeUsed: true,
  *             reference: "loan repayment",
  *             originDeviceData: {

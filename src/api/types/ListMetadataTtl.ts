@@ -4,8 +4,7 @@
 
 import * as Flagright from "..";
 
-export interface ListItem {
-    key: string;
-    metadata?: Flagright.ListKeyMetadata;
-    ttl?: number;
+export interface ListMetadataTtl {
+    unit: Flagright.ListMetadataTtlUnit;
+    value: number;
 }
