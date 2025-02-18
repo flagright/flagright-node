@@ -17,6 +17,8 @@ export interface CompanyGeneralDetails {
     /** Segmentation of the business user */
     userSegment?: Flagright.BusinessUserSegment;
     userRegistrationStatus?: Flagright.UserRegistrationStatus;
+    /** Countries where the business operates */
+    operatingCountries?: Flagright.CountryCode[];
     /** Alias names of the business entity */
     alias?: string[];
     /** Additional information that can be added via tags */

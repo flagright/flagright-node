@@ -27,4 +27,6 @@ export interface GenericBankAccountDetails {
     paymentChannel?: string;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
+    /** Transit number of the bank account */
+    transitNumber?: string;
 }

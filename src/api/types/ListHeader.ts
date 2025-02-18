@@ -10,6 +10,6 @@ export interface ListHeader {
     subtype: Flagright.ListSubtype;
     metadata?: Flagright.ListMetadata;
     createdTimestamp: number;
-    size: number;
+    size?: number;
     version?: number;
 }
