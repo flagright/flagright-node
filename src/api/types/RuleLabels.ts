@@ -14,7 +14,8 @@ export type RuleLabels =
     | "DISPUTE"
     | "SANCTIONS"
     | "SANCTIONS_PEP"
-    | "SANCTIONS_PEP_ADVERSE_MEDIA";
+    | "SANCTIONS_PEP_ADVERSE_MEDIA"
+    | "SANCTIONS_MANUAL_REVIEW";
 
 export const RuleLabels = {
     UnexpectedBehavior: "UNEXPECTED_BEHAVIOR",
@@ -29,4 +30,5 @@ export const RuleLabels = {
     Sanctions: "SANCTIONS",
     SanctionsPep: "SANCTIONS_PEP",
     SanctionsPepAdverseMedia: "SANCTIONS_PEP_ADVERSE_MEDIA",
+    SanctionsManualReview: "SANCTIONS_MANUAL_REVIEW",
 } as const;

@@ -20,6 +20,7 @@ export const RuleLabels: core.serialization.Schema<serializers.RuleLabels.Raw, F
         "SANCTIONS",
         "SANCTIONS_PEP",
         "SANCTIONS_PEP_ADVERSE_MEDIA",
+        "SANCTIONS_MANUAL_REVIEW",
     ]);
 
 export declare namespace RuleLabels {
@@ -35,5 +36,6 @@ export declare namespace RuleLabels {
         | "DISPUTE"
         | "SANCTIONS"
         | "SANCTIONS_PEP"
-        | "SANCTIONS_PEP_ADVERSE_MEDIA";
+        | "SANCTIONS_PEP_ADVERSE_MEDIA"
+        | "SANCTIONS_MANUAL_REVIEW";
 }
