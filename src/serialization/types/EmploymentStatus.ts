@@ -11,6 +11,7 @@ export const EmploymentStatus: core.serialization.Schema<serializers.EmploymentS
         "UNEMPLOYED",
         "EMPLOYED",
         "SELF_EMPLOYED",
+        "FREELANCER",
         "STUDENT",
         "FULL_TIME",
         "PART_TIME",
@@ -26,6 +27,7 @@ export declare namespace EmploymentStatus {
         | "UNEMPLOYED"
         | "EMPLOYED"
         | "SELF_EMPLOYED"
+        | "FREELANCER"
         | "STUDENT"
         | "FULL_TIME"
         | "PART_TIME"

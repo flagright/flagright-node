@@ -21,7 +21,11 @@ export type SourceOfFunds =
     | "Equity"
     | "Crypto"
     | "Business"
-    | "Employment";
+    | "Employment"
+    | "Salary"
+    | "Real Estate Sale"
+    | "Real Estate Rental"
+    | "Company Exit";
 
 export const SourceOfFunds = {
     Earnings: "Earnings",
@@ -43,4 +47,8 @@ export const SourceOfFunds = {
     Crypto: "Crypto",
     Business: "Business",
     Employment: "Employment",
+    Salary: "Salary",
+    RealEstateSale: "Real Estate Sale",
+    RealEstateRental: "Real Estate Rental",
+    CompanyExit: "Company Exit",
 } as const;

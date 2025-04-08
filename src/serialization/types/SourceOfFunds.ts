@@ -27,6 +27,10 @@ export const SourceOfFunds: core.serialization.Schema<serializers.SourceOfFunds.
         "Crypto",
         "Business",
         "Employment",
+        "Salary",
+        "Real Estate Sale",
+        "Real Estate Rental",
+        "Company Exit",
     ]);
 
 export declare namespace SourceOfFunds {
@@ -49,5 +53,9 @@ export declare namespace SourceOfFunds {
         | "Equity"
         | "Crypto"
         | "Business"
-        | "Employment";
+        | "Employment"
+        | "Salary"
+        | "Real Estate Sale"
+        | "Real Estate Rental"
+        | "Company Exit";
 }
