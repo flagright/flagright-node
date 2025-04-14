@@ -10,9 +10,7 @@ export interface SanctionsHitContext {
     userId?: string;
     transactionId?: string;
     ruleInstanceId?: string;
-    ruleId?: string;
     iban?: string;
     yearOfBirth?: number;
     searchTerm?: string;
-    paymentMethodId?: string;
 }
