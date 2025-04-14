@@ -14,6 +14,7 @@ export interface User {
     userDetails?: Flagright.UserDetails;
     userStateDetails?: Flagright.UserStateDetails;
     kycStatusDetails?: Flagright.KycStatusDetails;
+    eoddDate?: number;
     employmentStatus?: Flagright.EmploymentStatus;
     occupation?: string;
     /** User's legal identity documents - See Document Model for details */

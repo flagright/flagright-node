@@ -12,6 +12,7 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
         userDetails: core.serialization.lazyObject(async () => (await import("..")).UserDetails).optional(),
         userStateDetails: core.serialization.lazyObject(async () => (await import("..")).UserStateDetails).optional(),
         kycStatusDetails: core.serialization.lazyObject(async () => (await import("..")).KycStatusDetails).optional(),
+        eoddDate: core.serialization.number().optional(),
         employmentStatus: core.serialization.lazy(async () => (await import("..")).EmploymentStatus).optional(),
         occupation: core.serialization.string().optional(),
         legalDocuments: core.serialization
@@ -51,6 +52,7 @@ export declare namespace UserOptional {
         userDetails?: serializers.UserDetails.Raw | null;
         userStateDetails?: serializers.UserStateDetails.Raw | null;
         kycStatusDetails?: serializers.KycStatusDetails.Raw | null;
+        eoddDate?: number | null;
         employmentStatus?: serializers.EmploymentStatus.Raw | null;
         occupation?: string | null;
         legalDocuments?: serializers.LegalDocument.Raw[] | null;
