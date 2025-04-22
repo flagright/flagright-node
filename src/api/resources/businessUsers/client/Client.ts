@@ -4,20 +4,28 @@
 
 import * as environments from "../../../../environments";
 import * as core from "../../../../core";
-import * as Flagright from "../../..";
-import * as serializers from "../../../../serialization";
+import * as Flagright from "../../../index";
+import * as serializers from "../../../../serialization/index";
 import urlJoin from "url-join";
-import * as errors from "../../../../errors";
+import * as errors from "../../../../errors/index";
 
 export declare namespace BusinessUsers {
-    interface Options {
+    export interface Options {
         environment?: core.Supplier<environments.FlagrightEnvironment | string>;
+        /** Specify a custom URL to connect the client to. */
+        baseUrl?: core.Supplier<string>;
         apiKey: core.Supplier<string>;
     }
 
-    interface RequestOptions {
+    export interface RequestOptions {
+        /** The maximum time to wait for a response in seconds. */
         timeoutInSeconds?: number;
+        /** The number of times to retry the request. Defaults to 2. */
         maxRetries?: number;
+        /** A hook to abort the request. */
+        abortSignal?: AbortSignal;
+        /** Additional headers to include in the request. */
+        headers?: Record<string, string>;
     }
 }
 
@@ -39,12 +47,16 @@ export class BusinessUsers {
      * * `userId` - Unique identifier for the user
      * * `legalEntity` - Details of the business legal entity (CompanyGeneralDetails, FinancialDetails etc) - only `legalName`in `CompanyGeneralDetails` is mandatory
      * * `createdTimestamp` - UNIX timestamp in *milliseconds* for when the User is created in your system
+     *
+     * @param {Flagright.BusinessUsersCreateRequest} request
+     * @param {BusinessUsers.RequestOptions} requestOptions - Request-specific configuration.
+     *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await flagright.businessUsers.create({
+     *     await client.businessUsers.create({
      *         body: {
      *             userId: "userId",
      *             createdTimestamp: 1.1,
@@ -58,91 +70,118 @@ export class BusinessUsers {
      *         }
      *     })
      */
-    public async create(
+    public create(
         request: Flagright.BusinessUsersCreateRequest,
-        requestOptions?: BusinessUsers.RequestOptions
-    ): Promise<Flagright.BusinessUsersCreateResponse> {
+        requestOptions?: BusinessUsers.RequestOptions,
+    ): core.HttpResponsePromise<Flagright.BusinessUsersCreateResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__create(request, requestOptions));
+    }
+
+    private async __create(
+        request: Flagright.BusinessUsersCreateRequest,
+        requestOptions?: BusinessUsers.RequestOptions,
+    ): Promise<core.WithRawResponse<Flagright.BusinessUsersCreateResponse>> {
         const { lockCraRiskLevel, lockKycRiskLevel, validateUserId, krsOnly, body: _body } = request;
-        const _queryParams: Record<string, string | string[]> = {};
+        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         if (lockCraRiskLevel != null) {
-            _queryParams["lockCraRiskLevel"] = lockCraRiskLevel;
+            _queryParams["lockCraRiskLevel"] = serializers.BooleanString.jsonOrThrow(lockCraRiskLevel, {
+                unrecognizedObjectKeys: "strip",
+            });
         }
 
         if (lockKycRiskLevel != null) {
-            _queryParams["lockKycRiskLevel"] = lockKycRiskLevel;
+            _queryParams["lockKycRiskLevel"] = serializers.BooleanString.jsonOrThrow(lockKycRiskLevel, {
+                unrecognizedObjectKeys: "strip",
+            });
         }
 
         if (validateUserId != null) {
-            _queryParams["validateUserId"] = validateUserId;
+            _queryParams["validateUserId"] = serializers.BooleanString.jsonOrThrow(validateUserId, {
+                unrecognizedObjectKeys: "strip",
+            });
         }
 
         if (krsOnly != null) {
-            _queryParams["_krsOnly"] = krsOnly;
+            _queryParams["_krsOnly"] = serializers.BooleanString.jsonOrThrow(krsOnly, {
+                unrecognizedObjectKeys: "strip",
+            });
         }
 
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ??
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
                     environments.FlagrightEnvironment.SandboxApiServerEu1,
-                "business/users"
+                "business/users",
             ),
             method: "POST",
             headers: {
-                "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.53",
+                "X-Fern-SDK-Version": "v1.7.1",
+                "User-Agent": "flagright/v1.7.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...(await this._getCustomAuthorizationHeaders()),
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             queryParameters: _queryParams,
-            body: await serializers.Business.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            requestType: "json",
+            body: serializers.Business.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return await serializers.BusinessUsersCreateResponse.parseOrThrow(_response.body, {
-                unrecognizedObjectKeys: "passthrough",
-                allowUnrecognizedUnionMembers: true,
-                allowUnrecognizedEnumValues: true,
-                breadcrumbsPrefix: ["response"],
-            });
+            return {
+                data: serializers.BusinessUsersCreateResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
                     throw new Flagright.BadRequestError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 401:
                     throw new Flagright.UnauthorizedError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 429:
                     throw new Flagright.TooManyRequestsError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
+                        rawResponse: _response.rawResponse,
                     });
             }
         }
@@ -152,12 +191,14 @@ export class BusinessUsers {
                 throw new errors.FlagrightError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
-                throw new errors.FlagrightTimeoutError();
+                throw new errors.FlagrightTimeoutError("Timeout exceeded when calling POST /business/users.");
             case "unknown":
                 throw new errors.FlagrightError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -168,78 +209,101 @@ export class BusinessUsers {
      * `/business/user` endpoint allows you to operate on the Business User entity.
      *
      * Calling `GET /business/user/{userId}` will return the entire User payload and rule execution results for the User with the corresponding `userId`
+     *
+     * @param {string} userId -
+     * @param {BusinessUsers.RequestOptions} requestOptions - Request-specific configuration.
+     *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await flagright.businessUsers.get("userId")
+     *     await client.businessUsers.get("userId")
      */
-    public async get(
+    public get(
         userId: string,
-        requestOptions?: BusinessUsers.RequestOptions
-    ): Promise<Flagright.BusinessWithRulesResult> {
+        requestOptions?: BusinessUsers.RequestOptions,
+    ): core.HttpResponsePromise<Flagright.BusinessWithRulesResult> {
+        return core.HttpResponsePromise.fromPromise(this.__get(userId, requestOptions));
+    }
+
+    private async __get(
+        userId: string,
+        requestOptions?: BusinessUsers.RequestOptions,
+    ): Promise<core.WithRawResponse<Flagright.BusinessWithRulesResult>> {
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ??
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
                     environments.FlagrightEnvironment.SandboxApiServerEu1,
-                `business/users/${userId}`
+                `business/users/${encodeURIComponent(userId)}`,
             ),
             method: "GET",
             headers: {
-                "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.53",
+                "X-Fern-SDK-Version": "v1.7.1",
+                "User-Agent": "flagright/v1.7.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...(await this._getCustomAuthorizationHeaders()),
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
+            requestType: "json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return await serializers.BusinessWithRulesResult.parseOrThrow(_response.body, {
-                unrecognizedObjectKeys: "passthrough",
-                allowUnrecognizedUnionMembers: true,
-                allowUnrecognizedEnumValues: true,
-                breadcrumbsPrefix: ["response"],
-            });
+            return {
+                data: serializers.BusinessWithRulesResult.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
                     throw new Flagright.BadRequestError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 401:
                     throw new Flagright.UnauthorizedError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 429:
                     throw new Flagright.TooManyRequestsError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
+                        rawResponse: _response.rawResponse,
                     });
             }
         }
@@ -249,13 +313,20 @@ export class BusinessUsers {
                 throw new errors.FlagrightError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
-                throw new errors.FlagrightTimeoutError();
+                throw new errors.FlagrightTimeoutError("Timeout exceeded when calling GET /business/users/{userId}.");
             case "unknown":
                 throw new errors.FlagrightError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
+    }
+
+    protected async _getCustomAuthorizationHeaders() {
+        const apiKeyValue = await core.Supplier.get(this._options.apiKey);
+        return { "x-api-key": apiKeyValue };
     }
 }

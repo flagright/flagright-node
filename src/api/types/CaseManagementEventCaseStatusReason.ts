@@ -10,7 +10,6 @@ export type CaseManagementEventCaseStatusReason =
     | "INVESTIGATION_COMPLETED"
     | "DOCUMENTS_COLLECTED"
     | "OTHER";
-
 export const CaseManagementEventCaseStatusReason = {
     FalsePositive: "FALSE_POSITIVE",
     InvestigationCompleted: "INVESTIGATION_COMPLETED",

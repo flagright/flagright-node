@@ -23,7 +23,6 @@ export type PosEntryMode =
     | "91"
     | "95"
     | "97";
-
 export const PosEntryMode = {
     Zero: "0",
     One: "1",

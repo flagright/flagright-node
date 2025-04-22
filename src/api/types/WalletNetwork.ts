@@ -32,7 +32,6 @@ export type WalletNetwork =
     | "HEDERA"
     | "ALGORAND"
     | "CELESTIA";
-
 export const WalletNetwork = {
     Bitcoin: "BITCOIN",
     Ethereum: "ETHEREUM",

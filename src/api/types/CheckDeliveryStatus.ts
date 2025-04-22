@@ -3,7 +3,6 @@
  */
 
 export type CheckDeliveryStatus = "COMPLETED" | "PENDING" | "SETTLED" | "CANCELED" | "REFUND" | "DECLINED";
-
 export const CheckDeliveryStatus = {
     Completed: "COMPLETED",
     Pending: "PENDING",

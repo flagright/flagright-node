@@ -13,7 +13,6 @@ export type PaymentMethod =
     | "WALLET"
     | "CHECK"
     | "CASH";
-
 export const PaymentMethod = {
     Ach: "ACH",
     Card: "CARD",

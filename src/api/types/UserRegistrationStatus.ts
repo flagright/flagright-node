@@ -3,7 +3,6 @@
  */
 
 export type UserRegistrationStatus = "REGISTERED" | "UNREGISTERED";
-
 export const UserRegistrationStatus = {
     Registered: "REGISTERED",
     Unregistered: "UNREGISTERED",

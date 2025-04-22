@@ -3,7 +3,6 @@
  */
 
 export type ListUpdatedDetailsAction = "SET" | "UNSET" | "CLEAR";
-
 export const ListUpdatedDetailsAction = {
     Set: "SET",
     Unset: "UNSET",

@@ -1,6 +1,6 @@
-export { TransactionBatchRequest } from "./TransactionBatchRequest";
-export { TransactionEventBatchRequest } from "./TransactionEventBatchRequest";
-export { UserBatchRequest } from "./UserBatchRequest";
-export { BusinessBatchRequest } from "./BusinessBatchRequest";
-export { ConsumerUserEventBatchRequest } from "./ConsumerUserEventBatchRequest";
-export { BusinessUserEventBatchRequest } from "./BusinessUserEventBatchRequest";
+export { type TransactionBatchRequest } from "./TransactionBatchRequest";
+export { type TransactionEventBatchRequest } from "./TransactionEventBatchRequest";
+export { type UserBatchRequest } from "./UserBatchRequest";
+export { type BusinessBatchRequest } from "./BusinessBatchRequest";
+export { type ConsumerUserEventBatchRequest } from "./ConsumerUserEventBatchRequest";
+export { type BusinessUserEventBatchRequest } from "./BusinessUserEventBatchRequest";

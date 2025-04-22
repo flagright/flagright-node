@@ -3,7 +3,6 @@
  */
 
 export type UserState = "UNACCEPTABLE" | "TERMINATED" | "ACTIVE" | "DORMANT" | "CREATED" | "SUSPENDED" | "BLOCKED";
-
 export const UserState = {
     Unacceptable: "UNACCEPTABLE",
     Terminated: "TERMINATED",

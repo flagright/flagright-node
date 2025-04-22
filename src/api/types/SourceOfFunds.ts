@@ -26,7 +26,6 @@ export type SourceOfFunds =
     | "Real Estate Sale"
     | "Real Estate Rental"
     | "Company Exit";
-
 export const SourceOfFunds = {
     Earnings: "Earnings",
     Savings: "Savings",

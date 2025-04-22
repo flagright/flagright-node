@@ -6,7 +6,6 @@
  * Marital status of the individual
  */
 export type MaritalStatus = "DIVORCED" | "MARRIED" | "SINGLE" | "WIDOWED" | "NA";
-
 export const MaritalStatus = {
     Divorced: "DIVORCED",
     Married: "MARRIED",

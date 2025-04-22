@@ -3,7 +3,6 @@
  */
 
 export type BusinessUserSegment = "SOLE_PROPRIETORSHIP" | "LIMITED" | "SMB" | "SMALL" | "MEDIUM" | "LARGE" | "UNKNOWN";
-
 export const BusinessUserSegment = {
     SoleProprietorship: "SOLE_PROPRIETORSHIP",
     Limited: "LIMITED",

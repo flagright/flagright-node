@@ -3,7 +3,6 @@
  */
 
 export type ListMetadataTtlUnit = "HOUR" | "DAY";
-
 export const ListMetadataTtlUnit = {
     Hour: "HOUR",
     Day: "DAY",

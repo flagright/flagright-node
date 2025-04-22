@@ -12,7 +12,6 @@ export type KycStatus =
     | "CANCELLED"
     | "MANUAL_REVIEW"
     | "EDD_IN_PROGRESS";
-
 export const KycStatus = {
     Successful: "SUCCESSFUL",
     Failed: "FAILED",

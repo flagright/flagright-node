@@ -15,7 +15,6 @@ export type WebhookEventType =
     | "USER_TAGS_DELETED"
     | "CRA_RISK_LEVEL_UPDATED"
     | "LIST_UPDATED";
-
 export const WebhookEventType = {
     CaseClosed: "CASE_CLOSED",
     UserStateUpdated: "USER_STATE_UPDATED",

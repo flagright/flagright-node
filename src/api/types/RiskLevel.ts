@@ -3,7 +3,6 @@
  */
 
 export type RiskLevel = "VERY_HIGH" | "HIGH" | "MEDIUM" | "LOW" | "VERY_LOW";
-
 export const RiskLevel = {
     VeryHigh: "VERY_HIGH",
     High: "HIGH",

@@ -13,57 +13,59 @@ import { ConsumerUserEvents } from "./api/resources/consumerUserEvents/client/Cl
 import { BusinessUserEvents } from "./api/resources/businessUserEvents/client/Client";
 
 export declare namespace FlagrightClient {
-    interface Options {
+    export interface Options {
         environment?: core.Supplier<environments.FlagrightEnvironment | string>;
+        /** Specify a custom URL to connect the client to. */
+        baseUrl?: core.Supplier<string>;
         apiKey: core.Supplier<string>;
     }
 
-    interface RequestOptions {
+    export interface RequestOptions {
+        /** The maximum time to wait for a response in seconds. */
         timeoutInSeconds?: number;
+        /** The number of times to retry the request. Defaults to 2. */
         maxRetries?: number;
+        /** A hook to abort the request. */
+        abortSignal?: AbortSignal;
+        /** Additional headers to include in the request. */
+        headers?: Record<string, string>;
     }
 }
 
 export class FlagrightClient {
-    constructor(protected readonly _options: FlagrightClient.Options) {}
-
     protected _transactions: Transactions | undefined;
+    protected _batch: Batch | undefined;
+    protected _transactionEvents: TransactionEvents | undefined;
+    protected _consumerUsers: ConsumerUsers | undefined;
+    protected _businessUsers: BusinessUsers | undefined;
+    protected _consumerUserEvents: ConsumerUserEvents | undefined;
+    protected _businessUserEvents: BusinessUserEvents | undefined;
+
+    constructor(protected readonly _options: FlagrightClient.Options) {}
 
     public get transactions(): Transactions {
         return (this._transactions ??= new Transactions(this._options));
     }
 
-    protected _batch: Batch | undefined;
-
     public get batch(): Batch {
         return (this._batch ??= new Batch(this._options));
     }
-
-    protected _transactionEvents: TransactionEvents | undefined;
 
     public get transactionEvents(): TransactionEvents {
         return (this._transactionEvents ??= new TransactionEvents(this._options));
     }
 
-    protected _consumerUsers: ConsumerUsers | undefined;
-
     public get consumerUsers(): ConsumerUsers {
         return (this._consumerUsers ??= new ConsumerUsers(this._options));
     }
-
-    protected _businessUsers: BusinessUsers | undefined;
 
     public get businessUsers(): BusinessUsers {
         return (this._businessUsers ??= new BusinessUsers(this._options));
     }
 
-    protected _consumerUserEvents: ConsumerUserEvents | undefined;
-
     public get consumerUserEvents(): ConsumerUserEvents {
         return (this._consumerUserEvents ??= new ConsumerUserEvents(this._options));
     }
-
-    protected _businessUserEvents: BusinessUserEvents | undefined;
 
     public get businessUserEvents(): BusinessUserEvents {
         return (this._businessUserEvents ??= new BusinessUserEvents(this._options));

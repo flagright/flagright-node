@@ -15,7 +15,6 @@ export type EmploymentStatus =
     | "COMPANY_OWNER"
     | "OTHER"
     | "NA";
-
 export const EmploymentStatus = {
     Unemployed: "UNEMPLOYED",
     Employed: "EMPLOYED",

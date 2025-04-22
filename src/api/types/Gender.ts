@@ -6,7 +6,6 @@
  * Gender of the individual - Male, Female or Non-Binary
  */
 export type Gender = "M" | "F" | "NB";
-
 export const Gender = {
     M: "M",
     F: "F",

@@ -6,7 +6,6 @@
  * Event triggered by a user or system
  */
 export type WebhookEventBaseTriggeredBy = "MANUAL" | "SYSTEM";
-
 export const WebhookEventBaseTriggeredBy = {
     Manual: "MANUAL",
     System: "SYSTEM",

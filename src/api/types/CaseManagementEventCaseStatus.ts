@@ -6,7 +6,6 @@
  * Status of a case. E.g. Open, Closed etc.
  */
 export type CaseManagementEventCaseStatus = "CLOSED" | "HIT";
-
 export const CaseManagementEventCaseStatus = {
     Closed: "CLOSED",
     Hit: "HIT",

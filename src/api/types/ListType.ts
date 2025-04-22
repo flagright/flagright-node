@@ -3,7 +3,6 @@
  */
 
 export type ListType = "WHITELIST" | "BLACKLIST" | "FLAGRIGHT_LIBRARY";
-
 export const ListType = {
     Whitelist: "WHITELIST",
     Blacklist: "BLACKLIST",

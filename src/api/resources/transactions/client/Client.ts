@@ -4,20 +4,28 @@
 
 import * as environments from "../../../../environments";
 import * as core from "../../../../core";
-import * as Flagright from "../../..";
-import * as serializers from "../../../../serialization";
+import * as Flagright from "../../../index";
+import * as serializers from "../../../../serialization/index";
 import urlJoin from "url-join";
-import * as errors from "../../../../errors";
+import * as errors from "../../../../errors/index";
 
 export declare namespace Transactions {
-    interface Options {
+    export interface Options {
         environment?: core.Supplier<environments.FlagrightEnvironment | string>;
+        /** Specify a custom URL to connect the client to. */
+        baseUrl?: core.Supplier<string>;
         apiKey: core.Supplier<string>;
     }
 
-    interface RequestOptions {
+    export interface RequestOptions {
+        /** The maximum time to wait for a response in seconds. */
         timeoutInSeconds?: number;
+        /** The number of times to retry the request. Defaults to 2. */
         maxRetries?: number;
+        /** A hook to abort the request. */
+        abortSignal?: AbortSignal;
+        /** Additional headers to include in the request. */
+        headers?: Record<string, string>;
     }
 }
 
@@ -46,33 +54,45 @@ export class Transactions {
      * * `destinationAmountDetails` - Details of the amount being received at the destination
      * * `originPaymentDetails` - Payment details (if any) used at the origin (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
      * * `destinationPaymentDetails` - Payment details (if any) used at the destination (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
+     *
+     * @param {Flagright.TransactionsVerifyRequest} request
+     * @param {Transactions.RequestOptions} requestOptions - Request-specific configuration.
+     *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await flagright.transactions.verify({
+     *     await client.transactions.verify({
      *         body: {
-     *             type: Flagright.TransactionType.Deposit,
+     *             type: "DEPOSIT",
      *             transactionId: "7b80a539eea6e78acbd6d458e5971482",
      *             timestamp: 1641654664000,
      *             originUserId: "8650a2611d0771cba03310f74bf6",
      *             destinationUserId: "9350a2611e0771cba03310f74bf6",
      *             originAmountDetails: {
      *                 transactionAmount: 800,
-     *                 transactionCurrency: Flagright.CurrencyCode.Eur,
-     *                 country: Flagright.CountryCode.De
+     *                 transactionCurrency: "EUR",
+     *                 country: "DE"
      *             },
      *             destinationAmountDetails: {
      *                 transactionAmount: 68351.34,
-     *                 transactionCurrency: Flagright.CurrencyCode.Inr,
-     *                 country: Flagright.CountryCode.In
+     *                 transactionCurrency: "INR",
+     *                 country: "IN"
      *             },
      *             originPaymentDetails: {
-     *                 method: "CASH"
+     *                 method: "CARD",
+     *                 cardFingerprint: "20ac00fed8ef913aefb17cfae1097cce",
+     *                 cardIssuedCountry: "TR",
+     *                 transactionReferenceField: "Deposit",
+     *                 3DsDone: true
      *             },
      *             destinationPaymentDetails: {
-     *                 method: "CASH"
+     *                 method: "CARD",
+     *                 cardFingerprint: "20ac00fed8ef913aefb17cfae1097cce",
+     *                 cardIssuedCountry: "TR",
+     *                 transactionReferenceField: "Deposit",
+     *                 3DsDone: true
      *             },
      *             promotionCodeUsed: true,
      *             reference: "loan repayment",
@@ -109,10 +129,17 @@ export class Transactions {
      *         }
      *     })
      */
-    public async verify(
+    public verify(
         request: Flagright.TransactionsVerifyRequest,
-        requestOptions?: Transactions.RequestOptions
-    ): Promise<Flagright.TransactionsVerifyResponse> {
+        requestOptions?: Transactions.RequestOptions,
+    ): core.HttpResponsePromise<Flagright.TransactionsVerifyResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__verify(request, requestOptions));
+    }
+
+    private async __verify(
+        request: Flagright.TransactionsVerifyRequest,
+        requestOptions?: Transactions.RequestOptions,
+    ): Promise<core.WithRawResponse<Flagright.TransactionsVerifyResponse>> {
         const {
             validateOriginUserId,
             validateDestinationUserId,
@@ -120,86 +147,107 @@ export class Transactions {
             trsOnly,
             body: _body,
         } = request;
-        const _queryParams: Record<string, string | string[]> = {};
+        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         if (validateOriginUserId != null) {
-            _queryParams["validateOriginUserId"] = validateOriginUserId;
+            _queryParams["validateOriginUserId"] = serializers.BooleanString.jsonOrThrow(validateOriginUserId, {
+                unrecognizedObjectKeys: "strip",
+            });
         }
 
         if (validateDestinationUserId != null) {
-            _queryParams["validateDestinationUserId"] = validateDestinationUserId;
+            _queryParams["validateDestinationUserId"] = serializers.BooleanString.jsonOrThrow(
+                validateDestinationUserId,
+                { unrecognizedObjectKeys: "strip" },
+            );
         }
 
         if (validateTransactionId != null) {
-            _queryParams["validateTransactionId"] = validateTransactionId;
+            _queryParams["validateTransactionId"] = serializers.BooleanString.jsonOrThrow(validateTransactionId, {
+                unrecognizedObjectKeys: "strip",
+            });
         }
 
         if (trsOnly != null) {
-            _queryParams["_trsOnly"] = trsOnly;
+            _queryParams["_trsOnly"] = serializers.BooleanString.jsonOrThrow(trsOnly, {
+                unrecognizedObjectKeys: "strip",
+            });
         }
 
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ??
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
                     environments.FlagrightEnvironment.SandboxApiServerEu1,
-                "transactions"
+                "transactions",
             ),
             method: "POST",
             headers: {
-                "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.53",
+                "X-Fern-SDK-Version": "v1.7.1",
+                "User-Agent": "flagright/v1.7.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...(await this._getCustomAuthorizationHeaders()),
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             queryParameters: _queryParams,
-            body: await serializers.Transaction.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            requestType: "json",
+            body: serializers.Transaction.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return await serializers.TransactionsVerifyResponse.parseOrThrow(_response.body, {
-                unrecognizedObjectKeys: "passthrough",
-                allowUnrecognizedUnionMembers: true,
-                allowUnrecognizedEnumValues: true,
-                breadcrumbsPrefix: ["response"],
-            });
+            return {
+                data: serializers.TransactionsVerifyResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
                     throw new Flagright.BadRequestError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 401:
                     throw new Flagright.UnauthorizedError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 429:
                     throw new Flagright.TooManyRequestsError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
+                        rawResponse: _response.rawResponse,
                     });
             }
         }
@@ -209,12 +257,14 @@ export class Transactions {
                 throw new errors.FlagrightError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
-                throw new errors.FlagrightTimeoutError();
+                throw new errors.FlagrightTimeoutError("Timeout exceeded when calling POST /transactions.");
             case "unknown":
                 throw new errors.FlagrightError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -225,78 +275,101 @@ export class Transactions {
      * `/transactions` endpoint allows you to operate on the [Transaction entity](/guides/overview/entities#transaction).
      *
      * Calling `GET /transactions/{transactionId}` will return the entire transaction payload and rule execution results for the transaction with the corresponding `transactionId`
+     *
+     * @param {string} transactionId - Unique Transaction Identifier
+     * @param {Transactions.RequestOptions} requestOptions - Request-specific configuration.
+     *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await flagright.transactions.get("transactionId")
+     *     await client.transactions.get("transactionId")
      */
-    public async get(
+    public get(
         transactionId: string,
-        requestOptions?: Transactions.RequestOptions
-    ): Promise<Flagright.TransactionWithRulesResult> {
+        requestOptions?: Transactions.RequestOptions,
+    ): core.HttpResponsePromise<Flagright.TransactionWithRulesResult> {
+        return core.HttpResponsePromise.fromPromise(this.__get(transactionId, requestOptions));
+    }
+
+    private async __get(
+        transactionId: string,
+        requestOptions?: Transactions.RequestOptions,
+    ): Promise<core.WithRawResponse<Flagright.TransactionWithRulesResult>> {
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ??
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
                     environments.FlagrightEnvironment.SandboxApiServerEu1,
-                `transactions/${transactionId}`
+                `transactions/${encodeURIComponent(transactionId)}`,
             ),
             method: "GET",
             headers: {
-                "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.53",
+                "X-Fern-SDK-Version": "v1.7.1",
+                "User-Agent": "flagright/v1.7.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...(await this._getCustomAuthorizationHeaders()),
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
+            requestType: "json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return await serializers.TransactionWithRulesResult.parseOrThrow(_response.body, {
-                unrecognizedObjectKeys: "passthrough",
-                allowUnrecognizedUnionMembers: true,
-                allowUnrecognizedEnumValues: true,
-                breadcrumbsPrefix: ["response"],
-            });
+            return {
+                data: serializers.TransactionWithRulesResult.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
                     throw new Flagright.BadRequestError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 401:
                     throw new Flagright.UnauthorizedError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 429:
                     throw new Flagright.TooManyRequestsError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
+                        rawResponse: _response.rawResponse,
                     });
             }
         }
@@ -306,13 +379,22 @@ export class Transactions {
                 throw new errors.FlagrightError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
-                throw new errors.FlagrightTimeoutError();
+                throw new errors.FlagrightTimeoutError(
+                    "Timeout exceeded when calling GET /transactions/{transactionId}.",
+                );
             case "unknown":
                 throw new errors.FlagrightError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
+    }
+
+    protected async _getCustomAuthorizationHeaders() {
+        const apiKeyValue = await core.Supplier.get(this._options.apiKey);
+        return { "x-api-key": apiKeyValue };
     }
 }

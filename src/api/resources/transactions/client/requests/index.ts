@@ -1,1 +1,1 @@
-export { TransactionsVerifyRequest } from "./TransactionsVerifyRequest";
+export { type TransactionsVerifyRequest } from "./TransactionsVerifyRequest";

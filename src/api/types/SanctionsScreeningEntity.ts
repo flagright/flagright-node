@@ -3,7 +3,6 @@
  */
 
 export type SanctionsScreeningEntity = "USER" | "BANK" | "IBAN" | "EXTERNAL_USER";
-
 export const SanctionsScreeningEntity = {
     User: "USER",
     Bank: "BANK",

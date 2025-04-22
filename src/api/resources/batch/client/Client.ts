@@ -4,20 +4,28 @@
 
 import * as environments from "../../../../environments";
 import * as core from "../../../../core";
-import * as Flagright from "../../..";
-import * as serializers from "../../../../serialization";
+import * as Flagright from "../../../index";
+import * as serializers from "../../../../serialization/index";
 import urlJoin from "url-join";
-import * as errors from "../../../../errors";
+import * as errors from "../../../../errors/index";
 
 export declare namespace Batch {
-    interface Options {
+    export interface Options {
         environment?: core.Supplier<environments.FlagrightEnvironment | string>;
+        /** Specify a custom URL to connect the client to. */
+        baseUrl?: core.Supplier<string>;
         apiKey: core.Supplier<string>;
     }
 
-    interface RequestOptions {
+    export interface RequestOptions {
+        /** The maximum time to wait for a response in seconds. */
         timeoutInSeconds?: number;
+        /** The number of times to retry the request. Defaults to 2. */
         maxRetries?: number;
+        /** A hook to abort the request. */
+        abortSignal?: AbortSignal;
+        /** Additional headers to include in the request. */
+        headers?: Record<string, string>;
     }
 }
 
@@ -25,96 +33,123 @@ export class Batch {
     constructor(protected readonly _options: Batch.Options) {}
 
     /**
+     * @param {Flagright.TransactionBatchRequest} request
+     * @param {Batch.RequestOptions} requestOptions - Request-specific configuration.
+     *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await flagright.batch.verifyTransaction({
+     *     await client.batch.verifyTransaction({
      *         data: [{
-     *                 type: Flagright.TransactionType.Deposit,
+     *                 type: "DEPOSIT",
      *                 transactionId: "transactionId",
      *                 timestamp: 1.1
      *             }]
      *     })
      */
-    public async verifyTransaction(
+    public verifyTransaction(
         request: Flagright.TransactionBatchRequest,
-        requestOptions?: Batch.RequestOptions
-    ): Promise<Flagright.BatchResponse> {
+        requestOptions?: Batch.RequestOptions,
+    ): core.HttpResponsePromise<Flagright.BatchResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__verifyTransaction(request, requestOptions));
+    }
+
+    private async __verifyTransaction(
+        request: Flagright.TransactionBatchRequest,
+        requestOptions?: Batch.RequestOptions,
+    ): Promise<core.WithRawResponse<Flagright.BatchResponse>> {
         const { validateOriginUserId, validateDestinationUserId, ..._body } = request;
-        const _queryParams: Record<string, string | string[]> = {};
+        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         if (validateOriginUserId != null) {
-            _queryParams["validateOriginUserId"] = validateOriginUserId;
+            _queryParams["validateOriginUserId"] = serializers.BooleanString.jsonOrThrow(validateOriginUserId, {
+                unrecognizedObjectKeys: "strip",
+            });
         }
 
         if (validateDestinationUserId != null) {
-            _queryParams["validateDestinationUserId"] = validateDestinationUserId;
+            _queryParams["validateDestinationUserId"] = serializers.BooleanString.jsonOrThrow(
+                validateDestinationUserId,
+                { unrecognizedObjectKeys: "strip" },
+            );
         }
 
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ??
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
                     environments.FlagrightEnvironment.SandboxApiServerEu1,
-                "batch/transactions"
+                "batch/transactions",
             ),
             method: "POST",
             headers: {
-                "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.53",
+                "X-Fern-SDK-Version": "v1.7.1",
+                "User-Agent": "flagright/v1.7.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...(await this._getCustomAuthorizationHeaders()),
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
             queryParameters: _queryParams,
-            body: await serializers.TransactionBatchRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            requestType: "json",
+            body: serializers.TransactionBatchRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return await serializers.BatchResponse.parseOrThrow(_response.body, {
-                unrecognizedObjectKeys: "passthrough",
-                allowUnrecognizedUnionMembers: true,
-                allowUnrecognizedEnumValues: true,
-                breadcrumbsPrefix: ["response"],
-            });
+            return {
+                data: serializers.BatchResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
                     throw new Flagright.BadRequestError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 401:
                     throw new Flagright.UnauthorizedError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 429:
                     throw new Flagright.TooManyRequestsError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
+                        rawResponse: _response.rawResponse,
                     });
             }
         }
@@ -124,108 +159,131 @@ export class Batch {
                 throw new errors.FlagrightError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
-                throw new errors.FlagrightTimeoutError();
+                throw new errors.FlagrightTimeoutError("Timeout exceeded when calling POST /batch/transactions.");
             case "unknown":
                 throw new errors.FlagrightError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
 
     /**
+     * @param {Flagright.TransactionEventBatchRequest} request
+     * @param {Batch.RequestOptions} requestOptions - Request-specific configuration.
+     *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.ConflictError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await flagright.batch.createTransactionEvents({
+     *     await client.batch.createTransactionEvents({
      *         data: [{
-     *                 transactionState: Flagright.TransactionState.Created,
+     *                 transactionState: "CREATED",
      *                 timestamp: 1.1,
      *                 transactionId: "transactionId"
      *             }]
      *     })
      */
-    public async createTransactionEvents(
+    public createTransactionEvents(
         request: Flagright.TransactionEventBatchRequest,
-        requestOptions?: Batch.RequestOptions
-    ): Promise<Flagright.BatchResponse> {
+        requestOptions?: Batch.RequestOptions,
+    ): core.HttpResponsePromise<Flagright.BatchResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__createTransactionEvents(request, requestOptions));
+    }
+
+    private async __createTransactionEvents(
+        request: Flagright.TransactionEventBatchRequest,
+        requestOptions?: Batch.RequestOptions,
+    ): Promise<core.WithRawResponse<Flagright.BatchResponse>> {
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ??
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
                     environments.FlagrightEnvironment.SandboxApiServerEu1,
-                "batch/events/transaction"
+                "batch/events/transaction",
             ),
             method: "POST",
             headers: {
-                "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.53",
+                "X-Fern-SDK-Version": "v1.7.1",
+                "User-Agent": "flagright/v1.7.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...(await this._getCustomAuthorizationHeaders()),
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
-            body: await serializers.TransactionEventBatchRequest.jsonOrThrow(request, {
-                unrecognizedObjectKeys: "strip",
-            }),
+            requestType: "json",
+            body: serializers.TransactionEventBatchRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return await serializers.BatchResponse.parseOrThrow(_response.body, {
-                unrecognizedObjectKeys: "passthrough",
-                allowUnrecognizedUnionMembers: true,
-                allowUnrecognizedEnumValues: true,
-                breadcrumbsPrefix: ["response"],
-            });
+            return {
+                data: serializers.BatchResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
                     throw new Flagright.BadRequestError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 401:
                     throw new Flagright.UnauthorizedError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 409:
                     throw new Flagright.ConflictError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 429:
                     throw new Flagright.TooManyRequestsError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
+                        rawResponse: _response.rawResponse,
                     });
             }
         }
@@ -235,95 +293,119 @@ export class Batch {
                 throw new errors.FlagrightError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
-                throw new errors.FlagrightTimeoutError();
+                throw new errors.FlagrightTimeoutError("Timeout exceeded when calling POST /batch/events/transaction.");
             case "unknown":
                 throw new errors.FlagrightError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
 
     /**
+     * @param {Flagright.UserBatchRequest} request
+     * @param {Batch.RequestOptions} requestOptions - Request-specific configuration.
+     *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await flagright.batch.createConsumerUsers({
+     *     await client.batch.createConsumerUsers({
      *         data: [{
      *                 userId: "userId",
      *                 createdTimestamp: 1.1
      *             }]
      *     })
      */
-    public async createConsumerUsers(
+    public createConsumerUsers(
         request: Flagright.UserBatchRequest,
-        requestOptions?: Batch.RequestOptions
-    ): Promise<Flagright.BatchResponse> {
+        requestOptions?: Batch.RequestOptions,
+    ): core.HttpResponsePromise<Flagright.BatchResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__createConsumerUsers(request, requestOptions));
+    }
+
+    private async __createConsumerUsers(
+        request: Flagright.UserBatchRequest,
+        requestOptions?: Batch.RequestOptions,
+    ): Promise<core.WithRawResponse<Flagright.BatchResponse>> {
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ??
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
                     environments.FlagrightEnvironment.SandboxApiServerEu1,
-                "batch/consumer/users"
+                "batch/consumer/users",
             ),
             method: "POST",
             headers: {
-                "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.53",
+                "X-Fern-SDK-Version": "v1.7.1",
+                "User-Agent": "flagright/v1.7.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...(await this._getCustomAuthorizationHeaders()),
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
-            body: await serializers.UserBatchRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            requestType: "json",
+            body: serializers.UserBatchRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return await serializers.BatchResponse.parseOrThrow(_response.body, {
-                unrecognizedObjectKeys: "passthrough",
-                allowUnrecognizedUnionMembers: true,
-                allowUnrecognizedEnumValues: true,
-                breadcrumbsPrefix: ["response"],
-            });
+            return {
+                data: serializers.BatchResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
                     throw new Flagright.BadRequestError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 401:
                     throw new Flagright.UnauthorizedError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 429:
                     throw new Flagright.TooManyRequestsError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
+                        rawResponse: _response.rawResponse,
                     });
             }
         }
@@ -333,23 +415,28 @@ export class Batch {
                 throw new errors.FlagrightError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
-                throw new errors.FlagrightTimeoutError();
+                throw new errors.FlagrightTimeoutError("Timeout exceeded when calling POST /batch/consumer/users.");
             case "unknown":
                 throw new errors.FlagrightError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
 
     /**
+     * @param {Flagright.BusinessBatchRequest} request
+     * @param {Batch.RequestOptions} requestOptions - Request-specific configuration.
+     *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await flagright.batch.createBusinessUsers({
+     *     await client.batch.createBusinessUsers({
      *         data: [{
      *                 userId: "userId",
      *                 createdTimestamp: 1.1,
@@ -363,72 +450,91 @@ export class Batch {
      *             }]
      *     })
      */
-    public async createBusinessUsers(
+    public createBusinessUsers(
         request: Flagright.BusinessBatchRequest,
-        requestOptions?: Batch.RequestOptions
-    ): Promise<Flagright.BatchResponse> {
+        requestOptions?: Batch.RequestOptions,
+    ): core.HttpResponsePromise<Flagright.BatchResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__createBusinessUsers(request, requestOptions));
+    }
+
+    private async __createBusinessUsers(
+        request: Flagright.BusinessBatchRequest,
+        requestOptions?: Batch.RequestOptions,
+    ): Promise<core.WithRawResponse<Flagright.BatchResponse>> {
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ??
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
                     environments.FlagrightEnvironment.SandboxApiServerEu1,
-                "batch/business/users"
+                "batch/business/users",
             ),
             method: "POST",
             headers: {
-                "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.53",
+                "X-Fern-SDK-Version": "v1.7.1",
+                "User-Agent": "flagright/v1.7.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...(await this._getCustomAuthorizationHeaders()),
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
-            body: await serializers.BusinessBatchRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            requestType: "json",
+            body: serializers.BusinessBatchRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return await serializers.BatchResponse.parseOrThrow(_response.body, {
-                unrecognizedObjectKeys: "passthrough",
-                allowUnrecognizedUnionMembers: true,
-                allowUnrecognizedEnumValues: true,
-                breadcrumbsPrefix: ["response"],
-            });
+            return {
+                data: serializers.BatchResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
                     throw new Flagright.BadRequestError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 401:
                     throw new Flagright.UnauthorizedError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 429:
                     throw new Flagright.TooManyRequestsError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
+                        rawResponse: _response.rawResponse,
                     });
             }
         }
@@ -438,97 +544,119 @@ export class Batch {
                 throw new errors.FlagrightError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
-                throw new errors.FlagrightTimeoutError();
+                throw new errors.FlagrightTimeoutError("Timeout exceeded when calling POST /batch/business/users.");
             case "unknown":
                 throw new errors.FlagrightError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
 
     /**
+     * @param {Flagright.ConsumerUserEventBatchRequest} request
+     * @param {Batch.RequestOptions} requestOptions - Request-specific configuration.
+     *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await flagright.batch.createConsumerUserEvents({
+     *     await client.batch.createConsumerUserEvents({
      *         data: [{
      *                 timestamp: 1.1,
      *                 userId: "userId"
      *             }]
      *     })
      */
-    public async createConsumerUserEvents(
+    public createConsumerUserEvents(
         request: Flagright.ConsumerUserEventBatchRequest,
-        requestOptions?: Batch.RequestOptions
-    ): Promise<Flagright.BatchResponse> {
+        requestOptions?: Batch.RequestOptions,
+    ): core.HttpResponsePromise<Flagright.BatchResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__createConsumerUserEvents(request, requestOptions));
+    }
+
+    private async __createConsumerUserEvents(
+        request: Flagright.ConsumerUserEventBatchRequest,
+        requestOptions?: Batch.RequestOptions,
+    ): Promise<core.WithRawResponse<Flagright.BatchResponse>> {
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ??
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
                     environments.FlagrightEnvironment.SandboxApiServerEu1,
-                "batch/events/consumer/user"
+                "batch/events/consumer/user",
             ),
             method: "POST",
             headers: {
-                "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.53",
+                "X-Fern-SDK-Version": "v1.7.1",
+                "User-Agent": "flagright/v1.7.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...(await this._getCustomAuthorizationHeaders()),
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
-            body: await serializers.ConsumerUserEventBatchRequest.jsonOrThrow(request, {
-                unrecognizedObjectKeys: "strip",
-            }),
+            requestType: "json",
+            body: serializers.ConsumerUserEventBatchRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return await serializers.BatchResponse.parseOrThrow(_response.body, {
-                unrecognizedObjectKeys: "passthrough",
-                allowUnrecognizedUnionMembers: true,
-                allowUnrecognizedEnumValues: true,
-                breadcrumbsPrefix: ["response"],
-            });
+            return {
+                data: serializers.BatchResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
                     throw new Flagright.BadRequestError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 401:
                     throw new Flagright.UnauthorizedError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 429:
                     throw new Flagright.TooManyRequestsError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
+                        rawResponse: _response.rawResponse,
                     });
             }
         }
@@ -538,97 +666,121 @@ export class Batch {
                 throw new errors.FlagrightError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
-                throw new errors.FlagrightTimeoutError();
+                throw new errors.FlagrightTimeoutError(
+                    "Timeout exceeded when calling POST /batch/events/consumer/user.",
+                );
             case "unknown":
                 throw new errors.FlagrightError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
 
     /**
+     * @param {Flagright.BusinessUserEventBatchRequest} request
+     * @param {Batch.RequestOptions} requestOptions - Request-specific configuration.
+     *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await flagright.batch.createBusinessUserEvents({
+     *     await client.batch.createBusinessUserEvents({
      *         data: [{
      *                 timestamp: 1.1,
      *                 userId: "userId"
      *             }]
      *     })
      */
-    public async createBusinessUserEvents(
+    public createBusinessUserEvents(
         request: Flagright.BusinessUserEventBatchRequest,
-        requestOptions?: Batch.RequestOptions
-    ): Promise<Flagright.BatchResponse> {
+        requestOptions?: Batch.RequestOptions,
+    ): core.HttpResponsePromise<Flagright.BatchResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__createBusinessUserEvents(request, requestOptions));
+    }
+
+    private async __createBusinessUserEvents(
+        request: Flagright.BusinessUserEventBatchRequest,
+        requestOptions?: Batch.RequestOptions,
+    ): Promise<core.WithRawResponse<Flagright.BatchResponse>> {
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ??
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
                     environments.FlagrightEnvironment.SandboxApiServerEu1,
-                "batch/events/business/user"
+                "batch/events/business/user",
             ),
             method: "POST",
             headers: {
-                "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.53",
+                "X-Fern-SDK-Version": "v1.7.1",
+                "User-Agent": "flagright/v1.7.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...(await this._getCustomAuthorizationHeaders()),
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
-            body: await serializers.BusinessUserEventBatchRequest.jsonOrThrow(request, {
-                unrecognizedObjectKeys: "strip",
-            }),
+            requestType: "json",
+            body: serializers.BusinessUserEventBatchRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return await serializers.BatchResponse.parseOrThrow(_response.body, {
-                unrecognizedObjectKeys: "passthrough",
-                allowUnrecognizedUnionMembers: true,
-                allowUnrecognizedEnumValues: true,
-                breadcrumbsPrefix: ["response"],
-            });
+            return {
+                data: serializers.BatchResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
                     throw new Flagright.BadRequestError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 401:
                     throw new Flagright.UnauthorizedError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 429:
                     throw new Flagright.TooManyRequestsError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
+                        rawResponse: _response.rawResponse,
                     });
             }
         }
@@ -638,13 +790,22 @@ export class Batch {
                 throw new errors.FlagrightError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
-                throw new errors.FlagrightTimeoutError();
+                throw new errors.FlagrightTimeoutError(
+                    "Timeout exceeded when calling POST /batch/events/business/user.",
+                );
             case "unknown":
                 throw new errors.FlagrightError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
+    }
+
+    protected async _getCustomAuthorizationHeaders() {
+        const apiKeyValue = await core.Supplier.get(this._options.apiKey);
+        return { "x-api-key": apiKeyValue };
     }
 }

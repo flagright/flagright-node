@@ -3,7 +3,6 @@
  */
 
 export type RuleNature = "AML" | "FRAUD" | "CTF" | "SCREENING";
-
 export const RuleNature = {
     Aml: "AML",
     Fraud: "FRAUD",

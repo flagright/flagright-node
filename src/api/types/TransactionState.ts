@@ -15,7 +15,6 @@ export type TransactionState =
     | "REFUNDED"
     | "SUCCESSFUL"
     | "REVERSED";
-
 export const TransactionState = {
     Created: "CREATED",
     Processing: "PROCESSING",

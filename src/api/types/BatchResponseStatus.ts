@@ -6,7 +6,6 @@
  * Status of the batch response
  */
 export type BatchResponseStatus = "SUCCESS" | "PARTIAL_FAILURE" | "FAILURE";
-
 export const BatchResponseStatus = {
     Success: "SUCCESS",
     PartialFailure: "PARTIAL_FAILURE",

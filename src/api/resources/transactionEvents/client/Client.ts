@@ -4,20 +4,28 @@
 
 import * as environments from "../../../../environments";
 import * as core from "../../../../core";
-import * as Flagright from "../../..";
-import * as serializers from "../../../../serialization";
+import * as Flagright from "../../../index";
+import * as serializers from "../../../../serialization/index";
 import urlJoin from "url-join";
-import * as errors from "../../../../errors";
+import * as errors from "../../../../errors/index";
 
 export declare namespace TransactionEvents {
-    interface Options {
+    export interface Options {
         environment?: core.Supplier<environments.FlagrightEnvironment | string>;
+        /** Specify a custom URL to connect the client to. */
+        baseUrl?: core.Supplier<string>;
         apiKey: core.Supplier<string>;
     }
 
-    interface RequestOptions {
+    export interface RequestOptions {
+        /** The maximum time to wait for a response in seconds. */
         timeoutInSeconds?: number;
+        /** The number of times to retry the request. Defaults to 2. */
         maxRetries?: number;
+        /** A hook to abort the request. */
+        abortSignal?: AbortSignal;
+        /** Additional headers to include in the request. */
+        headers?: Record<string, string>;
     }
 }
 
@@ -45,13 +53,17 @@ export class TransactionEvents {
      * * `transactionId` - The ID of the transaction for which this event is generated.
      *
      * In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
+     *
+     * @param {Flagright.TransactionEvent} request
+     * @param {TransactionEvents.RequestOptions} requestOptions - Request-specific configuration.
+     *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await flagright.transactionEvents.create({
-     *         transactionState: Flagright.TransactionState.Successful,
+     *     await client.transactionEvents.create({
+     *         transactionState: "SUCCESSFUL",
      *         timestamp: 1431231244001,
      *         transactionId: "443dea26147a406b957d9ee3a1247b11",
      *         eventId: "aaeeb166147a406b957dd9147a406b957",
@@ -65,72 +77,91 @@ export class TransactionEvents {
      *         }
      *     })
      */
-    public async create(
+    public create(
         request: Flagright.TransactionEvent,
-        requestOptions?: TransactionEvents.RequestOptions
-    ): Promise<Flagright.TransactionEventMonitoringResult> {
+        requestOptions?: TransactionEvents.RequestOptions,
+    ): core.HttpResponsePromise<Flagright.TransactionEventMonitoringResult> {
+        return core.HttpResponsePromise.fromPromise(this.__create(request, requestOptions));
+    }
+
+    private async __create(
+        request: Flagright.TransactionEvent,
+        requestOptions?: TransactionEvents.RequestOptions,
+    ): Promise<core.WithRawResponse<Flagright.TransactionEventMonitoringResult>> {
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ??
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
                     environments.FlagrightEnvironment.SandboxApiServerEu1,
-                "events/transaction"
+                "events/transaction",
             ),
             method: "POST",
             headers: {
-                "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.53",
+                "X-Fern-SDK-Version": "v1.7.1",
+                "User-Agent": "flagright/v1.7.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...(await this._getCustomAuthorizationHeaders()),
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
-            body: await serializers.TransactionEvent.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            requestType: "json",
+            body: serializers.TransactionEvent.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return await serializers.TransactionEventMonitoringResult.parseOrThrow(_response.body, {
-                unrecognizedObjectKeys: "passthrough",
-                allowUnrecognizedUnionMembers: true,
-                allowUnrecognizedEnumValues: true,
-                breadcrumbsPrefix: ["response"],
-            });
+            return {
+                data: serializers.TransactionEventMonitoringResult.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
                     throw new Flagright.BadRequestError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 401:
                     throw new Flagright.UnauthorizedError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 429:
                     throw new Flagright.TooManyRequestsError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
+                        rawResponse: _response.rawResponse,
                     });
             }
         }
@@ -140,12 +171,14 @@ export class TransactionEvents {
                 throw new errors.FlagrightError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
-                throw new errors.FlagrightTimeoutError();
+                throw new errors.FlagrightTimeoutError("Timeout exceeded when calling POST /events/transaction.");
             case "unknown":
                 throw new errors.FlagrightError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
     }
@@ -156,78 +189,101 @@ export class TransactionEvents {
      * `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](/guides/overview/entities#transaction-event).
      *
      * You can retrieve any transaction event you created using the [POST Transaction Events](/api-reference/api-reference/transaction-events/create) call.
+     *
+     * @param {string} eventId - Unique Transaction Identifier
+     * @param {TransactionEvents.RequestOptions} requestOptions - Request-specific configuration.
+     *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await flagright.transactionEvents.get("eventId")
+     *     await client.transactionEvents.get("eventId")
      */
-    public async get(
+    public get(
         eventId: string,
-        requestOptions?: TransactionEvents.RequestOptions
-    ): Promise<Flagright.TransactionEventWithRulesResult> {
+        requestOptions?: TransactionEvents.RequestOptions,
+    ): core.HttpResponsePromise<Flagright.TransactionEventWithRulesResult> {
+        return core.HttpResponsePromise.fromPromise(this.__get(eventId, requestOptions));
+    }
+
+    private async __get(
+        eventId: string,
+        requestOptions?: TransactionEvents.RequestOptions,
+    ): Promise<core.WithRawResponse<Flagright.TransactionEventWithRulesResult>> {
         const _response = await core.fetcher({
             url: urlJoin(
-                (await core.Supplier.get(this._options.environment)) ??
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
                     environments.FlagrightEnvironment.SandboxApiServerEu1,
-                `events/transaction/${eventId}`
+                `events/transaction/${encodeURIComponent(eventId)}`,
             ),
             method: "GET",
             headers: {
-                "x-api-key": await core.Supplier.get(this._options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.6.53",
+                "X-Fern-SDK-Version": "v1.7.1",
+                "User-Agent": "flagright/v1.7.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...(await this._getCustomAuthorizationHeaders()),
+                ...requestOptions?.headers,
             },
             contentType: "application/json",
+            requestType: "json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
         });
         if (_response.ok) {
-            return await serializers.TransactionEventWithRulesResult.parseOrThrow(_response.body, {
-                unrecognizedObjectKeys: "passthrough",
-                allowUnrecognizedUnionMembers: true,
-                allowUnrecognizedEnumValues: true,
-                breadcrumbsPrefix: ["response"],
-            });
+            return {
+                data: serializers.TransactionEventWithRulesResult.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
         }
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 400:
                     throw new Flagright.BadRequestError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 401:
                     throw new Flagright.UnauthorizedError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 case 429:
                     throw new Flagright.TooManyRequestsError(
-                        await serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
-                        })
+                        }),
+                        _response.rawResponse,
                     );
                 default:
                     throw new errors.FlagrightError({
                         statusCode: _response.error.statusCode,
                         body: _response.error.body,
+                        rawResponse: _response.rawResponse,
                     });
             }
         }
@@ -237,13 +293,22 @@ export class TransactionEvents {
                 throw new errors.FlagrightError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
                 });
             case "timeout":
-                throw new errors.FlagrightTimeoutError();
+                throw new errors.FlagrightTimeoutError(
+                    "Timeout exceeded when calling GET /events/transaction/{eventId}.",
+                );
             case "unknown":
                 throw new errors.FlagrightError({
                     message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
                 });
         }
+    }
+
+    protected async _getCustomAuthorizationHeaders() {
+        const apiKeyValue = await core.Supplier.get(this._options.apiKey);
+        return { "x-api-key": apiKeyValue };
     }
 }

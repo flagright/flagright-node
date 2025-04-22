@@ -1,1 +1,1 @@
-export { ConsumerUsersCreateRequest } from "./ConsumerUsersCreateRequest";
+export { type ConsumerUsersCreateRequest } from "./ConsumerUsersCreateRequest";

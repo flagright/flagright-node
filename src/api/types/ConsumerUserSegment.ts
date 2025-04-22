@@ -3,7 +3,6 @@
  */
 
 export type ConsumerUserSegment = "RETAIL" | "PROFESSIONAL";
-
 export const ConsumerUserSegment = {
     Retail: "RETAIL",
     Professional: "PROFESSIONAL",

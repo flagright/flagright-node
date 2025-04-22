@@ -1,1 +1,1 @@
-export { BusinessUsersCreateRequest } from "./BusinessUsersCreateRequest";
+export { type BusinessUsersCreateRequest } from "./BusinessUsersCreateRequest";

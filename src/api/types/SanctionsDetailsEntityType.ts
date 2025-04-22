@@ -12,7 +12,6 @@ export type SanctionsDetailsEntityType =
     | "PAYMENT_BENEFICIARY_NAME"
     | "BANK_NAME"
     | "BANK_ACCOUNT_HOLDER_NAME";
-
 export const SanctionsDetailsEntityType = {
     ConsumerName: "CONSUMER_NAME",
     LegalName: "LEGAL_NAME",

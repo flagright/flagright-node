@@ -3,7 +3,6 @@
  */
 
 export type BooleanString = "true" | "false";
-
 export const BooleanString = {
     True: "true",
     False: "false",

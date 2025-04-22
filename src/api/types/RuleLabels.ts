@@ -16,7 +16,6 @@ export type RuleLabels =
     | "SANCTIONS_PEP"
     | "SANCTIONS_PEP_ADVERSE_MEDIA"
     | "SANCTIONS_MANUAL_REVIEW";
-
 export const RuleLabels = {
     UnexpectedBehavior: "UNEXPECTED_BEHAVIOR",
     IllicitGainsCheck: "ILLICIT_GAINS_CHECK",

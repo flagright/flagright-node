@@ -478,7 +478,6 @@ export type CurrencyCode =
     | "VIC"
     | "XAI"
     | "SLE";
-
 export const CurrencyCode = {
     OneInch: "1INCH",
     Aave: "AAVE",

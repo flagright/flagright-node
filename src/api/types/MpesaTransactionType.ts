@@ -11,7 +11,6 @@ export type MpesaTransactionType =
     | "SalaryPayment"
     | "BusinessPayment"
     | "PromotionPayment";
-
 export const MpesaTransactionType = {
     CustomerPayBillOnline: "CustomerPayBillOnline",
     CustomerBuyGoodsOnline: "CustomerBuyGoodsOnline",

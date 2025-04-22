@@ -6,7 +6,6 @@
  * Model for User acquisition channel
  */
 export type AcquisitionChannel = "ORGANIC" | "PAID" | "REFERRAL" | "OFFLINE" | "GATHERING" | "UNKNOWN";
-
 export const AcquisitionChannel = {
     Organic: "ORGANIC",
     Paid: "PAID",

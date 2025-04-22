@@ -3,7 +3,6 @@
  */
 
 export type RuleHitDirection = "ORIGIN" | "DESTINATION";
-
 export const RuleHitDirection = {
     Origin: "ORIGIN",
     Destination: "DESTINATION",

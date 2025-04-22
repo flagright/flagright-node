@@ -16,7 +16,6 @@ export type ListSubtype =
     | "DEVICE_IDENTIFIER"
     | "STRING"
     | "COUNTRY";
-
 export const ListSubtype = {
     UserId: "USER_ID",
     CardFingerprintNumber: "CARD_FINGERPRINT_NUMBER",

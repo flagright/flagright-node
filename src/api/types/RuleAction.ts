@@ -6,7 +6,6 @@
  * Model for rule action if a rule is hit. This is returned in the API response and can be configured on Console by operational accounts like a Compliance Analyst
  */
 export type RuleAction = "ALLOW" | "FLAG" | "BLOCK" | "SUSPEND";
-
 export const RuleAction = {
     Allow: "ALLOW",
     Flag: "FLAG",

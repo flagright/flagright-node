@@ -278,7 +278,6 @@ export type CountryCode =
     | "XY"
     | "XZ"
     | "N/A";
-
 export const CountryCode = {
     Af: "AF",
     Al: "AL",
