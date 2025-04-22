@@ -476,7 +476,8 @@ export type CurrencyCode =
     | "TRX"
     | "TYUGA"
     | "VIC"
-    | "XAI";
+    | "XAI"
+    | "SLE";
 
 export const CurrencyCode = {
     OneInch: "1INCH",
@@ -953,4 +954,5 @@ export const CurrencyCode = {
     Tyuga: "TYUGA",
     Vic: "VIC",
     Xai: "XAI",
+    Sle: "SLE",
 } as const;
