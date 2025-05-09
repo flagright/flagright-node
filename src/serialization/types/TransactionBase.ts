@@ -5,13 +5,12 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
-import { TransactionType } from "./TransactionType";
 
 export const TransactionBase: core.serialization.ObjectSchema<
     serializers.TransactionBase.Raw,
     Flagright.TransactionBase
 > = core.serialization.object({
-    type: TransactionType,
+    type: core.serialization.string(),
     transactionId: core.serialization.string(),
     timestamp: core.serialization.number(),
     originUserId: core.serialization.string().optional(),
@@ -20,7 +19,7 @@ export const TransactionBase: core.serialization.ObjectSchema<
 
 export declare namespace TransactionBase {
     export interface Raw {
-        type: TransactionType.Raw;
+        type: string;
         transactionId: string;
         timestamp: number;
         originUserId?: string | null;

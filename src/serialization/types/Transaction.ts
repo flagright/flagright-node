@@ -5,7 +5,6 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
-import { TransactionType } from "./TransactionType";
 import { TransactionState } from "./TransactionState";
 import { TransactionAmountDetails } from "./TransactionAmountDetails";
 import { TransactionOriginPaymentDetails } from "./TransactionOriginPaymentDetails";
@@ -16,7 +15,7 @@ import { Tag } from "./Tag";
 
 export const Transaction: core.serialization.ObjectSchema<serializers.Transaction.Raw, Flagright.Transaction> =
     core.serialization.object({
-        type: TransactionType,
+        type: core.serialization.string(),
         transactionId: core.serialization.string(),
         timestamp: core.serialization.number(),
         originUserId: core.serialization.string().optional(),
@@ -38,7 +37,7 @@ export const Transaction: core.serialization.ObjectSchema<serializers.Transactio
 
 export declare namespace Transaction {
     export interface Raw {
-        type: TransactionType.Raw;
+        type: string;
         transactionId: string;
         timestamp: number;
         originUserId?: string | null;

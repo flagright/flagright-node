@@ -8,7 +8,7 @@ import * as Flagright from "../../../../index";
  * @example
  *     {
  *         data: [{
- *                 type: "DEPOSIT",
+ *                 type: "type",
  *                 transactionId: "transactionId",
  *                 timestamp: 1.1
  *             }]

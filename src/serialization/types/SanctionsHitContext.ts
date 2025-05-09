@@ -17,9 +17,11 @@ export const SanctionsHitContext: core.serialization.ObjectSchema<
     userId: core.serialization.string().optional(),
     transactionId: core.serialization.string().optional(),
     ruleInstanceId: core.serialization.string().optional(),
+    ruleId: core.serialization.string().optional(),
     iban: core.serialization.string().optional(),
     yearOfBirth: core.serialization.number().optional(),
     searchTerm: core.serialization.string().optional(),
+    paymentMethodId: core.serialization.string().optional(),
 });
 
 export declare namespace SanctionsHitContext {
@@ -29,8 +31,10 @@ export declare namespace SanctionsHitContext {
         userId?: string | null;
         transactionId?: string | null;
         ruleInstanceId?: string | null;
+        ruleId?: string | null;
         iban?: string | null;
         yearOfBirth?: number | null;
         searchTerm?: string | null;
+        paymentMethodId?: string | null;
     }
 }

@@ -5,7 +5,8 @@
 import * as Flagright from "../index";
 
 export interface Transaction {
-    type: Flagright.TransactionType;
+    /** Type of transaction (ex: DEPOSIT, WITHDRAWAL, TRANSFER, EXTERNAL_PAYMENT, REFUND, OTHER) */
+    type: string;
     /** Unique transaction identifier */
     transactionId: string;
     /** Timestamp of when transaction took place */

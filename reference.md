@@ -233,7 +233,7 @@ await client.transactions.get("transactionId");
 await client.batch.verifyTransaction({
     data: [
         {
-            type: "DEPOSIT",
+            type: "type",
             transactionId: "transactionId",
             timestamp: 1.1,
         },
