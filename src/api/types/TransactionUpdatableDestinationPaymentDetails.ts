@@ -14,7 +14,8 @@ export type TransactionUpdatableDestinationPaymentDetails =
     | Flagright.TransactionUpdatableDestinationPaymentDetails.Swift
     | Flagright.TransactionUpdatableDestinationPaymentDetails.Mpesa
     | Flagright.TransactionUpdatableDestinationPaymentDetails.Check
-    | Flagright.TransactionUpdatableDestinationPaymentDetails.Cash;
+    | Flagright.TransactionUpdatableDestinationPaymentDetails.Cash
+    | Flagright.TransactionUpdatableDestinationPaymentDetails.Npp;
 
 export namespace TransactionUpdatableDestinationPaymentDetails {
     export interface Card extends Flagright.CardDetails {
@@ -55,5 +56,9 @@ export namespace TransactionUpdatableDestinationPaymentDetails {
 
     export interface Cash extends Flagright.CashDetails {
         method: "CASH";
+    }
+
+    export interface Npp extends Flagright.NppDetails {
+        method: "NPP";
     }
 }

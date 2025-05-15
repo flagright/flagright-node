@@ -22,6 +22,8 @@ export const GenericBankAccountDetails: core.serialization.ObjectSchema<
     bankCode: core.serialization.string().optional(),
     country: CountryCode.optional(),
     name: core.serialization.string().optional(),
+    countryOfNationality: CountryCode.optional(),
+    dateOfBirth: core.serialization.string().optional(),
     bankAddress: Address.optional(),
     emailId: EmailId.optional(),
     specialInstructions: core.serialization.string().optional(),
@@ -39,6 +41,8 @@ export declare namespace GenericBankAccountDetails {
         bankCode?: string | null;
         country?: CountryCode.Raw | null;
         name?: string | null;
+        countryOfNationality?: CountryCode.Raw | null;
+        dateOfBirth?: string | null;
         bankAddress?: Address.Raw | null;
         emailId?: EmailId.Raw | null;
         specialInstructions?: string | null;

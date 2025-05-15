@@ -20,6 +20,10 @@ export interface GenericBankAccountDetails {
     country?: Flagright.CountryCode;
     /** Name of the account holder */
     name?: string;
+    /** Country of nationality of the account holder */
+    countryOfNationality?: Flagright.CountryCode;
+    /** Date of birth of the account holder (YYYY-MM-DD) */
+    dateOfBirth?: string;
     bankAddress?: Flagright.Address;
     emailId?: Flagright.EmailId;
     /** Special instructions to be specified if any */

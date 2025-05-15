@@ -14,7 +14,8 @@ export type UserSavedPaymentDetailsItem =
     | Flagright.UserSavedPaymentDetailsItem.Upi
     | Flagright.UserSavedPaymentDetailsItem.Wallet
     | Flagright.UserSavedPaymentDetailsItem.Check
-    | Flagright.UserSavedPaymentDetailsItem.Cash;
+    | Flagright.UserSavedPaymentDetailsItem.Cash
+    | Flagright.UserSavedPaymentDetailsItem.Npp;
 
 export namespace UserSavedPaymentDetailsItem {
     export interface Card extends Flagright.CardDetails {
@@ -55,5 +56,9 @@ export namespace UserSavedPaymentDetailsItem {
 
     export interface Cash extends Flagright.CashDetails {
         method: "CASH";
+    }
+
+    export interface Npp extends Flagright.NppDetails {
+        method: "NPP";
     }
 }

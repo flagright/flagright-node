@@ -18,6 +18,7 @@ export const PaymentMethod: core.serialization.Schema<serializers.PaymentMethod.
         "WALLET",
         "CHECK",
         "CASH",
+        "NPP",
     ]);
 
 export declare namespace PaymentMethod {
@@ -31,5 +32,6 @@ export declare namespace PaymentMethod {
         | "SWIFT"
         | "WALLET"
         | "CHECK"
-        | "CASH";
+        | "CASH"
+        | "NPP";
 }

@@ -15,6 +15,7 @@ import { UpiDetails } from "./UpiDetails";
 import { WalletDetails } from "./WalletDetails";
 import { CheckDetails } from "./CheckDetails";
 import { CashDetails } from "./CashDetails";
+import { NppDetails } from "./NppDetails";
 
 export const UserSavedPaymentDetailsItem: core.serialization.Schema<
     serializers.UserSavedPaymentDetailsItem.Raw,
@@ -31,6 +32,7 @@ export const UserSavedPaymentDetailsItem: core.serialization.Schema<
         WALLET: WalletDetails,
         CHECK: CheckDetails,
         CASH: CashDetails,
+        NPP: NppDetails,
     })
     .transform<Flagright.UserSavedPaymentDetailsItem>({
         transform: (value) => value,
@@ -48,7 +50,8 @@ export declare namespace UserSavedPaymentDetailsItem {
         | UserSavedPaymentDetailsItem.Upi
         | UserSavedPaymentDetailsItem.Wallet
         | UserSavedPaymentDetailsItem.Check
-        | UserSavedPaymentDetailsItem.Cash;
+        | UserSavedPaymentDetailsItem.Cash
+        | UserSavedPaymentDetailsItem.Npp;
 
     export interface Card extends CardDetails.Raw {
         method: "CARD";
@@ -88,5 +91,9 @@ export declare namespace UserSavedPaymentDetailsItem {
 
     export interface Cash extends CashDetails.Raw {
         method: "CASH";
+    }
+
+    export interface Npp extends NppDetails.Raw {
+        method: "NPP";
     }
 }

@@ -15,6 +15,7 @@ import { SwiftDetails } from "./SwiftDetails";
 import { MpesaDetails } from "./MpesaDetails";
 import { CheckDetails } from "./CheckDetails";
 import { CashDetails } from "./CashDetails";
+import { NppDetails } from "./NppDetails";
 
 export const TransactionUpdatableDestinationPaymentDetails: core.serialization.Schema<
     serializers.TransactionUpdatableDestinationPaymentDetails.Raw,
@@ -31,6 +32,7 @@ export const TransactionUpdatableDestinationPaymentDetails: core.serialization.S
         MPESA: MpesaDetails,
         CHECK: CheckDetails,
         CASH: CashDetails,
+        NPP: NppDetails,
     })
     .transform<Flagright.TransactionUpdatableDestinationPaymentDetails>({
         transform: (value) => value,
@@ -48,7 +50,8 @@ export declare namespace TransactionUpdatableDestinationPaymentDetails {
         | TransactionUpdatableDestinationPaymentDetails.Swift
         | TransactionUpdatableDestinationPaymentDetails.Mpesa
         | TransactionUpdatableDestinationPaymentDetails.Check
-        | TransactionUpdatableDestinationPaymentDetails.Cash;
+        | TransactionUpdatableDestinationPaymentDetails.Cash
+        | TransactionUpdatableDestinationPaymentDetails.Npp;
 
     export interface Card extends CardDetails.Raw {
         method: "CARD";
@@ -88,5 +91,9 @@ export declare namespace TransactionUpdatableDestinationPaymentDetails {
 
     export interface Cash extends CashDetails.Raw {
         method: "CASH";
+    }
+
+    export interface Npp extends NppDetails.Raw {
+        method: "NPP";
     }
 }

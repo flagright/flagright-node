@@ -30,6 +30,8 @@ export interface User {
     sourceOfFunds?: Flagright.SourceOfFunds[];
     userSegment?: Flagright.ConsumerUserSegment;
     pepStatus?: Flagright.PepStatus[];
+    sanctionsStatus?: Flagright.SanctionsStatus;
+    adverseMediaStatus?: Flagright.AdverseMediaStatus;
     /** Timestamp of the last successful transaction of the user */
     lastTransactionTimestamp?: number;
     linkedEntities?: Flagright.UserEntityLink;
