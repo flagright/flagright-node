@@ -81,10 +81,5 @@ export interface TransactionsVerifyRequest {
      * Boolean string whether Flagright should validate if provided destinationUserId exist. True by default
      */
     validateDestinationUserId?: Flagright.BooleanString;
-    /**
-     * Boolean string whether Flagright should validate if provided transactionId exist. True by default
-     */
-    validateTransactionId?: Flagright.BooleanString;
-    trsOnly?: Flagright.BooleanString;
     body: Flagright.Transaction;
 }

@@ -81,7 +81,7 @@ export class BusinessUsers {
         request: Flagright.BusinessUsersCreateRequest,
         requestOptions?: BusinessUsers.RequestOptions,
     ): Promise<core.WithRawResponse<Flagright.BusinessUsersCreateResponse>> {
-        const { lockCraRiskLevel, lockKycRiskLevel, validateUserId, krsOnly, body: _body } = request;
+        const { lockCraRiskLevel, lockKycRiskLevel, validateUserId, body: _body } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         if (lockCraRiskLevel != null) {
             _queryParams["lockCraRiskLevel"] = serializers.BooleanString.jsonOrThrow(lockCraRiskLevel, {
@@ -101,12 +101,6 @@ export class BusinessUsers {
             });
         }
 
-        if (krsOnly != null) {
-            _queryParams["_krsOnly"] = serializers.BooleanString.jsonOrThrow(krsOnly, {
-                unrecognizedObjectKeys: "strip",
-            });
-        }
-
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -118,8 +112,8 @@ export class BusinessUsers {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "v1.7.4",
-                "User-Agent": "flagright/v1.7.4",
+                "X-Fern-SDK-Version": "v1.7.5",
+                "User-Agent": "flagright/v1.7.5",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -242,8 +236,8 @@ export class BusinessUsers {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "v1.7.4",
-                "User-Agent": "flagright/v1.7.4",
+                "X-Fern-SDK-Version": "v1.7.5",
+                "User-Agent": "flagright/v1.7.5",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),

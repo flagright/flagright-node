@@ -273,6 +273,62 @@ await client.batch.verifyTransaction({
 </dl>
 </details>
 
+<details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">get</a>(batchId, { ...params }) -> Flagright.BatchBusinessUserEventsWithRulesResult</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.batch.get("batchId");
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**batchId:** `string` — Unique Batch Identifier
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `Flagright.BatchGetRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Batch.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">createTransactionEvents</a>({ ...params }) -> Flagright.BatchResponse</code></summary>
 <dl>
 <dd>

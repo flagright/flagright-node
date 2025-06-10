@@ -1,4 +1,5 @@
 export { type TransactionBatchRequest } from "./TransactionBatchRequest";
+export { type BatchGetRequest } from "./BatchGetRequest";
 export { type TransactionEventBatchRequest } from "./TransactionEventBatchRequest";
 export { type UserBatchRequest } from "./UserBatchRequest";
 export { type BusinessBatchRequest } from "./BusinessBatchRequest";

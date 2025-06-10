@@ -140,13 +140,7 @@ export class Transactions {
         request: Flagright.TransactionsVerifyRequest,
         requestOptions?: Transactions.RequestOptions,
     ): Promise<core.WithRawResponse<Flagright.TransactionsVerifyResponse>> {
-        const {
-            validateOriginUserId,
-            validateDestinationUserId,
-            validateTransactionId,
-            trsOnly,
-            body: _body,
-        } = request;
+        const { validateOriginUserId, validateDestinationUserId, body: _body } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         if (validateOriginUserId != null) {
             _queryParams["validateOriginUserId"] = serializers.BooleanString.jsonOrThrow(validateOriginUserId, {
@@ -161,18 +155,6 @@ export class Transactions {
             );
         }
 
-        if (validateTransactionId != null) {
-            _queryParams["validateTransactionId"] = serializers.BooleanString.jsonOrThrow(validateTransactionId, {
-                unrecognizedObjectKeys: "strip",
-            });
-        }
-
-        if (trsOnly != null) {
-            _queryParams["_trsOnly"] = serializers.BooleanString.jsonOrThrow(trsOnly, {
-                unrecognizedObjectKeys: "strip",
-            });
-        }
-
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -184,8 +166,8 @@ export class Transactions {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "v1.7.4",
-                "User-Agent": "flagright/v1.7.4",
+                "X-Fern-SDK-Version": "v1.7.5",
+                "User-Agent": "flagright/v1.7.5",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -308,8 +290,8 @@ export class Transactions {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "v1.7.4",
-                "User-Agent": "flagright/v1.7.4",
+                "X-Fern-SDK-Version": "v1.7.5",
+                "User-Agent": "flagright/v1.7.5",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),

@@ -86,8 +86,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "v1.7.4",
-                "User-Agent": "flagright/v1.7.4",
+                "X-Fern-SDK-Version": "v1.7.5",
+                "User-Agent": "flagright/v1.7.5",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -172,6 +172,138 @@ export class Batch {
     }
 
     /**
+     * @param {string} batchId - Unique Batch Identifier
+     * @param {Flagright.BatchGetRequest} request
+     * @param {Batch.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Flagright.UnauthorizedError}
+     * @throws {@link Flagright.NotFoundError}
+     * @throws {@link Flagright.TooManyRequestsError}
+     *
+     * @example
+     *     await client.batch.get("batchId")
+     */
+    public get(
+        batchId: string,
+        request: Flagright.BatchGetRequest = {},
+        requestOptions?: Batch.RequestOptions,
+    ): core.HttpResponsePromise<Flagright.BatchBusinessUserEventsWithRulesResult> {
+        return core.HttpResponsePromise.fromPromise(this.__get(batchId, request, requestOptions));
+    }
+
+    private async __get(
+        batchId: string,
+        request: Flagright.BatchGetRequest = {},
+        requestOptions?: Batch.RequestOptions,
+    ): Promise<core.WithRawResponse<Flagright.BatchBusinessUserEventsWithRulesResult>> {
+        const { pageSize, page } = request;
+        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
+        if (pageSize != null) {
+            _queryParams["pageSize"] = pageSize.toString();
+        }
+
+        if (page != null) {
+            _queryParams["page"] = page.toString();
+        }
+
+        const _response = await core.fetcher({
+            url: urlJoin(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.FlagrightEnvironment.SandboxApiServerEu1,
+                `batch/events/business/user/${encodeURIComponent(batchId)}`,
+            ),
+            method: "GET",
+            headers: {
+                "X-Fern-Language": "JavaScript",
+                "X-Fern-SDK-Name": "flagright",
+                "X-Fern-SDK-Version": "v1.7.5",
+                "User-Agent": "flagright/v1.7.5",
+                "X-Fern-Runtime": core.RUNTIME.type,
+                "X-Fern-Runtime-Version": core.RUNTIME.version,
+                ...(await this._getCustomAuthorizationHeaders()),
+                ...requestOptions?.headers,
+            },
+            contentType: "application/json",
+            queryParameters: _queryParams,
+            requestType: "json",
+            timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.BatchBusinessUserEventsWithRulesResult.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 401:
+                    throw new Flagright.UnauthorizedError(
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                case 404:
+                    throw new Flagright.NotFoundError(
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                case 429:
+                    throw new Flagright.TooManyRequestsError(
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.FlagrightError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        switch (_response.error.reason) {
+            case "non-json":
+                throw new errors.FlagrightError({
+                    statusCode: _response.error.statusCode,
+                    body: _response.error.rawBody,
+                    rawResponse: _response.rawResponse,
+                });
+            case "timeout":
+                throw new errors.FlagrightTimeoutError(
+                    "Timeout exceeded when calling GET /batch/events/business/user/{batchId}.",
+                );
+            case "unknown":
+                throw new errors.FlagrightError({
+                    message: _response.error.errorMessage,
+                    rawResponse: _response.rawResponse,
+                });
+        }
+    }
+
+    /**
      * @param {Flagright.TransactionEventBatchRequest} request
      * @param {Batch.RequestOptions} requestOptions - Request-specific configuration.
      *
@@ -211,8 +343,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "v1.7.4",
-                "User-Agent": "flagright/v1.7.4",
+                "X-Fern-SDK-Version": "v1.7.5",
+                "User-Agent": "flagright/v1.7.5",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -343,8 +475,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "v1.7.4",
-                "User-Agent": "flagright/v1.7.4",
+                "X-Fern-SDK-Version": "v1.7.5",
+                "User-Agent": "flagright/v1.7.5",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -472,8 +604,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "v1.7.4",
-                "User-Agent": "flagright/v1.7.4",
+                "X-Fern-SDK-Version": "v1.7.5",
+                "User-Agent": "flagright/v1.7.5",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -594,8 +726,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "v1.7.4",
-                "User-Agent": "flagright/v1.7.4",
+                "X-Fern-SDK-Version": "v1.7.5",
+                "User-Agent": "flagright/v1.7.5",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -718,8 +850,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "v1.7.4",
-                "User-Agent": "flagright/v1.7.4",
+                "X-Fern-SDK-Version": "v1.7.5",
+                "User-Agent": "flagright/v1.7.5",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),

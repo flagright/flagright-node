@@ -67,6 +67,5 @@ export interface ConsumerUsersCreateRequest {
      * Boolean string whether Flagright should validate the userId
      */
     validateUserId?: Flagright.BooleanString;
-    krsOnly?: Flagright.BooleanString;
     body: Flagright.User;
 }
