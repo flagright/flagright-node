@@ -18,4 +18,5 @@ export interface ContactDetails {
     websites?: string[];
     /** Address(es) of the company */
     addresses?: Flagright.Address[];
+    name?: Flagright.ConsumerName;
 }
