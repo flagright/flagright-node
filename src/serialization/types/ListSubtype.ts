@@ -21,6 +21,7 @@ export const ListSubtype: core.serialization.Schema<serializers.ListSubtype.Raw,
         "DEVICE_IDENTIFIER",
         "STRING",
         "COUNTRY",
+        "CUSTOM",
     ]);
 
 export declare namespace ListSubtype {
@@ -37,5 +38,6 @@ export declare namespace ListSubtype {
         | "IP_ADDRESS"
         | "DEVICE_IDENTIFIER"
         | "STRING"
-        | "COUNTRY";
+        | "COUNTRY"
+        | "CUSTOM";
 }

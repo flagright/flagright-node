@@ -145,6 +145,8 @@ export * from "./ListSubtype";
 export * from "./ListKeyMetadata";
 export * from "./ListData";
 export * from "./ListItem";
+export * from "./ColumnType";
+export * from "./CustomColumn";
 export * from "./ListMetadataTtlUnit";
 export * from "./ListMetadataTtl";
 export * from "./ListMetadata";

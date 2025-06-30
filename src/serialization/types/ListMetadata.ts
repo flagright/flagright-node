@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { CustomColumn } from "./CustomColumn";
 import { ListMetadataTtl } from "./ListMetadataTtl";
 
 export const ListMetadata: core.serialization.ObjectSchema<serializers.ListMetadata.Raw, Flagright.ListMetadata> =
@@ -14,6 +15,7 @@ export const ListMetadata: core.serialization.ObjectSchema<serializers.ListMetad
             description: core.serialization.string().optional(),
             status: core.serialization.boolean().optional(),
             checksum: core.serialization.string().optional(),
+            columns: core.serialization.list(CustomColumn).optional(),
             ttl: ListMetadataTtl.optional(),
         })
         .passthrough();
@@ -24,6 +26,7 @@ export declare namespace ListMetadata {
         description?: string | null;
         status?: boolean | null;
         checksum?: string | null;
+        columns?: CustomColumn.Raw[] | null;
         ttl?: ListMetadataTtl.Raw | null;
         [key: string]: any;
     }

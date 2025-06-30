@@ -15,7 +15,8 @@ export type ListSubtype =
     | "IP_ADDRESS"
     | "DEVICE_IDENTIFIER"
     | "STRING"
-    | "COUNTRY";
+    | "COUNTRY"
+    | "CUSTOM";
 export const ListSubtype = {
     UserId: "USER_ID",
     CardFingerprintNumber: "CARD_FINGERPRINT_NUMBER",
@@ -30,4 +31,5 @@ export const ListSubtype = {
     DeviceIdentifier: "DEVICE_IDENTIFIER",
     String: "STRING",
     Country: "COUNTRY",
+    Custom: "CUSTOM",
 } as const;

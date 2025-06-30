@@ -11,6 +11,7 @@ export interface ListMetadata {
     description?: string;
     status?: boolean;
     checksum?: string;
+    columns?: Flagright.CustomColumn[];
     ttl?: Flagright.ListMetadataTtl;
     /** Accepts any additional properties */
     [key: string]: any;
