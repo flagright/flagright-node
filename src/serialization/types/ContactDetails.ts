@@ -7,6 +7,7 @@ import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { Address } from "./Address";
 import { ConsumerName } from "./ConsumerName";
+import { Tag } from "./Tag";
 
 export const ContactDetails: core.serialization.ObjectSchema<serializers.ContactDetails.Raw, Flagright.ContactDetails> =
     core.serialization.object({
@@ -16,6 +17,7 @@ export const ContactDetails: core.serialization.ObjectSchema<serializers.Contact
         websites: core.serialization.list(core.serialization.string()).optional(),
         addresses: core.serialization.list(Address).optional(),
         name: ConsumerName.optional(),
+        tags: core.serialization.list(Tag).optional(),
     });
 
 export declare namespace ContactDetails {
@@ -26,5 +28,6 @@ export declare namespace ContactDetails {
         websites?: string[] | null;
         addresses?: Address.Raw[] | null;
         name?: ConsumerName.Raw | null;
+        tags?: Tag.Raw[] | null;
     }
 }

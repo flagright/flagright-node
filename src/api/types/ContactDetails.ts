@@ -19,4 +19,6 @@ export interface ContactDetails {
     /** Address(es) of the company */
     addresses?: Flagright.Address[];
     name?: Flagright.ConsumerName;
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
 }
