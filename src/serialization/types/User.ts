@@ -55,6 +55,7 @@ export const User: core.serialization.ObjectSchema<serializers.User.Raw, Flagrig
     savedPaymentDetails: core.serialization.list(UserSavedPaymentDetailsItem).optional(),
     tags: core.serialization.list(UserTag).optional(),
     attachments: core.serialization.list(PersonAttachment).optional(),
+    updateCount: core.serialization.number().optional(),
 });
 
 export declare namespace User {
@@ -87,5 +88,6 @@ export declare namespace User {
         savedPaymentDetails?: UserSavedPaymentDetailsItem.Raw[] | null;
         tags?: UserTag.Raw[] | null;
         attachments?: PersonAttachment.Raw[] | null;
+        updateCount?: number | null;
     }
 }

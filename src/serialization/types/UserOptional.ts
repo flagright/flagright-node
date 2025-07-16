@@ -54,6 +54,7 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
         savedPaymentDetails: core.serialization.list(UserOptionalSavedPaymentDetailsItem).optional(),
         tags: core.serialization.list(UserTag).optional(),
         attachments: core.serialization.list(PersonAttachment).optional(),
+        updateCount: core.serialization.number().optional(),
     });
 
 export declare namespace UserOptional {
@@ -84,5 +85,6 @@ export declare namespace UserOptional {
         savedPaymentDetails?: UserOptionalSavedPaymentDetailsItem.Raw[] | null;
         tags?: UserTag.Raw[] | null;
         attachments?: PersonAttachment.Raw[] | null;
+        updateCount?: number | null;
     }
 }

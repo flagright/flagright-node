@@ -145,6 +145,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "ETH2",
         "EUR",
         "EUROC",
+        "ETHFI",
         "FARM",
         "FET",
         "FIDA",
@@ -158,6 +159,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "FORTH",
         "FOX",
         "FX",
+        "FTM",
         "GAL",
         "GALA",
         "GBP",
@@ -310,6 +312,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "PAB",
         "PAX",
         "PEN",
+        "PENGU",
         "PERP",
         "PGK",
         "PHP",
@@ -318,6 +321,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "PLN",
         "PLU",
         "PNG",
+        "POL",
         "POLS",
         "POLY",
         "POND",
@@ -353,6 +357,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "RPL",
         "RSD",
         "RUB",
+        "RUNE",
         "RWF",
         "SAND",
         "SAR",
@@ -394,6 +399,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "SZL",
         "T",
         "THB",
+        "THETA",
         "TIA",
         "TIME",
         "TJS",
@@ -624,6 +630,7 @@ export declare namespace CurrencyCode {
         | "ETH2"
         | "EUR"
         | "EUROC"
+        | "ETHFI"
         | "FARM"
         | "FET"
         | "FIDA"
@@ -637,6 +644,7 @@ export declare namespace CurrencyCode {
         | "FORTH"
         | "FOX"
         | "FX"
+        | "FTM"
         | "GAL"
         | "GALA"
         | "GBP"
@@ -789,6 +797,7 @@ export declare namespace CurrencyCode {
         | "PAB"
         | "PAX"
         | "PEN"
+        | "PENGU"
         | "PERP"
         | "PGK"
         | "PHP"
@@ -797,6 +806,7 @@ export declare namespace CurrencyCode {
         | "PLN"
         | "PLU"
         | "PNG"
+        | "POL"
         | "POLS"
         | "POLY"
         | "POND"
@@ -832,6 +842,7 @@ export declare namespace CurrencyCode {
         | "RPL"
         | "RSD"
         | "RUB"
+        | "RUNE"
         | "RWF"
         | "SAND"
         | "SAR"
@@ -873,6 +884,7 @@ export declare namespace CurrencyCode {
         | "SZL"
         | "T"
         | "THB"
+        | "THETA"
         | "TIA"
         | "TIME"
         | "TJS"

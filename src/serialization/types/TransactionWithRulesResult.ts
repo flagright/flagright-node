@@ -39,6 +39,7 @@ export const TransactionWithRulesResult: core.serialization.ObjectSchema<
     originDeviceData: DeviceData.optional(),
     destinationDeviceData: DeviceData.optional(),
     tags: core.serialization.list(Tag).optional(),
+    updateCount: core.serialization.number().optional(),
     executedRules: core.serialization.list(ExecutedRulesResult),
     hitRules: core.serialization.list(HitRulesDetails),
     status: RuleAction,
@@ -65,6 +66,7 @@ export declare namespace TransactionWithRulesResult {
         originDeviceData?: DeviceData.Raw | null;
         destinationDeviceData?: DeviceData.Raw | null;
         tags?: Tag.Raw[] | null;
+        updateCount?: number | null;
         executedRules: ExecutedRulesResult.Raw[];
         hitRules: HitRulesDetails.Raw[];
         status: RuleAction.Raw;

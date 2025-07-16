@@ -1,6 +1,6 @@
 {
     "name": "flagright",
-    "version": "v1.7.8",
+    "version": "v1.7.9",
     "private": false,
     "repository": "https://github.com/flagright/flagright-node",
     "main": "./index.js",

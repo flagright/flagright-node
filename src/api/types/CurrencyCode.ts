@@ -140,6 +140,7 @@ export type CurrencyCode =
     | "ETH2"
     | "EUR"
     | "EUROC"
+    | "ETHFI"
     | "FARM"
     | "FET"
     | "FIDA"
@@ -153,6 +154,7 @@ export type CurrencyCode =
     | "FORTH"
     | "FOX"
     | "FX"
+    | "FTM"
     | "GAL"
     | "GALA"
     | "GBP"
@@ -305,6 +307,7 @@ export type CurrencyCode =
     | "PAB"
     | "PAX"
     | "PEN"
+    | "PENGU"
     | "PERP"
     | "PGK"
     | "PHP"
@@ -313,6 +316,7 @@ export type CurrencyCode =
     | "PLN"
     | "PLU"
     | "PNG"
+    | "POL"
     | "POLS"
     | "POLY"
     | "POND"
@@ -348,6 +352,7 @@ export type CurrencyCode =
     | "RPL"
     | "RSD"
     | "RUB"
+    | "RUNE"
     | "RWF"
     | "SAND"
     | "SAR"
@@ -389,6 +394,7 @@ export type CurrencyCode =
     | "SZL"
     | "T"
     | "THB"
+    | "THETA"
     | "TIA"
     | "TIME"
     | "TJS"
@@ -616,6 +622,7 @@ export const CurrencyCode = {
     Eth2: "ETH2",
     Eur: "EUR",
     Euroc: "EUROC",
+    Ethfi: "ETHFI",
     Farm: "FARM",
     Fet: "FET",
     Fida: "FIDA",
@@ -629,6 +636,7 @@ export const CurrencyCode = {
     Forth: "FORTH",
     Fox: "FOX",
     Fx: "FX",
+    Ftm: "FTM",
     Gal: "GAL",
     Gala: "GALA",
     Gbp: "GBP",
@@ -781,6 +789,7 @@ export const CurrencyCode = {
     Pab: "PAB",
     Pax: "PAX",
     Pen: "PEN",
+    Pengu: "PENGU",
     Perp: "PERP",
     Pgk: "PGK",
     Php: "PHP",
@@ -789,6 +798,7 @@ export const CurrencyCode = {
     Pln: "PLN",
     Plu: "PLU",
     Png: "PNG",
+    Pol: "POL",
     Pols: "POLS",
     Poly: "POLY",
     Pond: "POND",
@@ -824,6 +834,7 @@ export const CurrencyCode = {
     Rpl: "RPL",
     Rsd: "RSD",
     Rub: "RUB",
+    Rune: "RUNE",
     Rwf: "RWF",
     Sand: "SAND",
     Sar: "SAR",
@@ -865,6 +876,7 @@ export const CurrencyCode = {
     Szl: "SZL",
     T: "T",
     Thb: "THB",
+    Theta: "THETA",
     Tia: "TIA",
     Time: "TIME",
     Tjs: "TJS",

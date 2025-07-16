@@ -16,6 +16,7 @@ export interface BatchBusinessUserEventWithRulesResult {
     /** Event description */
     eventDescription?: string;
     updatedBusinessUserAttributes?: Flagright.BusinessOptional;
+    updateCount?: number;
     executedRules?: Flagright.ExecutedRulesResult[];
     riskScoreDetails?: Flagright.UserRiskScoreDetails;
 }

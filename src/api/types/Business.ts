@@ -32,4 +32,5 @@ export interface Business {
     tags?: Flagright.UserTag[];
     /** User's attachments uploaded by business user */
     attachments?: Flagright.PersonAttachment[];
+    updateCount?: number;
 }

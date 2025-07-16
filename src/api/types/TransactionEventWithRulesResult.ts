@@ -18,6 +18,7 @@ export interface TransactionEventWithRulesResult {
     eventDescription?: string;
     updatedTransactionAttributes?: Flagright.TransactionUpdatable;
     metaData?: Flagright.DeviceData;
+    updateCount?: number;
     executedRules?: Flagright.ExecutedRulesResult[];
     hitRules?: Flagright.HitRulesDetails[];
     status?: Flagright.RuleAction;

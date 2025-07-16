@@ -40,4 +40,5 @@ export interface User {
     tags?: Flagright.UserTag[];
     /** Uploaded user's attachment */
     attachments?: Flagright.PersonAttachment[];
+    updateCount?: number;
 }

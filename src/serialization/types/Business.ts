@@ -40,6 +40,7 @@ export const Business: core.serialization.ObjectSchema<serializers.Business.Raw,
         mccDetails: MccDetails.optional(),
         tags: core.serialization.list(UserTag).optional(),
         attachments: core.serialization.list(PersonAttachment).optional(),
+        updateCount: core.serialization.number().optional(),
     });
 
 export declare namespace Business {
@@ -63,5 +64,6 @@ export declare namespace Business {
         mccDetails?: MccDetails.Raw | null;
         tags?: UserTag.Raw[] | null;
         attachments?: PersonAttachment.Raw[] | null;
+        updateCount?: number | null;
     }
 }

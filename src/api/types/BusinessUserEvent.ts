@@ -19,4 +19,5 @@ export interface BusinessUserEvent {
     /** Event description */
     eventDescription?: string;
     updatedBusinessUserAttributes?: Flagright.BusinessOptional;
+    updateCount?: number;
 }

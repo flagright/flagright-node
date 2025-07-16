@@ -34,6 +34,7 @@ export interface TransactionWithRulesResult {
     destinationDeviceData?: Flagright.DeviceData;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
+    updateCount?: number;
     executedRules: Flagright.ExecutedRulesResult[];
     hitRules: Flagright.HitRulesDetails[];
     status: Flagright.RuleAction;

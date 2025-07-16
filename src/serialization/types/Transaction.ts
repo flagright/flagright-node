@@ -33,6 +33,7 @@ export const Transaction: core.serialization.ObjectSchema<serializers.Transactio
         originDeviceData: DeviceData.optional(),
         destinationDeviceData: DeviceData.optional(),
         tags: core.serialization.list(Tag).optional(),
+        updateCount: core.serialization.number().optional(),
     });
 
 export declare namespace Transaction {
@@ -55,5 +56,6 @@ export declare namespace Transaction {
         originDeviceData?: DeviceData.Raw | null;
         destinationDeviceData?: DeviceData.Raw | null;
         tags?: Tag.Raw[] | null;
+        updateCount?: number | null;
     }
 }

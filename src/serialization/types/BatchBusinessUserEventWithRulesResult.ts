@@ -19,6 +19,7 @@ export const BatchBusinessUserEventWithRulesResult: core.serialization.ObjectSch
     reason: core.serialization.string().optional(),
     eventDescription: core.serialization.string().optional(),
     updatedBusinessUserAttributes: BusinessOptional.optional(),
+    updateCount: core.serialization.number().optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     riskScoreDetails: UserRiskScoreDetails.optional(),
 });
@@ -31,6 +32,7 @@ export declare namespace BatchBusinessUserEventWithRulesResult {
         reason?: string | null;
         eventDescription?: string | null;
         updatedBusinessUserAttributes?: BusinessOptional.Raw | null;
+        updateCount?: number | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         riskScoreDetails?: UserRiskScoreDetails.Raw | null;
     }

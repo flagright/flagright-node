@@ -25,6 +25,7 @@ export const TransactionEventWithRulesResult: core.serialization.ObjectSchema<
     eventDescription: core.serialization.string().optional(),
     updatedTransactionAttributes: TransactionUpdatable.optional(),
     metaData: DeviceData.optional(),
+    updateCount: core.serialization.number().optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     hitRules: core.serialization.list(HitRulesDetails).optional(),
     status: RuleAction.optional(),
@@ -41,6 +42,7 @@ export declare namespace TransactionEventWithRulesResult {
         eventDescription?: string | null;
         updatedTransactionAttributes?: TransactionUpdatable.Raw | null;
         metaData?: DeviceData.Raw | null;
+        updateCount?: number | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         hitRules?: HitRulesDetails.Raw[] | null;
         status?: RuleAction.Raw | null;

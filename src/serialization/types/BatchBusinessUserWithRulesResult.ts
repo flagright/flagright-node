@@ -44,6 +44,7 @@ export const BatchBusinessUserWithRulesResult: core.serialization.ObjectSchema<
     mccDetails: MccDetails.optional(),
     tags: core.serialization.list(UserTag).optional(),
     attachments: core.serialization.list(PersonAttachment).optional(),
+    updateCount: core.serialization.number().optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     riskScoreDetails: UserRiskScoreDetails.optional(),
 });
@@ -69,6 +70,7 @@ export declare namespace BatchBusinessUserWithRulesResult {
         mccDetails?: MccDetails.Raw | null;
         tags?: UserTag.Raw[] | null;
         attachments?: PersonAttachment.Raw[] | null;
+        updateCount?: number | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         riskScoreDetails?: UserRiskScoreDetails.Raw | null;
     }

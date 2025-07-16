@@ -27,4 +27,5 @@ export interface TransactionUpdatable {
     destinationDeviceData?: Flagright.DeviceData;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
+    updateCount?: number;
 }

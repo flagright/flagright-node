@@ -40,6 +40,7 @@ export interface BatchConsumerUserWithRulesResult {
     tags?: Flagright.UserTag[];
     /** Uploaded user's attachment */
     attachments?: Flagright.PersonAttachment[];
+    updateCount?: number;
     executedRules?: Flagright.ExecutedRulesResult[];
     riskScoreDetails?: Flagright.UserRiskScoreDetails;
 }
