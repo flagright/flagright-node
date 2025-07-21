@@ -7,6 +7,7 @@ import * as Flagright from "../index";
 export interface TransactionEventMonitoringResult {
     eventId: string;
     transaction: Flagright.Transaction;
+    status?: Flagright.RuleAction;
     riskScoreDetails?: Flagright.TransactionRiskScoringResult;
     /** Unique transaction identifier */
     executedRules: Flagright.ExecutedRulesResult[];

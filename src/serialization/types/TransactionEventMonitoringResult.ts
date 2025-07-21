@@ -6,6 +6,7 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { Transaction } from "./Transaction";
+import { RuleAction } from "./RuleAction";
 import { TransactionRiskScoringResult } from "./TransactionRiskScoringResult";
 import { ExecutedRulesResult } from "./ExecutedRulesResult";
 import { HitRulesDetails } from "./HitRulesDetails";
@@ -16,6 +17,7 @@ export const TransactionEventMonitoringResult: core.serialization.ObjectSchema<
 > = core.serialization.object({
     eventId: core.serialization.string(),
     transaction: Transaction,
+    status: RuleAction.optional(),
     riskScoreDetails: TransactionRiskScoringResult.optional(),
     executedRules: core.serialization.list(ExecutedRulesResult),
     hitRules: core.serialization.list(HitRulesDetails),
@@ -25,6 +27,7 @@ export declare namespace TransactionEventMonitoringResult {
     export interface Raw {
         eventId: string;
         transaction: Transaction.Raw;
+        status?: RuleAction.Raw | null;
         riskScoreDetails?: TransactionRiskScoringResult.Raw | null;
         executedRules: ExecutedRulesResult.Raw[];
         hitRules: HitRulesDetails.Raw[];

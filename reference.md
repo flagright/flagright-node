@@ -663,7 +663,7 @@ In order to make individual events retrievable, you also need to pass in a uniqu
 ```typescript
 await client.transactionEvents.create({
     transactionState: "SUCCESSFUL",
-    timestamp: 1431231244001,
+    timestamp: 1752526580000,
     transactionId: "443dea26147a406b957d9ee3a1247b11",
     eventId: "aaeeb166147a406b957dd9147a406b957",
     eventDescription: "Transaction created",

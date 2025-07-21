@@ -64,7 +64,7 @@ export class TransactionEvents {
      * @example
      *     await client.transactionEvents.create({
      *         transactionState: "SUCCESSFUL",
-     *         timestamp: 1431231244001,
+     *         timestamp: 1752526580000,
      *         transactionId: "443dea26147a406b957d9ee3a1247b11",
      *         eventId: "aaeeb166147a406b957dd9147a406b957",
      *         eventDescription: "Transaction created",
@@ -99,8 +99,8 @@ export class TransactionEvents {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "v1.7.9",
-                "User-Agent": "flagright/v1.7.9",
+                "X-Fern-SDK-Version": "v1.7.10",
+                "User-Agent": "flagright/v1.7.10",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -222,8 +222,8 @@ export class TransactionEvents {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "v1.7.9",
-                "User-Agent": "flagright/v1.7.9",
+                "X-Fern-SDK-Version": "v1.7.10",
+                "User-Agent": "flagright/v1.7.10",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
