@@ -122,6 +122,8 @@ export * from "./AdverseMediaStatus";
 export * from "./KycStatusDetails";
 export * from "./UserTagsUpdate";
 export * from "./UserStateDetails";
+export * from "./WebhookUserStateDetails";
+export * from "./WebhookKycStatusDetails";
 export * from "./CaseClosedDetails";
 export * from "./CaseOpenedDetails";
 export * from "./AlertClosedDetails";
