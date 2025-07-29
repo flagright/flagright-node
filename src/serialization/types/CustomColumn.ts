@@ -11,11 +11,13 @@ export const CustomColumn: core.serialization.ObjectSchema<serializers.CustomCol
     core.serialization.object({
         key: core.serialization.string(),
         type: ColumnType,
+        primaryKey: core.serialization.boolean().optional(),
     });
 
 export declare namespace CustomColumn {
     export interface Raw {
         key: string;
         type: ColumnType.Raw;
+        primaryKey?: boolean | null;
     }
 }

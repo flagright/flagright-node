@@ -7,4 +7,5 @@ import * as Flagright from "../index";
 export interface CustomColumn {
     key: string;
     type: Flagright.ColumnType;
+    primaryKey?: boolean;
 }
