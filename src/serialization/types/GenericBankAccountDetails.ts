@@ -30,6 +30,7 @@ export const GenericBankAccountDetails: core.serialization.ObjectSchema<
     paymentChannel: core.serialization.string().optional(),
     tags: core.serialization.list(Tag).optional(),
     transitNumber: core.serialization.string().optional(),
+    address: Address.optional(),
 });
 
 export declare namespace GenericBankAccountDetails {
@@ -49,5 +50,6 @@ export declare namespace GenericBankAccountDetails {
         paymentChannel?: string | null;
         tags?: Tag.Raw[] | null;
         transitNumber?: string | null;
+        address?: Address.Raw | null;
     }
 }

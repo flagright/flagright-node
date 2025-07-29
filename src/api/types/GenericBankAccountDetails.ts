@@ -33,4 +33,5 @@ export interface GenericBankAccountDetails {
     tags?: Flagright.Tag[];
     /** Transit number of the bank account */
     transitNumber?: string;
+    address?: Flagright.Address;
 }
