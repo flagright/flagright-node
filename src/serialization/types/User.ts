@@ -25,6 +25,7 @@ import { UserEntityLink } from "./UserEntityLink";
 import { UserSavedPaymentDetailsItem } from "./UserSavedPaymentDetailsItem";
 import { UserTag } from "./UserTag";
 import { PersonAttachment } from "./PersonAttachment";
+import { DeviceData } from "./DeviceData";
 
 export const User: core.serialization.ObjectSchema<serializers.User.Raw, Flagright.User> = core.serialization.object({
     userId: core.serialization.string(),
@@ -55,6 +56,7 @@ export const User: core.serialization.ObjectSchema<serializers.User.Raw, Flagrig
     savedPaymentDetails: core.serialization.list(UserSavedPaymentDetailsItem).optional(),
     tags: core.serialization.list(UserTag).optional(),
     attachments: core.serialization.list(PersonAttachment).optional(),
+    metaData: DeviceData.optional(),
     updateCount: core.serialization.number().optional(),
 });
 
@@ -88,6 +90,7 @@ export declare namespace User {
         savedPaymentDetails?: UserSavedPaymentDetailsItem.Raw[] | null;
         tags?: UserTag.Raw[] | null;
         attachments?: PersonAttachment.Raw[] | null;
+        metaData?: DeviceData.Raw | null;
         updateCount?: number | null;
     }
 }

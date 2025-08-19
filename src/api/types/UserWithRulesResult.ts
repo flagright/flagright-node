@@ -40,6 +40,7 @@ export interface UserWithRulesResult {
     tags?: Flagright.UserTag[];
     /** Uploaded user's attachment */
     attachments?: Flagright.PersonAttachment[];
+    metaData?: Flagright.DeviceData;
     updateCount?: number;
     executedRules?: Flagright.ExecutedRulesResult[];
     hitRules?: Flagright.HitRulesDetails[];

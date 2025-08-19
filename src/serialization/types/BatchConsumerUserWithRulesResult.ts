@@ -25,6 +25,7 @@ import { UserEntityLink } from "./UserEntityLink";
 import { BatchConsumerUserWithRulesResultSavedPaymentDetailsItem } from "./BatchConsumerUserWithRulesResultSavedPaymentDetailsItem";
 import { UserTag } from "./UserTag";
 import { PersonAttachment } from "./PersonAttachment";
+import { DeviceData } from "./DeviceData";
 import { ExecutedRulesResult } from "./ExecutedRulesResult";
 import { UserRiskScoreDetails } from "./UserRiskScoreDetails";
 
@@ -60,6 +61,7 @@ export const BatchConsumerUserWithRulesResult: core.serialization.ObjectSchema<
     savedPaymentDetails: core.serialization.list(BatchConsumerUserWithRulesResultSavedPaymentDetailsItem).optional(),
     tags: core.serialization.list(UserTag).optional(),
     attachments: core.serialization.list(PersonAttachment).optional(),
+    metaData: DeviceData.optional(),
     updateCount: core.serialization.number().optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     riskScoreDetails: UserRiskScoreDetails.optional(),
@@ -95,6 +97,7 @@ export declare namespace BatchConsumerUserWithRulesResult {
         savedPaymentDetails?: BatchConsumerUserWithRulesResultSavedPaymentDetailsItem.Raw[] | null;
         tags?: UserTag.Raw[] | null;
         attachments?: PersonAttachment.Raw[] | null;
+        metaData?: DeviceData.Raw | null;
         updateCount?: number | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         riskScoreDetails?: UserRiskScoreDetails.Raw | null;

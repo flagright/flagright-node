@@ -18,6 +18,7 @@ import { BusinessSavedPaymentDetailsItem } from "./BusinessSavedPaymentDetailsIt
 import { MccDetails } from "./MccDetails";
 import { UserTag } from "./UserTag";
 import { PersonAttachment } from "./PersonAttachment";
+import { DeviceData } from "./DeviceData";
 
 export const Business: core.serialization.ObjectSchema<serializers.Business.Raw, Flagright.Business> =
     core.serialization.object({
@@ -40,6 +41,7 @@ export const Business: core.serialization.ObjectSchema<serializers.Business.Raw,
         mccDetails: MccDetails.optional(),
         tags: core.serialization.list(UserTag).optional(),
         attachments: core.serialization.list(PersonAttachment).optional(),
+        metaData: DeviceData.optional(),
         updateCount: core.serialization.number().optional(),
     });
 
@@ -64,6 +66,7 @@ export declare namespace Business {
         mccDetails?: MccDetails.Raw | null;
         tags?: UserTag.Raw[] | null;
         attachments?: PersonAttachment.Raw[] | null;
+        metaData?: DeviceData.Raw | null;
         updateCount?: number | null;
     }
 }

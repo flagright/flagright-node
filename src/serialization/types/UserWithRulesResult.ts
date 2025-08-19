@@ -25,6 +25,7 @@ import { UserEntityLink } from "./UserEntityLink";
 import { UserWithRulesResultSavedPaymentDetailsItem } from "./UserWithRulesResultSavedPaymentDetailsItem";
 import { UserTag } from "./UserTag";
 import { PersonAttachment } from "./PersonAttachment";
+import { DeviceData } from "./DeviceData";
 import { ExecutedRulesResult } from "./ExecutedRulesResult";
 import { HitRulesDetails } from "./HitRulesDetails";
 import { UserRiskScoreDetails } from "./UserRiskScoreDetails";
@@ -61,6 +62,7 @@ export const UserWithRulesResult: core.serialization.ObjectSchema<
     savedPaymentDetails: core.serialization.list(UserWithRulesResultSavedPaymentDetailsItem).optional(),
     tags: core.serialization.list(UserTag).optional(),
     attachments: core.serialization.list(PersonAttachment).optional(),
+    metaData: DeviceData.optional(),
     updateCount: core.serialization.number().optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     hitRules: core.serialization.list(HitRulesDetails).optional(),
@@ -97,6 +99,7 @@ export declare namespace UserWithRulesResult {
         savedPaymentDetails?: UserWithRulesResultSavedPaymentDetailsItem.Raw[] | null;
         tags?: UserTag.Raw[] | null;
         attachments?: PersonAttachment.Raw[] | null;
+        metaData?: DeviceData.Raw | null;
         updateCount?: number | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         hitRules?: HitRulesDetails.Raw[] | null;
