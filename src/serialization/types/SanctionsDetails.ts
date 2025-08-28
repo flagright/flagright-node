@@ -7,6 +7,7 @@ import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { SanctionsDetailsEntityType } from "./SanctionsDetailsEntityType";
 import { SanctionsHitContext } from "./SanctionsHitContext";
+import { RuleHitDirection } from "./RuleHitDirection";
 
 export const SanctionsDetails: core.serialization.ObjectSchema<
     serializers.SanctionsDetails.Raw,
@@ -18,6 +19,7 @@ export const SanctionsDetails: core.serialization.ObjectSchema<
     entityType: SanctionsDetailsEntityType.optional(),
     sanctionHitIds: core.serialization.list(core.serialization.string()).optional(),
     hitContext: SanctionsHitContext.optional(),
+    hitDirection: RuleHitDirection.optional(),
 });
 
 export declare namespace SanctionsDetails {
@@ -28,5 +30,6 @@ export declare namespace SanctionsDetails {
         entityType?: SanctionsDetailsEntityType.Raw | null;
         sanctionHitIds?: string[] | null;
         hitContext?: SanctionsHitContext.Raw | null;
+        hitDirection?: RuleHitDirection.Raw | null;
     }
 }

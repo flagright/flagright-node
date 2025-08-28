@@ -11,4 +11,5 @@ export interface SanctionsDetails {
     entityType?: Flagright.SanctionsDetailsEntityType;
     sanctionHitIds?: string[];
     hitContext?: Flagright.SanctionsHitContext;
+    hitDirection?: Flagright.RuleHitDirection;
 }

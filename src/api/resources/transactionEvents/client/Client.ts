@@ -99,8 +99,8 @@ export class TransactionEvents {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "v1.7.14",
-                "User-Agent": "flagright/v1.7.14",
+                "X-Fern-SDK-Version": "v1.7.15",
+                "User-Agent": "flagright/v1.7.15",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -222,8 +222,8 @@ export class TransactionEvents {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "v1.7.14",
-                "User-Agent": "flagright/v1.7.14",
+                "X-Fern-SDK-Version": "v1.7.15",
+                "User-Agent": "flagright/v1.7.15",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),

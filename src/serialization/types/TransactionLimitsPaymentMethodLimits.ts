@@ -20,6 +20,8 @@ export const TransactionLimitsPaymentMethodLimits: core.serialization.ObjectSche
     swift: core.serialization.property("SWIFT", TransactionLimit.optional()),
     wallet: core.serialization.property("WALLET", TransactionLimit.optional()),
     check: core.serialization.property("CHECK", TransactionLimit.optional()),
+    cash: core.serialization.property("CASH", TransactionLimit.optional()),
+    npp: core.serialization.property("NPP", TransactionLimit.optional()),
 });
 
 export declare namespace TransactionLimitsPaymentMethodLimits {
@@ -33,5 +35,7 @@ export declare namespace TransactionLimitsPaymentMethodLimits {
         SWIFT?: TransactionLimit.Raw | null;
         WALLET?: TransactionLimit.Raw | null;
         CHECK?: TransactionLimit.Raw | null;
+        CASH?: TransactionLimit.Raw | null;
+        NPP?: TransactionLimit.Raw | null;
     }
 }

@@ -17,6 +17,7 @@ export const PersonAttachment: core.serialization.ObjectSchema<
     userId: core.serialization.string(),
     createdAt: core.serialization.number().optional(),
     deletedAt: core.serialization.number().optional(),
+    tags: core.serialization.list(core.serialization.string()).optional(),
 });
 
 export declare namespace PersonAttachment {
@@ -27,5 +28,6 @@ export declare namespace PersonAttachment {
         userId: string;
         createdAt?: number | null;
         deletedAt?: number | null;
+        tags?: string[] | null;
     }
 }

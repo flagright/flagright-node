@@ -15,4 +15,5 @@ export interface PersonAttachment {
     userId: string;
     createdAt?: number;
     deletedAt?: number;
+    tags?: string[];
 }

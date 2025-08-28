@@ -14,4 +14,6 @@ export interface TransactionLimitsPaymentMethodLimits {
     swift?: Flagright.TransactionLimit;
     wallet?: Flagright.TransactionLimit;
     check?: Flagright.TransactionLimit;
+    cash?: Flagright.TransactionLimit;
+    npp?: Flagright.TransactionLimit;
 }
