@@ -144,6 +144,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "ETH",
         "ETH2",
         "EUR",
+        "EURC",
         "EUROC",
         "ETHFI",
         "FARM",
@@ -313,6 +314,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "PAX",
         "PEN",
         "PENGU",
+        "PEPE",
         "PERP",
         "PGK",
         "PHP",
@@ -407,11 +409,13 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "TMT",
         "TND",
         "TONE",
+        "TON",
         "TOP",
         "TRAC",
         "TRB",
         "TRIBE",
         "TRU",
+        "TRUMP",
         "TRY",
         "TTD",
         "TVK",
@@ -629,6 +633,7 @@ export declare namespace CurrencyCode {
         | "ETH"
         | "ETH2"
         | "EUR"
+        | "EURC"
         | "EUROC"
         | "ETHFI"
         | "FARM"
@@ -798,6 +803,7 @@ export declare namespace CurrencyCode {
         | "PAX"
         | "PEN"
         | "PENGU"
+        | "PEPE"
         | "PERP"
         | "PGK"
         | "PHP"
@@ -892,11 +898,13 @@ export declare namespace CurrencyCode {
         | "TMT"
         | "TND"
         | "TONE"
+        | "TON"
         | "TOP"
         | "TRAC"
         | "TRB"
         | "TRIBE"
         | "TRU"
+        | "TRUMP"
         | "TRY"
         | "TTD"
         | "TVK"

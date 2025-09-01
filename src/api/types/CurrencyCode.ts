@@ -139,6 +139,7 @@ export type CurrencyCode =
     | "ETH"
     | "ETH2"
     | "EUR"
+    | "EURC"
     | "EUROC"
     | "ETHFI"
     | "FARM"
@@ -308,6 +309,7 @@ export type CurrencyCode =
     | "PAX"
     | "PEN"
     | "PENGU"
+    | "PEPE"
     | "PERP"
     | "PGK"
     | "PHP"
@@ -402,11 +404,13 @@ export type CurrencyCode =
     | "TMT"
     | "TND"
     | "TONE"
+    | "TON"
     | "TOP"
     | "TRAC"
     | "TRB"
     | "TRIBE"
     | "TRU"
+    | "TRUMP"
     | "TRY"
     | "TTD"
     | "TVK"
@@ -621,6 +625,7 @@ export const CurrencyCode = {
     Eth: "ETH",
     Eth2: "ETH2",
     Eur: "EUR",
+    Eurc: "EURC",
     Euroc: "EUROC",
     Ethfi: "ETHFI",
     Farm: "FARM",
@@ -790,6 +795,7 @@ export const CurrencyCode = {
     Pax: "PAX",
     Pen: "PEN",
     Pengu: "PENGU",
+    Pepe: "PEPE",
     Perp: "PERP",
     Pgk: "PGK",
     Php: "PHP",
@@ -884,11 +890,13 @@ export const CurrencyCode = {
     Tmt: "TMT",
     Tnd: "TND",
     Tone: "TONE",
+    Ton: "TON",
     Top: "TOP",
     Trac: "TRAC",
     Trb: "TRB",
     Tribe: "TRIBE",
     Tru: "TRU",
+    Trump: "TRUMP",
     Try: "TRY",
     Ttd: "TTD",
     Tvk: "TVK",
