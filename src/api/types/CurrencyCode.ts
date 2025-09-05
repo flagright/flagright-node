@@ -139,7 +139,9 @@ export type CurrencyCode =
     | "ETH"
     | "ETH2"
     | "EUR"
+    | "EURA"
     | "EURC"
+    | "EURT"
     | "EUROC"
     | "ETHFI"
     | "FARM"
@@ -202,6 +204,7 @@ export type CurrencyCode =
     | "INR"
     | "INV"
     | "IOTX"
+    | "ISLM"
     | "IQD"
     | "IRR"
     | "ISK"
@@ -291,6 +294,7 @@ export type CurrencyCode =
     | "NKN"
     | "NMR"
     | "NOK"
+    | "NPC"
     | "NPR"
     | "NU"
     | "NZD"
@@ -625,7 +629,9 @@ export const CurrencyCode = {
     Eth: "ETH",
     Eth2: "ETH2",
     Eur: "EUR",
+    Eura: "EURA",
     Eurc: "EURC",
+    Eurt: "EURT",
     Euroc: "EUROC",
     Ethfi: "ETHFI",
     Farm: "FARM",
@@ -688,6 +694,7 @@ export const CurrencyCode = {
     Inr: "INR",
     Inv: "INV",
     Iotx: "IOTX",
+    Islm: "ISLM",
     Iqd: "IQD",
     Irr: "IRR",
     Isk: "ISK",
@@ -777,6 +784,7 @@ export const CurrencyCode = {
     Nkn: "NKN",
     Nmr: "NMR",
     Nok: "NOK",
+    Npc: "NPC",
     Npr: "NPR",
     Nu: "NU",
     Nzd: "NZD",

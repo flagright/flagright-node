@@ -21,6 +21,7 @@ export const SwiftDetails: core.serialization.ObjectSchema<serializers.SwiftDeta
         bankAddress: Address.optional(),
         emailId: EmailId.optional(),
         specialInstructions: core.serialization.string().optional(),
+        address: Address.optional(),
         tags: core.serialization.list(Tag).optional(),
     });
 
@@ -35,6 +36,7 @@ export declare namespace SwiftDetails {
         bankAddress?: Address.Raw | null;
         emailId?: EmailId.Raw | null;
         specialInstructions?: string | null;
+        address?: Address.Raw | null;
         tags?: Tag.Raw[] | null;
     }
 }

@@ -17,6 +17,7 @@ export const CheckDetails: core.serialization.ObjectSchema<serializers.CheckDeta
         deliveryStatus: CheckDeliveryStatus.optional(),
         etaTimestamp: core.serialization.number().optional(),
         shippingAddress: Address.optional(),
+        accountNumber: core.serialization.string().optional(),
         tags: core.serialization.list(Tag).optional(),
     });
 
@@ -28,6 +29,7 @@ export declare namespace CheckDetails {
         deliveryStatus?: CheckDeliveryStatus.Raw | null;
         etaTimestamp?: number | null;
         shippingAddress?: Address.Raw | null;
+        accountNumber?: string | null;
         tags?: Tag.Raw[] | null;
     }
 }

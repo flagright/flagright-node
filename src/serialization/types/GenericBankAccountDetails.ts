@@ -31,6 +31,7 @@ export const GenericBankAccountDetails: core.serialization.ObjectSchema<
     tags: core.serialization.list(Tag).optional(),
     transitNumber: core.serialization.string().optional(),
     address: Address.optional(),
+    routingNumber: core.serialization.string().optional(),
 });
 
 export declare namespace GenericBankAccountDetails {
@@ -51,5 +52,6 @@ export declare namespace GenericBankAccountDetails {
         tags?: Tag.Raw[] | null;
         transitNumber?: string | null;
         address?: Address.Raw | null;
+        routingNumber?: string | null;
     }
 }

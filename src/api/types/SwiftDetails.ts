@@ -23,6 +23,7 @@ export interface SwiftDetails {
     emailId?: Flagright.EmailId;
     /** Special instructions if any */
     specialInstructions?: string;
+    address?: Flagright.Address;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
 }

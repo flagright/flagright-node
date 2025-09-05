@@ -144,7 +144,9 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "ETH",
         "ETH2",
         "EUR",
+        "EURA",
         "EURC",
+        "EURT",
         "EUROC",
         "ETHFI",
         "FARM",
@@ -207,6 +209,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "INR",
         "INV",
         "IOTX",
+        "ISLM",
         "IQD",
         "IRR",
         "ISK",
@@ -296,6 +299,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "NKN",
         "NMR",
         "NOK",
+        "NPC",
         "NPR",
         "NU",
         "NZD",
@@ -633,7 +637,9 @@ export declare namespace CurrencyCode {
         | "ETH"
         | "ETH2"
         | "EUR"
+        | "EURA"
         | "EURC"
+        | "EURT"
         | "EUROC"
         | "ETHFI"
         | "FARM"
@@ -696,6 +702,7 @@ export declare namespace CurrencyCode {
         | "INR"
         | "INV"
         | "IOTX"
+        | "ISLM"
         | "IQD"
         | "IRR"
         | "ISK"
@@ -785,6 +792,7 @@ export declare namespace CurrencyCode {
         | "NKN"
         | "NMR"
         | "NOK"
+        | "NPC"
         | "NPR"
         | "NU"
         | "NZD"

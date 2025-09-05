@@ -11,6 +11,7 @@ export interface CheckDetails {
     deliveryStatus?: Flagright.CheckDeliveryStatus;
     etaTimestamp?: number;
     shippingAddress?: Flagright.Address;
+    accountNumber?: string;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
 }
