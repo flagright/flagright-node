@@ -86,8 +86,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.1",
-                "User-Agent": "flagright/1.8.1",
+                "X-Fern-SDK-Version": "1.8.2",
+                "User-Agent": "flagright/1.8.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -217,8 +217,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.1",
-                "User-Agent": "flagright/1.8.1",
+                "X-Fern-SDK-Version": "1.8.2",
+                "User-Agent": "flagright/1.8.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -343,8 +343,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.1",
-                "User-Agent": "flagright/1.8.1",
+                "X-Fern-SDK-Version": "1.8.2",
+                "User-Agent": "flagright/1.8.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -464,6 +464,20 @@ export class Batch {
         request: Flagright.UserBatchRequest,
         requestOptions?: Batch.RequestOptions,
     ): Promise<core.WithRawResponse<Flagright.BatchResponse>> {
+        const { lockCraRiskLevel, lockKycRiskLevel, ..._body } = request;
+        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
+        if (lockCraRiskLevel != null) {
+            _queryParams["lockCraRiskLevel"] = serializers.BooleanString.jsonOrThrow(lockCraRiskLevel, {
+                unrecognizedObjectKeys: "strip",
+            });
+        }
+
+        if (lockKycRiskLevel != null) {
+            _queryParams["lockKycRiskLevel"] = serializers.BooleanString.jsonOrThrow(lockKycRiskLevel, {
+                unrecognizedObjectKeys: "strip",
+            });
+        }
+
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -475,16 +489,17 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.1",
-                "User-Agent": "flagright/1.8.1",
+                "X-Fern-SDK-Version": "1.8.2",
+                "User-Agent": "flagright/1.8.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
                 ...requestOptions?.headers,
             },
             contentType: "application/json",
+            queryParameters: _queryParams,
             requestType: "json",
-            body: serializers.UserBatchRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            body: serializers.UserBatchRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -593,6 +608,20 @@ export class Batch {
         request: Flagright.BusinessBatchRequest,
         requestOptions?: Batch.RequestOptions,
     ): Promise<core.WithRawResponse<Flagright.BatchResponse>> {
+        const { lockCraRiskLevel, lockKycRiskLevel, ..._body } = request;
+        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
+        if (lockCraRiskLevel != null) {
+            _queryParams["lockCraRiskLevel"] = serializers.BooleanString.jsonOrThrow(lockCraRiskLevel, {
+                unrecognizedObjectKeys: "strip",
+            });
+        }
+
+        if (lockKycRiskLevel != null) {
+            _queryParams["lockKycRiskLevel"] = serializers.BooleanString.jsonOrThrow(lockKycRiskLevel, {
+                unrecognizedObjectKeys: "strip",
+            });
+        }
+
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -604,16 +633,17 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.1",
-                "User-Agent": "flagright/1.8.1",
+                "X-Fern-SDK-Version": "1.8.2",
+                "User-Agent": "flagright/1.8.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
                 ...requestOptions?.headers,
             },
             contentType: "application/json",
+            queryParameters: _queryParams,
             requestType: "json",
-            body: serializers.BusinessBatchRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            body: serializers.BusinessBatchRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -715,6 +745,20 @@ export class Batch {
         request: Flagright.ConsumerUserEventBatchRequest,
         requestOptions?: Batch.RequestOptions,
     ): Promise<core.WithRawResponse<Flagright.BatchResponse>> {
+        const { lockCraRiskLevel, lockKycRiskLevel, ..._body } = request;
+        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
+        if (lockCraRiskLevel != null) {
+            _queryParams["lockCraRiskLevel"] = serializers.BooleanString.jsonOrThrow(lockCraRiskLevel, {
+                unrecognizedObjectKeys: "strip",
+            });
+        }
+
+        if (lockKycRiskLevel != null) {
+            _queryParams["lockKycRiskLevel"] = serializers.BooleanString.jsonOrThrow(lockKycRiskLevel, {
+                unrecognizedObjectKeys: "strip",
+            });
+        }
+
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -726,16 +770,17 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.1",
-                "User-Agent": "flagright/1.8.1",
+                "X-Fern-SDK-Version": "1.8.2",
+                "User-Agent": "flagright/1.8.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
                 ...requestOptions?.headers,
             },
             contentType: "application/json",
+            queryParameters: _queryParams,
             requestType: "json",
-            body: serializers.ConsumerUserEventBatchRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            body: serializers.ConsumerUserEventBatchRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -839,6 +884,20 @@ export class Batch {
         request: Flagright.BusinessUserEventBatchRequest,
         requestOptions?: Batch.RequestOptions,
     ): Promise<core.WithRawResponse<Flagright.BatchResponse>> {
+        const { lockCraRiskLevel, lockKycRiskLevel, ..._body } = request;
+        const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
+        if (lockCraRiskLevel != null) {
+            _queryParams["lockCraRiskLevel"] = serializers.BooleanString.jsonOrThrow(lockCraRiskLevel, {
+                unrecognizedObjectKeys: "strip",
+            });
+        }
+
+        if (lockKycRiskLevel != null) {
+            _queryParams["lockKycRiskLevel"] = serializers.BooleanString.jsonOrThrow(lockKycRiskLevel, {
+                unrecognizedObjectKeys: "strip",
+            });
+        }
+
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -850,16 +909,17 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.1",
-                "User-Agent": "flagright/1.8.1",
+                "X-Fern-SDK-Version": "1.8.2",
+                "User-Agent": "flagright/1.8.2",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
                 ...requestOptions?.headers,
             },
             contentType: "application/json",
+            queryParameters: _queryParams,
             requestType: "json",
-            body: serializers.BusinessUserEventBatchRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            body: serializers.BusinessUserEventBatchRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
             maxRetries: requestOptions?.maxRetries,
             abortSignal: requestOptions?.abortSignal,

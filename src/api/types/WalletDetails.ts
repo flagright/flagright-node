@@ -23,4 +23,8 @@ export interface WalletDetails {
     walletPhoneNumber?: string;
     walletBalance?: Flagright.Amount;
     network?: Flagright.WalletNetwork;
+    address?: Flagright.Address;
+    nationality?: Flagright.CountryCode;
+    /** Date of birth of the account holder (YYYY-MM-DD) */
+    dateOfBirth?: string;
 }

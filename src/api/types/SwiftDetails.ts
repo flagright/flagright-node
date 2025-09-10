@@ -12,6 +12,8 @@ export interface SwiftDetails {
     swiftCode?: string;
     /** Account number */
     accountNumber?: string;
+    /** Routing number of the bank */
+    routingNumber?: string;
     accountBalance?: Flagright.Amount;
     /** Account type. E.g. Checking, Savings etc. */
     accountType?: string;

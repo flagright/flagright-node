@@ -9,6 +9,8 @@ import { EmailId } from "./EmailId";
 import { Tag } from "./Tag";
 import { Amount } from "./Amount";
 import { WalletNetwork } from "./WalletNetwork";
+import { Address } from "./Address";
+import { CountryCode } from "./CountryCode";
 
 export const WalletDetails: core.serialization.ObjectSchema<serializers.WalletDetails.Raw, Flagright.WalletDetails> =
     core.serialization.object({
@@ -21,6 +23,9 @@ export const WalletDetails: core.serialization.ObjectSchema<serializers.WalletDe
         walletPhoneNumber: core.serialization.string().optional(),
         walletBalance: Amount.optional(),
         network: WalletNetwork.optional(),
+        address: Address.optional(),
+        nationality: CountryCode.optional(),
+        dateOfBirth: core.serialization.string().optional(),
     });
 
 export declare namespace WalletDetails {
@@ -34,5 +39,8 @@ export declare namespace WalletDetails {
         walletPhoneNumber?: string | null;
         walletBalance?: Amount.Raw | null;
         network?: WalletNetwork.Raw | null;
+        address?: Address.Raw | null;
+        nationality?: CountryCode.Raw | null;
+        dateOfBirth?: string | null;
     }
 }

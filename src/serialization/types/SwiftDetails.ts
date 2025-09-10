@@ -14,6 +14,7 @@ export const SwiftDetails: core.serialization.ObjectSchema<serializers.SwiftDeta
     core.serialization.object({
         swiftCode: core.serialization.string().optional(),
         accountNumber: core.serialization.string().optional(),
+        routingNumber: core.serialization.string().optional(),
         accountBalance: Amount.optional(),
         accountType: core.serialization.string().optional(),
         bankName: core.serialization.string().optional(),
@@ -29,6 +30,7 @@ export declare namespace SwiftDetails {
     export interface Raw {
         swiftCode?: string | null;
         accountNumber?: string | null;
+        routingNumber?: string | null;
         accountBalance?: Amount.Raw | null;
         accountType?: string | null;
         bankName?: string | null;

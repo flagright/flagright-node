@@ -7,11 +7,13 @@ import * as Flagright from "../../../../../api/index";
 import * as core from "../../../../../core";
 import { User } from "../../../../types/User";
 
-export const UserBatchRequest: core.serialization.Schema<serializers.UserBatchRequest.Raw, Flagright.UserBatchRequest> =
-    core.serialization.object({
-        batchId: core.serialization.string().optional(),
-        data: core.serialization.list(User),
-    });
+export const UserBatchRequest: core.serialization.Schema<
+    serializers.UserBatchRequest.Raw,
+    Omit<Flagright.UserBatchRequest, "lockCraRiskLevel" | "lockKycRiskLevel">
+> = core.serialization.object({
+    batchId: core.serialization.string().optional(),
+    data: core.serialization.list(User),
+});
 
 export declare namespace UserBatchRequest {
     export interface Raw {

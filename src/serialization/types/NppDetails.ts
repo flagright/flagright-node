@@ -17,8 +17,8 @@ export const NppDetails: core.serialization.ObjectSchema<serializers.NppDetails.
         emailId: EmailId.optional(),
         contactNumber: core.serialization.string().optional(),
         bsb: core.serialization.string().optional(),
-        payId: core.serialization.string(),
-        endToEndId: core.serialization.string(),
+        payId: core.serialization.string().optional(),
+        endToEndId: core.serialization.string().optional(),
         oskoReference: core.serialization.string().optional(),
         payIdReference: core.serialization.string().optional(),
         isInstant: core.serialization.boolean().optional(),
@@ -41,8 +41,8 @@ export declare namespace NppDetails {
         emailId?: EmailId.Raw | null;
         contactNumber?: string | null;
         bsb?: string | null;
-        payId: string;
-        endToEndId: string;
+        payId?: string | null;
+        endToEndId?: string | null;
         oskoReference?: string | null;
         payIdReference?: string | null;
         isInstant?: boolean | null;

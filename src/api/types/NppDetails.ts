@@ -17,9 +17,9 @@ export interface NppDetails {
     /** BSB number */
     bsb?: string;
     /** PayID */
-    payId: string;
+    payId?: string;
     /** End to End ID */
-    endToEndId: string;
+    endToEndId?: string;
     /** OSKO reference */
     oskoReference?: string;
     /** PayID reference */

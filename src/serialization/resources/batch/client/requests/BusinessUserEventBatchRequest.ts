@@ -9,7 +9,7 @@ import { BusinessUserEvent } from "../../../../types/BusinessUserEvent";
 
 export const BusinessUserEventBatchRequest: core.serialization.Schema<
     serializers.BusinessUserEventBatchRequest.Raw,
-    Flagright.BusinessUserEventBatchRequest
+    Omit<Flagright.BusinessUserEventBatchRequest, "lockCraRiskLevel" | "lockKycRiskLevel">
 > = core.serialization.object({
     batchId: core.serialization.string().optional(),
     data: core.serialization.list(BusinessUserEvent),

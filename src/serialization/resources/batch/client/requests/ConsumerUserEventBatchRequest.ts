@@ -9,7 +9,7 @@ import { ConsumerUserEvent } from "../../../../types/ConsumerUserEvent";
 
 export const ConsumerUserEventBatchRequest: core.serialization.Schema<
     serializers.ConsumerUserEventBatchRequest.Raw,
-    Flagright.ConsumerUserEventBatchRequest
+    Omit<Flagright.ConsumerUserEventBatchRequest, "lockCraRiskLevel" | "lockKycRiskLevel">
 > = core.serialization.object({
     batchId: core.serialization.string().optional(),
     data: core.serialization.list(ConsumerUserEvent),

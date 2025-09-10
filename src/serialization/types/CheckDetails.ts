@@ -13,6 +13,7 @@ export const CheckDetails: core.serialization.ObjectSchema<serializers.CheckDeta
     core.serialization.object({
         checkNumber: core.serialization.string().optional(),
         checkIdentifier: core.serialization.string().optional(),
+        routingNumber: core.serialization.string().optional(),
         name: core.serialization.string().optional(),
         deliveryStatus: CheckDeliveryStatus.optional(),
         etaTimestamp: core.serialization.number().optional(),
@@ -25,6 +26,7 @@ export declare namespace CheckDetails {
     export interface Raw {
         checkNumber?: string | null;
         checkIdentifier?: string | null;
+        routingNumber?: string | null;
         name?: string | null;
         deliveryStatus?: CheckDeliveryStatus.Raw | null;
         etaTimestamp?: number | null;

@@ -7,6 +7,8 @@ import * as Flagright from "../index";
 export interface CheckDetails {
     checkNumber?: string;
     checkIdentifier?: string;
+    /** Routing number of the bank */
+    routingNumber?: string;
     name?: string;
     deliveryStatus?: Flagright.CheckDeliveryStatus;
     etaTimestamp?: number;

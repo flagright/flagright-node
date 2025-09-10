@@ -14,6 +14,14 @@ import * as Flagright from "../../../../index";
  *     }
  */
 export interface UserBatchRequest {
+    /**
+     * Boolean string whether Flagright should lock the CRA risk level for the user.
+     */
+    lockCraRiskLevel?: Flagright.BooleanString;
+    /**
+     * Boolean string whether Flagright should lock the KYC risk level for the user.
+     */
+    lockKycRiskLevel?: Flagright.BooleanString;
     batchId?: string;
     data: Flagright.User[];
 }

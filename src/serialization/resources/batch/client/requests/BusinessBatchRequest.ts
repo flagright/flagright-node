@@ -9,7 +9,7 @@ import { Business } from "../../../../types/Business";
 
 export const BusinessBatchRequest: core.serialization.Schema<
     serializers.BusinessBatchRequest.Raw,
-    Flagright.BusinessBatchRequest
+    Omit<Flagright.BusinessBatchRequest, "lockCraRiskLevel" | "lockKycRiskLevel">
 > = core.serialization.object({
     batchId: core.serialization.string().optional(),
     data: core.serialization.list(Business),
