@@ -36,6 +36,7 @@ export interface CardDetails {
     merchantDetails?: Flagright.CardMerchantDetails;
     /** Risk score of the card from your network provider */
     networkProviderRiskScore?: number;
+    address?: Flagright.Address;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
 }

@@ -16,6 +16,7 @@ import { CardFunding } from "./CardFunding";
 import { CardType } from "./CardType";
 import { Amount } from "./Amount";
 import { CardMerchantDetails } from "./CardMerchantDetails";
+import { Address } from "./Address";
 import { Tag } from "./Tag";
 
 export const CardDetails: core.serialization.ObjectSchema<serializers.CardDetails.Raw, Flagright.CardDetails> =
@@ -40,6 +41,7 @@ export const CardDetails: core.serialization.ObjectSchema<serializers.CardDetail
         cardBalance: Amount.optional(),
         merchantDetails: CardMerchantDetails.optional(),
         networkProviderRiskScore: core.serialization.number().optional(),
+        address: Address.optional(),
         tags: core.serialization.list(Tag).optional(),
     });
 
@@ -65,6 +67,7 @@ export declare namespace CardDetails {
         cardBalance?: Amount.Raw | null;
         merchantDetails?: CardMerchantDetails.Raw | null;
         networkProviderRiskScore?: number | null;
+        address?: Address.Raw | null;
         tags?: Tag.Raw[] | null;
     }
 }

@@ -14,6 +14,9 @@ export interface MpesaDetails {
     /** Contact Number of the account holder */
     phoneNumber: string;
     emailId?: Flagright.EmailId;
+    /** Name of the account holder */
+    name?: string;
+    address?: Flagright.Address;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
 }

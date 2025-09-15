@@ -7,6 +7,7 @@ import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { MpesaTransactionType } from "./MpesaTransactionType";
 import { EmailId } from "./EmailId";
+import { Address } from "./Address";
 import { Tag } from "./Tag";
 
 export const MpesaDetails: core.serialization.ObjectSchema<serializers.MpesaDetails.Raw, Flagright.MpesaDetails> =
@@ -15,6 +16,8 @@ export const MpesaDetails: core.serialization.ObjectSchema<serializers.MpesaDeta
         transactionType: MpesaTransactionType,
         phoneNumber: core.serialization.string(),
         emailId: EmailId.optional(),
+        name: core.serialization.string().optional(),
+        address: Address.optional(),
         tags: core.serialization.list(Tag).optional(),
     });
 
@@ -24,6 +27,8 @@ export declare namespace MpesaDetails {
         transactionType: MpesaTransactionType.Raw;
         phoneNumber: string;
         emailId?: EmailId.Raw | null;
+        name?: string | null;
+        address?: Address.Raw | null;
         tags?: Tag.Raw[] | null;
     }
 }

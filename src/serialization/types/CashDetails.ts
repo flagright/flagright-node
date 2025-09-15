@@ -5,14 +5,19 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { Address } from "./Address";
 
 export const CashDetails: core.serialization.ObjectSchema<serializers.CashDetails.Raw, Flagright.CashDetails> =
     core.serialization.object({
         identifier: core.serialization.string().optional(),
+        address: Address.optional(),
+        name: core.serialization.string().optional(),
     });
 
 export declare namespace CashDetails {
     export interface Raw {
         identifier?: string | null;
+        address?: Address.Raw | null;
+        name?: string | null;
     }
 }
