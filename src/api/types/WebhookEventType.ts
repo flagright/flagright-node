@@ -16,7 +16,9 @@ export type WebhookEventType =
     | "CRA_RISK_LEVEL_UPDATED"
     | "LIST_UPDATED"
     | "SANCTIONS_STATUS_UPDATED"
-    | "ADVERSE_MEDIA_STATUS_UPDATED";
+    | "ADVERSE_MEDIA_STATUS_UPDATED"
+    | "CASE_ESCALATED"
+    | "ALERT_ESCALATED";
 export const WebhookEventType = {
     CaseClosed: "CASE_CLOSED",
     UserStateUpdated: "USER_STATE_UPDATED",
@@ -32,4 +34,6 @@ export const WebhookEventType = {
     ListUpdated: "LIST_UPDATED",
     SanctionsStatusUpdated: "SANCTIONS_STATUS_UPDATED",
     AdverseMediaStatusUpdated: "ADVERSE_MEDIA_STATUS_UPDATED",
+    CaseEscalated: "CASE_ESCALATED",
+    AlertEscalated: "ALERT_ESCALATED",
 } as const;

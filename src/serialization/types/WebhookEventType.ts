@@ -22,6 +22,8 @@ export const WebhookEventType: core.serialization.Schema<serializers.WebhookEven
         "LIST_UPDATED",
         "SANCTIONS_STATUS_UPDATED",
         "ADVERSE_MEDIA_STATUS_UPDATED",
+        "CASE_ESCALATED",
+        "ALERT_ESCALATED",
     ]);
 
 export declare namespace WebhookEventType {
@@ -39,5 +41,7 @@ export declare namespace WebhookEventType {
         | "CRA_RISK_LEVEL_UPDATED"
         | "LIST_UPDATED"
         | "SANCTIONS_STATUS_UPDATED"
-        | "ADVERSE_MEDIA_STATUS_UPDATED";
+        | "ADVERSE_MEDIA_STATUS_UPDATED"
+        | "CASE_ESCALATED"
+        | "ALERT_ESCALATED";
 }

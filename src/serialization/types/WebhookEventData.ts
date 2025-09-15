@@ -6,9 +6,9 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { UserStateDetails } from "./UserStateDetails";
-import { CaseClosedDetails } from "./CaseClosedDetails";
+import { CaseStatusDetails } from "./CaseStatusDetails";
 import { CaseOpenedDetails } from "./CaseOpenedDetails";
-import { AlertClosedDetails } from "./AlertClosedDetails";
+import { AlertStatusDetails } from "./AlertStatusDetails";
 import { AlertOpenedDetails } from "./AlertOpenedDetails";
 import { TransactionStatusDetails } from "./TransactionStatusDetails";
 import { KycStatusDetails } from "./KycStatusDetails";
@@ -18,9 +18,9 @@ import { CraRiskLevelUpdatedDetails } from "./CraRiskLevelUpdatedDetails";
 export const WebhookEventData: core.serialization.Schema<serializers.WebhookEventData.Raw, Flagright.WebhookEventData> =
     core.serialization.undiscriminatedUnion([
         UserStateDetails,
-        CaseClosedDetails,
+        CaseStatusDetails,
         CaseOpenedDetails,
-        AlertClosedDetails,
+        AlertStatusDetails,
         AlertOpenedDetails,
         TransactionStatusDetails,
         KycStatusDetails,
@@ -31,9 +31,9 @@ export const WebhookEventData: core.serialization.Schema<serializers.WebhookEven
 export declare namespace WebhookEventData {
     export type Raw =
         | UserStateDetails.Raw
-        | CaseClosedDetails.Raw
+        | CaseStatusDetails.Raw
         | CaseOpenedDetails.Raw
-        | AlertClosedDetails.Raw
+        | AlertStatusDetails.Raw
         | AlertOpenedDetails.Raw
         | TransactionStatusDetails.Raw
         | KycStatusDetails.Raw

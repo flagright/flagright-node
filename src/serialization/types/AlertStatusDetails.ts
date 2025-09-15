@@ -6,9 +6,9 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 
-export const AlertClosedDetails: core.serialization.ObjectSchema<
-    serializers.AlertClosedDetails.Raw,
-    Flagright.AlertClosedDetails
+export const AlertStatusDetails: core.serialization.ObjectSchema<
+    serializers.AlertStatusDetails.Raw,
+    Flagright.AlertStatusDetails
 > = core.serialization.object({
     alertId: core.serialization.string().optional(),
     status: core.serialization.string().optional(),
@@ -23,7 +23,7 @@ export const AlertClosedDetails: core.serialization.ObjectSchema<
     ruleInstanceId: core.serialization.string().optional(),
 });
 
-export declare namespace AlertClosedDetails {
+export declare namespace AlertStatusDetails {
     export interface Raw {
         alertId?: string | null;
         status?: string | null;

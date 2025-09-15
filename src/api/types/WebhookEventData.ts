@@ -6,9 +6,9 @@ import * as Flagright from "../index";
 
 export type WebhookEventData =
     | Flagright.UserStateDetails
-    | Flagright.CaseClosedDetails
+    | Flagright.CaseStatusDetails
     | Flagright.CaseOpenedDetails
-    | Flagright.AlertClosedDetails
+    | Flagright.AlertStatusDetails
     | Flagright.AlertOpenedDetails
     | Flagright.TransactionStatusDetails
     | Flagright.KycStatusDetails

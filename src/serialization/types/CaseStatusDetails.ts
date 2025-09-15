@@ -6,9 +6,9 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 
-export const CaseClosedDetails: core.serialization.ObjectSchema<
-    serializers.CaseClosedDetails.Raw,
-    Flagright.CaseClosedDetails
+export const CaseStatusDetails: core.serialization.ObjectSchema<
+    serializers.CaseStatusDetails.Raw,
+    Flagright.CaseStatusDetails
 > = core.serialization.object({
     caseId: core.serialization.string().optional(),
     status: core.serialization.string().optional(),
@@ -19,7 +19,7 @@ export const CaseClosedDetails: core.serialization.ObjectSchema<
     transactionIds: core.serialization.list(core.serialization.string()).optional(),
 });
 
-export declare namespace CaseClosedDetails {
+export declare namespace CaseStatusDetails {
     export interface Raw {
         caseId?: string | null;
         status?: string | null;
