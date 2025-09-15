@@ -8,7 +8,6 @@ import * as Flagright from "../index";
  * Model for transaction additional payload
  */
 export interface TransactionUpdatable {
-    transactionState?: Flagright.TransactionState;
     originAmountDetails?: Flagright.TransactionAmountDetails;
     destinationAmountDetails?: Flagright.TransactionAmountDetails;
     /** Payment details of the origin. It can be a bank account number, wallet ID, card fingerprint etc. */

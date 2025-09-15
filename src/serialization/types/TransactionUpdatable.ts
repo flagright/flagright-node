@@ -5,7 +5,6 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
-import { TransactionState } from "./TransactionState";
 import { TransactionAmountDetails } from "./TransactionAmountDetails";
 import { TransactionUpdatableOriginPaymentDetails } from "./TransactionUpdatableOriginPaymentDetails";
 import { TransactionUpdatableDestinationPaymentDetails } from "./TransactionUpdatableDestinationPaymentDetails";
@@ -17,7 +16,6 @@ export const TransactionUpdatable: core.serialization.ObjectSchema<
     serializers.TransactionUpdatable.Raw,
     Flagright.TransactionUpdatable
 > = core.serialization.object({
-    transactionState: TransactionState.optional(),
     originAmountDetails: TransactionAmountDetails.optional(),
     destinationAmountDetails: TransactionAmountDetails.optional(),
     originPaymentDetails: TransactionUpdatableOriginPaymentDetails.optional(),
@@ -35,7 +33,6 @@ export const TransactionUpdatable: core.serialization.ObjectSchema<
 
 export declare namespace TransactionUpdatable {
     export interface Raw {
-        transactionState?: TransactionState.Raw | null;
         originAmountDetails?: TransactionAmountDetails.Raw | null;
         destinationAmountDetails?: TransactionAmountDetails.Raw | null;
         originPaymentDetails?: TransactionUpdatableOriginPaymentDetails.Raw | null;

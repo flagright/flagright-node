@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { TransactionState } from "./TransactionState";
 
 export const TransactionBase: core.serialization.ObjectSchema<
     serializers.TransactionBase.Raw,
@@ -15,6 +16,7 @@ export const TransactionBase: core.serialization.ObjectSchema<
     timestamp: core.serialization.number(),
     originUserId: core.serialization.string().optional(),
     destinationUserId: core.serialization.string().optional(),
+    transactionState: TransactionState.optional(),
 });
 
 export declare namespace TransactionBase {
@@ -24,5 +26,6 @@ export declare namespace TransactionBase {
         timestamp: number;
         originUserId?: string | null;
         destinationUserId?: string | null;
+        transactionState?: TransactionState.Raw | null;
     }
 }
