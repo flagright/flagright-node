@@ -24,7 +24,7 @@ export const WalletDetails: core.serialization.ObjectSchema<serializers.WalletDe
         walletBalance: Amount.optional(),
         network: WalletNetwork.optional(),
         address: Address.optional(),
-        nationality: CountryCode.optional(),
+        countryOfNationality: CountryCode.optional(),
         dateOfBirth: core.serialization.string().optional(),
     });
 
@@ -40,7 +40,7 @@ export declare namespace WalletDetails {
         walletBalance?: Amount.Raw | null;
         network?: WalletNetwork.Raw | null;
         address?: Address.Raw | null;
-        nationality?: CountryCode.Raw | null;
+        countryOfNationality?: CountryCode.Raw | null;
         dateOfBirth?: string | null;
     }
 }
