@@ -9,11 +9,13 @@ import * as core from "../../core";
 export const Tag: core.serialization.ObjectSchema<serializers.Tag.Raw, Flagright.Tag> = core.serialization.object({
     key: core.serialization.string(),
     value: core.serialization.string(),
+    isTimestamp: core.serialization.boolean().optional(),
 });
 
 export declare namespace Tag {
     export interface Raw {
         key: string;
         value: string;
+        isTimestamp?: boolean | null;
     }
 }

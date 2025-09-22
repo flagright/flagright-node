@@ -10,4 +10,6 @@ export interface Tag {
     key: string;
     /** Value for a given key when you are creating a custom variable */
     value: string;
+    /** Flag to indicate if the tag value is a timestamp */
+    isTimestamp?: boolean;
 }

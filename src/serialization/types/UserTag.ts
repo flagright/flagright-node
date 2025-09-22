@@ -10,6 +10,7 @@ export const UserTag: core.serialization.ObjectSchema<serializers.UserTag.Raw, F
     core.serialization.object({
         key: core.serialization.string(),
         value: core.serialization.string(),
+        isTimestamp: core.serialization.boolean().optional(),
         isEditable: core.serialization.boolean().optional(),
     });
 
@@ -17,6 +18,7 @@ export declare namespace UserTag {
     export interface Raw {
         key: string;
         value: string;
+        isTimestamp?: boolean | null;
         isEditable?: boolean | null;
     }
 }

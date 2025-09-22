@@ -7,6 +7,8 @@ export interface UserTag {
     key: string;
     /** Value for a given key when you are creating a custom variable */
     value: string;
+    /** Flag to indicate if the tag value is a timestamp */
+    isTimestamp?: boolean;
     /** Flag to indicate if the tag is editable over the console */
     isEditable?: boolean;
 }
