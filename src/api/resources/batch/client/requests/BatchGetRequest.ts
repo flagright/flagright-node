@@ -6,7 +6,10 @@ import * as Flagright from "../../../../index";
 
 /**
  * @example
- *     {}
+ *     {
+ *         pageSize: 1.1,
+ *         page: 1.1
+ *     }
  */
 export interface BatchGetRequest {
     /**

@@ -7,6 +7,8 @@ import * as Flagright from "../../../../index";
 /**
  * @example
  *     {
+ *         validateOriginUserId: "true",
+ *         validateDestinationUserId: "true",
  *         body: {
  *             type: "DEPOSIT",
  *             transactionId: "7b80a539eea6e78acbd6d458e5971482",

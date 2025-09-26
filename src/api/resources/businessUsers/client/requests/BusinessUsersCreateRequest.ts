@@ -7,6 +7,9 @@ import * as Flagright from "../../../../index";
 /**
  * @example
  *     {
+ *         lockCraRiskLevel: "true",
+ *         lockKycRiskLevel: "true",
+ *         validateUserId: "true",
  *         body: {
  *             userId: "userId",
  *             createdTimestamp: 1.1,

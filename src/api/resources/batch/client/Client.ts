@@ -42,6 +42,8 @@ export class Batch {
      *
      * @example
      *     await client.batch.verifyTransaction({
+     *         validateOriginUserId: "true",
+     *         validateDestinationUserId: "true",
      *         data: [{
      *                 type: "type",
      *                 transactionId: "transactionId",
@@ -86,8 +88,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.7",
-                "User-Agent": "flagright/1.8.7",
+                "X-Fern-SDK-Version": "1.8.8",
+                "User-Agent": "flagright/1.8.8",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -181,7 +183,10 @@ export class Batch {
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await client.batch.get("batchId")
+     *     await client.batch.get("batchId", {
+     *         pageSize: 1.1,
+     *         page: 1.1
+     *     })
      */
     public get(
         batchId: string,
@@ -217,8 +222,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.7",
-                "User-Agent": "flagright/1.8.7",
+                "X-Fern-SDK-Version": "1.8.8",
+                "User-Agent": "flagright/1.8.8",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -343,8 +348,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.7",
-                "User-Agent": "flagright/1.8.7",
+                "X-Fern-SDK-Version": "1.8.8",
+                "User-Agent": "flagright/1.8.8",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -447,6 +452,8 @@ export class Batch {
      *
      * @example
      *     await client.batch.createConsumerUsers({
+     *         lockCraRiskLevel: "true",
+     *         lockKycRiskLevel: "true",
      *         data: [{
      *                 userId: "userId",
      *                 createdTimestamp: 1.1
@@ -489,8 +496,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.7",
-                "User-Agent": "flagright/1.8.7",
+                "X-Fern-SDK-Version": "1.8.8",
+                "User-Agent": "flagright/1.8.8",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -584,6 +591,8 @@ export class Batch {
      *
      * @example
      *     await client.batch.createBusinessUsers({
+     *         lockCraRiskLevel: "true",
+     *         lockKycRiskLevel: "true",
      *         data: [{
      *                 userId: "userId",
      *                 createdTimestamp: 1.1,
@@ -633,8 +642,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.7",
-                "User-Agent": "flagright/1.8.7",
+                "X-Fern-SDK-Version": "1.8.8",
+                "User-Agent": "flagright/1.8.8",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -728,6 +737,8 @@ export class Batch {
      *
      * @example
      *     await client.batch.createConsumerUserEvents({
+     *         lockCraRiskLevel: "true",
+     *         lockKycRiskLevel: "true",
      *         data: [{
      *                 timestamp: 1.1,
      *                 userId: "userId"
@@ -770,8 +781,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.7",
-                "User-Agent": "flagright/1.8.7",
+                "X-Fern-SDK-Version": "1.8.8",
+                "User-Agent": "flagright/1.8.8",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -867,6 +878,8 @@ export class Batch {
      *
      * @example
      *     await client.batch.createBusinessUserEvents({
+     *         lockCraRiskLevel: "true",
+     *         lockKycRiskLevel: "true",
      *         data: [{
      *                 timestamp: 1.1,
      *                 userId: "userId"
@@ -909,8 +922,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.7",
-                "User-Agent": "flagright/1.8.7",
+                "X-Fern-SDK-Version": "1.8.8",
+                "User-Agent": "flagright/1.8.8",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),

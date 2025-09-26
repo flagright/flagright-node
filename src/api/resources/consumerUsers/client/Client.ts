@@ -55,6 +55,9 @@ export class ConsumerUsers {
      *
      * @example
      *     await client.consumerUsers.create({
+     *         lockCraRiskLevel: "true",
+     *         lockKycRiskLevel: "true",
+     *         validateUserId: "true",
      *         body: {
      *             userId: "96647cfd9e8fe66ee0f3362e011e34e8",
      *             createdTimestamp: 1641654664000,
@@ -144,8 +147,8 @@ export class ConsumerUsers {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.7",
-                "User-Agent": "flagright/1.8.7",
+                "X-Fern-SDK-Version": "1.8.8",
+                "User-Agent": "flagright/1.8.8",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -268,8 +271,8 @@ export class ConsumerUsers {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.7",
-                "User-Agent": "flagright/1.8.7",
+                "X-Fern-SDK-Version": "1.8.8",
+                "User-Agent": "flagright/1.8.8",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),

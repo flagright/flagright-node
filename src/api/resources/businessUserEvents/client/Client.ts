@@ -63,6 +63,9 @@ export class BusinessUserEvents {
      *
      * @example
      *     await client.businessUserEvents.create({
+     *         allowUserTypeConversion: "true",
+     *         lockKycRiskLevel: "true",
+     *         lockCraRiskLevel: "true",
      *         body: {
      *             timestamp: 1.1,
      *             userId: "userId"
@@ -111,8 +114,8 @@ export class BusinessUserEvents {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.7",
-                "User-Agent": "flagright/1.8.7",
+                "X-Fern-SDK-Version": "1.8.8",
+                "User-Agent": "flagright/1.8.8",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -242,8 +245,8 @@ export class BusinessUserEvents {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.7",
-                "User-Agent": "flagright/1.8.7",
+                "X-Fern-SDK-Version": "1.8.8",
+                "User-Agent": "flagright/1.8.8",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),

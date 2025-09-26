@@ -49,6 +49,8 @@ Here are some of the most used payload fields explained (you can find the full p
 
 ```typescript
 await client.transactions.verify({
+    validateOriginUserId: "true",
+    validateDestinationUserId: "true",
     body: {
         type: "DEPOSIT",
         transactionId: "7b80a539eea6e78acbd6d458e5971482",
@@ -231,6 +233,8 @@ await client.transactions.get("transactionId");
 
 ```typescript
 await client.batch.verifyTransaction({
+    validateOriginUserId: "true",
+    validateDestinationUserId: "true",
     data: [
         {
             type: "type",
@@ -286,7 +290,10 @@ await client.batch.verifyTransaction({
 <dd>
 
 ```typescript
-await client.batch.get("batchId");
+await client.batch.get("batchId", {
+    pageSize: 1.1,
+    page: 1.1,
+});
 ```
 
 </dd>
@@ -399,6 +406,8 @@ await client.batch.createTransactionEvents({
 
 ```typescript
 await client.batch.createConsumerUsers({
+    lockCraRiskLevel: "true",
+    lockKycRiskLevel: "true",
     data: [
         {
             userId: "userId",
@@ -454,6 +463,8 @@ await client.batch.createConsumerUsers({
 
 ```typescript
 await client.batch.createBusinessUsers({
+    lockCraRiskLevel: "true",
+    lockKycRiskLevel: "true",
     data: [
         {
             userId: "userId",
@@ -516,6 +527,8 @@ await client.batch.createBusinessUsers({
 
 ```typescript
 await client.batch.createConsumerUserEvents({
+    lockCraRiskLevel: "true",
+    lockKycRiskLevel: "true",
     data: [
         {
             timestamp: 1.1,
@@ -571,6 +584,8 @@ await client.batch.createConsumerUserEvents({
 
 ```typescript
 await client.batch.createBusinessUserEvents({
+    lockCraRiskLevel: "true",
+    lockKycRiskLevel: "true",
     data: [
         {
             timestamp: 1.1,
@@ -817,6 +832,9 @@ Each consumer user needs two mandatory fields:
 
 ```typescript
 await client.consumerUsers.create({
+    lockCraRiskLevel: "true",
+    lockKycRiskLevel: "true",
+    validateUserId: "true",
     body: {
         userId: "96647cfd9e8fe66ee0f3362e011e34e8",
         createdTimestamp: 1641654664000,
@@ -1016,6 +1034,9 @@ Each business user needs three mandatory fields:
 
 ```typescript
 await client.businessUsers.create({
+    lockCraRiskLevel: "true",
+    lockKycRiskLevel: "true",
+    validateUserId: "true",
     body: {
         userId: "userId",
         createdTimestamp: 1.1,
@@ -1178,6 +1199,9 @@ In order to make individual events retrievable, you also need to pass in a uniqu
 
 ```typescript
 await client.consumerUserEvents.create({
+    allowUserTypeConversion: "true",
+    lockKycRiskLevel: "true",
+    lockCraRiskLevel: "true",
     body: {
         timestamp: 1.1,
         userId: "userId",
@@ -1331,6 +1355,9 @@ In order to make individual events retrievable, you also need to pass in a uniqu
 
 ```typescript
 await client.businessUserEvents.create({
+    allowUserTypeConversion: "true",
+    lockKycRiskLevel: "true",
+    lockCraRiskLevel: "true",
     body: {
         timestamp: 1.1,
         userId: "userId",
