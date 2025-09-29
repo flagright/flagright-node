@@ -24,4 +24,5 @@ export interface ExecutedRulesResult {
     labels?: Flagright.RuleLabels[];
     nature?: Flagright.RuleNature;
     isShadow?: boolean;
+    sanctionsDetails?: Flagright.RuleExecutionSanctionsDetails[];
 }

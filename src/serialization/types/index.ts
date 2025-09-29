@@ -35,6 +35,7 @@ export * from "./RulesResults";
 export * from "./HitRulesResults";
 export * from "./TransactionRiskScoringResult";
 export * from "./ExecutedLogicVars";
+export * from "./RuleExecutionSanctionsDetails";
 export * from "./ExecutedRulesResult";
 export * from "./HitRulesDetails";
 export * from "./FailedRulesResult";
