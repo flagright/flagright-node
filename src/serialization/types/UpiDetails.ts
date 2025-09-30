@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { Address } from "./Address";
 import { EmailId } from "./EmailId";
 import { Tag } from "./Tag";
 
@@ -14,6 +15,7 @@ export const UpiDetails: core.serialization.ObjectSchema<serializers.UpiDetails.
         bankProvider: core.serialization.string().optional(),
         interfaceProvider: core.serialization.string().optional(),
         name: core.serialization.string().optional(),
+        address: Address.optional(),
         emailId: EmailId.optional(),
         tags: core.serialization.list(Tag).optional(),
     });
@@ -24,6 +26,7 @@ export declare namespace UpiDetails {
         bankProvider?: string | null;
         interfaceProvider?: string | null;
         name?: string | null;
+        address?: Address.Raw | null;
         emailId?: EmailId.Raw | null;
         tags?: Tag.Raw[] | null;
     }
