@@ -129,6 +129,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "DOP",
         "DOT",
         "DREP",
+        "DYDX",
         "DYP",
         "DZD",
         "EEK",
@@ -208,6 +209,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "INJ",
         "INR",
         "INV",
+        "IOTA",
         "IOTX",
         "ISLM",
         "IQD",
@@ -225,6 +227,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "KES",
         "KGS",
         "KHR",
+        "KLAY",
         "KMF",
         "KNC",
         "KPW",
@@ -251,6 +254,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "LSL",
         "LTC",
         "LTL",
+        "LUNA2",
         "LVL",
         "LYD",
         "MAD",
@@ -293,6 +297,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "NAD",
         "NCT",
         "NEAR",
+        "NEO",
         "NEST",
         "NGN",
         "NIO",
@@ -448,6 +453,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "VTHO",
         "VUV",
         "WAMPL",
+        "WAVES",
         "WAXL",
         "WBTC",
         "WCFG",
@@ -475,6 +481,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "ZEC",
         "ZEN",
         "ZETA",
+        "ZIL",
         "ZMK",
         "ZMW",
         "ZRX",
@@ -622,6 +629,7 @@ export declare namespace CurrencyCode {
         | "DOP"
         | "DOT"
         | "DREP"
+        | "DYDX"
         | "DYP"
         | "DZD"
         | "EEK"
@@ -701,6 +709,7 @@ export declare namespace CurrencyCode {
         | "INJ"
         | "INR"
         | "INV"
+        | "IOTA"
         | "IOTX"
         | "ISLM"
         | "IQD"
@@ -718,6 +727,7 @@ export declare namespace CurrencyCode {
         | "KES"
         | "KGS"
         | "KHR"
+        | "KLAY"
         | "KMF"
         | "KNC"
         | "KPW"
@@ -744,6 +754,7 @@ export declare namespace CurrencyCode {
         | "LSL"
         | "LTC"
         | "LTL"
+        | "LUNA2"
         | "LVL"
         | "LYD"
         | "MAD"
@@ -786,6 +797,7 @@ export declare namespace CurrencyCode {
         | "NAD"
         | "NCT"
         | "NEAR"
+        | "NEO"
         | "NEST"
         | "NGN"
         | "NIO"
@@ -941,6 +953,7 @@ export declare namespace CurrencyCode {
         | "VTHO"
         | "VUV"
         | "WAMPL"
+        | "WAVES"
         | "WAXL"
         | "WBTC"
         | "WCFG"
@@ -968,6 +981,7 @@ export declare namespace CurrencyCode {
         | "ZEC"
         | "ZEN"
         | "ZETA"
+        | "ZIL"
         | "ZMK"
         | "ZMW"
         | "ZRX"

@@ -25,6 +25,7 @@ export interface WalletDetails {
     network?: Flagright.WalletNetwork;
     address?: Flagright.Address;
     countryOfNationality?: Flagright.CountryCode;
+    authorizedRepresentative?: Flagright.UserDetails[];
     /** Date of birth of the account holder (YYYY-MM-DD) */
     dateOfBirth?: string;
     /** A hash is a cryptographic fingerprint that uniquely identifies a blockchain transaction on the network, whereas a transactionId is just an internal reference used by a wallet or platform to track the transaction in its own system. */

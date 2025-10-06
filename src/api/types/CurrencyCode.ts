@@ -124,6 +124,7 @@ export type CurrencyCode =
     | "DOP"
     | "DOT"
     | "DREP"
+    | "DYDX"
     | "DYP"
     | "DZD"
     | "EEK"
@@ -203,6 +204,7 @@ export type CurrencyCode =
     | "INJ"
     | "INR"
     | "INV"
+    | "IOTA"
     | "IOTX"
     | "ISLM"
     | "IQD"
@@ -220,6 +222,7 @@ export type CurrencyCode =
     | "KES"
     | "KGS"
     | "KHR"
+    | "KLAY"
     | "KMF"
     | "KNC"
     | "KPW"
@@ -246,6 +249,7 @@ export type CurrencyCode =
     | "LSL"
     | "LTC"
     | "LTL"
+    | "LUNA2"
     | "LVL"
     | "LYD"
     | "MAD"
@@ -288,6 +292,7 @@ export type CurrencyCode =
     | "NAD"
     | "NCT"
     | "NEAR"
+    | "NEO"
     | "NEST"
     | "NGN"
     | "NIO"
@@ -443,6 +448,7 @@ export type CurrencyCode =
     | "VTHO"
     | "VUV"
     | "WAMPL"
+    | "WAVES"
     | "WAXL"
     | "WBTC"
     | "WCFG"
@@ -470,6 +476,7 @@ export type CurrencyCode =
     | "ZEC"
     | "ZEN"
     | "ZETA"
+    | "ZIL"
     | "ZMK"
     | "ZMW"
     | "ZRX"
@@ -614,6 +621,7 @@ export const CurrencyCode = {
     Dop: "DOP",
     Dot: "DOT",
     Drep: "DREP",
+    Dydx: "DYDX",
     Dyp: "DYP",
     Dzd: "DZD",
     Eek: "EEK",
@@ -693,6 +701,7 @@ export const CurrencyCode = {
     Inj: "INJ",
     Inr: "INR",
     Inv: "INV",
+    Iota: "IOTA",
     Iotx: "IOTX",
     Islm: "ISLM",
     Iqd: "IQD",
@@ -710,6 +719,7 @@ export const CurrencyCode = {
     Kes: "KES",
     Kgs: "KGS",
     Khr: "KHR",
+    Klay: "KLAY",
     Kmf: "KMF",
     Knc: "KNC",
     Kpw: "KPW",
@@ -736,6 +746,7 @@ export const CurrencyCode = {
     Lsl: "LSL",
     Ltc: "LTC",
     Ltl: "LTL",
+    Luna2: "LUNA2",
     Lvl: "LVL",
     Lyd: "LYD",
     Mad: "MAD",
@@ -778,6 +789,7 @@ export const CurrencyCode = {
     Nad: "NAD",
     Nct: "NCT",
     Near: "NEAR",
+    Neo: "NEO",
     Nest: "NEST",
     Ngn: "NGN",
     Nio: "NIO",
@@ -933,6 +945,7 @@ export const CurrencyCode = {
     Vtho: "VTHO",
     Vuv: "VUV",
     Wampl: "WAMPL",
+    Waves: "WAVES",
     Waxl: "WAXL",
     Wbtc: "WBTC",
     Wcfg: "WCFG",
@@ -960,6 +973,7 @@ export const CurrencyCode = {
     Zec: "ZEC",
     Zen: "ZEN",
     Zeta: "ZETA",
+    Zil: "ZIL",
     Zmk: "ZMK",
     Zmw: "ZMW",
     Zrx: "ZRX",

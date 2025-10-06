@@ -67,6 +67,7 @@ export * from "./IbanDetails";
 export * from "./WalletDetails";
 export * from "./WalletNetwork";
 export * from "./AchDetails";
+export * from "./CorrespondenceBankDetails";
 export * from "./SwiftDetails";
 export * from "./MpesaDetails";
 export * from "./GenericBankAccountDetails";
