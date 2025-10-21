@@ -504,6 +504,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "VIC",
         "XAI",
         "SLE",
+        "UDI",
     ]);
 
 export declare namespace CurrencyCode {
@@ -1003,5 +1004,6 @@ export declare namespace CurrencyCode {
         | "TYUGA"
         | "VIC"
         | "XAI"
-        | "SLE";
+        | "SLE"
+        | "UDI";
 }
