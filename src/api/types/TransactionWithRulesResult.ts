@@ -35,6 +35,7 @@ export interface TransactionWithRulesResult {
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
     updateCount?: number;
+    paymentApprovalTimestamp?: number;
     executedRules: Flagright.ExecutedRulesResult[];
     hitRules: Flagright.HitRulesDetails[];
     status: Flagright.RuleAction;

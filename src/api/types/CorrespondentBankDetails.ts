@@ -5,9 +5,9 @@
 import * as Flagright from "../index";
 
 /**
- * Model for Correspondence bank details
+ * Model for Correspondent bank details
  */
-export interface CorrespondenceBankDetails {
+export interface CorrespondentBankDetails {
     /** Name of the bank */
     bankName?: string;
     /** Additional information that can be added via tags */

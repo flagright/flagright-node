@@ -34,6 +34,7 @@ export const Transaction: core.serialization.ObjectSchema<serializers.Transactio
         destinationDeviceData: DeviceData.optional(),
         tags: core.serialization.list(Tag).optional(),
         updateCount: core.serialization.number().optional(),
+        paymentApprovalTimestamp: core.serialization.number().optional(),
     });
 
 export declare namespace Transaction {
@@ -57,5 +58,6 @@ export declare namespace Transaction {
         destinationDeviceData?: DeviceData.Raw | null;
         tags?: Tag.Raw[] | null;
         updateCount?: number | null;
+        paymentApprovalTimestamp?: number | null;
     }
 }

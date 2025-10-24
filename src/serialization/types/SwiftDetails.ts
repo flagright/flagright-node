@@ -8,7 +8,7 @@ import * as core from "../../core";
 import { Amount } from "./Amount";
 import { Address } from "./Address";
 import { EmailId } from "./EmailId";
-import { CorrespondenceBankDetails } from "./CorrespondenceBankDetails";
+import { CorrespondentBankDetails } from "./CorrespondentBankDetails";
 import { Tag } from "./Tag";
 
 export const SwiftDetails: core.serialization.ObjectSchema<serializers.SwiftDetails.Raw, Flagright.SwiftDetails> =
@@ -24,7 +24,7 @@ export const SwiftDetails: core.serialization.ObjectSchema<serializers.SwiftDeta
         emailId: EmailId.optional(),
         specialInstructions: core.serialization.string().optional(),
         address: Address.optional(),
-        correspondenceBankDetails: core.serialization.list(CorrespondenceBankDetails).optional(),
+        correspondentBankDetails: core.serialization.list(CorrespondentBankDetails).optional(),
         tags: core.serialization.list(Tag).optional(),
     });
 
@@ -41,7 +41,7 @@ export declare namespace SwiftDetails {
         emailId?: EmailId.Raw | null;
         specialInstructions?: string | null;
         address?: Address.Raw | null;
-        correspondenceBankDetails?: CorrespondenceBankDetails.Raw[] | null;
+        correspondentBankDetails?: CorrespondentBankDetails.Raw[] | null;
         tags?: Tag.Raw[] | null;
     }
 }

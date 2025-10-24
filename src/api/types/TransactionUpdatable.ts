@@ -27,4 +27,5 @@ export interface TransactionUpdatable {
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
     updateCount?: number;
+    paymentApprovalTimestamp?: number;
 }

@@ -40,6 +40,7 @@ export const TransactionWithRulesResult: core.serialization.ObjectSchema<
     destinationDeviceData: DeviceData.optional(),
     tags: core.serialization.list(Tag).optional(),
     updateCount: core.serialization.number().optional(),
+    paymentApprovalTimestamp: core.serialization.number().optional(),
     executedRules: core.serialization.list(ExecutedRulesResult),
     hitRules: core.serialization.list(HitRulesDetails),
     status: RuleAction,
@@ -67,6 +68,7 @@ export declare namespace TransactionWithRulesResult {
         destinationDeviceData?: DeviceData.Raw | null;
         tags?: Tag.Raw[] | null;
         updateCount?: number | null;
+        paymentApprovalTimestamp?: number | null;
         executedRules: ExecutedRulesResult.Raw[];
         hitRules: HitRulesDetails.Raw[];
         status: RuleAction.Raw;

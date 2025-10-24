@@ -7,15 +7,15 @@ import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { Tag } from "./Tag";
 
-export const CorrespondenceBankDetails: core.serialization.ObjectSchema<
-    serializers.CorrespondenceBankDetails.Raw,
-    Flagright.CorrespondenceBankDetails
+export const CorrespondentBankDetails: core.serialization.ObjectSchema<
+    serializers.CorrespondentBankDetails.Raw,
+    Flagright.CorrespondentBankDetails
 > = core.serialization.object({
     bankName: core.serialization.string().optional(),
     tags: core.serialization.list(Tag).optional(),
 });
 
-export declare namespace CorrespondenceBankDetails {
+export declare namespace CorrespondentBankDetails {
     export interface Raw {
         bankName?: string | null;
         tags?: Tag.Raw[] | null;
