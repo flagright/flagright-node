@@ -6,6 +6,8 @@ import * as Flagright from "../index";
 
 export interface TransactionStatusDetails {
     transactionId: string;
+    /** Type of transaction (ex: DEPOSIT, WITHDRAWAL, TRANSFER, EXTERNAL_PAYMENT, REFUND, OTHER) */
+    type?: string;
     reasons: string[];
     status: Flagright.RuleAction;
     comment?: string;
