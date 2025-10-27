@@ -10,8 +10,8 @@ import * as Flagright from "../../../../index";
  *         lockCraRiskLevel: "true",
  *         lockKycRiskLevel: "true",
  *         data: [{
- *                 userId: "userId",
- *                 createdTimestamp: 1.1,
+ *                 userId: "BU-1",
+ *                 createdTimestamp: 1641654664000,
  *                 legalEntity: {
  *                     companyGeneralDetails: {
  *                         legalName: "Ozkan Hazelnut Export JSC",

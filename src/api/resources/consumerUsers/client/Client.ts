@@ -147,8 +147,8 @@ export class ConsumerUsers {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.18",
-                "User-Agent": "flagright/1.8.18",
+                "X-Fern-SDK-Version": "1.8.19",
+                "User-Agent": "flagright/1.8.19",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -247,7 +247,7 @@ export class ConsumerUsers {
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await client.consumerUsers.get("userId")
+     *     await client.consumerUsers.get("96647cfd9e8fe66ee0f3362e011e34e8")
      */
     public get(
         userId: string,
@@ -271,8 +271,8 @@ export class ConsumerUsers {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.18",
-                "User-Agent": "flagright/1.8.18",
+                "X-Fern-SDK-Version": "1.8.19",
+                "User-Agent": "flagright/1.8.19",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),

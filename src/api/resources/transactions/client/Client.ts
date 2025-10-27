@@ -168,8 +168,8 @@ export class Transactions {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.18",
-                "User-Agent": "flagright/1.8.18",
+                "X-Fern-SDK-Version": "1.8.19",
+                "User-Agent": "flagright/1.8.19",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -292,8 +292,8 @@ export class Transactions {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.18",
-                "User-Agent": "flagright/1.8.18",
+                "X-Fern-SDK-Version": "1.8.19",
+                "User-Agent": "flagright/1.8.19",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),

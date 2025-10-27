@@ -8,9 +8,9 @@ import * as Flagright from "../../../../index";
  * @example
  *     {
  *         data: [{
- *                 transactionState: "CREATED",
- *                 timestamp: 1.1,
- *                 transactionId: "transactionId"
+ *                 transactionState: "SUCCESSFUL",
+ *                 timestamp: 1641654664000,
+ *                 transactionId: "443dea26147a406b957d9ee3a1247b11"
  *             }]
  *     }
  */
