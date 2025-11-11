@@ -34,6 +34,8 @@ export interface Transaction {
     destinationDeviceData?: Flagright.DeviceData;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
+    /** Legal authority or region governing the transaction */
+    jurisdiction?: string;
     updateCount?: number;
     paymentApprovalTimestamp?: number;
 }

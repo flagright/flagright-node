@@ -40,5 +40,7 @@ export interface UserOptional {
     /** Uploaded user's attachment */
     attachments?: Flagright.PersonAttachment[];
     metaData?: Flagright.DeviceData;
+    /** Legal authority or region governing the transaction */
+    jurisdiction?: string;
     updateCount?: number;
 }

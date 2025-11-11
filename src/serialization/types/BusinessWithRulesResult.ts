@@ -47,6 +47,7 @@ export const BusinessWithRulesResult: core.serialization.ObjectSchema<
     tags: core.serialization.list(UserTag).optional(),
     attachments: core.serialization.list(PersonAttachment).optional(),
     metaData: DeviceData.optional(),
+    jurisdiction: core.serialization.string().optional(),
     updateCount: core.serialization.number().optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     hitRules: core.serialization.list(HitRulesDetails).optional(),
@@ -75,6 +76,7 @@ export declare namespace BusinessWithRulesResult {
         tags?: UserTag.Raw[] | null;
         attachments?: PersonAttachment.Raw[] | null;
         metaData?: DeviceData.Raw | null;
+        jurisdiction?: string | null;
         updateCount?: number | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         hitRules?: HitRulesDetails.Raw[] | null;

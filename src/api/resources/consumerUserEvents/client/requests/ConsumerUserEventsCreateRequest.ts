@@ -11,8 +11,8 @@ import * as Flagright from "../../../../index";
  *         lockKycRiskLevel: "true",
  *         lockCraRiskLevel: "true",
  *         body: {
- *             timestamp: 1641654664000,
- *             userId: "96647cfd9e8fe66ee0f3362e011e34e8"
+ *             timestamp: 1.1,
+ *             userId: "userId"
  *         }
  *     }
  */

@@ -237,9 +237,9 @@ await client.batch.verifyTransaction({
     validateDestinationUserId: "true",
     data: [
         {
-            type: "DEPOSIT",
-            transactionId: "7b80a539eea6e78acbd6d458e5971482",
-            timestamp: 1641654664000,
+            type: "type",
+            transactionId: "transactionId",
+            timestamp: 1.1,
         },
     ],
 });
@@ -352,9 +352,9 @@ await client.batch.get("batchId", {
 await client.batch.createTransactionEvents({
     data: [
         {
-            transactionState: "SUCCESSFUL",
-            timestamp: 1641654664000,
-            transactionId: "443dea26147a406b957d9ee3a1247b11",
+            transactionState: "CREATED",
+            timestamp: 1.1,
+            transactionId: "transactionId",
         },
     ],
 });
@@ -410,8 +410,8 @@ await client.batch.createConsumerUsers({
     lockKycRiskLevel: "true",
     data: [
         {
-            userId: "96647cfd9e8fe66ee0f3362e011e34e8",
-            createdTimestamp: 1641654664000,
+            userId: "userId",
+            createdTimestamp: 1.1,
         },
     ],
 });
@@ -467,8 +467,8 @@ await client.batch.createBusinessUsers({
     lockKycRiskLevel: "true",
     data: [
         {
-            userId: "BU-1",
-            createdTimestamp: 1641654664000,
+            userId: "userId",
+            createdTimestamp: 1.1,
             legalEntity: {
                 companyGeneralDetails: {
                     legalName: "Ozkan Hazelnut Export JSC",
@@ -531,8 +531,8 @@ await client.batch.createConsumerUserEvents({
     lockKycRiskLevel: "true",
     data: [
         {
-            timestamp: 1641654664000,
-            userId: "96647cfd9e8fe66ee0f3362e011e34e8",
+            timestamp: 1.1,
+            userId: "userId",
         },
     ],
 });
@@ -588,8 +588,8 @@ await client.batch.createBusinessUserEvents({
     lockKycRiskLevel: "true",
     data: [
         {
-            timestamp: 1641654664000,
-            userId: "BU-1",
+            timestamp: 1.1,
+            userId: "userId",
         },
     ],
 });
@@ -957,7 +957,7 @@ Calling `GET /consumer/user/{userId}` will return the entire user payload and ru
 <dd>
 
 ```typescript
-await client.consumerUsers.get("96647cfd9e8fe66ee0f3362e011e34e8");
+await client.consumerUsers.get("userId");
 ```
 
 </dd>
@@ -1038,8 +1038,8 @@ await client.businessUsers.create({
     lockKycRiskLevel: "true",
     validateUserId: "true",
     body: {
-        userId: "BU-1",
-        createdTimestamp: 1641654664000,
+        userId: "userId",
+        createdTimestamp: 1.1,
         legalEntity: {
             companyGeneralDetails: {
                 legalName: "Ozkan Hazelnut Export JSC",
@@ -1115,7 +1115,7 @@ Calling `GET /business/user/{userId}` will return the entire User payload and ru
 <dd>
 
 ```typescript
-await client.businessUsers.get("BU-1");
+await client.businessUsers.get("userId");
 ```
 
 </dd>
@@ -1203,8 +1203,8 @@ await client.consumerUserEvents.create({
     lockKycRiskLevel: "true",
     lockCraRiskLevel: "true",
     body: {
-        timestamp: 1641654664000,
-        userId: "96647cfd9e8fe66ee0f3362e011e34e8",
+        timestamp: 1.1,
+        userId: "userId",
     },
 });
 ```
@@ -1359,11 +1359,8 @@ await client.businessUserEvents.create({
     lockKycRiskLevel: "true",
     lockCraRiskLevel: "true",
     body: {
-        timestamp: 1641654664000,
-        userId: "BU-1",
-        eventId: "event-123",
-        reason: "User status update",
-        eventDescription: "Business user status changed",
+        timestamp: 1.1,
+        userId: "userId",
     },
 });
 ```

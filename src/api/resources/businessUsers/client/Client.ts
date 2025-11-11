@@ -61,8 +61,8 @@ export class BusinessUsers {
      *         lockKycRiskLevel: "true",
      *         validateUserId: "true",
      *         body: {
-     *             userId: "BU-1",
-     *             createdTimestamp: 1641654664000,
+     *             userId: "userId",
+     *             createdTimestamp: 1.1,
      *             legalEntity: {
      *                 companyGeneralDetails: {
      *                     legalName: "Ozkan Hazelnut Export JSC",
@@ -115,8 +115,8 @@ export class BusinessUsers {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.19",
-                "User-Agent": "flagright/1.8.19",
+                "X-Fern-SDK-Version": "1.8.20",
+                "User-Agent": "flagright/1.8.20",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -215,7 +215,7 @@ export class BusinessUsers {
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
-     *     await client.businessUsers.get("BU-1")
+     *     await client.businessUsers.get("userId")
      */
     public get(
         userId: string,
@@ -239,8 +239,8 @@ export class BusinessUsers {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.19",
-                "User-Agent": "flagright/1.8.19",
+                "X-Fern-SDK-Version": "1.8.20",
+                "User-Agent": "flagright/1.8.20",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),

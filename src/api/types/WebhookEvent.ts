@@ -11,6 +11,8 @@ export interface WebhookEvent {
     triggeredBy: Flagright.WebhookEventTriggeredBy;
     /** Time at which the event was created. Measured in ms since the Unix epoch. */
     createdTimestamp: number;
+    /** Email ID associated with the event */
+    account?: string;
     type: Flagright.WebhookEventType;
     data: Flagright.WebhookEventData;
 }

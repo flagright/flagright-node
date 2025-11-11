@@ -45,9 +45,9 @@ export class Batch {
      *         validateOriginUserId: "true",
      *         validateDestinationUserId: "true",
      *         data: [{
-     *                 type: "DEPOSIT",
-     *                 transactionId: "7b80a539eea6e78acbd6d458e5971482",
-     *                 timestamp: 1641654664000
+     *                 type: "type",
+     *                 transactionId: "transactionId",
+     *                 timestamp: 1.1
      *             }]
      *     })
      */
@@ -88,8 +88,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.19",
-                "User-Agent": "flagright/1.8.19",
+                "X-Fern-SDK-Version": "1.8.20",
+                "User-Agent": "flagright/1.8.20",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -222,8 +222,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.19",
-                "User-Agent": "flagright/1.8.19",
+                "X-Fern-SDK-Version": "1.8.20",
+                "User-Agent": "flagright/1.8.20",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -320,9 +320,9 @@ export class Batch {
      * @example
      *     await client.batch.createTransactionEvents({
      *         data: [{
-     *                 transactionState: "SUCCESSFUL",
-     *                 timestamp: 1641654664000,
-     *                 transactionId: "443dea26147a406b957d9ee3a1247b11"
+     *                 transactionState: "CREATED",
+     *                 timestamp: 1.1,
+     *                 transactionId: "transactionId"
      *             }]
      *     })
      */
@@ -348,8 +348,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.19",
-                "User-Agent": "flagright/1.8.19",
+                "X-Fern-SDK-Version": "1.8.20",
+                "User-Agent": "flagright/1.8.20",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -455,8 +455,8 @@ export class Batch {
      *         lockCraRiskLevel: "true",
      *         lockKycRiskLevel: "true",
      *         data: [{
-     *                 userId: "96647cfd9e8fe66ee0f3362e011e34e8",
-     *                 createdTimestamp: 1641654664000
+     *                 userId: "userId",
+     *                 createdTimestamp: 1.1
      *             }]
      *     })
      */
@@ -496,8 +496,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.19",
-                "User-Agent": "flagright/1.8.19",
+                "X-Fern-SDK-Version": "1.8.20",
+                "User-Agent": "flagright/1.8.20",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -594,8 +594,8 @@ export class Batch {
      *         lockCraRiskLevel: "true",
      *         lockKycRiskLevel: "true",
      *         data: [{
-     *                 userId: "BU-1",
-     *                 createdTimestamp: 1641654664000,
+     *                 userId: "userId",
+     *                 createdTimestamp: 1.1,
      *                 legalEntity: {
      *                     companyGeneralDetails: {
      *                         legalName: "Ozkan Hazelnut Export JSC",
@@ -642,8 +642,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.19",
-                "User-Agent": "flagright/1.8.19",
+                "X-Fern-SDK-Version": "1.8.20",
+                "User-Agent": "flagright/1.8.20",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -740,8 +740,8 @@ export class Batch {
      *         lockCraRiskLevel: "true",
      *         lockKycRiskLevel: "true",
      *         data: [{
-     *                 timestamp: 1641654664000,
-     *                 userId: "96647cfd9e8fe66ee0f3362e011e34e8"
+     *                 timestamp: 1.1,
+     *                 userId: "userId"
      *             }]
      *     })
      */
@@ -781,8 +781,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.19",
-                "User-Agent": "flagright/1.8.19",
+                "X-Fern-SDK-Version": "1.8.20",
+                "User-Agent": "flagright/1.8.20",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -881,8 +881,8 @@ export class Batch {
      *         lockCraRiskLevel: "true",
      *         lockKycRiskLevel: "true",
      *         data: [{
-     *                 timestamp: 1641654664000,
-     *                 userId: "BU-1"
+     *                 timestamp: 1.1,
+     *                 userId: "userId"
      *             }]
      *     })
      */
@@ -922,8 +922,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.19",
-                "User-Agent": "flagright/1.8.19",
+                "X-Fern-SDK-Version": "1.8.20",
+                "User-Agent": "flagright/1.8.20",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),

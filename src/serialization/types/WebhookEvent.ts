@@ -14,6 +14,7 @@ export const WebhookEvent: core.serialization.ObjectSchema<serializers.WebhookEv
         id: core.serialization.string(),
         triggeredBy: WebhookEventTriggeredBy,
         createdTimestamp: core.serialization.number(),
+        account: core.serialization.string().optional(),
         type: WebhookEventType,
         data: WebhookEventData,
     });
@@ -23,6 +24,7 @@ export declare namespace WebhookEvent {
         id: string;
         triggeredBy: WebhookEventTriggeredBy.Raw;
         createdTimestamp: number;
+        account?: string | null;
         type: WebhookEventType.Raw;
         data: WebhookEventData.Raw;
     }

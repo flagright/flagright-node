@@ -42,6 +42,7 @@ export const Business: core.serialization.ObjectSchema<serializers.Business.Raw,
         tags: core.serialization.list(UserTag).optional(),
         attachments: core.serialization.list(PersonAttachment).optional(),
         metaData: DeviceData.optional(),
+        jurisdiction: core.serialization.string().optional(),
         updateCount: core.serialization.number().optional(),
     });
 
@@ -67,6 +68,7 @@ export declare namespace Business {
         tags?: UserTag.Raw[] | null;
         attachments?: PersonAttachment.Raw[] | null;
         metaData?: DeviceData.Raw | null;
+        jurisdiction?: string | null;
         updateCount?: number | null;
     }
 }

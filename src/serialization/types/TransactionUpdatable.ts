@@ -28,6 +28,7 @@ export const TransactionUpdatable: core.serialization.ObjectSchema<
     originDeviceData: DeviceData.optional(),
     destinationDeviceData: DeviceData.optional(),
     tags: core.serialization.list(Tag).optional(),
+    jurisdiction: core.serialization.string().optional(),
     updateCount: core.serialization.number().optional(),
     paymentApprovalTimestamp: core.serialization.number().optional(),
 });
@@ -46,6 +47,7 @@ export declare namespace TransactionUpdatable {
         originDeviceData?: DeviceData.Raw | null;
         destinationDeviceData?: DeviceData.Raw | null;
         tags?: Tag.Raw[] | null;
+        jurisdiction?: string | null;
         updateCount?: number | null;
         paymentApprovalTimestamp?: number | null;
     }

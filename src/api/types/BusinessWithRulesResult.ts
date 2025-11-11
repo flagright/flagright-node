@@ -33,6 +33,8 @@ export interface BusinessWithRulesResult {
     /** User's attachments uploaded by business user */
     attachments?: Flagright.PersonAttachment[];
     metaData?: Flagright.DeviceData;
+    /** Legal authority or region governing the transaction */
+    jurisdiction?: string;
     updateCount?: number;
     executedRules?: Flagright.ExecutedRulesResult[];
     hitRules?: Flagright.HitRulesDetails[];

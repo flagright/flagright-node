@@ -10,9 +10,9 @@ import * as Flagright from "../../../../index";
  *         validateOriginUserId: "true",
  *         validateDestinationUserId: "true",
  *         data: [{
- *                 type: "DEPOSIT",
- *                 transactionId: "7b80a539eea6e78acbd6d458e5971482",
- *                 timestamp: 1641654664000
+ *                 type: "type",
+ *                 transactionId: "transactionId",
+ *                 timestamp: 1.1
  *             }]
  *     }
  */

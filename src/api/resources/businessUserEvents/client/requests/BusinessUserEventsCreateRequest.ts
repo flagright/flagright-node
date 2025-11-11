@@ -11,11 +11,8 @@ import * as Flagright from "../../../../index";
  *         lockKycRiskLevel: "true",
  *         lockCraRiskLevel: "true",
  *         body: {
- *             timestamp: 1641654664000,
- *             userId: "BU-1",
- *             eventId: "event-123",
- *             reason: "User status update",
- *             eventDescription: "Business user status changed"
+ *             timestamp: 1.1,
+ *             userId: "userId"
  *         }
  *     }
  */

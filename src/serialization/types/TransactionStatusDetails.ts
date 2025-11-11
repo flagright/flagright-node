@@ -12,18 +12,18 @@ export const TransactionStatusDetails: core.serialization.ObjectSchema<
     Flagright.TransactionStatusDetails
 > = core.serialization.object({
     transactionId: core.serialization.string(),
-    type: core.serialization.string().optional(),
     reasons: core.serialization.list(core.serialization.string()),
     status: RuleAction,
     comment: core.serialization.string().optional(),
+    type: core.serialization.string().optional(),
 });
 
 export declare namespace TransactionStatusDetails {
     export interface Raw {
         transactionId: string;
-        type?: string | null;
         reasons: string[];
         status: RuleAction.Raw;
         comment?: string | null;
+        type?: string | null;
     }
 }

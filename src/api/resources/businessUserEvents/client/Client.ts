@@ -67,11 +67,8 @@ export class BusinessUserEvents {
      *         lockKycRiskLevel: "true",
      *         lockCraRiskLevel: "true",
      *         body: {
-     *             timestamp: 1641654664000,
-     *             userId: "BU-1",
-     *             eventId: "event-123",
-     *             reason: "User status update",
-     *             eventDescription: "Business user status changed"
+     *             timestamp: 1.1,
+     *             userId: "userId"
      *         }
      *     })
      */
@@ -117,8 +114,8 @@ export class BusinessUserEvents {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.19",
-                "User-Agent": "flagright/1.8.19",
+                "X-Fern-SDK-Version": "1.8.20",
+                "User-Agent": "flagright/1.8.20",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -248,8 +245,8 @@ export class BusinessUserEvents {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.19",
-                "User-Agent": "flagright/1.8.19",
+                "X-Fern-SDK-Version": "1.8.20",
+                "User-Agent": "flagright/1.8.20",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),

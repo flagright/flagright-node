@@ -10,8 +10,8 @@ import * as Flagright from "../../../../index";
  *         lockCraRiskLevel: "true",
  *         lockKycRiskLevel: "true",
  *         data: [{
- *                 userId: "96647cfd9e8fe66ee0f3362e011e34e8",
- *                 createdTimestamp: 1641654664000
+ *                 userId: "userId",
+ *                 createdTimestamp: 1.1
  *             }]
  *     }
  */

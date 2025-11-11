@@ -56,6 +56,7 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
         tags: core.serialization.list(UserTag).optional(),
         attachments: core.serialization.list(PersonAttachment).optional(),
         metaData: DeviceData.optional(),
+        jurisdiction: core.serialization.string().optional(),
         updateCount: core.serialization.number().optional(),
     });
 
@@ -88,6 +89,7 @@ export declare namespace UserOptional {
         tags?: UserTag.Raw[] | null;
         attachments?: PersonAttachment.Raw[] | null;
         metaData?: DeviceData.Raw | null;
+        jurisdiction?: string | null;
         updateCount?: number | null;
     }
 }
