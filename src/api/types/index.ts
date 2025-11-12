@@ -2,6 +2,7 @@ export * from "./Address";
 export * from "./UserBase";
 export * from "./UserOptionalSavedPaymentDetailsItem";
 export * from "./UserOptional";
+export * from "./ProductsEnabled";
 export * from "./ConsumerUserSegment";
 export * from "./UserSavedPaymentDetailsItem";
 export * from "./User";

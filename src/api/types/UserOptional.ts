@@ -43,4 +43,5 @@ export interface UserOptional {
     /** Legal authority or region governing the transaction */
     jurisdiction?: string;
     updateCount?: number;
+    productsEnabled?: Flagright.ProductsEnabled[];
 }

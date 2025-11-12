@@ -44,6 +44,7 @@ export interface BatchConsumerUserWithRulesResult {
     /** Legal authority or region governing the transaction */
     jurisdiction?: string;
     updateCount?: number;
+    productsEnabled?: Flagright.ProductsEnabled[];
     executedRules?: Flagright.ExecutedRulesResult[];
     riskScoreDetails?: Flagright.UserRiskScoreDetails;
 }

@@ -26,6 +26,7 @@ import { UserOptionalSavedPaymentDetailsItem } from "./UserOptionalSavedPaymentD
 import { UserTag } from "./UserTag";
 import { PersonAttachment } from "./PersonAttachment";
 import { DeviceData } from "./DeviceData";
+import { ProductsEnabled } from "./ProductsEnabled";
 
 export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptional.Raw, Flagright.UserOptional> =
     core.serialization.object({
@@ -58,6 +59,7 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
         metaData: DeviceData.optional(),
         jurisdiction: core.serialization.string().optional(),
         updateCount: core.serialization.number().optional(),
+        productsEnabled: core.serialization.list(ProductsEnabled).optional(),
     });
 
 export declare namespace UserOptional {
@@ -91,5 +93,6 @@ export declare namespace UserOptional {
         metaData?: DeviceData.Raw | null;
         jurisdiction?: string | null;
         updateCount?: number | null;
+        productsEnabled?: ProductsEnabled.Raw[] | null;
     }
 }

@@ -19,6 +19,7 @@ import { MccDetails } from "./MccDetails";
 import { UserTag } from "./UserTag";
 import { PersonAttachment } from "./PersonAttachment";
 import { DeviceData } from "./DeviceData";
+import { ProductsEnabled } from "./ProductsEnabled";
 
 export const BusinessOptional: core.serialization.ObjectSchema<
     serializers.BusinessOptional.Raw,
@@ -44,6 +45,7 @@ export const BusinessOptional: core.serialization.ObjectSchema<
     metaData: DeviceData.optional(),
     jurisdiction: core.serialization.string().optional(),
     updateCount: core.serialization.number().optional(),
+    productsEnabled: core.serialization.list(ProductsEnabled).optional(),
 });
 
 export declare namespace BusinessOptional {
@@ -68,5 +70,6 @@ export declare namespace BusinessOptional {
         metaData?: DeviceData.Raw | null;
         jurisdiction?: string | null;
         updateCount?: number | null;
+        productsEnabled?: ProductsEnabled.Raw[] | null;
     }
 }

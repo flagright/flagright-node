@@ -19,6 +19,7 @@ import { MccDetails } from "./MccDetails";
 import { UserTag } from "./UserTag";
 import { PersonAttachment } from "./PersonAttachment";
 import { DeviceData } from "./DeviceData";
+import { ProductsEnabled } from "./ProductsEnabled";
 import { ExecutedRulesResult } from "./ExecutedRulesResult";
 import { UserRiskScoreDetails } from "./UserRiskScoreDetails";
 
@@ -48,6 +49,7 @@ export const BatchBusinessUserWithRulesResult: core.serialization.ObjectSchema<
     metaData: DeviceData.optional(),
     jurisdiction: core.serialization.string().optional(),
     updateCount: core.serialization.number().optional(),
+    productsEnabled: core.serialization.list(ProductsEnabled).optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     riskScoreDetails: UserRiskScoreDetails.optional(),
 });
@@ -76,6 +78,7 @@ export declare namespace BatchBusinessUserWithRulesResult {
         metaData?: DeviceData.Raw | null;
         jurisdiction?: string | null;
         updateCount?: number | null;
+        productsEnabled?: ProductsEnabled.Raw[] | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         riskScoreDetails?: UserRiskScoreDetails.Raw | null;
     }
