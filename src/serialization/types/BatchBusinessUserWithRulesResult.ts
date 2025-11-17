@@ -8,6 +8,7 @@ import * as core from "../../core";
 import { LegalEntity } from "./LegalEntity";
 import { UserStateDetails } from "./UserStateDetails";
 import { KycStatusDetails } from "./KycStatusDetails";
+import { BatchBusinessUserWithRulesResultShareHoldersItem } from "./BatchBusinessUserWithRulesResultShareHoldersItem";
 import { Person } from "./Person";
 import { TransactionLimits } from "./TransactionLimits";
 import { RiskLevel } from "./RiskLevel";
@@ -33,7 +34,7 @@ export const BatchBusinessUserWithRulesResult: core.serialization.ObjectSchema<
     activatedTimestamp: core.serialization.number().optional(),
     userStateDetails: UserStateDetails.optional(),
     kycStatusDetails: KycStatusDetails.optional(),
-    shareHolders: core.serialization.list(Person).optional(),
+    shareHolders: core.serialization.list(BatchBusinessUserWithRulesResultShareHoldersItem).optional(),
     directors: core.serialization.list(Person).optional(),
     transactionLimits: TransactionLimits.optional(),
     riskLevel: RiskLevel.optional(),
@@ -62,7 +63,7 @@ export declare namespace BatchBusinessUserWithRulesResult {
         activatedTimestamp?: number | null;
         userStateDetails?: UserStateDetails.Raw | null;
         kycStatusDetails?: KycStatusDetails.Raw | null;
-        shareHolders?: Person.Raw[] | null;
+        shareHolders?: BatchBusinessUserWithRulesResultShareHoldersItem.Raw[] | null;
         directors?: Person.Raw[] | null;
         transactionLimits?: TransactionLimits.Raw | null;
         riskLevel?: RiskLevel.Raw | null;

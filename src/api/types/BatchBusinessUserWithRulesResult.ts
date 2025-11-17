@@ -15,7 +15,7 @@ export interface BatchBusinessUserWithRulesResult {
     userStateDetails?: Flagright.UserStateDetails;
     kycStatusDetails?: Flagright.KycStatusDetails;
     /** Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual */
-    shareHolders?: Flagright.Person[];
+    shareHolders?: Flagright.BatchBusinessUserWithRulesResultShareHoldersItem[];
     /** Director(s) of the company. Must be at least one */
     directors?: Flagright.Person[];
     transactionLimits?: Flagright.TransactionLimits;

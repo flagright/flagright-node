@@ -8,6 +8,7 @@ import * as core from "../../core";
 import { LegalEntity } from "./LegalEntity";
 import { UserStateDetails } from "./UserStateDetails";
 import { KycStatusDetails } from "./KycStatusDetails";
+import { BusinessShareHoldersItem } from "./BusinessShareHoldersItem";
 import { Person } from "./Person";
 import { TransactionLimits } from "./TransactionLimits";
 import { RiskLevel } from "./RiskLevel";
@@ -29,7 +30,7 @@ export const Business: core.serialization.ObjectSchema<serializers.Business.Raw,
         activatedTimestamp: core.serialization.number().optional(),
         userStateDetails: UserStateDetails.optional(),
         kycStatusDetails: KycStatusDetails.optional(),
-        shareHolders: core.serialization.list(Person).optional(),
+        shareHolders: core.serialization.list(BusinessShareHoldersItem).optional(),
         directors: core.serialization.list(Person).optional(),
         transactionLimits: TransactionLimits.optional(),
         riskLevel: RiskLevel.optional(),
@@ -56,7 +57,7 @@ export declare namespace Business {
         activatedTimestamp?: number | null;
         userStateDetails?: UserStateDetails.Raw | null;
         kycStatusDetails?: KycStatusDetails.Raw | null;
-        shareHolders?: Person.Raw[] | null;
+        shareHolders?: BusinessShareHoldersItem.Raw[] | null;
         directors?: Person.Raw[] | null;
         transactionLimits?: TransactionLimits.Raw | null;
         riskLevel?: RiskLevel.Raw | null;
