@@ -7,6 +7,7 @@ import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { Amount } from "./Amount";
 import { Address } from "./Address";
+import { CountryCode } from "./CountryCode";
 import { EmailId } from "./EmailId";
 import { CorrespondentBankDetails } from "./CorrespondentBankDetails";
 import { Tag } from "./Tag";
@@ -21,6 +22,8 @@ export const SwiftDetails: core.serialization.ObjectSchema<serializers.SwiftDeta
         bankName: core.serialization.string().optional(),
         name: core.serialization.string().optional(),
         bankAddress: Address.optional(),
+        countryOfNationality: CountryCode.optional(),
+        countryOfResidence: CountryCode.optional(),
         emailId: EmailId.optional(),
         specialInstructions: core.serialization.string().optional(),
         address: Address.optional(),
@@ -38,6 +41,8 @@ export declare namespace SwiftDetails {
         bankName?: string | null;
         name?: string | null;
         bankAddress?: Address.Raw | null;
+        countryOfNationality?: CountryCode.Raw | null;
+        countryOfResidence?: CountryCode.Raw | null;
         emailId?: EmailId.Raw | null;
         specialInstructions?: string | null;
         address?: Address.Raw | null;

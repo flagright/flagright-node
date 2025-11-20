@@ -42,6 +42,9 @@ export const CardDetails: core.serialization.ObjectSchema<serializers.CardDetail
         merchantDetails: CardMerchantDetails.optional(),
         networkProviderRiskScore: core.serialization.number().optional(),
         address: Address.optional(),
+        countryOfNationality: CountryCode.optional(),
+        countryOfResidence: CountryCode.optional(),
+        bankAddress: Address.optional(),
         tags: core.serialization.list(Tag).optional(),
     });
 
@@ -68,6 +71,9 @@ export declare namespace CardDetails {
         merchantDetails?: CardMerchantDetails.Raw | null;
         networkProviderRiskScore?: number | null;
         address?: Address.Raw | null;
+        countryOfNationality?: CountryCode.Raw | null;
+        countryOfResidence?: CountryCode.Raw | null;
+        bankAddress?: Address.Raw | null;
         tags?: Tag.Raw[] | null;
     }
 }

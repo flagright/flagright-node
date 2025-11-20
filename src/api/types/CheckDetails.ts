@@ -14,6 +14,9 @@ export interface CheckDetails {
     etaTimestamp?: number;
     shippingAddress?: Flagright.Address;
     accountNumber?: string;
+    countryOfNationality?: Flagright.CountryCode;
+    countryOfResidence?: Flagright.CountryCode;
+    bankAddress?: Flagright.Address;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
 }

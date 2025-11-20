@@ -7,6 +7,7 @@ import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { CheckDeliveryStatus } from "./CheckDeliveryStatus";
 import { Address } from "./Address";
+import { CountryCode } from "./CountryCode";
 import { Tag } from "./Tag";
 
 export const CheckDetails: core.serialization.ObjectSchema<serializers.CheckDetails.Raw, Flagright.CheckDetails> =
@@ -19,6 +20,9 @@ export const CheckDetails: core.serialization.ObjectSchema<serializers.CheckDeta
         etaTimestamp: core.serialization.number().optional(),
         shippingAddress: Address.optional(),
         accountNumber: core.serialization.string().optional(),
+        countryOfNationality: CountryCode.optional(),
+        countryOfResidence: CountryCode.optional(),
+        bankAddress: Address.optional(),
         tags: core.serialization.list(Tag).optional(),
     });
 
@@ -32,6 +36,9 @@ export declare namespace CheckDetails {
         etaTimestamp?: number | null;
         shippingAddress?: Address.Raw | null;
         accountNumber?: string | null;
+        countryOfNationality?: CountryCode.Raw | null;
+        countryOfResidence?: CountryCode.Raw | null;
+        bankAddress?: Address.Raw | null;
         tags?: Tag.Raw[] | null;
     }
 }

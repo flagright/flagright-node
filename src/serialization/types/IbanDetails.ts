@@ -23,6 +23,8 @@ export const IbanDetails: core.serialization.ObjectSchema<serializers.IbanDetail
         emailId: EmailId.optional(),
         bankBranchCode: core.serialization.string().optional(),
         paymentChannel: core.serialization.string().optional(),
+        countryOfNationality: CountryCode.optional(),
+        countryOfResidence: CountryCode.optional(),
         tags: core.serialization.list(Tag).optional(),
     });
 
@@ -38,6 +40,8 @@ export declare namespace IbanDetails {
         emailId?: EmailId.Raw | null;
         bankBranchCode?: string | null;
         paymentChannel?: string | null;
+        countryOfNationality?: CountryCode.Raw | null;
+        countryOfResidence?: CountryCode.Raw | null;
         tags?: Tag.Raw[] | null;
     }
 }

@@ -7,6 +7,7 @@ import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { Amount } from "./Amount";
 import { Address } from "./Address";
+import { CountryCode } from "./CountryCode";
 import { EmailId } from "./EmailId";
 import { Tag } from "./Tag";
 
@@ -18,6 +19,8 @@ export const AchDetails: core.serialization.ObjectSchema<serializers.AchDetails.
         bankName: core.serialization.string().optional(),
         name: core.serialization.string().optional(),
         bankAddress: Address.optional(),
+        countryOfNationality: CountryCode.optional(),
+        countryOfResidence: CountryCode.optional(),
         beneficiaryName: core.serialization.string().optional(),
         emailId: EmailId.optional(),
         tags: core.serialization.list(Tag).optional(),
@@ -31,6 +34,8 @@ export declare namespace AchDetails {
         bankName?: string | null;
         name?: string | null;
         bankAddress?: Address.Raw | null;
+        countryOfNationality?: CountryCode.Raw | null;
+        countryOfResidence?: CountryCode.Raw | null;
         beneficiaryName?: string | null;
         emailId?: EmailId.Raw | null;
         tags?: Tag.Raw[] | null;
