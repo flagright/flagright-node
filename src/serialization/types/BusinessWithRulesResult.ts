@@ -21,6 +21,7 @@ import { UserTag } from "./UserTag";
 import { PersonAttachment } from "./PersonAttachment";
 import { DeviceData } from "./DeviceData";
 import { ProductsEnabled } from "./ProductsEnabled";
+import { PepStatus } from "./PepStatus";
 import { ExecutedRulesResult } from "./ExecutedRulesResult";
 import { HitRulesDetails } from "./HitRulesDetails";
 import { UserRiskScoreDetails } from "./UserRiskScoreDetails";
@@ -52,6 +53,9 @@ export const BusinessWithRulesResult: core.serialization.ObjectSchema<
     jurisdiction: core.serialization.string().optional(),
     updateCount: core.serialization.number().optional(),
     productsEnabled: core.serialization.list(ProductsEnabled).optional(),
+    pepStatus: core.serialization.list(PepStatus).optional(),
+    sanctionsStatus: core.serialization.boolean().optional(),
+    adverseMediaStatus: core.serialization.boolean().optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     hitRules: core.serialization.list(HitRulesDetails).optional(),
     riskScoreDetails: UserRiskScoreDetails.optional(),
@@ -82,6 +86,9 @@ export declare namespace BusinessWithRulesResult {
         jurisdiction?: string | null;
         updateCount?: number | null;
         productsEnabled?: ProductsEnabled.Raw[] | null;
+        pepStatus?: PepStatus.Raw[] | null;
+        sanctionsStatus?: boolean | null;
+        adverseMediaStatus?: boolean | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         hitRules?: HitRulesDetails.Raw[] | null;
         riskScoreDetails?: UserRiskScoreDetails.Raw | null;

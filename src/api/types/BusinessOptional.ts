@@ -36,4 +36,9 @@ export interface BusinessOptional {
     jurisdiction?: string;
     updateCount?: number;
     productsEnabled?: Flagright.ProductsEnabled[];
+    pepStatus?: Flagright.PepStatus[];
+    /** Whether the user is sanctioned */
+    sanctionsStatus?: boolean;
+    /** Whether the user is in the adverse media list */
+    adverseMediaStatus?: boolean;
 }

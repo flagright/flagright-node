@@ -21,6 +21,7 @@ import { UserTag } from "./UserTag";
 import { PersonAttachment } from "./PersonAttachment";
 import { DeviceData } from "./DeviceData";
 import { ProductsEnabled } from "./ProductsEnabled";
+import { PepStatus } from "./PepStatus";
 
 export const Business: core.serialization.ObjectSchema<serializers.Business.Raw, Flagright.Business> =
     core.serialization.object({
@@ -47,6 +48,9 @@ export const Business: core.serialization.ObjectSchema<serializers.Business.Raw,
         jurisdiction: core.serialization.string().optional(),
         updateCount: core.serialization.number().optional(),
         productsEnabled: core.serialization.list(ProductsEnabled).optional(),
+        pepStatus: core.serialization.list(PepStatus).optional(),
+        sanctionsStatus: core.serialization.boolean().optional(),
+        adverseMediaStatus: core.serialization.boolean().optional(),
     });
 
 export declare namespace Business {
@@ -74,5 +78,8 @@ export declare namespace Business {
         jurisdiction?: string | null;
         updateCount?: number | null;
         productsEnabled?: ProductsEnabled.Raw[] | null;
+        pepStatus?: PepStatus.Raw[] | null;
+        sanctionsStatus?: boolean | null;
+        adverseMediaStatus?: boolean | null;
     }
 }
