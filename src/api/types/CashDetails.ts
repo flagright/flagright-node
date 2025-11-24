@@ -9,4 +9,5 @@ export interface CashDetails {
     identifier?: string;
     address?: Flagright.Address;
     name?: string;
+    emailId?: Flagright.EmailId;
 }

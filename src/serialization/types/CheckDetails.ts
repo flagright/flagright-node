@@ -19,7 +19,9 @@ export const CheckDetails: core.serialization.ObjectSchema<serializers.CheckDeta
         deliveryStatus: CheckDeliveryStatus.optional(),
         etaTimestamp: core.serialization.number().optional(),
         shippingAddress: Address.optional(),
+        address: Address.optional(),
         accountNumber: core.serialization.string().optional(),
+        emailId: core.serialization.string().optional(),
         countryOfNationality: CountryCode.optional(),
         countryOfResidence: CountryCode.optional(),
         bankAddress: Address.optional(),
@@ -35,7 +37,9 @@ export declare namespace CheckDetails {
         deliveryStatus?: CheckDeliveryStatus.Raw | null;
         etaTimestamp?: number | null;
         shippingAddress?: Address.Raw | null;
+        address?: Address.Raw | null;
         accountNumber?: string | null;
+        emailId?: string | null;
         countryOfNationality?: CountryCode.Raw | null;
         countryOfResidence?: CountryCode.Raw | null;
         bankAddress?: Address.Raw | null;

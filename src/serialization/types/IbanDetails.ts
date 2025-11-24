@@ -16,6 +16,7 @@ export const IbanDetails: core.serialization.ObjectSchema<serializers.IbanDetail
         bic: core.serialization.property("BIC", core.serialization.string().optional()),
         bankName: core.serialization.string().optional(),
         bankAddress: Address.optional(),
+        address: Address.optional(),
         country: CountryCode.optional(),
         iban: core.serialization.property("IBAN", core.serialization.string().optional()),
         accountBalance: Amount.optional(),
@@ -33,6 +34,7 @@ export declare namespace IbanDetails {
         BIC?: string | null;
         bankName?: string | null;
         bankAddress?: Address.Raw | null;
+        address?: Address.Raw | null;
         country?: CountryCode.Raw | null;
         IBAN?: string | null;
         accountBalance?: Amount.Raw | null;

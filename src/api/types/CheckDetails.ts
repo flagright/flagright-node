@@ -13,7 +13,11 @@ export interface CheckDetails {
     deliveryStatus?: Flagright.CheckDeliveryStatus;
     etaTimestamp?: number;
     shippingAddress?: Flagright.Address;
+    /** Address of the account holder */
+    address?: Flagright.Address;
     accountNumber?: string;
+    /** Email ID of the account holder */
+    emailId?: string;
     countryOfNationality?: Flagright.CountryCode;
     countryOfResidence?: Flagright.CountryCode;
     bankAddress?: Flagright.Address;

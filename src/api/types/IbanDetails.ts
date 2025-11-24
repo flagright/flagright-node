@@ -13,6 +13,8 @@ export interface IbanDetails {
     /** Name of the bank */
     bankName?: string;
     bankAddress?: Flagright.Address;
+    /** Address of the account holder */
+    address?: Flagright.Address;
     country?: Flagright.CountryCode;
     /** Account number of the user. Can be account number, IBAN number etc. */
     iban?: string;

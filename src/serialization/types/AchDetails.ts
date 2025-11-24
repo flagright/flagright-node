@@ -19,6 +19,7 @@ export const AchDetails: core.serialization.ObjectSchema<serializers.AchDetails.
         bankName: core.serialization.string().optional(),
         name: core.serialization.string().optional(),
         bankAddress: Address.optional(),
+        address: Address.optional(),
         countryOfNationality: CountryCode.optional(),
         countryOfResidence: CountryCode.optional(),
         beneficiaryName: core.serialization.string().optional(),
@@ -34,6 +35,7 @@ export declare namespace AchDetails {
         bankName?: string | null;
         name?: string | null;
         bankAddress?: Address.Raw | null;
+        address?: Address.Raw | null;
         countryOfNationality?: CountryCode.Raw | null;
         countryOfResidence?: CountryCode.Raw | null;
         beneficiaryName?: string | null;

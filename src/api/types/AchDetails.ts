@@ -18,6 +18,8 @@ export interface AchDetails {
     /** Name of the account holder */
     name?: string;
     bankAddress?: Flagright.Address;
+    /** Address of the account holder */
+    address?: Flagright.Address;
     countryOfNationality?: Flagright.CountryCode;
     countryOfResidence?: Flagright.CountryCode;
     /** Beneficiary name of the account */
