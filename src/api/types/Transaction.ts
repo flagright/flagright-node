@@ -33,6 +33,7 @@ export interface Transaction {
     reference?: string;
     originDeviceData?: Flagright.DeviceData;
     destinationDeviceData?: Flagright.DeviceData;
+    metadata?: Flagright.TransactionMetadata;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
     /** Legal authority or region governing the transaction */

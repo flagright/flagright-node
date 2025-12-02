@@ -11,6 +11,7 @@ import { TransactionUpdatableDestinationPaymentDetails } from "./TransactionUpda
 import { OriginFundsInfo } from "./OriginFundsInfo";
 import { CorporateEntityDetails } from "./CorporateEntityDetails";
 import { DeviceData } from "./DeviceData";
+import { TransactionMetadata } from "./TransactionMetadata";
 import { Tag } from "./Tag";
 
 export const TransactionUpdatable: core.serialization.ObjectSchema<
@@ -29,6 +30,7 @@ export const TransactionUpdatable: core.serialization.ObjectSchema<
     reference: core.serialization.string().optional(),
     originDeviceData: DeviceData.optional(),
     destinationDeviceData: DeviceData.optional(),
+    metadata: TransactionMetadata.optional(),
     tags: core.serialization.list(Tag).optional(),
     jurisdiction: core.serialization.string().optional(),
     updateCount: core.serialization.number().optional(),
@@ -49,6 +51,7 @@ export declare namespace TransactionUpdatable {
         reference?: string | null;
         originDeviceData?: DeviceData.Raw | null;
         destinationDeviceData?: DeviceData.Raw | null;
+        metadata?: TransactionMetadata.Raw | null;
         tags?: Tag.Raw[] | null;
         jurisdiction?: string | null;
         updateCount?: number | null;

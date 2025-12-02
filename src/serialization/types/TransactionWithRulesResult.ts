@@ -12,6 +12,7 @@ import { TransactionWithRulesResultDestinationPaymentDetails } from "./Transacti
 import { OriginFundsInfo } from "./OriginFundsInfo";
 import { CorporateEntityDetails } from "./CorporateEntityDetails";
 import { DeviceData } from "./DeviceData";
+import { TransactionMetadata } from "./TransactionMetadata";
 import { Tag } from "./Tag";
 import { ExecutedRulesResult } from "./ExecutedRulesResult";
 import { HitRulesDetails } from "./HitRulesDetails";
@@ -40,6 +41,7 @@ export const TransactionWithRulesResult: core.serialization.ObjectSchema<
     reference: core.serialization.string().optional(),
     originDeviceData: DeviceData.optional(),
     destinationDeviceData: DeviceData.optional(),
+    metadata: TransactionMetadata.optional(),
     tags: core.serialization.list(Tag).optional(),
     jurisdiction: core.serialization.string().optional(),
     updateCount: core.serialization.number().optional(),
@@ -70,6 +72,7 @@ export declare namespace TransactionWithRulesResult {
         reference?: string | null;
         originDeviceData?: DeviceData.Raw | null;
         destinationDeviceData?: DeviceData.Raw | null;
+        metadata?: TransactionMetadata.Raw | null;
         tags?: Tag.Raw[] | null;
         jurisdiction?: string | null;
         updateCount?: number | null;
