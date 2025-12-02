@@ -10,6 +10,7 @@ import { TransactionAmountDetails } from "./TransactionAmountDetails";
 import { TransactionWithRulesResultOriginPaymentDetails } from "./TransactionWithRulesResultOriginPaymentDetails";
 import { TransactionWithRulesResultDestinationPaymentDetails } from "./TransactionWithRulesResultDestinationPaymentDetails";
 import { OriginFundsInfo } from "./OriginFundsInfo";
+import { CorporateEntityDetails } from "./CorporateEntityDetails";
 import { DeviceData } from "./DeviceData";
 import { Tag } from "./Tag";
 import { ExecutedRulesResult } from "./ExecutedRulesResult";
@@ -32,6 +33,7 @@ export const TransactionWithRulesResult: core.serialization.ObjectSchema<
     originPaymentDetails: TransactionWithRulesResultOriginPaymentDetails.optional(),
     destinationPaymentDetails: TransactionWithRulesResultDestinationPaymentDetails.optional(),
     originFundsInfo: OriginFundsInfo.optional(),
+    originCorporateEntity: CorporateEntityDetails.optional(),
     relatedTransactionIds: core.serialization.list(core.serialization.string()).optional(),
     productType: core.serialization.string().optional(),
     promotionCodeUsed: core.serialization.boolean().optional(),
@@ -61,6 +63,7 @@ export declare namespace TransactionWithRulesResult {
         originPaymentDetails?: TransactionWithRulesResultOriginPaymentDetails.Raw | null;
         destinationPaymentDetails?: TransactionWithRulesResultDestinationPaymentDetails.Raw | null;
         originFundsInfo?: OriginFundsInfo.Raw | null;
+        originCorporateEntity?: CorporateEntityDetails.Raw | null;
         relatedTransactionIds?: string[] | null;
         productType?: string | null;
         promotionCodeUsed?: boolean | null;

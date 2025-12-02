@@ -14,6 +14,8 @@ export interface Business {
     activatedTimestamp?: number;
     userStateDetails?: Flagright.UserStateDetails;
     kycStatusDetails?: Flagright.KycStatusDetails;
+    /** Corporate entities of the user */
+    corporateEntities?: Flagright.CorporateEntityDetails[];
     /** Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual */
     shareHolders?: Flagright.BusinessShareHoldersItem[];
     /** Director(s) of the company. Must be at least one */

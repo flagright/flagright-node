@@ -21,6 +21,7 @@ import { ConsumerUserSegment } from "./ConsumerUserSegment";
 import { PepStatus } from "./PepStatus";
 import { SanctionsStatus } from "./SanctionsStatus";
 import { AdverseMediaStatus } from "./AdverseMediaStatus";
+import { CorporateEntityDetails } from "./CorporateEntityDetails";
 import { UserEntityLink } from "./UserEntityLink";
 import { UserSavedPaymentDetailsItem } from "./UserSavedPaymentDetailsItem";
 import { UserTag } from "./UserTag";
@@ -53,6 +54,7 @@ export const User: core.serialization.ObjectSchema<serializers.User.Raw, Flagrig
     sanctionsStatus: SanctionsStatus.optional(),
     adverseMediaStatus: AdverseMediaStatus.optional(),
     lastTransactionTimestamp: core.serialization.number().optional(),
+    corporateEntities: core.serialization.list(CorporateEntityDetails).optional(),
     linkedEntities: UserEntityLink.optional(),
     savedPaymentDetails: core.serialization.list(UserSavedPaymentDetailsItem).optional(),
     tags: core.serialization.list(UserTag).optional(),
@@ -89,6 +91,7 @@ export declare namespace User {
         sanctionsStatus?: SanctionsStatus.Raw | null;
         adverseMediaStatus?: AdverseMediaStatus.Raw | null;
         lastTransactionTimestamp?: number | null;
+        corporateEntities?: CorporateEntityDetails.Raw[] | null;
         linkedEntities?: UserEntityLink.Raw | null;
         savedPaymentDetails?: UserSavedPaymentDetailsItem.Raw[] | null;
         tags?: UserTag.Raw[] | null;

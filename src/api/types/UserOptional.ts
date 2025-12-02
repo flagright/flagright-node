@@ -33,6 +33,8 @@ export interface UserOptional {
     adverseMediaStatus?: Flagright.AdverseMediaStatus;
     /** Timestamp of the last successful transaction of the user */
     lastTransactionTimestamp?: number;
+    /** Corporate entities of the user */
+    corporateEntities?: Flagright.CorporateEntityDetails[];
     linkedEntities?: Flagright.UserEntityLink;
     savedPaymentDetails?: Flagright.UserOptionalSavedPaymentDetailsItem[];
     /** Additional information that can be added via tags */

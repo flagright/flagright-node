@@ -46,6 +46,7 @@ export * from "./TransactionAmountDetails";
 export * from "./Amount";
 export * from "./OriginFundsInfo";
 export * from "./LegalEntity";
+export * from "./CorporateEntityDetails";
 export * from "./SourceOfFunds";
 export * from "./ContactDetails";
 export * from "./CompanyFinancialDetails";

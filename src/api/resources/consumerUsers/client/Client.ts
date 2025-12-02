@@ -147,8 +147,8 @@ export class ConsumerUsers {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.26",
-                "User-Agent": "flagright/1.8.26",
+                "X-Fern-SDK-Version": "1.8.27",
+                "User-Agent": "flagright/1.8.27",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -271,8 +271,8 @@ export class ConsumerUsers {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.26",
-                "User-Agent": "flagright/1.8.26",
+                "X-Fern-SDK-Version": "1.8.27",
+                "User-Agent": "flagright/1.8.27",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),

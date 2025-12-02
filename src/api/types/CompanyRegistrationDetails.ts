@@ -9,8 +9,8 @@ import * as Flagright from "../index";
  */
 export interface CompanyRegistrationDetails {
     /** Commercial registry registration number for the company in its registration country */
-    registrationIdentifier: string;
-    registrationCountry: Flagright.CountryCode;
+    registrationIdentifier?: string;
+    registrationCountry?: Flagright.CountryCode;
     taxResidenceCountry?: Flagright.CountryCode;
     /** Tax ID number of the registered entity */
     taxIdentifier?: string;

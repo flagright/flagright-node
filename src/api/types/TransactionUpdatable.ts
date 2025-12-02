@@ -14,6 +14,7 @@ export interface TransactionUpdatable {
     originPaymentDetails?: Flagright.TransactionUpdatableOriginPaymentDetails;
     destinationPaymentDetails?: Flagright.TransactionUpdatableDestinationPaymentDetails;
     originFundsInfo?: Flagright.OriginFundsInfo;
+    originCorporateEntity?: Flagright.CorporateEntityDetails;
     /** IDs of transactions related to this transaction. Ex: refund, split bills */
     relatedTransactionIds?: string[];
     /** Type of produce being used by the consumer (ex wallets, payments etc) */

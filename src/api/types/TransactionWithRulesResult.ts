@@ -22,6 +22,7 @@ export interface TransactionWithRulesResult {
     originPaymentDetails?: Flagright.TransactionWithRulesResultOriginPaymentDetails;
     destinationPaymentDetails?: Flagright.TransactionWithRulesResultDestinationPaymentDetails;
     originFundsInfo?: Flagright.OriginFundsInfo;
+    originCorporateEntity?: Flagright.CorporateEntityDetails;
     /** IDs of transactions related to this transaction. Ex: refund, split bills */
     relatedTransactionIds?: string[];
     /** Type of produce being used by the consumer (ex wallets, payments etc) */

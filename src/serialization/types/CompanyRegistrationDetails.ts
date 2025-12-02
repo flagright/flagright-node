@@ -12,8 +12,8 @@ export const CompanyRegistrationDetails: core.serialization.ObjectSchema<
     serializers.CompanyRegistrationDetails.Raw,
     Flagright.CompanyRegistrationDetails
 > = core.serialization.object({
-    registrationIdentifier: core.serialization.string(),
-    registrationCountry: CountryCode,
+    registrationIdentifier: core.serialization.string().optional(),
+    registrationCountry: CountryCode.optional(),
     taxResidenceCountry: CountryCode.optional(),
     taxIdentifier: core.serialization.string().optional(),
     legalEntityType: core.serialization.string().optional(),
@@ -23,8 +23,8 @@ export const CompanyRegistrationDetails: core.serialization.ObjectSchema<
 
 export declare namespace CompanyRegistrationDetails {
     export interface Raw {
-        registrationIdentifier: string;
-        registrationCountry: CountryCode.Raw;
+        registrationIdentifier?: string | null;
+        registrationCountry?: CountryCode.Raw | null;
         taxResidenceCountry?: CountryCode.Raw | null;
         taxIdentifier?: string | null;
         legalEntityType?: string | null;

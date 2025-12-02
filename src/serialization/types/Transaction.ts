@@ -10,6 +10,7 @@ import { TransactionAmountDetails } from "./TransactionAmountDetails";
 import { TransactionOriginPaymentDetails } from "./TransactionOriginPaymentDetails";
 import { TransactionDestinationPaymentDetails } from "./TransactionDestinationPaymentDetails";
 import { OriginFundsInfo } from "./OriginFundsInfo";
+import { CorporateEntityDetails } from "./CorporateEntityDetails";
 import { DeviceData } from "./DeviceData";
 import { Tag } from "./Tag";
 
@@ -26,6 +27,7 @@ export const Transaction: core.serialization.ObjectSchema<serializers.Transactio
         originPaymentDetails: TransactionOriginPaymentDetails.optional(),
         destinationPaymentDetails: TransactionDestinationPaymentDetails.optional(),
         originFundsInfo: OriginFundsInfo.optional(),
+        originCorporateEntity: CorporateEntityDetails.optional(),
         relatedTransactionIds: core.serialization.list(core.serialization.string()).optional(),
         productType: core.serialization.string().optional(),
         promotionCodeUsed: core.serialization.boolean().optional(),
@@ -51,6 +53,7 @@ export declare namespace Transaction {
         originPaymentDetails?: TransactionOriginPaymentDetails.Raw | null;
         destinationPaymentDetails?: TransactionDestinationPaymentDetails.Raw | null;
         originFundsInfo?: OriginFundsInfo.Raw | null;
+        originCorporateEntity?: CorporateEntityDetails.Raw | null;
         relatedTransactionIds?: string[] | null;
         productType?: string | null;
         promotionCodeUsed?: boolean | null;
