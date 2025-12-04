@@ -28,7 +28,7 @@ export const Transaction: core.serialization.ObjectSchema<serializers.Transactio
         originPaymentDetails: TransactionOriginPaymentDetails.optional(),
         destinationPaymentDetails: TransactionDestinationPaymentDetails.optional(),
         originFundsInfo: OriginFundsInfo.optional(),
-        originCorporateEntity: CorporateEntityDetails.optional(),
+        corporateEntity: CorporateEntityDetails.optional(),
         relatedTransactionIds: core.serialization.list(core.serialization.string()).optional(),
         productType: core.serialization.string().optional(),
         promotionCodeUsed: core.serialization.boolean().optional(),
@@ -55,7 +55,7 @@ export declare namespace Transaction {
         originPaymentDetails?: TransactionOriginPaymentDetails.Raw | null;
         destinationPaymentDetails?: TransactionDestinationPaymentDetails.Raw | null;
         originFundsInfo?: OriginFundsInfo.Raw | null;
-        originCorporateEntity?: CorporateEntityDetails.Raw | null;
+        corporateEntity?: CorporateEntityDetails.Raw | null;
         relatedTransactionIds?: string[] | null;
         productType?: string | null;
         promotionCodeUsed?: boolean | null;

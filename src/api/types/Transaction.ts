@@ -22,7 +22,7 @@ export interface Transaction {
     originPaymentDetails?: Flagright.TransactionOriginPaymentDetails;
     destinationPaymentDetails?: Flagright.TransactionDestinationPaymentDetails;
     originFundsInfo?: Flagright.OriginFundsInfo;
-    originCorporateEntity?: Flagright.CorporateEntityDetails;
+    corporateEntity?: Flagright.CorporateEntityDetails;
     /** IDs of transactions related to this transaction. Ex: refund, split bills */
     relatedTransactionIds?: string[];
     /** Type of produce being used by the consumer (ex wallets, payments etc) */

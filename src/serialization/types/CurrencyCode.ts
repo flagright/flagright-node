@@ -292,6 +292,8 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "MWK",
         "MXC",
         "MXN",
+        "MXNB",
+        "MXND",
         "MYR",
         "MZN",
         "NAD",
@@ -362,6 +364,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "RGT",
         "RLC",
         "RLY",
+        "RLUSD",
         "RNDR",
         "RON",
         "ROSE",
@@ -407,6 +410,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "SYLO",
         "SYN",
         "SYP",
+        "SYRUPUSDC",
         "SZL",
         "T",
         "THB",
@@ -437,8 +441,13 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "UNI",
         "UPI",
         "USD",
+        "USDG",
+        "USDAI",
+        "USDE",
+        "USDH",
         "USDC",
         "USDT",
+        "USYC",
         "UST",
         "UYU",
         "UZS",
@@ -793,6 +802,8 @@ export declare namespace CurrencyCode {
         | "MWK"
         | "MXC"
         | "MXN"
+        | "MXNB"
+        | "MXND"
         | "MYR"
         | "MZN"
         | "NAD"
@@ -863,6 +874,7 @@ export declare namespace CurrencyCode {
         | "RGT"
         | "RLC"
         | "RLY"
+        | "RLUSD"
         | "RNDR"
         | "RON"
         | "ROSE"
@@ -908,6 +920,7 @@ export declare namespace CurrencyCode {
         | "SYLO"
         | "SYN"
         | "SYP"
+        | "SYRUPUSDC"
         | "SZL"
         | "T"
         | "THB"
@@ -938,8 +951,13 @@ export declare namespace CurrencyCode {
         | "UNI"
         | "UPI"
         | "USD"
+        | "USDG"
+        | "USDAI"
+        | "USDE"
+        | "USDH"
         | "USDC"
         | "USDT"
+        | "USYC"
         | "UST"
         | "UYU"
         | "UZS"

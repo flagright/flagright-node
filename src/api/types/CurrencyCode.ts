@@ -287,6 +287,8 @@ export type CurrencyCode =
     | "MWK"
     | "MXC"
     | "MXN"
+    | "MXNB"
+    | "MXND"
     | "MYR"
     | "MZN"
     | "NAD"
@@ -357,6 +359,7 @@ export type CurrencyCode =
     | "RGT"
     | "RLC"
     | "RLY"
+    | "RLUSD"
     | "RNDR"
     | "RON"
     | "ROSE"
@@ -402,6 +405,7 @@ export type CurrencyCode =
     | "SYLO"
     | "SYN"
     | "SYP"
+    | "SYRUPUSDC"
     | "SZL"
     | "T"
     | "THB"
@@ -432,8 +436,13 @@ export type CurrencyCode =
     | "UNI"
     | "UPI"
     | "USD"
+    | "USDG"
+    | "USDAI"
+    | "USDE"
+    | "USDH"
     | "USDC"
     | "USDT"
+    | "USYC"
     | "UST"
     | "UYU"
     | "UZS"
@@ -785,6 +794,8 @@ export const CurrencyCode = {
     Mwk: "MWK",
     Mxc: "MXC",
     Mxn: "MXN",
+    Mxnb: "MXNB",
+    Mxnd: "MXND",
     Myr: "MYR",
     Mzn: "MZN",
     Nad: "NAD",
@@ -855,6 +866,7 @@ export const CurrencyCode = {
     Rgt: "RGT",
     Rlc: "RLC",
     Rly: "RLY",
+    Rlusd: "RLUSD",
     Rndr: "RNDR",
     Ron: "RON",
     Rose: "ROSE",
@@ -900,6 +912,7 @@ export const CurrencyCode = {
     Sylo: "SYLO",
     Syn: "SYN",
     Syp: "SYP",
+    Syrupusdc: "SYRUPUSDC",
     Szl: "SZL",
     T: "T",
     Thb: "THB",
@@ -930,8 +943,13 @@ export const CurrencyCode = {
     Uni: "UNI",
     Upi: "UPI",
     Usd: "USD",
+    Usdg: "USDG",
+    Usdai: "USDAI",
+    Usde: "USDE",
+    Usdh: "USDH",
     Usdc: "USDC",
     Usdt: "USDT",
+    Usyc: "USYC",
     Ust: "UST",
     Uyu: "UYU",
     Uzs: "UZS",
