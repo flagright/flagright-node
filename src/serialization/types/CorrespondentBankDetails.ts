@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { Address } from "./Address";
 import { Tag } from "./Tag";
 
 export const CorrespondentBankDetails: core.serialization.ObjectSchema<
@@ -12,12 +13,16 @@ export const CorrespondentBankDetails: core.serialization.ObjectSchema<
     Flagright.CorrespondentBankDetails
 > = core.serialization.object({
     bankName: core.serialization.string().optional(),
+    bankAddress: Address.optional(),
+    swiftCode: core.serialization.string().optional(),
     tags: core.serialization.list(Tag).optional(),
 });
 
 export declare namespace CorrespondentBankDetails {
     export interface Raw {
         bankName?: string | null;
+        bankAddress?: Address.Raw | null;
+        swiftCode?: string | null;
         tags?: Tag.Raw[] | null;
     }
 }

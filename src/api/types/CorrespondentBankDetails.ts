@@ -10,6 +10,9 @@ import * as Flagright from "../index";
 export interface CorrespondentBankDetails {
     /** Name of the bank */
     bankName?: string;
+    bankAddress?: Flagright.Address;
+    /** SWIFT code of the correspondent bank */
+    swiftCode?: string;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
 }
