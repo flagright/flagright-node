@@ -19,6 +19,8 @@ export interface BusinessOptional {
     shareHolders?: Flagright.BusinessOptionalShareHoldersItem[];
     /** Director(s) of the company. Must be at least one */
     directors?: Flagright.Person[];
+    /** Business partners of the company */
+    businessPartners?: Flagright.LegalEntity[];
     transactionLimits?: Flagright.TransactionLimits;
     riskLevel?: Flagright.RiskLevel;
     kycRiskLevel?: Flagright.RiskLevel;

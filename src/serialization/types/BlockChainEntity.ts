@@ -7,19 +7,17 @@ import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { Tag } from "./Tag";
 
-export const BlockchainCounterparty: core.serialization.ObjectSchema<
-    serializers.BlockchainCounterparty.Raw,
-    Flagright.BlockchainCounterparty
+export const BlockChainEntity: core.serialization.ObjectSchema<
+    serializers.BlockChainEntity.Raw,
+    Flagright.BlockChainEntity
 > = core.serialization.object({
     name: core.serialization.string().optional(),
-    categoryId: core.serialization.string().optional(),
     tags: core.serialization.list(Tag).optional(),
 });
 
-export declare namespace BlockchainCounterparty {
+export declare namespace BlockChainEntity {
     export interface Raw {
         name?: string | null;
-        categoryId?: string | null;
         tags?: Tag.Raw[] | null;
     }
 }

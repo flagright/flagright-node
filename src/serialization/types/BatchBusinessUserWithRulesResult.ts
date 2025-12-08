@@ -39,6 +39,7 @@ export const BatchBusinessUserWithRulesResult: core.serialization.ObjectSchema<
     corporateEntities: core.serialization.list(CorporateEntityDetails).optional(),
     shareHolders: core.serialization.list(BatchBusinessUserWithRulesResultShareHoldersItem).optional(),
     directors: core.serialization.list(Person).optional(),
+    businessPartners: core.serialization.list(LegalEntity).optional(),
     transactionLimits: TransactionLimits.optional(),
     riskLevel: RiskLevel.optional(),
     kycRiskLevel: RiskLevel.optional(),
@@ -72,6 +73,7 @@ export declare namespace BatchBusinessUserWithRulesResult {
         corporateEntities?: CorporateEntityDetails.Raw[] | null;
         shareHolders?: BatchBusinessUserWithRulesResultShareHoldersItem.Raw[] | null;
         directors?: Person.Raw[] | null;
+        businessPartners?: LegalEntity.Raw[] | null;
         transactionLimits?: TransactionLimits.Raw | null;
         riskLevel?: RiskLevel.Raw | null;
         kycRiskLevel?: RiskLevel.Raw | null;

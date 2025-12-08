@@ -9,24 +9,29 @@ import { RiskLevel } from "./RiskLevel";
 import { BlockchainCounterparty } from "./BlockchainCounterparty";
 import { BlockchainRiskSubject } from "./BlockchainRiskSubject";
 import { BlockchainRiskDetail } from "./BlockchainRiskDetail";
+import { Tag } from "./Tag";
 
 export const BlockchainRisk: core.serialization.ObjectSchema<serializers.BlockchainRisk.Raw, Flagright.BlockchainRisk> =
     core.serialization.object({
         provider: core.serialization.string().optional(),
+        timestamp: core.serialization.number().optional(),
         riskLevel: RiskLevel.optional(),
         riskScore: core.serialization.number().optional(),
         counterparties: core.serialization.list(BlockchainCounterparty).optional(),
         subject: BlockchainRiskSubject.optional(),
         risks: core.serialization.list(BlockchainRiskDetail).optional(),
+        tags: core.serialization.list(Tag).optional(),
     });
 
 export declare namespace BlockchainRisk {
     export interface Raw {
         provider?: string | null;
+        timestamp?: number | null;
         riskLevel?: RiskLevel.Raw | null;
         riskScore?: number | null;
         counterparties?: BlockchainCounterparty.Raw[] | null;
         subject?: BlockchainRiskSubject.Raw | null;
         risks?: BlockchainRiskDetail.Raw[] | null;
+        tags?: Tag.Raw[] | null;
     }
 }

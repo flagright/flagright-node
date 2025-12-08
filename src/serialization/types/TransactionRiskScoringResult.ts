@@ -11,8 +11,8 @@ export const TransactionRiskScoringResult: core.serialization.ObjectSchema<
     serializers.TransactionRiskScoringResult.Raw,
     Flagright.TransactionRiskScoringResult
 > = core.serialization.object({
-    trsScore: core.serialization.number(),
-    trsRiskLevel: RiskLevel,
+    trsScore: core.serialization.number().optional(),
+    trsRiskLevel: RiskLevel.optional(),
     originUserCraRiskScore: core.serialization.number().optional(),
     destinationUserCraRiskScore: core.serialization.number().optional(),
     originUserCraRiskLevel: RiskLevel.optional(),
@@ -21,8 +21,8 @@ export const TransactionRiskScoringResult: core.serialization.ObjectSchema<
 
 export declare namespace TransactionRiskScoringResult {
     export interface Raw {
-        trsScore: number;
-        trsRiskLevel: RiskLevel.Raw;
+        trsScore?: number | null;
+        trsRiskLevel?: RiskLevel.Raw | null;
         originUserCraRiskScore?: number | null;
         destinationUserCraRiskScore?: number | null;
         originUserCraRiskLevel?: RiskLevel.Raw | null;

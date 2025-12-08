@@ -5,33 +5,28 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
-import { RiskLevel } from "./RiskLevel";
-import { RiskExposureType } from "./RiskExposureType";
-import { TransactionAmountDetails } from "./TransactionAmountDetails";
+import { BlockchainRiskCategory } from "./BlockchainRiskCategory";
+import { BlockChainEntity } from "./BlockChainEntity";
+import { BlockchainRiskExposure } from "./BlockchainRiskExposure";
+import { Tag } from "./Tag";
 
 export const BlockchainRiskDetail: core.serialization.ObjectSchema<
     serializers.BlockchainRiskDetail.Raw,
     Flagright.BlockchainRiskDetail
 > = core.serialization.object({
     alertId: core.serialization.string().optional(),
-    categoryId: core.serialization.string().optional(),
-    categoryName: core.serialization.string().optional(),
-    categoryRiskLevel: RiskLevel.optional(),
-    categoryRiskScore: core.serialization.number().optional(),
-    exposureType: RiskExposureType.optional(),
-    entity: core.serialization.string().optional(),
-    exposureAmount: TransactionAmountDetails.optional(),
+    category: BlockchainRiskCategory.optional(),
+    entity: BlockChainEntity.optional(),
+    exposure: BlockchainRiskExposure.optional(),
+    tags: core.serialization.list(Tag).optional(),
 });
 
 export declare namespace BlockchainRiskDetail {
     export interface Raw {
         alertId?: string | null;
-        categoryId?: string | null;
-        categoryName?: string | null;
-        categoryRiskLevel?: RiskLevel.Raw | null;
-        categoryRiskScore?: number | null;
-        exposureType?: RiskExposureType.Raw | null;
-        entity?: string | null;
-        exposureAmount?: TransactionAmountDetails.Raw | null;
+        category?: BlockchainRiskCategory.Raw | null;
+        entity?: BlockChainEntity.Raw | null;
+        exposure?: BlockchainRiskExposure.Raw | null;
+        tags?: Tag.Raw[] | null;
     }
 }

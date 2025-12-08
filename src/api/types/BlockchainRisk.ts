@@ -10,6 +10,8 @@ import * as Flagright from "../index";
 export interface BlockchainRisk {
     /** Risk analysis provider (e.g., chainalysis) */
     provider?: string;
+    /** Unix timestamp of when the risk analysis was performed */
+    timestamp?: number;
     /** Overall risk level of the transaction */
     riskLevel?: Flagright.RiskLevel;
     /** Numeric risk score from 0 to 100 */
@@ -20,4 +22,6 @@ export interface BlockchainRisk {
     subject?: Flagright.BlockchainRiskSubject;
     /** Detailed risk categories and their analysis */
     risks?: Flagright.BlockchainRiskDetail[];
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
 }

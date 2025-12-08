@@ -7,6 +7,7 @@ import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { BlockchainRiskSubjectType } from "./BlockchainRiskSubjectType";
 import { BlockchainRiskSubjectDirection } from "./BlockchainRiskSubjectDirection";
+import { Tag } from "./Tag";
 
 export const BlockchainRiskSubject: core.serialization.ObjectSchema<
     serializers.BlockchainRiskSubject.Raw,
@@ -15,6 +16,7 @@ export const BlockchainRiskSubject: core.serialization.ObjectSchema<
     type: BlockchainRiskSubjectType.optional(),
     value: core.serialization.string().optional(),
     direction: BlockchainRiskSubjectDirection.optional(),
+    tags: core.serialization.list(Tag).optional(),
 });
 
 export declare namespace BlockchainRiskSubject {
@@ -22,5 +24,6 @@ export declare namespace BlockchainRiskSubject {
         type?: BlockchainRiskSubjectType.Raw | null;
         value?: string | null;
         direction?: BlockchainRiskSubjectDirection.Raw | null;
+        tags?: Tag.Raw[] | null;
     }
 }

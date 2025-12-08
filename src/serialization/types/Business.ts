@@ -35,6 +35,7 @@ export const Business: core.serialization.ObjectSchema<serializers.Business.Raw,
         corporateEntities: core.serialization.list(CorporateEntityDetails).optional(),
         shareHolders: core.serialization.list(BusinessShareHoldersItem).optional(),
         directors: core.serialization.list(Person).optional(),
+        businessPartners: core.serialization.list(LegalEntity).optional(),
         transactionLimits: TransactionLimits.optional(),
         riskLevel: RiskLevel.optional(),
         kycRiskLevel: RiskLevel.optional(),
@@ -66,6 +67,7 @@ export declare namespace Business {
         corporateEntities?: CorporateEntityDetails.Raw[] | null;
         shareHolders?: BusinessShareHoldersItem.Raw[] | null;
         directors?: Person.Raw[] | null;
+        businessPartners?: LegalEntity.Raw[] | null;
         transactionLimits?: TransactionLimits.Raw | null;
         riskLevel?: RiskLevel.Raw | null;
         kycRiskLevel?: RiskLevel.Raw | null;

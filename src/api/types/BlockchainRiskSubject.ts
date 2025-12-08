@@ -14,4 +14,6 @@ export interface BlockchainRiskSubject {
     value?: string;
     /** Direction of the subject in the transaction (maps to origin/destination) */
     direction?: Flagright.BlockchainRiskSubjectDirection;
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
 }

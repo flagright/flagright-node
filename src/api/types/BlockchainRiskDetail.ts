@@ -10,18 +10,10 @@ import * as Flagright from "../index";
 export interface BlockchainRiskDetail {
     /** Optional alert identifier (alerts don't always exist) */
     alertId?: string;
-    /** Unique identifier for the risk category */
-    categoryId?: string;
-    /** Human-readable name of the risk category */
-    categoryName?: string;
-    /** Risk level specific to this category */
-    categoryRiskLevel?: Flagright.RiskLevel;
-    /** Numeric risk score for this specific category */
-    categoryRiskScore?: number;
-    /** Type of exposure to the risk entity */
-    exposureType?: Flagright.RiskExposureType;
-    /** Name of the specific entity that poses the risk */
-    entity?: string;
-    /** Amount of the transaction exposed to this risk */
-    exposureAmount?: Flagright.TransactionAmountDetails;
+    category?: Flagright.BlockchainRiskCategory;
+    entity?: Flagright.BlockChainEntity;
+    /** Exposure details for this risk category */
+    exposure?: Flagright.BlockchainRiskExposure;
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
 }
