@@ -13,6 +13,7 @@ export const PepStatus: core.serialization.ObjectSchema<serializers.PepStatus.Ra
         isPepHit: core.serialization.boolean(),
         pepCountry: CountryCode.optional(),
         pepRank: PepRank.optional(),
+        category: core.serialization.string().optional(),
     });
 
 export declare namespace PepStatus {
@@ -20,5 +21,6 @@ export declare namespace PepStatus {
         isPepHit: boolean;
         pepCountry?: CountryCode.Raw | null;
         pepRank?: PepRank.Raw | null;
+        category?: string | null;
     }
 }

@@ -8,4 +8,5 @@ export interface PepStatus {
     isPepHit: boolean;
     pepCountry?: Flagright.CountryCode;
     pepRank?: Flagright.PepRank;
+    category?: string;
 }
