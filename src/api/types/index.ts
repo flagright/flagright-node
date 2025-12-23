@@ -154,6 +154,8 @@ export * from "./PosEntryMode";
 export * from "./WebhookEventBaseTriggeredBy";
 export * from "./WebhookEventBase";
 export * from "./CraRiskLevelUpdatedDetails";
+export * from "./BatchCompletedDetailsType";
+export * from "./BatchCompletedDetails";
 export * from "./ListUpdatedDetailsAction";
 export * from "./ListUpdatedDetails";
 export * from "./WebhookEventTriggeredBy";

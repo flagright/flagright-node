@@ -31,6 +31,7 @@ export const BusinessOptional: core.serialization.ObjectSchema<
     activatedTimestamp: core.serialization.number().optional(),
     userStateDetails: UserStateDetails.optional(),
     kycStatusDetails: KycStatusDetails.optional(),
+    eoddDate: core.serialization.number().optional(),
     legalEntity: LegalEntity.optional(),
     corporateEntities: core.serialization.list(CorporateEntityDetails).optional(),
     shareHolders: core.serialization.list(BusinessOptionalShareHoldersItem).optional(),
@@ -61,6 +62,7 @@ export declare namespace BusinessOptional {
         activatedTimestamp?: number | null;
         userStateDetails?: UserStateDetails.Raw | null;
         kycStatusDetails?: KycStatusDetails.Raw | null;
+        eoddDate?: number | null;
         legalEntity?: LegalEntity.Raw | null;
         corporateEntities?: CorporateEntityDetails.Raw[] | null;
         shareHolders?: BusinessOptionalShareHoldersItem.Raw[] | null;

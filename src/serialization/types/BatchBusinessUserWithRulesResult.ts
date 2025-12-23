@@ -36,6 +36,7 @@ export const BatchBusinessUserWithRulesResult: core.serialization.ObjectSchema<
     activatedTimestamp: core.serialization.number().optional(),
     userStateDetails: UserStateDetails.optional(),
     kycStatusDetails: KycStatusDetails.optional(),
+    eoddDate: core.serialization.number().optional(),
     corporateEntities: core.serialization.list(CorporateEntityDetails).optional(),
     shareHolders: core.serialization.list(BatchBusinessUserWithRulesResultShareHoldersItem).optional(),
     directors: core.serialization.list(Person).optional(),
@@ -70,6 +71,7 @@ export declare namespace BatchBusinessUserWithRulesResult {
         activatedTimestamp?: number | null;
         userStateDetails?: UserStateDetails.Raw | null;
         kycStatusDetails?: KycStatusDetails.Raw | null;
+        eoddDate?: number | null;
         corporateEntities?: CorporateEntityDetails.Raw[] | null;
         shareHolders?: BatchBusinessUserWithRulesResultShareHoldersItem.Raw[] | null;
         directors?: Person.Raw[] | null;

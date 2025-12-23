@@ -12,6 +12,7 @@ export interface BusinessOptional {
     activatedTimestamp?: number;
     userStateDetails?: Flagright.UserStateDetails;
     kycStatusDetails?: Flagright.KycStatusDetails;
+    eoddDate?: number;
     legalEntity?: Flagright.LegalEntity;
     /** Corporate entities of the user */
     corporateEntities?: Flagright.CorporateEntityDetails[];

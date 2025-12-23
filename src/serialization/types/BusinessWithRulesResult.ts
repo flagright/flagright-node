@@ -37,6 +37,7 @@ export const BusinessWithRulesResult: core.serialization.ObjectSchema<
     activatedTimestamp: core.serialization.number().optional(),
     userStateDetails: UserStateDetails.optional(),
     kycStatusDetails: KycStatusDetails.optional(),
+    eoddDate: core.serialization.number().optional(),
     corporateEntities: core.serialization.list(CorporateEntityDetails).optional(),
     shareHolders: core.serialization.list(BusinessWithRulesResultShareHoldersItem).optional(),
     directors: core.serialization.list(Person).optional(),
@@ -72,6 +73,7 @@ export declare namespace BusinessWithRulesResult {
         activatedTimestamp?: number | null;
         userStateDetails?: UserStateDetails.Raw | null;
         kycStatusDetails?: KycStatusDetails.Raw | null;
+        eoddDate?: number | null;
         corporateEntities?: CorporateEntityDetails.Raw[] | null;
         shareHolders?: BusinessWithRulesResultShareHoldersItem.Raw[] | null;
         directors?: Person.Raw[] | null;
