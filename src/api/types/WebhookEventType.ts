@@ -19,7 +19,9 @@ export type WebhookEventType =
     | "ADVERSE_MEDIA_STATUS_UPDATED"
     | "CASE_ESCALATED"
     | "ALERT_ESCALATED"
-    | "BATCH_COMPLETED";
+    | "BATCH_COMPLETED"
+    | "CASE_INTERIM_STATUS_UPDATE"
+    | "ALERT_INTERIM_STATUS_UPDATE";
 export const WebhookEventType = {
     CaseClosed: "CASE_CLOSED",
     UserStateUpdated: "USER_STATE_UPDATED",
@@ -38,4 +40,6 @@ export const WebhookEventType = {
     CaseEscalated: "CASE_ESCALATED",
     AlertEscalated: "ALERT_ESCALATED",
     BatchCompleted: "BATCH_COMPLETED",
+    CaseInterimStatusUpdate: "CASE_INTERIM_STATUS_UPDATE",
+    AlertInterimStatusUpdate: "ALERT_INTERIM_STATUS_UPDATE",
 } as const;
