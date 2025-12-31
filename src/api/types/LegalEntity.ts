@@ -14,4 +14,7 @@ export interface LegalEntity {
     reasonForAccountOpening?: string[];
     sourceOfFunds?: Flagright.SourceOfFunds[];
     contactDetails?: Flagright.ContactDetails;
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
+    pepStatus?: Flagright.PepStatus[];
 }

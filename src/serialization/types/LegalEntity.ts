@@ -10,6 +10,8 @@ import { CompanyFinancialDetails } from "./CompanyFinancialDetails";
 import { CompanyRegistrationDetails } from "./CompanyRegistrationDetails";
 import { SourceOfFunds } from "./SourceOfFunds";
 import { ContactDetails } from "./ContactDetails";
+import { Tag } from "./Tag";
+import { PepStatus } from "./PepStatus";
 
 export const LegalEntity: core.serialization.ObjectSchema<serializers.LegalEntity.Raw, Flagright.LegalEntity> =
     core.serialization.object({
@@ -19,6 +21,8 @@ export const LegalEntity: core.serialization.ObjectSchema<serializers.LegalEntit
         reasonForAccountOpening: core.serialization.list(core.serialization.string()).optional(),
         sourceOfFunds: core.serialization.list(SourceOfFunds).optional(),
         contactDetails: ContactDetails.optional(),
+        tags: core.serialization.list(Tag).optional(),
+        pepStatus: core.serialization.list(PepStatus).optional(),
     });
 
 export declare namespace LegalEntity {
@@ -29,5 +33,7 @@ export declare namespace LegalEntity {
         reasonForAccountOpening?: string[] | null;
         sourceOfFunds?: SourceOfFunds.Raw[] | null;
         contactDetails?: ContactDetails.Raw | null;
+        tags?: Tag.Raw[] | null;
+        pepStatus?: PepStatus.Raw[] | null;
     }
 }

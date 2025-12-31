@@ -58,7 +58,7 @@ await client.transactions.verify({
         originUserId: "8650a2611d0771cba03310f74bf6",
         destinationUserId: "9350a2611e0771cba03310f74bf6",
         originAmountDetails: {
-            transactionAmount: 800,
+            transactionAmount: 2000,
             transactionCurrency: "EUR",
             country: "DE"
         },
