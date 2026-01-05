@@ -11,6 +11,7 @@ import { LegalEntity } from "./LegalEntity";
 import { CorporateEntityDetails } from "./CorporateEntityDetails";
 import { BusinessOptionalShareHoldersItem } from "./BusinessOptionalShareHoldersItem";
 import { Person } from "./Person";
+import { BusinessOptionalAssociatedPartiesItem } from "./BusinessOptionalAssociatedPartiesItem";
 import { TransactionLimits } from "./TransactionLimits";
 import { RiskLevel } from "./RiskLevel";
 import { PaymentMethod } from "./PaymentMethod";
@@ -36,6 +37,7 @@ export const BusinessOptional: core.serialization.ObjectSchema<
     corporateEntities: core.serialization.list(CorporateEntityDetails).optional(),
     shareHolders: core.serialization.list(BusinessOptionalShareHoldersItem).optional(),
     directors: core.serialization.list(Person).optional(),
+    associatedParties: core.serialization.list(BusinessOptionalAssociatedPartiesItem).optional(),
     businessPartners: core.serialization.list(LegalEntity).optional(),
     transactionLimits: TransactionLimits.optional(),
     riskLevel: RiskLevel.optional(),
@@ -67,6 +69,7 @@ export declare namespace BusinessOptional {
         corporateEntities?: CorporateEntityDetails.Raw[] | null;
         shareHolders?: BusinessOptionalShareHoldersItem.Raw[] | null;
         directors?: Person.Raw[] | null;
+        associatedParties?: BusinessOptionalAssociatedPartiesItem.Raw[] | null;
         businessPartners?: LegalEntity.Raw[] | null;
         transactionLimits?: TransactionLimits.Raw | null;
         riskLevel?: RiskLevel.Raw | null;

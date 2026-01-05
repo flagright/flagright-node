@@ -11,6 +11,7 @@ import { KycStatusDetails } from "./KycStatusDetails";
 import { CorporateEntityDetails } from "./CorporateEntityDetails";
 import { BatchBusinessUserWithRulesResultShareHoldersItem } from "./BatchBusinessUserWithRulesResultShareHoldersItem";
 import { Person } from "./Person";
+import { BatchBusinessUserWithRulesResultAssociatedPartiesItem } from "./BatchBusinessUserWithRulesResultAssociatedPartiesItem";
 import { TransactionLimits } from "./TransactionLimits";
 import { RiskLevel } from "./RiskLevel";
 import { PaymentMethod } from "./PaymentMethod";
@@ -40,6 +41,7 @@ export const BatchBusinessUserWithRulesResult: core.serialization.ObjectSchema<
     corporateEntities: core.serialization.list(CorporateEntityDetails).optional(),
     shareHolders: core.serialization.list(BatchBusinessUserWithRulesResultShareHoldersItem).optional(),
     directors: core.serialization.list(Person).optional(),
+    associatedParties: core.serialization.list(BatchBusinessUserWithRulesResultAssociatedPartiesItem).optional(),
     businessPartners: core.serialization.list(LegalEntity).optional(),
     transactionLimits: TransactionLimits.optional(),
     riskLevel: RiskLevel.optional(),
@@ -75,6 +77,7 @@ export declare namespace BatchBusinessUserWithRulesResult {
         corporateEntities?: CorporateEntityDetails.Raw[] | null;
         shareHolders?: BatchBusinessUserWithRulesResultShareHoldersItem.Raw[] | null;
         directors?: Person.Raw[] | null;
+        associatedParties?: BatchBusinessUserWithRulesResultAssociatedPartiesItem.Raw[] | null;
         businessPartners?: LegalEntity.Raw[] | null;
         transactionLimits?: TransactionLimits.Raw | null;
         riskLevel?: RiskLevel.Raw | null;

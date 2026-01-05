@@ -11,6 +11,7 @@ import { KycStatusDetails } from "./KycStatusDetails";
 import { CorporateEntityDetails } from "./CorporateEntityDetails";
 import { BusinessShareHoldersItem } from "./BusinessShareHoldersItem";
 import { Person } from "./Person";
+import { BusinessAssociatedPartiesItem } from "./BusinessAssociatedPartiesItem";
 import { TransactionLimits } from "./TransactionLimits";
 import { RiskLevel } from "./RiskLevel";
 import { PaymentMethod } from "./PaymentMethod";
@@ -36,6 +37,7 @@ export const Business: core.serialization.ObjectSchema<serializers.Business.Raw,
         corporateEntities: core.serialization.list(CorporateEntityDetails).optional(),
         shareHolders: core.serialization.list(BusinessShareHoldersItem).optional(),
         directors: core.serialization.list(Person).optional(),
+        associatedParties: core.serialization.list(BusinessAssociatedPartiesItem).optional(),
         businessPartners: core.serialization.list(LegalEntity).optional(),
         transactionLimits: TransactionLimits.optional(),
         riskLevel: RiskLevel.optional(),
@@ -69,6 +71,7 @@ export declare namespace Business {
         corporateEntities?: CorporateEntityDetails.Raw[] | null;
         shareHolders?: BusinessShareHoldersItem.Raw[] | null;
         directors?: Person.Raw[] | null;
+        associatedParties?: BusinessAssociatedPartiesItem.Raw[] | null;
         businessPartners?: LegalEntity.Raw[] | null;
         transactionLimits?: TransactionLimits.Raw | null;
         riskLevel?: RiskLevel.Raw | null;

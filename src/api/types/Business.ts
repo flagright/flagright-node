@@ -21,6 +21,8 @@ export interface Business {
     shareHolders?: Flagright.BusinessShareHoldersItem[];
     /** Director(s) of the company. Must be at least one */
     directors?: Flagright.Person[];
+    /** Parties associated with the company. Can be another company or an individual */
+    associatedParties?: Flagright.BusinessAssociatedPartiesItem[];
     /** Business partners of the company */
     businessPartners?: Flagright.LegalEntity[];
     transactionLimits?: Flagright.TransactionLimits;
