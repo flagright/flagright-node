@@ -1,7 +1,12 @@
 export { type TransactionBatchRequest } from "./TransactionBatchRequest";
-export { type BatchGetRequest } from "./BatchGetRequest";
+export { type BatchGetTransactionsRequest } from "./BatchGetTransactionsRequest";
 export { type TransactionEventBatchRequest } from "./TransactionEventBatchRequest";
+export { type BatchGetTransactionEventsRequest } from "./BatchGetTransactionEventsRequest";
 export { type UserBatchRequest } from "./UserBatchRequest";
+export { type BatchGetConsumerUsersRequest } from "./BatchGetConsumerUsersRequest";
+export { type BatchGetBusinessUsersRequest } from "./BatchGetBusinessUsersRequest";
 export { type BusinessBatchRequest } from "./BusinessBatchRequest";
+export { type BatchGetConsumerUserEventsRequest } from "./BatchGetConsumerUserEventsRequest";
+export { type BatchGetBusinessUserEventsRequest } from "./BatchGetBusinessUserEventsRequest";
 export { type ConsumerUserEventBatchRequest } from "./ConsumerUserEventBatchRequest";
 export { type BusinessUserEventBatchRequest } from "./BusinessUserEventBatchRequest";

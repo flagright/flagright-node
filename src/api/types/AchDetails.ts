@@ -8,6 +8,7 @@ import * as Flagright from "../index";
  * Model for ACH payment method
  */
 export interface AchDetails {
+    counterpartyType?: Flagright.CounterpartyType;
     /** Routing number of the bank */
     routingNumber?: string;
     /** Bank account number of the individual */

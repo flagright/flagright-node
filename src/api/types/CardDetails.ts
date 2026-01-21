@@ -8,6 +8,7 @@ import * as Flagright from "../index";
  * Model for credit or debit card details
  */
 export interface CardDetails {
+    counterpartyType?: Flagright.CounterpartyType;
     /** Unique card fingerprint that helps identify a specific card without having to use explicit card number. This is likely available at your card payment scheme provider */
     cardFingerprint?: string;
     emailId?: Flagright.EmailId;

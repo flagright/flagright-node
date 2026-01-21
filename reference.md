@@ -277,7 +277,7 @@ await client.batch.verifyTransaction({
 </dl>
 </details>
 
-<details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">get</a>(batchId, { ...params }) -> Flagright.BatchBusinessUserEventsWithRulesResult</code></summary>
+<details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">getTransactions</a>(batchId, { ...params }) -> Flagright.BatchTransactionMonitoringResults</code></summary>
 <dl>
 <dd>
 
@@ -290,7 +290,7 @@ await client.batch.verifyTransaction({
 <dd>
 
 ```typescript
-await client.batch.get("batchId", {
+await client.batch.getTransactions("batchId", {
     pageSize: 1.1,
     page: 1.1,
 });
@@ -317,7 +317,7 @@ await client.batch.get("batchId", {
 <dl>
 <dd>
 
-**request:** `Flagright.BatchGetRequest`
+**request:** `Flagright.BatchGetTransactionsRequest`
 
 </dd>
 </dl>
@@ -374,6 +374,65 @@ await client.batch.createTransactionEvents({
 <dd>
 
 **request:** `Flagright.TransactionEventBatchRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Batch.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">getTransactionEvents</a>(batchId, { ...params }) -> Flagright.BatchTransactionEventMonitoringResults</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.batch.getTransactionEvents("batchId", {
+    pageSize: 1.1,
+    page: 1.1,
+});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**batchId:** `string` — Unique Batch Identifier
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `Flagright.BatchGetTransactionEventsRequest`
 
 </dd>
 </dl>
@@ -449,6 +508,124 @@ await client.batch.createConsumerUsers({
 </dl>
 </details>
 
+<details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">getConsumerUsers</a>(batchId, { ...params }) -> Flagright.BatchConsumerUsersWithRulesResult</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.batch.getConsumerUsers("batchId", {
+    pageSize: 1.1,
+    page: 1.1,
+});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**batchId:** `string` — Unique Batch Identifier
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `Flagright.BatchGetConsumerUsersRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Batch.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">getBusinessUsers</a>(batchId, { ...params }) -> Flagright.BatchBusinessUsersWithRulesResults</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.batch.getBusinessUsers("batchId", {
+    pageSize: 1.1,
+    page: 1.1,
+});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**batchId:** `string` — Unique Batch Identifier
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `Flagright.BatchGetBusinessUsersRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Batch.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">createBusinessUsers</a>({ ...params }) -> Flagright.BatchResponse</code></summary>
 <dl>
 <dd>
@@ -495,6 +672,124 @@ await client.batch.createBusinessUsers({
 <dd>
 
 **request:** `Flagright.BusinessBatchRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Batch.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">getConsumerUserEvents</a>(batchId, { ...params }) -> Flagright.BatchConsumerUserEventsRulesResult</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.batch.getConsumerUserEvents("batchId", {
+    pageSize: 1.1,
+    page: 1.1,
+});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**batchId:** `string` — Unique Batch Identifier
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `Flagright.BatchGetConsumerUserEventsRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Batch.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">getBusinessUserEvents</a>(batchId, { ...params }) -> Flagright.BatchBusinessUserEventsWithRulesResult</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.batch.getBusinessUserEvents("batchId", {
+    pageSize: 1.1,
+    page: 1.1,
+});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**batchId:** `string` — Unique Batch Identifier
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `Flagright.BatchGetBusinessUserEventsRequest`
 
 </dd>
 </dl>

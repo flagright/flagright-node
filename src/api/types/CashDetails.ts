@@ -5,6 +5,7 @@
 import * as Flagright from "../index";
 
 export interface CashDetails {
+    counterpartyType?: Flagright.CounterpartyType;
     /** Identifier for the cash transaction */
     identifier?: string;
     address?: Flagright.Address;

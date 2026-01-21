@@ -8,6 +8,7 @@ import * as Flagright from "../index";
  * Standardized model for a Generic wallet transaction
  */
 export interface WalletDetails {
+    counterpartyType?: Flagright.CounterpartyType;
     /** Wallet type if there are various types of wallets belonging to the same user. E.g. Checking, savings, vault, different currency wallets etc. */
     walletType?: string;
     /** Unique ID of the wallet */

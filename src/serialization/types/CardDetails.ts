@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { CounterpartyType } from "./CounterpartyType";
 import { EmailId } from "./EmailId";
 import { CardStatus } from "./CardStatus";
 import { CountryCode } from "./CountryCode";
@@ -21,6 +22,7 @@ import { Tag } from "./Tag";
 
 export const CardDetails: core.serialization.ObjectSchema<serializers.CardDetails.Raw, Flagright.CardDetails> =
     core.serialization.object({
+        counterpartyType: CounterpartyType.optional(),
         cardFingerprint: core.serialization.string().optional(),
         emailId: EmailId.optional(),
         cardStatus: CardStatus.optional(),
@@ -50,6 +52,7 @@ export const CardDetails: core.serialization.ObjectSchema<serializers.CardDetail
 
 export declare namespace CardDetails {
     export interface Raw {
+        counterpartyType?: CounterpartyType.Raw | null;
         cardFingerprint?: string | null;
         emailId?: EmailId.Raw | null;
         cardStatus?: CardStatus.Raw | null;

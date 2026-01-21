@@ -22,6 +22,7 @@ export const ExecutedRulesResult: core.serialization.ObjectSchema<
     ruleDescription: core.serialization.string(),
     ruleAction: RuleAction,
     ruleHit: core.serialization.boolean(),
+    versionId: core.serialization.string().optional(),
     executedAt: core.serialization.number().optional(),
     ruleHitMeta: RuleHitMeta.optional(),
     vars: core.serialization.list(ExecutedLogicVars).optional(),
@@ -39,6 +40,7 @@ export declare namespace ExecutedRulesResult {
         ruleDescription: string;
         ruleAction: RuleAction.Raw;
         ruleHit: boolean;
+        versionId?: string | null;
         executedAt?: number | null;
         ruleHitMeta?: RuleHitMeta.Raw | null;
         vars?: ExecutedLogicVars.Raw[] | null;

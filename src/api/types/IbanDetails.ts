@@ -8,6 +8,7 @@ import * as Flagright from "../index";
  * Standardized model for Bank Details
  */
 export interface IbanDetails {
+    counterpartyType?: Flagright.CounterpartyType;
     /** Identifier for the bank. Can be routing number, BIK number, SWIFT code, BIC number etc. */
     bic?: string;
     /** Name of the bank */

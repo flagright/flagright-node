@@ -8,6 +8,7 @@ import * as Flagright from "../index";
  * New Payment Platform Details for Australia
  */
 export interface NppDetails {
+    counterpartyType?: Flagright.CounterpartyType;
     /** Account number */
     accountNumber?: string;
     name?: Flagright.ConsumerName;

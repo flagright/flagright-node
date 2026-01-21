@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { CounterpartyType } from "./CounterpartyType";
 import { MpesaTransactionType } from "./MpesaTransactionType";
 import { EmailId } from "./EmailId";
 import { Address } from "./Address";
@@ -12,6 +13,7 @@ import { Tag } from "./Tag";
 
 export const MpesaDetails: core.serialization.ObjectSchema<serializers.MpesaDetails.Raw, Flagright.MpesaDetails> =
     core.serialization.object({
+        counterpartyType: CounterpartyType.optional(),
         businessShortCode: core.serialization.string(),
         transactionType: MpesaTransactionType,
         phoneNumber: core.serialization.string(),
@@ -23,6 +25,7 @@ export const MpesaDetails: core.serialization.ObjectSchema<serializers.MpesaDeta
 
 export declare namespace MpesaDetails {
     export interface Raw {
+        counterpartyType?: CounterpartyType.Raw | null;
         businessShortCode: string;
         transactionType: MpesaTransactionType.Raw;
         phoneNumber: string;

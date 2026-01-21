@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { CounterpartyType } from "./CounterpartyType";
 import { Amount } from "./Amount";
 import { Address } from "./Address";
 import { CountryCode } from "./CountryCode";
@@ -13,6 +14,7 @@ import { Tag } from "./Tag";
 
 export const AchDetails: core.serialization.ObjectSchema<serializers.AchDetails.Raw, Flagright.AchDetails> =
     core.serialization.object({
+        counterpartyType: CounterpartyType.optional(),
         routingNumber: core.serialization.string().optional(),
         accountNumber: core.serialization.string().optional(),
         accountBalance: Amount.optional(),
@@ -29,6 +31,7 @@ export const AchDetails: core.serialization.ObjectSchema<serializers.AchDetails.
 
 export declare namespace AchDetails {
     export interface Raw {
+        counterpartyType?: CounterpartyType.Raw | null;
         routingNumber?: string | null;
         accountNumber?: string | null;
         accountBalance?: Amount.Raw | null;

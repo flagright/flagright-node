@@ -18,6 +18,7 @@ export const HitRulesDetails: core.serialization.ObjectSchema<
     ruleInstanceId: core.serialization.string(),
     ruleName: core.serialization.string(),
     ruleDescription: core.serialization.string(),
+    versionId: core.serialization.string().optional(),
     executedAt: core.serialization.number().optional(),
     ruleAction: RuleAction,
     ruleHitMeta: RuleHitMeta.optional(),
@@ -32,6 +33,7 @@ export declare namespace HitRulesDetails {
         ruleInstanceId: string;
         ruleName: string;
         ruleDescription: string;
+        versionId?: string | null;
         executedAt?: number | null;
         ruleAction: RuleAction.Raw;
         ruleHitMeta?: RuleHitMeta.Raw | null;

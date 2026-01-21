@@ -13,7 +13,8 @@ export type SanctionsDetailsEntityType =
     | "BANK_NAME"
     | "BANK_ACCOUNT_HOLDER_NAME"
     | "BUSINESS_PARTNER"
-    | "ASSOCIATED_PARTY";
+    | "ASSOCIATED_PARTY"
+    | "TRANSACTION_REFERENCE";
 export const SanctionsDetailsEntityType = {
     ConsumerName: "CONSUMER_NAME",
     LegalName: "LEGAL_NAME",
@@ -26,4 +27,5 @@ export const SanctionsDetailsEntityType = {
     BankAccountHolderName: "BANK_ACCOUNT_HOLDER_NAME",
     BusinessPartner: "BUSINESS_PARTNER",
     AssociatedParty: "ASSOCIATED_PARTY",
+    TransactionReference: "TRANSACTION_REFERENCE",
 } as const;

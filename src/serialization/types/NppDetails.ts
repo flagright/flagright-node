@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { CounterpartyType } from "./CounterpartyType";
 import { ConsumerName } from "./ConsumerName";
 import { EmailId } from "./EmailId";
 import { Tag } from "./Tag";
@@ -12,6 +13,7 @@ import { Address } from "./Address";
 
 export const NppDetails: core.serialization.ObjectSchema<serializers.NppDetails.Raw, Flagright.NppDetails> =
     core.serialization.object({
+        counterpartyType: CounterpartyType.optional(),
         accountNumber: core.serialization.string().optional(),
         name: ConsumerName.optional(),
         emailId: EmailId.optional(),
@@ -36,6 +38,7 @@ export const NppDetails: core.serialization.ObjectSchema<serializers.NppDetails.
 
 export declare namespace NppDetails {
     export interface Raw {
+        counterpartyType?: CounterpartyType.Raw | null;
         accountNumber?: string | null;
         name?: ConsumerName.Raw | null;
         emailId?: EmailId.Raw | null;

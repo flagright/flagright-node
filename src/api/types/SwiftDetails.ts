@@ -8,6 +8,7 @@ import * as Flagright from "../index";
  * Model for SWIFT payment method
  */
 export interface SwiftDetails {
+    counterpartyType?: Flagright.CounterpartyType;
     /** SWIFT code of the financial institution */
     swiftCode?: string;
     /** Account number */

@@ -5,6 +5,7 @@
 import * as Flagright from "../index";
 
 export interface CheckDetails {
+    counterpartyType?: Flagright.CounterpartyType;
     checkNumber?: string;
     checkIdentifier?: string;
     /** Routing number of the bank */

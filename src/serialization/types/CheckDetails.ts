@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { CounterpartyType } from "./CounterpartyType";
 import { CheckDeliveryStatus } from "./CheckDeliveryStatus";
 import { Address } from "./Address";
 import { CountryCode } from "./CountryCode";
@@ -12,6 +13,7 @@ import { Tag } from "./Tag";
 
 export const CheckDetails: core.serialization.ObjectSchema<serializers.CheckDetails.Raw, Flagright.CheckDetails> =
     core.serialization.object({
+        counterpartyType: CounterpartyType.optional(),
         checkNumber: core.serialization.string().optional(),
         checkIdentifier: core.serialization.string().optional(),
         routingNumber: core.serialization.string().optional(),
@@ -30,6 +32,7 @@ export const CheckDetails: core.serialization.ObjectSchema<serializers.CheckDeta
 
 export declare namespace CheckDetails {
     export interface Raw {
+        counterpartyType?: CounterpartyType.Raw | null;
         checkNumber?: string | null;
         checkIdentifier?: string | null;
         routingNumber?: string | null;

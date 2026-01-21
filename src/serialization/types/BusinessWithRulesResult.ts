@@ -10,7 +10,7 @@ import { UserStateDetails } from "./UserStateDetails";
 import { KycStatusDetails } from "./KycStatusDetails";
 import { CorporateEntityDetails } from "./CorporateEntityDetails";
 import { BusinessWithRulesResultShareHoldersItem } from "./BusinessWithRulesResultShareHoldersItem";
-import { Person } from "./Person";
+import { BusinessWithRulesResultDirectorsItem } from "./BusinessWithRulesResultDirectorsItem";
 import { BusinessWithRulesResultAssociatedPartiesItem } from "./BusinessWithRulesResultAssociatedPartiesItem";
 import { TransactionLimits } from "./TransactionLimits";
 import { RiskLevel } from "./RiskLevel";
@@ -41,7 +41,7 @@ export const BusinessWithRulesResult: core.serialization.ObjectSchema<
     eoddDate: core.serialization.number().optional(),
     corporateEntities: core.serialization.list(CorporateEntityDetails).optional(),
     shareHolders: core.serialization.list(BusinessWithRulesResultShareHoldersItem).optional(),
-    directors: core.serialization.list(Person).optional(),
+    directors: core.serialization.list(BusinessWithRulesResultDirectorsItem).optional(),
     associatedParties: core.serialization.list(BusinessWithRulesResultAssociatedPartiesItem).optional(),
     businessPartners: core.serialization.list(LegalEntity).optional(),
     transactionLimits: TransactionLimits.optional(),
@@ -78,7 +78,7 @@ export declare namespace BusinessWithRulesResult {
         eoddDate?: number | null;
         corporateEntities?: CorporateEntityDetails.Raw[] | null;
         shareHolders?: BusinessWithRulesResultShareHoldersItem.Raw[] | null;
-        directors?: Person.Raw[] | null;
+        directors?: BusinessWithRulesResultDirectorsItem.Raw[] | null;
         associatedParties?: BusinessWithRulesResultAssociatedPartiesItem.Raw[] | null;
         businessPartners?: LegalEntity.Raw[] | null;
         transactionLimits?: TransactionLimits.Raw | null;

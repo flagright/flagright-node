@@ -10,7 +10,7 @@ import { KycStatusDetails } from "./KycStatusDetails";
 import { LegalEntity } from "./LegalEntity";
 import { CorporateEntityDetails } from "./CorporateEntityDetails";
 import { BusinessOptionalShareHoldersItem } from "./BusinessOptionalShareHoldersItem";
-import { Person } from "./Person";
+import { BusinessOptionalDirectorsItem } from "./BusinessOptionalDirectorsItem";
 import { BusinessOptionalAssociatedPartiesItem } from "./BusinessOptionalAssociatedPartiesItem";
 import { TransactionLimits } from "./TransactionLimits";
 import { RiskLevel } from "./RiskLevel";
@@ -36,7 +36,7 @@ export const BusinessOptional: core.serialization.ObjectSchema<
     legalEntity: LegalEntity.optional(),
     corporateEntities: core.serialization.list(CorporateEntityDetails).optional(),
     shareHolders: core.serialization.list(BusinessOptionalShareHoldersItem).optional(),
-    directors: core.serialization.list(Person).optional(),
+    directors: core.serialization.list(BusinessOptionalDirectorsItem).optional(),
     associatedParties: core.serialization.list(BusinessOptionalAssociatedPartiesItem).optional(),
     businessPartners: core.serialization.list(LegalEntity).optional(),
     transactionLimits: TransactionLimits.optional(),
@@ -68,7 +68,7 @@ export declare namespace BusinessOptional {
         legalEntity?: LegalEntity.Raw | null;
         corporateEntities?: CorporateEntityDetails.Raw[] | null;
         shareHolders?: BusinessOptionalShareHoldersItem.Raw[] | null;
-        directors?: Person.Raw[] | null;
+        directors?: BusinessOptionalDirectorsItem.Raw[] | null;
         associatedParties?: BusinessOptionalAssociatedPartiesItem.Raw[] | null;
         businessPartners?: LegalEntity.Raw[] | null;
         transactionLimits?: TransactionLimits.Raw | null;

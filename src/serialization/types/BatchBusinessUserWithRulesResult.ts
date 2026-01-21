@@ -10,7 +10,7 @@ import { UserStateDetails } from "./UserStateDetails";
 import { KycStatusDetails } from "./KycStatusDetails";
 import { CorporateEntityDetails } from "./CorporateEntityDetails";
 import { BatchBusinessUserWithRulesResultShareHoldersItem } from "./BatchBusinessUserWithRulesResultShareHoldersItem";
-import { Person } from "./Person";
+import { BatchBusinessUserWithRulesResultDirectorsItem } from "./BatchBusinessUserWithRulesResultDirectorsItem";
 import { BatchBusinessUserWithRulesResultAssociatedPartiesItem } from "./BatchBusinessUserWithRulesResultAssociatedPartiesItem";
 import { TransactionLimits } from "./TransactionLimits";
 import { RiskLevel } from "./RiskLevel";
@@ -40,7 +40,7 @@ export const BatchBusinessUserWithRulesResult: core.serialization.ObjectSchema<
     eoddDate: core.serialization.number().optional(),
     corporateEntities: core.serialization.list(CorporateEntityDetails).optional(),
     shareHolders: core.serialization.list(BatchBusinessUserWithRulesResultShareHoldersItem).optional(),
-    directors: core.serialization.list(Person).optional(),
+    directors: core.serialization.list(BatchBusinessUserWithRulesResultDirectorsItem).optional(),
     associatedParties: core.serialization.list(BatchBusinessUserWithRulesResultAssociatedPartiesItem).optional(),
     businessPartners: core.serialization.list(LegalEntity).optional(),
     transactionLimits: TransactionLimits.optional(),
@@ -76,7 +76,7 @@ export declare namespace BatchBusinessUserWithRulesResult {
         eoddDate?: number | null;
         corporateEntities?: CorporateEntityDetails.Raw[] | null;
         shareHolders?: BatchBusinessUserWithRulesResultShareHoldersItem.Raw[] | null;
-        directors?: Person.Raw[] | null;
+        directors?: BatchBusinessUserWithRulesResultDirectorsItem.Raw[] | null;
         associatedParties?: BatchBusinessUserWithRulesResultAssociatedPartiesItem.Raw[] | null;
         businessPartners?: LegalEntity.Raw[] | null;
         transactionLimits?: TransactionLimits.Raw | null;

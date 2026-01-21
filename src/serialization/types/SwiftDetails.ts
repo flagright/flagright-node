@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { CounterpartyType } from "./CounterpartyType";
 import { Amount } from "./Amount";
 import { Address } from "./Address";
 import { CountryCode } from "./CountryCode";
@@ -14,6 +15,7 @@ import { Tag } from "./Tag";
 
 export const SwiftDetails: core.serialization.ObjectSchema<serializers.SwiftDetails.Raw, Flagright.SwiftDetails> =
     core.serialization.object({
+        counterpartyType: CounterpartyType.optional(),
         swiftCode: core.serialization.string().optional(),
         accountNumber: core.serialization.string().optional(),
         routingNumber: core.serialization.string().optional(),
@@ -33,6 +35,7 @@ export const SwiftDetails: core.serialization.ObjectSchema<serializers.SwiftDeta
 
 export declare namespace SwiftDetails {
     export interface Raw {
+        counterpartyType?: CounterpartyType.Raw | null;
         swiftCode?: string | null;
         accountNumber?: string | null;
         routingNumber?: string | null;

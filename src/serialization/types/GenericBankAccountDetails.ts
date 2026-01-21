@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { CounterpartyType } from "./CounterpartyType";
 import { Amount } from "./Amount";
 import { CountryCode } from "./CountryCode";
 import { Address } from "./Address";
@@ -15,6 +16,7 @@ export const GenericBankAccountDetails: core.serialization.ObjectSchema<
     serializers.GenericBankAccountDetails.Raw,
     Flagright.GenericBankAccountDetails
 > = core.serialization.object({
+    counterpartyType: CounterpartyType.optional(),
     accountNumber: core.serialization.string().optional(),
     accountType: core.serialization.string().optional(),
     accountBalance: Amount.optional(),
@@ -37,6 +39,7 @@ export const GenericBankAccountDetails: core.serialization.ObjectSchema<
 
 export declare namespace GenericBankAccountDetails {
     export interface Raw {
+        counterpartyType?: CounterpartyType.Raw | null;
         accountNumber?: string | null;
         accountType?: string | null;
         accountBalance?: Amount.Raw | null;

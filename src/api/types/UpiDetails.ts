@@ -8,6 +8,7 @@ import * as Flagright from "../index";
  * Model for UPI payment method
  */
 export interface UpiDetails {
+    counterpartyType?: Flagright.CounterpartyType;
     /** UPI Id number */
     upiId: string;
     /** Bank provider name */

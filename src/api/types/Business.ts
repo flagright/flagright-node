@@ -20,7 +20,7 @@ export interface Business {
     /** Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual */
     shareHolders?: Flagright.BusinessShareHoldersItem[];
     /** Director(s) of the company. Must be at least one */
-    directors?: Flagright.Person[];
+    directors?: Flagright.BusinessDirectorsItem[];
     /** Parties associated with the company. Can be another company or an individual */
     associatedParties?: Flagright.BusinessAssociatedPartiesItem[];
     /** Business partners of the company */

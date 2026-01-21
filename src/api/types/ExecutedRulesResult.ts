@@ -17,6 +17,7 @@ export interface ExecutedRulesResult {
     ruleDescription: string;
     ruleAction: Flagright.RuleAction;
     ruleHit: boolean;
+    versionId?: string;
     /** Timestamp when the rule was executed */
     executedAt?: number;
     ruleHitMeta?: Flagright.RuleHitMeta;

@@ -11,7 +11,7 @@ import * as Flagright from "../../../../index";
  *         page: 1.1
  *     }
  */
-export interface BatchGetRequest {
+export interface BatchGetConsumerUserEventsRequest {
     /**
      * Page size (default 20)
      */

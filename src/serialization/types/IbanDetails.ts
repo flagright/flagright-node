@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { CounterpartyType } from "./CounterpartyType";
 import { Address } from "./Address";
 import { CountryCode } from "./CountryCode";
 import { Amount } from "./Amount";
@@ -13,6 +14,7 @@ import { Tag } from "./Tag";
 
 export const IbanDetails: core.serialization.ObjectSchema<serializers.IbanDetails.Raw, Flagright.IbanDetails> =
     core.serialization.object({
+        counterpartyType: CounterpartyType.optional(),
         bic: core.serialization.property("BIC", core.serialization.string().optional()),
         bankName: core.serialization.string().optional(),
         bankAddress: Address.optional(),
@@ -31,6 +33,7 @@ export const IbanDetails: core.serialization.ObjectSchema<serializers.IbanDetail
 
 export declare namespace IbanDetails {
     export interface Raw {
+        counterpartyType?: CounterpartyType.Raw | null;
         BIC?: string | null;
         bankName?: string | null;
         bankAddress?: Address.Raw | null;

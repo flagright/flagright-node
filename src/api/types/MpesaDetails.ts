@@ -8,6 +8,7 @@ import * as Flagright from "../index";
  * Model for Mpesa payment method
  */
 export interface MpesaDetails {
+    counterpartyType?: Flagright.CounterpartyType;
     /** Business code */
     businessShortCode: string;
     transactionType: Flagright.MpesaTransactionType;

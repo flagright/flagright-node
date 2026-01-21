@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { CounterpartyType } from "./CounterpartyType";
 import { EmailId } from "./EmailId";
 import { Tag } from "./Tag";
 import { Amount } from "./Amount";
@@ -15,6 +16,7 @@ import { UserDetails } from "./UserDetails";
 
 export const WalletDetails: core.serialization.ObjectSchema<serializers.WalletDetails.Raw, Flagright.WalletDetails> =
     core.serialization.object({
+        counterpartyType: CounterpartyType.optional(),
         walletType: core.serialization.string().optional(),
         walletId: core.serialization.string().optional(),
         paymentChannel: core.serialization.string().optional(),
@@ -35,6 +37,7 @@ export const WalletDetails: core.serialization.ObjectSchema<serializers.WalletDe
 
 export declare namespace WalletDetails {
     export interface Raw {
+        counterpartyType?: CounterpartyType.Raw | null;
         walletType?: string | null;
         walletId?: string | null;
         paymentChannel?: string | null;

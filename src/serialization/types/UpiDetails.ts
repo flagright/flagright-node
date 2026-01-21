@@ -5,12 +5,14 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { CounterpartyType } from "./CounterpartyType";
 import { Address } from "./Address";
 import { EmailId } from "./EmailId";
 import { Tag } from "./Tag";
 
 export const UpiDetails: core.serialization.ObjectSchema<serializers.UpiDetails.Raw, Flagright.UpiDetails> =
     core.serialization.object({
+        counterpartyType: CounterpartyType.optional(),
         upiId: core.serialization.property("upiID", core.serialization.string()),
         bankProvider: core.serialization.string().optional(),
         interfaceProvider: core.serialization.string().optional(),
@@ -22,6 +24,7 @@ export const UpiDetails: core.serialization.ObjectSchema<serializers.UpiDetails.
 
 export declare namespace UpiDetails {
     export interface Raw {
+        counterpartyType?: CounterpartyType.Raw | null;
         upiID: string;
         bankProvider?: string | null;
         interfaceProvider?: string | null;

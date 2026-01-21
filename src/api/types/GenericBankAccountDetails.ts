@@ -8,6 +8,7 @@ import * as Flagright from "../index";
  * Model for any generic bank account
  */
 export interface GenericBankAccountDetails {
+    counterpartyType?: Flagright.CounterpartyType;
     /** Bank account number */
     accountNumber?: string;
     /** Bank account type. E.g. Checking, Savings etc. */
