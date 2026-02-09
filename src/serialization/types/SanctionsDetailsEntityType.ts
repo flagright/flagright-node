@@ -21,7 +21,9 @@ export const SanctionsDetailsEntityType: core.serialization.Schema<
     "BANK_ACCOUNT_HOLDER_NAME",
     "BUSINESS_PARTNER",
     "ASSOCIATED_PARTY",
+    "CONSUMER_ALIAS",
     "TRANSACTION_REFERENCE",
+    "TRANSACTION_TAG",
 ]);
 
 export declare namespace SanctionsDetailsEntityType {
@@ -37,5 +39,7 @@ export declare namespace SanctionsDetailsEntityType {
         | "BANK_ACCOUNT_HOLDER_NAME"
         | "BUSINESS_PARTNER"
         | "ASSOCIATED_PARTY"
-        | "TRANSACTION_REFERENCE";
+        | "CONSUMER_ALIAS"
+        | "TRANSACTION_REFERENCE"
+        | "TRANSACTION_TAG";
 }

@@ -32,7 +32,8 @@ export type WalletNetwork =
     | "HEDERA"
     | "ALGORAND"
     | "CELESTIA"
-    | "BASE";
+    | "BASE"
+    | "SUI";
 export const WalletNetwork = {
     Bitcoin: "BITCOIN",
     Ethereum: "ETHEREUM",
@@ -61,4 +62,5 @@ export const WalletNetwork = {
     Algorand: "ALGORAND",
     Celestia: "CELESTIA",
     Base: "BASE",
+    Sui: "SUI",
 } as const;

@@ -14,6 +14,7 @@ import { ContactDetails } from "./ContactDetails";
 import { EmploymentDetails } from "./EmploymentDetails";
 import { TransactionLimits } from "./TransactionLimits";
 import { ExpectedIncome } from "./ExpectedIncome";
+import { ExpectedTransactionCountries } from "./ExpectedTransactionCountries";
 import { RiskLevel } from "./RiskLevel";
 import { AcquisitionChannel } from "./AcquisitionChannel";
 import { SourceOfFunds } from "./SourceOfFunds";
@@ -49,6 +50,7 @@ export const BatchConsumerUserWithRulesResult: core.serialization.ObjectSchema<
     employmentDetails: EmploymentDetails.optional(),
     transactionLimits: TransactionLimits.optional(),
     expectedIncome: ExpectedIncome.optional(),
+    expectedTransactionCountries: ExpectedTransactionCountries.optional(),
     riskLevel: RiskLevel.optional(),
     kycRiskLevel: RiskLevel.optional(),
     acquisitionChannel: AcquisitionChannel.optional(),
@@ -88,6 +90,7 @@ export declare namespace BatchConsumerUserWithRulesResult {
         employmentDetails?: EmploymentDetails.Raw | null;
         transactionLimits?: TransactionLimits.Raw | null;
         expectedIncome?: ExpectedIncome.Raw | null;
+        expectedTransactionCountries?: ExpectedTransactionCountries.Raw | null;
         riskLevel?: RiskLevel.Raw | null;
         kycRiskLevel?: RiskLevel.Raw | null;
         acquisitionChannel?: AcquisitionChannel.Raw | null;

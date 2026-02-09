@@ -15,6 +15,8 @@ export declare namespace BusinessUserEvents {
         /** Specify a custom URL to connect the client to. */
         baseUrl?: core.Supplier<string>;
         apiKey: core.Supplier<string>;
+        /** Override the Authorization header */
+        authorization: core.Supplier<string>;
     }
 
     export interface RequestOptions {
@@ -24,6 +26,8 @@ export declare namespace BusinessUserEvents {
         maxRetries?: number;
         /** A hook to abort the request. */
         abortSignal?: AbortSignal;
+        /** Override the Authorization header */
+        authorization?: string;
         /** Additional headers to include in the request. */
         headers?: Record<string, string>;
     }
@@ -114,8 +118,8 @@ export class BusinessUserEvents {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.38",
-                "User-Agent": "flagright/1.8.38",
+                "X-Fern-SDK-Version": "1.8.39",
+                "User-Agent": "flagright/1.8.39",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -245,8 +249,8 @@ export class BusinessUserEvents {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.38",
-                "User-Agent": "flagright/1.8.38",
+                "X-Fern-SDK-Version": "1.8.39",
+                "User-Agent": "flagright/1.8.39",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -331,7 +335,8 @@ export class BusinessUserEvents {
     }
 
     protected async _getCustomAuthorizationHeaders() {
+        const authorizationValue = await core.Supplier.get(this._options.authorization);
         const apiKeyValue = await core.Supplier.get(this._options.apiKey);
-        return { "x-api-key": apiKeyValue };
+        return { Authorization: authorizationValue, "x-api-key": apiKeyValue };
     }
 }

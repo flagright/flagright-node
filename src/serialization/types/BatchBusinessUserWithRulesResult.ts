@@ -13,6 +13,7 @@ import { BatchBusinessUserWithRulesResultShareHoldersItem } from "./BatchBusines
 import { BatchBusinessUserWithRulesResultDirectorsItem } from "./BatchBusinessUserWithRulesResultDirectorsItem";
 import { BatchBusinessUserWithRulesResultAssociatedPartiesItem } from "./BatchBusinessUserWithRulesResultAssociatedPartiesItem";
 import { TransactionLimits } from "./TransactionLimits";
+import { ExpectedTransactionCountries } from "./ExpectedTransactionCountries";
 import { RiskLevel } from "./RiskLevel";
 import { PaymentMethod } from "./PaymentMethod";
 import { UserEntityLink } from "./UserEntityLink";
@@ -44,6 +45,7 @@ export const BatchBusinessUserWithRulesResult: core.serialization.ObjectSchema<
     associatedParties: core.serialization.list(BatchBusinessUserWithRulesResultAssociatedPartiesItem).optional(),
     businessPartners: core.serialization.list(LegalEntity).optional(),
     transactionLimits: TransactionLimits.optional(),
+    expectedTransactionCountries: ExpectedTransactionCountries.optional(),
     riskLevel: RiskLevel.optional(),
     kycRiskLevel: RiskLevel.optional(),
     allowedPaymentMethods: core.serialization.list(PaymentMethod).optional(),
@@ -80,6 +82,7 @@ export declare namespace BatchBusinessUserWithRulesResult {
         associatedParties?: BatchBusinessUserWithRulesResultAssociatedPartiesItem.Raw[] | null;
         businessPartners?: LegalEntity.Raw[] | null;
         transactionLimits?: TransactionLimits.Raw | null;
+        expectedTransactionCountries?: ExpectedTransactionCountries.Raw | null;
         riskLevel?: RiskLevel.Raw | null;
         kycRiskLevel?: RiskLevel.Raw | null;
         allowedPaymentMethods?: PaymentMethod.Raw[] | null;

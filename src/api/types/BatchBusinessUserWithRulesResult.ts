@@ -26,6 +26,7 @@ export interface BatchBusinessUserWithRulesResult {
     /** Business partners of the company */
     businessPartners?: Flagright.LegalEntity[];
     transactionLimits?: Flagright.TransactionLimits;
+    expectedTransactionCountries?: Flagright.ExpectedTransactionCountries;
     riskLevel?: Flagright.RiskLevel;
     kycRiskLevel?: Flagright.RiskLevel;
     allowedPaymentMethods?: Flagright.PaymentMethod[];

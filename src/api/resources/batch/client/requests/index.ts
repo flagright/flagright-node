@@ -4,9 +4,9 @@ export { type TransactionEventBatchRequest } from "./TransactionEventBatchReques
 export { type BatchGetTransactionEventsRequest } from "./BatchGetTransactionEventsRequest";
 export { type UserBatchRequest } from "./UserBatchRequest";
 export { type BatchGetConsumerUsersRequest } from "./BatchGetConsumerUsersRequest";
-export { type BatchGetBusinessUsersRequest } from "./BatchGetBusinessUsersRequest";
 export { type BusinessBatchRequest } from "./BusinessBatchRequest";
-export { type BatchGetConsumerUserEventsRequest } from "./BatchGetConsumerUserEventsRequest";
-export { type BatchGetBusinessUserEventsRequest } from "./BatchGetBusinessUserEventsRequest";
+export { type BatchGetBusinessUsersRequest } from "./BatchGetBusinessUsersRequest";
 export { type ConsumerUserEventBatchRequest } from "./ConsumerUserEventBatchRequest";
+export { type BatchGetConsumerUserEventsRequest } from "./BatchGetConsumerUserEventsRequest";
 export { type BusinessUserEventBatchRequest } from "./BusinessUserEventBatchRequest";
+export { type BatchGetBusinessUserEventsRequest } from "./BatchGetBusinessUserEventsRequest";

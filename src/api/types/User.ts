@@ -23,6 +23,7 @@ export interface User {
     employmentDetails?: Flagright.EmploymentDetails;
     transactionLimits?: Flagright.TransactionLimits;
     expectedIncome?: Flagright.ExpectedIncome;
+    expectedTransactionCountries?: Flagright.ExpectedTransactionCountries;
     riskLevel?: Flagright.RiskLevel;
     kycRiskLevel?: Flagright.RiskLevel;
     acquisitionChannel?: Flagright.AcquisitionChannel;

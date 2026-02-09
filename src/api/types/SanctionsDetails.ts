@@ -12,4 +12,5 @@ export interface SanctionsDetails {
     sanctionHitIds?: string[];
     hitContext?: Flagright.SanctionsHitContext;
     hitDirection?: Flagright.RuleHitDirection;
+    isRuleHit?: boolean;
 }

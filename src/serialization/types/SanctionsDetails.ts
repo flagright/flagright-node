@@ -20,6 +20,7 @@ export const SanctionsDetails: core.serialization.ObjectSchema<
     sanctionHitIds: core.serialization.list(core.serialization.string()).optional(),
     hitContext: SanctionsHitContext.optional(),
     hitDirection: RuleHitDirection.optional(),
+    isRuleHit: core.serialization.boolean().optional(),
 });
 
 export declare namespace SanctionsDetails {
@@ -31,5 +32,6 @@ export declare namespace SanctionsDetails {
         sanctionHitIds?: string[] | null;
         hitContext?: SanctionsHitContext.Raw | null;
         hitDirection?: RuleHitDirection.Raw | null;
+        isRuleHit?: boolean | null;
     }
 }

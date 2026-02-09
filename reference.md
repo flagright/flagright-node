@@ -567,6 +567,70 @@ await client.batch.getConsumerUsers("batchId", {
 </dl>
 </details>
 
+<details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">createBusinessUsers</a>({ ...params }) -> Flagright.BatchResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.batch.createBusinessUsers({
+    lockCraRiskLevel: "true",
+    lockKycRiskLevel: "true",
+    data: [
+        {
+            userId: "userId",
+            createdTimestamp: 1.1,
+            legalEntity: {
+                companyGeneralDetails: {
+                    legalName: "Ozkan Hazelnut Export JSC",
+                    businessIndustry: ["Farming"],
+                    mainProductsServicesSold: ["Hazelnut"],
+                },
+            },
+        },
+    ],
+});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Flagright.BusinessBatchRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Batch.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">getBusinessUsers</a>(batchId, { ...params }) -> Flagright.BatchBusinessUsersWithRulesResults</code></summary>
 <dl>
 <dd>
@@ -626,7 +690,7 @@ await client.batch.getBusinessUsers("batchId", {
 </dl>
 </details>
 
-<details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">createBusinessUsers</a>({ ...params }) -> Flagright.BatchResponse</code></summary>
+<details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">createConsumerUserEvents</a>({ ...params }) -> Flagright.BatchResponse</code></summary>
 <dl>
 <dd>
 
@@ -639,20 +703,13 @@ await client.batch.getBusinessUsers("batchId", {
 <dd>
 
 ```typescript
-await client.batch.createBusinessUsers({
+await client.batch.createConsumerUserEvents({
     lockCraRiskLevel: "true",
     lockKycRiskLevel: "true",
     data: [
         {
+            timestamp: 1.1,
             userId: "userId",
-            createdTimestamp: 1.1,
-            legalEntity: {
-                companyGeneralDetails: {
-                    legalName: "Ozkan Hazelnut Export JSC",
-                    businessIndustry: ["Farming"],
-                    mainProductsServicesSold: ["Hazelnut"],
-                },
-            },
         },
     ],
 });
@@ -671,7 +728,7 @@ await client.batch.createBusinessUsers({
 <dl>
 <dd>
 
-**request:** `Flagright.BusinessBatchRequest`
+**request:** `Flagright.ConsumerUserEventBatchRequest`
 
 </dd>
 </dl>
@@ -749,6 +806,63 @@ await client.batch.getConsumerUserEvents("batchId", {
 </dl>
 </details>
 
+<details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">createBusinessUserEvents</a>({ ...params }) -> Flagright.BatchResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.batch.createBusinessUserEvents({
+    lockCraRiskLevel: "true",
+    lockKycRiskLevel: "true",
+    data: [
+        {
+            timestamp: 1.1,
+            userId: "userId",
+        },
+    ],
+});
+```
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Flagright.BusinessUserEventBatchRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `Batch.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">getBusinessUserEvents</a>(batchId, { ...params }) -> Flagright.BatchBusinessUserEventsWithRulesResult</code></summary>
 <dl>
 <dd>
@@ -790,120 +904,6 @@ await client.batch.getBusinessUserEvents("batchId", {
 <dd>
 
 **request:** `Flagright.BatchGetBusinessUserEventsRequest`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `Batch.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">createConsumerUserEvents</a>({ ...params }) -> Flagright.BatchResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.batch.createConsumerUserEvents({
-    lockCraRiskLevel: "true",
-    lockKycRiskLevel: "true",
-    data: [
-        {
-            timestamp: 1.1,
-            userId: "userId",
-        },
-    ],
-});
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Flagright.ConsumerUserEventBatchRequest`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `Batch.RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.batch.<a href="/src/api/resources/batch/client/Client.ts">createBusinessUserEvents</a>({ ...params }) -> Flagright.BatchResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.batch.createBusinessUserEvents({
-    lockCraRiskLevel: "true",
-    lockKycRiskLevel: "true",
-    data: [
-        {
-            timestamp: 1.1,
-            userId: "userId",
-        },
-    ],
-});
-```
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Flagright.BusinessUserEventBatchRequest`
 
 </dd>
 </dl>
