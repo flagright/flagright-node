@@ -17,7 +17,6 @@ export const BusinessUserEvent: core.serialization.ObjectSchema<
     reason: core.serialization.string().optional(),
     eventDescription: core.serialization.string().optional(),
     updatedBusinessUserAttributes: BusinessOptional.optional(),
-    updateCount: core.serialization.number().optional(),
 });
 
 export declare namespace BusinessUserEvent {
@@ -28,6 +27,5 @@ export declare namespace BusinessUserEvent {
         reason?: string | null;
         eventDescription?: string | null;
         updatedBusinessUserAttributes?: BusinessOptional.Raw | null;
-        updateCount?: number | null;
     }
 }

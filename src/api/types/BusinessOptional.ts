@@ -29,8 +29,6 @@ export interface BusinessOptional {
     riskLevel?: Flagright.RiskLevel;
     kycRiskLevel?: Flagright.RiskLevel;
     allowedPaymentMethods?: Flagright.PaymentMethod[];
-    /** Timestamp of the last successful transaction of the user */
-    lastTransactionTimestamp?: number;
     linkedEntities?: Flagright.UserEntityLink;
     acquisitionChannel?: Flagright.AcquisitionChannel;
     savedPaymentDetails?: Flagright.BusinessOptionalSavedPaymentDetailsItem[];
@@ -42,7 +40,6 @@ export interface BusinessOptional {
     metaData?: Flagright.DeviceData;
     /** Legal authority or region governing the transaction */
     jurisdiction?: string;
-    updateCount?: number;
     productsEnabled?: Flagright.ProductsEnabled[];
     pepStatus?: Flagright.PepStatus[];
     /** Whether the user is sanctioned */

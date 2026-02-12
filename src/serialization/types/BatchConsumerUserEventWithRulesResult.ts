@@ -19,7 +19,6 @@ export const BatchConsumerUserEventWithRulesResult: core.serialization.ObjectSch
     reason: core.serialization.string().optional(),
     eventDescription: core.serialization.string().optional(),
     updatedConsumerUserAttributes: UserOptional.optional(),
-    updateCount: core.serialization.number().optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     riskScoreDetails: UserRiskScoreDetails.optional(),
 });
@@ -32,7 +31,6 @@ export declare namespace BatchConsumerUserEventWithRulesResult {
         reason?: string | null;
         eventDescription?: string | null;
         updatedConsumerUserAttributes?: UserOptional.Raw | null;
-        updateCount?: number | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         riskScoreDetails?: UserRiskScoreDetails.Raw | null;
     }

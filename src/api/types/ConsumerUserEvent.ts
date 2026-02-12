@@ -19,5 +19,4 @@ export interface ConsumerUserEvent {
     /** Event description */
     eventDescription?: string;
     updatedConsumerUserAttributes?: Flagright.UserOptional;
-    updateCount?: number;
 }

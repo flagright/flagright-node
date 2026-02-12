@@ -193,6 +193,7 @@ export type CurrencyCode =
     | "HRK"
     | "HTG"
     | "HUF"
+    | "HYPE"
     | "ICP"
     | "IDEX"
     | "IDR"
@@ -700,6 +701,7 @@ export const CurrencyCode = {
     Hrk: "HRK",
     Htg: "HTG",
     Huf: "HUF",
+    Hype: "HYPE",
     Icp: "ICP",
     Idex: "IDEX",
     Idr: "IDR",

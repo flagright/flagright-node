@@ -16,7 +16,6 @@ export interface BatchConsumerUserEventWithRulesResult {
     /** Event description */
     eventDescription?: string;
     updatedConsumerUserAttributes?: Flagright.UserOptional;
-    updateCount?: number;
     executedRules?: Flagright.ExecutedRulesResult[];
     riskScoreDetails?: Flagright.UserRiskScoreDetails;
 }

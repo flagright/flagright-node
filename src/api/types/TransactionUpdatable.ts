@@ -30,6 +30,4 @@ export interface TransactionUpdatable {
     tags?: Flagright.Tag[];
     /** Legal authority or region governing the transaction */
     jurisdiction?: string;
-    updateCount?: number;
-    paymentApprovalTimestamp?: number;
 }

@@ -24,7 +24,6 @@ export const BatchTransactionEventMonitoringResult: core.serialization.ObjectSch
     eventDescription: core.serialization.string().optional(),
     updatedTransactionAttributes: TransactionUpdatable.optional(),
     metaData: DeviceData.optional(),
-    updateCount: core.serialization.number().optional(),
     hitRules: core.serialization.list(HitRulesDetails).optional(),
     status: RuleAction.optional(),
     riskScoreDetails: TransactionRiskScoringResult.optional(),
@@ -40,7 +39,6 @@ export declare namespace BatchTransactionEventMonitoringResult {
         eventDescription?: string | null;
         updatedTransactionAttributes?: TransactionUpdatable.Raw | null;
         metaData?: DeviceData.Raw | null;
-        updateCount?: number | null;
         hitRules?: HitRulesDetails.Raw[] | null;
         status?: RuleAction.Raw | null;
         riskScoreDetails?: TransactionRiskScoringResult.Raw | null;

@@ -17,7 +17,6 @@ export const ConsumerUserEvent: core.serialization.ObjectSchema<
     reason: core.serialization.string().optional(),
     eventDescription: core.serialization.string().optional(),
     updatedConsumerUserAttributes: UserOptional.optional(),
-    updateCount: core.serialization.number().optional(),
 });
 
 export declare namespace ConsumerUserEvent {
@@ -28,6 +27,5 @@ export declare namespace ConsumerUserEvent {
         reason?: string | null;
         eventDescription?: string | null;
         updatedConsumerUserAttributes?: UserOptional.Raw | null;
-        updateCount?: number | null;
     }
 }

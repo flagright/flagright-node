@@ -21,6 +21,7 @@ export const WalletNetwork: core.serialization.Schema<serializers.WalletNetwork.
         "LITECOIN",
         "BITCOIN_CASH",
         "RIPPLE",
+        "HYPERLIQUID",
         "STELLAR",
         "EOS_PUBLIC",
         "TRON",
@@ -53,6 +54,7 @@ export declare namespace WalletNetwork {
         | "LITECOIN"
         | "BITCOIN_CASH"
         | "RIPPLE"
+        | "HYPERLIQUID"
         | "STELLAR"
         | "EOS_PUBLIC"
         | "TRON"

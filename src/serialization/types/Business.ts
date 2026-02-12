@@ -45,7 +45,6 @@ export const Business: core.serialization.ObjectSchema<serializers.Business.Raw,
         riskLevel: RiskLevel.optional(),
         kycRiskLevel: RiskLevel.optional(),
         allowedPaymentMethods: core.serialization.list(PaymentMethod).optional(),
-        lastTransactionTimestamp: core.serialization.number().optional(),
         linkedEntities: UserEntityLink.optional(),
         acquisitionChannel: AcquisitionChannel.optional(),
         savedPaymentDetails: core.serialization.list(BusinessSavedPaymentDetailsItem).optional(),
@@ -54,7 +53,6 @@ export const Business: core.serialization.ObjectSchema<serializers.Business.Raw,
         attachments: core.serialization.list(PersonAttachment).optional(),
         metaData: DeviceData.optional(),
         jurisdiction: core.serialization.string().optional(),
-        updateCount: core.serialization.number().optional(),
         productsEnabled: core.serialization.list(ProductsEnabled).optional(),
         pepStatus: core.serialization.list(PepStatus).optional(),
         sanctionsStatus: core.serialization.boolean().optional(),
@@ -80,7 +78,6 @@ export declare namespace Business {
         riskLevel?: RiskLevel.Raw | null;
         kycRiskLevel?: RiskLevel.Raw | null;
         allowedPaymentMethods?: PaymentMethod.Raw[] | null;
-        lastTransactionTimestamp?: number | null;
         linkedEntities?: UserEntityLink.Raw | null;
         acquisitionChannel?: AcquisitionChannel.Raw | null;
         savedPaymentDetails?: BusinessSavedPaymentDetailsItem.Raw[] | null;
@@ -89,7 +86,6 @@ export declare namespace Business {
         attachments?: PersonAttachment.Raw[] | null;
         metaData?: DeviceData.Raw | null;
         jurisdiction?: string | null;
-        updateCount?: number | null;
         productsEnabled?: ProductsEnabled.Raw[] | null;
         pepStatus?: PepStatus.Raw[] | null;
         sanctionsStatus?: boolean | null;

@@ -19,6 +19,7 @@ export type WalletNetwork =
     | "LITECOIN"
     | "BITCOIN_CASH"
     | "RIPPLE"
+    | "HYPERLIQUID"
     | "STELLAR"
     | "EOS_PUBLIC"
     | "TRON"
@@ -48,6 +49,7 @@ export const WalletNetwork = {
     Litecoin: "LITECOIN",
     BitcoinCash: "BITCOIN_CASH",
     Ripple: "RIPPLE",
+    Hyperliquid: "HYPERLIQUID",
     Stellar: "STELLAR",
     EosPublic: "EOS_PUBLIC",
     Tron: "TRON",

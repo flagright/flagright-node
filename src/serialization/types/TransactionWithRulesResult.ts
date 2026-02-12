@@ -44,8 +44,6 @@ export const TransactionWithRulesResult: core.serialization.ObjectSchema<
     metadata: TransactionMetadata.optional(),
     tags: core.serialization.list(Tag).optional(),
     jurisdiction: core.serialization.string().optional(),
-    updateCount: core.serialization.number().optional(),
-    paymentApprovalTimestamp: core.serialization.number().optional(),
     executedRules: core.serialization.list(ExecutedRulesResult),
     hitRules: core.serialization.list(HitRulesDetails),
     status: RuleAction,
@@ -75,8 +73,6 @@ export declare namespace TransactionWithRulesResult {
         metadata?: TransactionMetadata.Raw | null;
         tags?: Tag.Raw[] | null;
         jurisdiction?: string | null;
-        updateCount?: number | null;
-        paymentApprovalTimestamp?: number | null;
         executedRules: ExecutedRulesResult.Raw[];
         hitRules: HitRulesDetails.Raw[];
         status: RuleAction.Raw;

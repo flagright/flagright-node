@@ -33,8 +33,6 @@ export interface BatchConsumerUserWithRulesResult {
     pepStatus?: Flagright.PepStatus[];
     sanctionsStatus?: Flagright.SanctionsStatus;
     adverseMediaStatus?: Flagright.AdverseMediaStatus;
-    /** Timestamp of the last successful transaction of the user */
-    lastTransactionTimestamp?: number;
     /** Corporate entities of the user */
     corporateEntities?: Flagright.CorporateEntityDetails[];
     linkedEntities?: Flagright.UserEntityLink;
@@ -46,7 +44,6 @@ export interface BatchConsumerUserWithRulesResult {
     metaData?: Flagright.DeviceData;
     /** Legal authority or region governing the transaction */
     jurisdiction?: string;
-    updateCount?: number;
     productsEnabled?: Flagright.ProductsEnabled[];
     executedRules?: Flagright.ExecutedRulesResult[];
     riskScoreDetails?: Flagright.UserRiskScoreDetails;

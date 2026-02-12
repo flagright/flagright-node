@@ -21,5 +21,4 @@ export interface TransactionEvent {
     eventDescription?: string;
     updatedTransactionAttributes?: Flagright.TransactionUpdatable;
     metaData?: Flagright.DeviceData;
-    updateCount?: number;
 }

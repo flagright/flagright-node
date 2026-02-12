@@ -33,8 +33,6 @@ export const TransactionUpdatable: core.serialization.ObjectSchema<
     metadata: TransactionMetadata.optional(),
     tags: core.serialization.list(Tag).optional(),
     jurisdiction: core.serialization.string().optional(),
-    updateCount: core.serialization.number().optional(),
-    paymentApprovalTimestamp: core.serialization.number().optional(),
 });
 
 export declare namespace TransactionUpdatable {
@@ -54,7 +52,5 @@ export declare namespace TransactionUpdatable {
         metadata?: TransactionMetadata.Raw | null;
         tags?: Tag.Raw[] | null;
         jurisdiction?: string | null;
-        updateCount?: number | null;
-        paymentApprovalTimestamp?: number | null;
     }
 }

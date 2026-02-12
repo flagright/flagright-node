@@ -16,7 +16,6 @@ export interface ConsumerUserEventWithRulesResult {
     /** Event description */
     eventDescription?: string;
     updatedConsumerUserAttributes?: Flagright.UserOptional;
-    updateCount?: number;
     executedRules?: Flagright.ExecutedRulesResult[];
     hitRules?: Flagright.HitRulesDetails[];
     riskScoreDetails?: Flagright.UserRiskScoreDetails;

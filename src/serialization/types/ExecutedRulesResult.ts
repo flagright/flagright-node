@@ -10,7 +10,6 @@ import { RuleHitMeta } from "./RuleHitMeta";
 import { ExecutedLogicVars } from "./ExecutedLogicVars";
 import { RuleLabels } from "./RuleLabels";
 import { RuleNature } from "./RuleNature";
-import { RuleExecutionSanctionsDetails } from "./RuleExecutionSanctionsDetails";
 
 export const ExecutedRulesResult: core.serialization.ObjectSchema<
     serializers.ExecutedRulesResult.Raw,
@@ -29,7 +28,6 @@ export const ExecutedRulesResult: core.serialization.ObjectSchema<
     labels: core.serialization.list(RuleLabels).optional(),
     nature: RuleNature.optional(),
     isShadow: core.serialization.boolean().optional(),
-    sanctionsDetails: core.serialization.list(RuleExecutionSanctionsDetails).optional(),
 });
 
 export declare namespace ExecutedRulesResult {
@@ -47,6 +45,5 @@ export declare namespace ExecutedRulesResult {
         labels?: RuleLabels.Raw[] | null;
         nature?: RuleNature.Raw | null;
         isShadow?: boolean | null;
-        sanctionsDetails?: RuleExecutionSanctionsDetails.Raw[] | null;
     }
 }

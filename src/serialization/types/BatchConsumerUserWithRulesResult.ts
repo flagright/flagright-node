@@ -60,7 +60,6 @@ export const BatchConsumerUserWithRulesResult: core.serialization.ObjectSchema<
     pepStatus: core.serialization.list(PepStatus).optional(),
     sanctionsStatus: SanctionsStatus.optional(),
     adverseMediaStatus: AdverseMediaStatus.optional(),
-    lastTransactionTimestamp: core.serialization.number().optional(),
     corporateEntities: core.serialization.list(CorporateEntityDetails).optional(),
     linkedEntities: UserEntityLink.optional(),
     savedPaymentDetails: core.serialization.list(BatchConsumerUserWithRulesResultSavedPaymentDetailsItem).optional(),
@@ -68,7 +67,6 @@ export const BatchConsumerUserWithRulesResult: core.serialization.ObjectSchema<
     attachments: core.serialization.list(PersonAttachment).optional(),
     metaData: DeviceData.optional(),
     jurisdiction: core.serialization.string().optional(),
-    updateCount: core.serialization.number().optional(),
     productsEnabled: core.serialization.list(ProductsEnabled).optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     riskScoreDetails: UserRiskScoreDetails.optional(),
@@ -100,7 +98,6 @@ export declare namespace BatchConsumerUserWithRulesResult {
         pepStatus?: PepStatus.Raw[] | null;
         sanctionsStatus?: SanctionsStatus.Raw | null;
         adverseMediaStatus?: AdverseMediaStatus.Raw | null;
-        lastTransactionTimestamp?: number | null;
         corporateEntities?: CorporateEntityDetails.Raw[] | null;
         linkedEntities?: UserEntityLink.Raw | null;
         savedPaymentDetails?: BatchConsumerUserWithRulesResultSavedPaymentDetailsItem.Raw[] | null;
@@ -108,7 +105,6 @@ export declare namespace BatchConsumerUserWithRulesResult {
         attachments?: PersonAttachment.Raw[] | null;
         metaData?: DeviceData.Raw | null;
         jurisdiction?: string | null;
-        updateCount?: number | null;
         productsEnabled?: ProductsEnabled.Raw[] | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         riskScoreDetails?: UserRiskScoreDetails.Raw | null;

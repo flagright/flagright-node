@@ -54,7 +54,6 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
         pepStatus: core.serialization.list(PepStatus).optional(),
         sanctionsStatus: SanctionsStatus.optional(),
         adverseMediaStatus: AdverseMediaStatus.optional(),
-        lastTransactionTimestamp: core.serialization.number().optional(),
         corporateEntities: core.serialization.list(CorporateEntityDetails).optional(),
         linkedEntities: UserEntityLink.optional(),
         savedPaymentDetails: core.serialization.list(UserOptionalSavedPaymentDetailsItem).optional(),
@@ -62,7 +61,6 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
         attachments: core.serialization.list(PersonAttachment).optional(),
         metaData: DeviceData.optional(),
         jurisdiction: core.serialization.string().optional(),
-        updateCount: core.serialization.number().optional(),
         productsEnabled: core.serialization.list(ProductsEnabled).optional(),
     });
 
@@ -90,7 +88,6 @@ export declare namespace UserOptional {
         pepStatus?: PepStatus.Raw[] | null;
         sanctionsStatus?: SanctionsStatus.Raw | null;
         adverseMediaStatus?: AdverseMediaStatus.Raw | null;
-        lastTransactionTimestamp?: number | null;
         corporateEntities?: CorporateEntityDetails.Raw[] | null;
         linkedEntities?: UserEntityLink.Raw | null;
         savedPaymentDetails?: UserOptionalSavedPaymentDetailsItem.Raw[] | null;
@@ -98,7 +95,6 @@ export declare namespace UserOptional {
         attachments?: PersonAttachment.Raw[] | null;
         metaData?: DeviceData.Raw | null;
         jurisdiction?: string | null;
-        updateCount?: number | null;
         productsEnabled?: ProductsEnabled.Raw[] | null;
     }
 }

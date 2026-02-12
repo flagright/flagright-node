@@ -198,6 +198,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "HRK",
         "HTG",
         "HUF",
+        "HYPE",
         "ICP",
         "IDEX",
         "IDR",
@@ -708,6 +709,7 @@ export declare namespace CurrencyCode {
         | "HRK"
         | "HTG"
         | "HUF"
+        | "HYPE"
         | "ICP"
         | "IDEX"
         | "IDR"

@@ -55,7 +55,6 @@ export const User: core.serialization.ObjectSchema<serializers.User.Raw, Flagrig
     pepStatus: core.serialization.list(PepStatus).optional(),
     sanctionsStatus: SanctionsStatus.optional(),
     adverseMediaStatus: AdverseMediaStatus.optional(),
-    lastTransactionTimestamp: core.serialization.number().optional(),
     corporateEntities: core.serialization.list(CorporateEntityDetails).optional(),
     linkedEntities: UserEntityLink.optional(),
     savedPaymentDetails: core.serialization.list(UserSavedPaymentDetailsItem).optional(),
@@ -63,7 +62,6 @@ export const User: core.serialization.ObjectSchema<serializers.User.Raw, Flagrig
     attachments: core.serialization.list(PersonAttachment).optional(),
     metaData: DeviceData.optional(),
     jurisdiction: core.serialization.string().optional(),
-    updateCount: core.serialization.number().optional(),
     productsEnabled: core.serialization.list(ProductsEnabled).optional(),
 });
 
@@ -93,7 +91,6 @@ export declare namespace User {
         pepStatus?: PepStatus.Raw[] | null;
         sanctionsStatus?: SanctionsStatus.Raw | null;
         adverseMediaStatus?: AdverseMediaStatus.Raw | null;
-        lastTransactionTimestamp?: number | null;
         corporateEntities?: CorporateEntityDetails.Raw[] | null;
         linkedEntities?: UserEntityLink.Raw | null;
         savedPaymentDetails?: UserSavedPaymentDetailsItem.Raw[] | null;
@@ -101,7 +98,6 @@ export declare namespace User {
         attachments?: PersonAttachment.Raw[] | null;
         metaData?: DeviceData.Raw | null;
         jurisdiction?: string | null;
-        updateCount?: number | null;
         productsEnabled?: ProductsEnabled.Raw[] | null;
     }
 }
