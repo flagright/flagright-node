@@ -18,8 +18,6 @@ export declare namespace FlagrightClient {
         /** Specify a custom URL to connect the client to. */
         baseUrl?: core.Supplier<string>;
         apiKey: core.Supplier<string>;
-        /** Override the Authorization header */
-        authorization: core.Supplier<string>;
     }
 
     export interface RequestOptions {
@@ -29,8 +27,6 @@ export declare namespace FlagrightClient {
         maxRetries?: number;
         /** A hook to abort the request. */
         abortSignal?: AbortSignal;
-        /** Override the Authorization header */
-        authorization?: string;
         /** Additional headers to include in the request. */
         headers?: Record<string, string>;
     }
