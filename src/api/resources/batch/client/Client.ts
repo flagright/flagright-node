@@ -88,8 +88,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.43",
-                "User-Agent": "flagright/1.8.43",
+                "X-Fern-SDK-Version": "1.8.44",
+                "User-Agent": "flagright/1.8.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -222,8 +222,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.43",
-                "User-Agent": "flagright/1.8.43",
+                "X-Fern-SDK-Version": "1.8.44",
+                "User-Agent": "flagright/1.8.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -314,7 +314,6 @@ export class Batch {
      *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
-     * @throws {@link Flagright.ConflictError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
      * @example
@@ -348,8 +347,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.43",
-                "User-Agent": "flagright/1.8.43",
+                "X-Fern-SDK-Version": "1.8.44",
+                "User-Agent": "flagright/1.8.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -388,16 +387,6 @@ export class Batch {
                     );
                 case 401:
                     throw new Flagright.UnauthorizedError(
-                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
-                            unrecognizedObjectKeys: "passthrough",
-                            allowUnrecognizedUnionMembers: true,
-                            allowUnrecognizedEnumValues: true,
-                            breadcrumbsPrefix: ["response"],
-                        }),
-                        _response.rawResponse,
-                    );
-                case 409:
-                    throw new Flagright.ConflictError(
                         serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
@@ -491,8 +480,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.43",
-                "User-Agent": "flagright/1.8.43",
+                "X-Fern-SDK-Version": "1.8.44",
+                "User-Agent": "flagright/1.8.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -631,8 +620,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.43",
-                "User-Agent": "flagright/1.8.43",
+                "X-Fern-SDK-Version": "1.8.44",
+                "User-Agent": "flagright/1.8.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -765,8 +754,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.43",
-                "User-Agent": "flagright/1.8.43",
+                "X-Fern-SDK-Version": "1.8.44",
+                "User-Agent": "flagright/1.8.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -912,8 +901,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.43",
-                "User-Agent": "flagright/1.8.43",
+                "X-Fern-SDK-Version": "1.8.44",
+                "User-Agent": "flagright/1.8.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -1046,8 +1035,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.43",
-                "User-Agent": "flagright/1.8.43",
+                "X-Fern-SDK-Version": "1.8.44",
+                "User-Agent": "flagright/1.8.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -1186,8 +1175,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.43",
-                "User-Agent": "flagright/1.8.43",
+                "X-Fern-SDK-Version": "1.8.44",
+                "User-Agent": "flagright/1.8.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -1322,8 +1311,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.43",
-                "User-Agent": "flagright/1.8.43",
+                "X-Fern-SDK-Version": "1.8.44",
+                "User-Agent": "flagright/1.8.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -1462,8 +1451,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.43",
-                "User-Agent": "flagright/1.8.43",
+                "X-Fern-SDK-Version": "1.8.44",
+                "User-Agent": "flagright/1.8.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -1598,8 +1587,8 @@ export class Batch {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.43",
-                "User-Agent": "flagright/1.8.43",
+                "X-Fern-SDK-Version": "1.8.44",
+                "User-Agent": "flagright/1.8.44",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),

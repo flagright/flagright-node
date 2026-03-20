@@ -167,6 +167,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "GAL",
         "GALA",
         "GBP",
+        "GBPA",
         "GEL",
         "GFI",
         "GGP",
@@ -678,6 +679,7 @@ export declare namespace CurrencyCode {
         | "GAL"
         | "GALA"
         | "GBP"
+        | "GBPA"
         | "GEL"
         | "GFI"
         | "GGP"

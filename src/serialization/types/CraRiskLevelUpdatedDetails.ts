@@ -11,14 +11,12 @@ export const CraRiskLevelUpdatedDetails: core.serialization.ObjectSchema<
     Flagright.CraRiskLevelUpdatedDetails
 > = core.serialization.object({
     riskLevel: core.serialization.string().optional(),
-    riskScore: core.serialization.number().optional(),
     userId: core.serialization.string().optional(),
 });
 
 export declare namespace CraRiskLevelUpdatedDetails {
     export interface Raw {
         riskLevel?: string | null;
-        riskScore?: number | null;
         userId?: string | null;
     }
 }

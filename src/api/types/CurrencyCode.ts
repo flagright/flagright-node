@@ -162,6 +162,7 @@ export type CurrencyCode =
     | "GAL"
     | "GALA"
     | "GBP"
+    | "GBPA"
     | "GEL"
     | "GFI"
     | "GGP"
@@ -670,6 +671,7 @@ export const CurrencyCode = {
     Gal: "GAL",
     Gala: "GALA",
     Gbp: "GBP",
+    Gbpa: "GBPA",
     Gel: "GEL",
     Gfi: "GFI",
     Ggp: "GGP",
