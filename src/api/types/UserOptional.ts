@@ -23,6 +23,7 @@ export interface UserOptional {
     transactionLimits?: Flagright.TransactionLimits;
     expectedIncome?: Flagright.ExpectedIncome;
     expectedTransactionCountries?: Flagright.ExpectedTransactionCountries;
+    expectedTransactionCurrencies?: Flagright.ExpectedTransactionCurrencies;
     riskLevel?: Flagright.RiskLevel;
     kycRiskLevel?: Flagright.RiskLevel;
     acquisitionChannel?: Flagright.AcquisitionChannel;

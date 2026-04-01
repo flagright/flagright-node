@@ -144,6 +144,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "ETC",
         "ETH",
         "ETH2",
+        "ETHB",
         "EUR",
         "EURA",
         "EURC",
@@ -656,6 +657,7 @@ export declare namespace CurrencyCode {
         | "ETC"
         | "ETH"
         | "ETH2"
+        | "ETHB"
         | "EUR"
         | "EURA"
         | "EURC"

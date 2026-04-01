@@ -14,6 +14,7 @@ import { BusinessDirectorsItem } from "./BusinessDirectorsItem";
 import { BusinessAssociatedPartiesItem } from "./BusinessAssociatedPartiesItem";
 import { TransactionLimits } from "./TransactionLimits";
 import { ExpectedTransactionCountries } from "./ExpectedTransactionCountries";
+import { ExpectedTransactionCurrencies } from "./ExpectedTransactionCurrencies";
 import { RiskLevel } from "./RiskLevel";
 import { PaymentMethod } from "./PaymentMethod";
 import { UserEntityLink } from "./UserEntityLink";
@@ -42,6 +43,7 @@ export const Business: core.serialization.ObjectSchema<serializers.Business.Raw,
         businessPartners: core.serialization.list(LegalEntity).optional(),
         transactionLimits: TransactionLimits.optional(),
         expectedTransactionCountries: ExpectedTransactionCountries.optional(),
+        expectedTransactionCurrencies: ExpectedTransactionCurrencies.optional(),
         riskLevel: RiskLevel.optional(),
         kycRiskLevel: RiskLevel.optional(),
         allowedPaymentMethods: core.serialization.list(PaymentMethod).optional(),
@@ -75,6 +77,7 @@ export declare namespace Business {
         businessPartners?: LegalEntity.Raw[] | null;
         transactionLimits?: TransactionLimits.Raw | null;
         expectedTransactionCountries?: ExpectedTransactionCountries.Raw | null;
+        expectedTransactionCurrencies?: ExpectedTransactionCurrencies.Raw | null;
         riskLevel?: RiskLevel.Raw | null;
         kycRiskLevel?: RiskLevel.Raw | null;
         allowedPaymentMethods?: PaymentMethod.Raw[] | null;

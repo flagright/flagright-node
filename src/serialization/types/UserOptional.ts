@@ -15,6 +15,7 @@ import { EmploymentDetails } from "./EmploymentDetails";
 import { TransactionLimits } from "./TransactionLimits";
 import { ExpectedIncome } from "./ExpectedIncome";
 import { ExpectedTransactionCountries } from "./ExpectedTransactionCountries";
+import { ExpectedTransactionCurrencies } from "./ExpectedTransactionCurrencies";
 import { RiskLevel } from "./RiskLevel";
 import { AcquisitionChannel } from "./AcquisitionChannel";
 import { SourceOfFunds } from "./SourceOfFunds";
@@ -45,6 +46,7 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
         transactionLimits: TransactionLimits.optional(),
         expectedIncome: ExpectedIncome.optional(),
         expectedTransactionCountries: ExpectedTransactionCountries.optional(),
+        expectedTransactionCurrencies: ExpectedTransactionCurrencies.optional(),
         riskLevel: RiskLevel.optional(),
         kycRiskLevel: RiskLevel.optional(),
         acquisitionChannel: AcquisitionChannel.optional(),
@@ -79,6 +81,7 @@ export declare namespace UserOptional {
         transactionLimits?: TransactionLimits.Raw | null;
         expectedIncome?: ExpectedIncome.Raw | null;
         expectedTransactionCountries?: ExpectedTransactionCountries.Raw | null;
+        expectedTransactionCurrencies?: ExpectedTransactionCurrencies.Raw | null;
         riskLevel?: RiskLevel.Raw | null;
         kycRiskLevel?: RiskLevel.Raw | null;
         acquisitionChannel?: AcquisitionChannel.Raw | null;

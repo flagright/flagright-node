@@ -4,5 +4,7 @@
 
 export interface CraRiskLevelUpdatedDetails {
     riskLevel?: string;
+    riskScore?: number;
+    type?: "CRA_RISK_SCORE_UPDATED";
     userId?: string;
 }

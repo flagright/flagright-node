@@ -15,6 +15,7 @@ export type SanctionsDetailsEntityType =
     | "BUSINESS_PARTNER"
     | "ASSOCIATED_PARTY"
     | "CONSUMER_ALIAS"
+    | "LEGAL_ENTITY_ALIAS"
     | "TRANSACTION_REFERENCE"
     | "TRANSACTION_TAG";
 export const SanctionsDetailsEntityType = {
@@ -30,6 +31,7 @@ export const SanctionsDetailsEntityType = {
     BusinessPartner: "BUSINESS_PARTNER",
     AssociatedParty: "ASSOCIATED_PARTY",
     ConsumerAlias: "CONSUMER_ALIAS",
+    LegalEntityAlias: "LEGAL_ENTITY_ALIAS",
     TransactionReference: "TRANSACTION_REFERENCE",
     TransactionTag: "TRANSACTION_TAG",
 } as const;
