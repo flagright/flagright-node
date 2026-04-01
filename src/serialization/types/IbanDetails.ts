@@ -25,6 +25,7 @@ export const IbanDetails: core.serialization.ObjectSchema<serializers.IbanDetail
         name: core.serialization.string().optional(),
         emailId: EmailId.optional(),
         bankBranchCode: core.serialization.string().optional(),
+        beneficiaryName: core.serialization.string().optional(),
         paymentChannel: core.serialization.string().optional(),
         countryOfNationality: CountryCode.optional(),
         countryOfResidence: CountryCode.optional(),
@@ -44,6 +45,7 @@ export declare namespace IbanDetails {
         name?: string | null;
         emailId?: EmailId.Raw | null;
         bankBranchCode?: string | null;
+        beneficiaryName?: string | null;
         paymentChannel?: string | null;
         countryOfNationality?: CountryCode.Raw | null;
         countryOfResidence?: CountryCode.Raw | null;

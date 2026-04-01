@@ -25,6 +25,8 @@ export interface IbanDetails {
     emailId?: Flagright.EmailId;
     /** Branch code of the bank. In some countries, this can be the same as the bank's SWIFT code */
     bankBranchCode?: string;
+    /** Beneficiary name of the account */
+    beneficiaryName?: string;
     paymentChannel?: string;
     countryOfNationality?: Flagright.CountryCode;
     countryOfResidence?: Flagright.CountryCode;

@@ -32,6 +32,8 @@ export interface GenericBankAccountDetails {
     /** Special instructions to be specified if any */
     specialInstructions?: string;
     paymentChannel?: string;
+    /** Beneficiary name of the account */
+    beneficiaryName?: string;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
     /** Transit number of the bank account */

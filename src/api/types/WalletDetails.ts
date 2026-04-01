@@ -27,6 +27,8 @@ export interface WalletDetails {
     address?: Flagright.Address;
     countryOfNationality?: Flagright.CountryCode;
     countryOfResidence?: Flagright.CountryCode;
+    /** Beneficiary name of the account */
+    beneficiaryName?: string;
     bankAddress?: Flagright.Address;
     authorizedRepresentative?: Flagright.UserDetails[];
     /** Date of birth of the account holder (YYYY-MM-DD) */

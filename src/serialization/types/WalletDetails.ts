@@ -29,6 +29,7 @@ export const WalletDetails: core.serialization.ObjectSchema<serializers.WalletDe
         address: Address.optional(),
         countryOfNationality: CountryCode.optional(),
         countryOfResidence: CountryCode.optional(),
+        beneficiaryName: core.serialization.string().optional(),
         bankAddress: Address.optional(),
         authorizedRepresentative: core.serialization.list(UserDetails).optional(),
         dateOfBirth: core.serialization.string().optional(),
@@ -50,6 +51,7 @@ export declare namespace WalletDetails {
         address?: Address.Raw | null;
         countryOfNationality?: CountryCode.Raw | null;
         countryOfResidence?: CountryCode.Raw | null;
+        beneficiaryName?: string | null;
         bankAddress?: Address.Raw | null;
         authorizedRepresentative?: UserDetails.Raw[] | null;
         dateOfBirth?: string | null;

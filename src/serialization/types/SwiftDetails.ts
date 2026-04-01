@@ -27,6 +27,7 @@ export const SwiftDetails: core.serialization.ObjectSchema<serializers.SwiftDeta
         countryOfNationality: CountryCode.optional(),
         countryOfResidence: CountryCode.optional(),
         emailId: EmailId.optional(),
+        beneficiaryName: core.serialization.string().optional(),
         specialInstructions: core.serialization.string().optional(),
         address: Address.optional(),
         correspondentBankDetails: core.serialization.list(CorrespondentBankDetails).optional(),
@@ -47,6 +48,7 @@ export declare namespace SwiftDetails {
         countryOfNationality?: CountryCode.Raw | null;
         countryOfResidence?: CountryCode.Raw | null;
         emailId?: EmailId.Raw | null;
+        beneficiaryName?: string | null;
         specialInstructions?: string | null;
         address?: Address.Raw | null;
         correspondentBankDetails?: CorrespondentBankDetails.Raw[] | null;

@@ -26,6 +26,8 @@ export interface SwiftDetails {
     countryOfNationality?: Flagright.CountryCode;
     countryOfResidence?: Flagright.CountryCode;
     emailId?: Flagright.EmailId;
+    /** Beneficiary name of the account */
+    beneficiaryName?: string;
     /** Special instructions if any */
     specialInstructions?: string;
     address?: Flagright.Address;

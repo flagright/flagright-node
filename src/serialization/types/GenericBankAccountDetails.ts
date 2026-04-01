@@ -31,6 +31,7 @@ export const GenericBankAccountDetails: core.serialization.ObjectSchema<
     emailId: EmailId.optional(),
     specialInstructions: core.serialization.string().optional(),
     paymentChannel: core.serialization.string().optional(),
+    beneficiaryName: core.serialization.string().optional(),
     tags: core.serialization.list(Tag).optional(),
     transitNumber: core.serialization.string().optional(),
     address: Address.optional(),
@@ -54,6 +55,7 @@ export declare namespace GenericBankAccountDetails {
         emailId?: EmailId.Raw | null;
         specialInstructions?: string | null;
         paymentChannel?: string | null;
+        beneficiaryName?: string | null;
         tags?: Tag.Raw[] | null;
         transitNumber?: string | null;
         address?: Address.Raw | null;
