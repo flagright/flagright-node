@@ -15,7 +15,7 @@ export const LegalDocument: core.serialization.ObjectSchema<serializers.LegalDoc
         documentNumber: core.serialization.string(),
         documentIssuedDate: core.serialization.number().optional(),
         documentExpirationDate: core.serialization.number().optional(),
-        documentIssuedCountry: CountryCode,
+        documentIssuedCountry: CountryCode.optional(),
         tags: core.serialization.list(Tag).optional(),
         nameOnDocument: ConsumerName.optional(),
     });
@@ -26,7 +26,7 @@ export declare namespace LegalDocument {
         documentNumber: string;
         documentIssuedDate?: number | null;
         documentExpirationDate?: number | null;
-        documentIssuedCountry: CountryCode.Raw;
+        documentIssuedCountry?: CountryCode.Raw | null;
         tags?: Tag.Raw[] | null;
         nameOnDocument?: ConsumerName.Raw | null;
     }

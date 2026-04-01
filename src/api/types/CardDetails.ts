@@ -23,6 +23,8 @@ export interface CardDetails {
     posDetails?: Flagright.PosDetails;
     /** Last 4 digits of Card */
     cardLast4Digits?: string;
+    /** First 6 digits of Card */
+    cardFirst6Digits?: string;
     cardBrand?: Flagright.CardBrand;
     cardFunding?: Flagright.CardFunding;
     /** Authentication of Card */

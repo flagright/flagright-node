@@ -16,7 +16,7 @@ export interface LegalDocument {
     documentIssuedDate?: number;
     /** User's identity document expiration date (UNIX timestamp in milliseconds) */
     documentExpirationDate?: number;
-    documentIssuedCountry: Flagright.CountryCode;
+    documentIssuedCountry?: Flagright.CountryCode;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
     nameOnDocument?: Flagright.ConsumerName;

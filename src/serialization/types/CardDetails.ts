@@ -33,6 +33,7 @@ export const CardDetails: core.serialization.ObjectSchema<serializers.CardDetail
         cardExpiry: CardExpiry.optional(),
         posDetails: PosDetails.optional(),
         cardLast4Digits: core.serialization.string().optional(),
+        cardFirst6Digits: core.serialization.string().optional(),
         cardBrand: CardBrand.optional(),
         cardFunding: CardFunding.optional(),
         cardAuthenticated: core.serialization.boolean().optional(),
@@ -63,6 +64,7 @@ export declare namespace CardDetails {
         cardExpiry?: CardExpiry.Raw | null;
         posDetails?: PosDetails.Raw | null;
         cardLast4Digits?: string | null;
+        cardFirst6Digits?: string | null;
         cardBrand?: CardBrand.Raw | null;
         cardFunding?: CardFunding.Raw | null;
         cardAuthenticated?: boolean | null;
