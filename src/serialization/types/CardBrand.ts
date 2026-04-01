@@ -7,8 +7,25 @@ import * as Flagright from "../../api/index";
 import * as core from "../../core";
 
 export const CardBrand: core.serialization.Schema<serializers.CardBrand.Raw, Flagright.CardBrand> =
-    core.serialization.enum_(["VISA", "MASTERCARD", "AMERICAN_EXPRESS", "DISCOVER", "UNIONPAY", "RUPAY", "JCB"]);
+    core.serialization.enum_([
+        "VISA",
+        "MASTERCARD",
+        "AMERICAN_EXPRESS",
+        "DISCOVER",
+        "UNIONPAY",
+        "RUPAY",
+        "JCB",
+        "DINERS_CLUB",
+    ]);
 
 export declare namespace CardBrand {
-    export type Raw = "VISA" | "MASTERCARD" | "AMERICAN_EXPRESS" | "DISCOVER" | "UNIONPAY" | "RUPAY" | "JCB";
+    export type Raw =
+        | "VISA"
+        | "MASTERCARD"
+        | "AMERICAN_EXPRESS"
+        | "DISCOVER"
+        | "UNIONPAY"
+        | "RUPAY"
+        | "JCB"
+        | "DINERS_CLUB";
 }

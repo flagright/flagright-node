@@ -98,6 +98,8 @@ export * from "./TransactionLimits";
 export * from "./ExpectedIncome";
 export * from "./ExpectedTransactionCountry";
 export * from "./ExpectedTransactionCountries";
+export * from "./ExpectedTransactionCurrency";
+export * from "./ExpectedTransactionCurrencies";
 export * from "./RuleAction";
 export * from "./RuleHitMeta";
 export * from "./RuleHitDirection";

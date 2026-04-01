@@ -5,7 +5,15 @@
 /**
  * Brand of Card
  */
-export type CardBrand = "VISA" | "MASTERCARD" | "AMERICAN_EXPRESS" | "DISCOVER" | "UNIONPAY" | "RUPAY" | "JCB";
+export type CardBrand =
+    | "VISA"
+    | "MASTERCARD"
+    | "AMERICAN_EXPRESS"
+    | "DISCOVER"
+    | "UNIONPAY"
+    | "RUPAY"
+    | "JCB"
+    | "DINERS_CLUB";
 export const CardBrand = {
     Visa: "VISA",
     Mastercard: "MASTERCARD",
@@ -14,4 +22,5 @@ export const CardBrand = {
     Unionpay: "UNIONPAY",
     Rupay: "RUPAY",
     Jcb: "JCB",
+    DinersClub: "DINERS_CLUB",
 } as const;

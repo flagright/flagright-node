@@ -139,6 +139,7 @@ export type CurrencyCode =
     | "ETC"
     | "ETH"
     | "ETH2"
+    | "ETHB"
     | "EUR"
     | "EURA"
     | "EURC"
@@ -648,6 +649,7 @@ export const CurrencyCode = {
     Etc: "ETC",
     Eth: "ETH",
     Eth2: "ETH2",
+    Ethb: "ETHB",
     Eur: "EUR",
     Eura: "EURA",
     Eurc: "EURC",
