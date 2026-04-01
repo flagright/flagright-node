@@ -55,6 +55,7 @@ export const CurrencyCode: core.serialization.Schema<serializers.CurrencyCode.Ra
         "BAL",
         "BAM",
         "BAND",
+        "BASE",
         "BAT",
         "BBD",
         "BCH",
@@ -568,6 +569,7 @@ export declare namespace CurrencyCode {
         | "BAL"
         | "BAM"
         | "BAND"
+        | "BASE"
         | "BAT"
         | "BBD"
         | "BCH"

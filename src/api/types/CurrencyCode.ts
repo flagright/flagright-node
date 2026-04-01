@@ -50,6 +50,7 @@ export type CurrencyCode =
     | "BAL"
     | "BAM"
     | "BAND"
+    | "BASE"
     | "BAT"
     | "BBD"
     | "BCH"
@@ -560,6 +561,7 @@ export const CurrencyCode = {
     Bal: "BAL",
     Bam: "BAM",
     Band: "BAND",
+    Base: "BASE",
     Bat: "BAT",
     Bbd: "BBD",
     Bch: "BCH",
