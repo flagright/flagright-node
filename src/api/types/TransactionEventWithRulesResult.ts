@@ -18,6 +18,8 @@ export interface TransactionEventWithRulesResult {
     eventDescription?: string;
     updatedTransactionAttributes?: Flagright.TransactionUpdatable;
     metaData?: Flagright.DeviceData;
+    /** External links related to the transaction */
+    externalLinks?: string[];
     executedRules?: Flagright.ExecutedRulesResult[];
     hitRules?: Flagright.HitRulesDetails[];
     status?: Flagright.RuleAction;

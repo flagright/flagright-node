@@ -38,6 +38,8 @@ export interface TransactionWithRulesResult {
     tags?: Flagright.Tag[];
     /** Legal authority or region governing the transaction */
     jurisdiction?: string;
+    /** External links related to the transaction */
+    externalLinks?: string[];
     executedRules: Flagright.ExecutedRulesResult[];
     hitRules: Flagright.HitRulesDetails[];
     status: Flagright.RuleAction;

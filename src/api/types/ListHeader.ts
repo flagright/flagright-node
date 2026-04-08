@@ -10,6 +10,7 @@ export interface ListHeader {
     subtype: Flagright.ListSubtype;
     metadata?: Flagright.ListMetadata;
     createdTimestamp: number;
+    /** Approximate number of entries in the list */
     size?: number;
     version?: number;
 }

@@ -59,6 +59,7 @@ export const Business: core.serialization.ObjectSchema<serializers.Business.Raw,
         pepStatus: core.serialization.list(PepStatus).optional(),
         sanctionsStatus: core.serialization.boolean().optional(),
         adverseMediaStatus: core.serialization.boolean().optional(),
+        externalLinks: core.serialization.list(core.serialization.string()).optional(),
     });
 
 export declare namespace Business {
@@ -93,5 +94,6 @@ export declare namespace Business {
         pepStatus?: PepStatus.Raw[] | null;
         sanctionsStatus?: boolean | null;
         adverseMediaStatus?: boolean | null;
+        externalLinks?: string[] | null;
     }
 }

@@ -18,6 +18,8 @@ export interface BatchTransactionEventMonitoringResult {
     eventDescription?: string;
     updatedTransactionAttributes?: Flagright.TransactionUpdatable;
     metaData?: Flagright.DeviceData;
+    /** External links related to the transaction */
+    externalLinks?: string[];
     hitRules?: Flagright.HitRulesDetails[];
     status?: Flagright.RuleAction;
     riskScoreDetails?: Flagright.TransactionRiskScoringResult;

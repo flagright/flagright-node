@@ -21,4 +21,6 @@ export interface TransactionEvent {
     eventDescription?: string;
     updatedTransactionAttributes?: Flagright.TransactionUpdatable;
     metaData?: Flagright.DeviceData;
+    /** External links related to the transaction */
+    externalLinks?: string[];
 }

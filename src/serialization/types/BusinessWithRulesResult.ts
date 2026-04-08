@@ -64,6 +64,7 @@ export const BusinessWithRulesResult: core.serialization.ObjectSchema<
     pepStatus: core.serialization.list(PepStatus).optional(),
     sanctionsStatus: core.serialization.boolean().optional(),
     adverseMediaStatus: core.serialization.boolean().optional(),
+    externalLinks: core.serialization.list(core.serialization.string()).optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     hitRules: core.serialization.list(HitRulesDetails).optional(),
     riskScoreDetails: UserRiskScoreDetails.optional(),
@@ -101,6 +102,7 @@ export declare namespace BusinessWithRulesResult {
         pepStatus?: PepStatus.Raw[] | null;
         sanctionsStatus?: boolean | null;
         adverseMediaStatus?: boolean | null;
+        externalLinks?: string[] | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         hitRules?: HitRulesDetails.Raw[] | null;
         riskScoreDetails?: UserRiskScoreDetails.Raw | null;

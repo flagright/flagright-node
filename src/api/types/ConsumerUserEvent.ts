@@ -19,4 +19,6 @@ export interface ConsumerUserEvent {
     /** Event description */
     eventDescription?: string;
     updatedConsumerUserAttributes?: Flagright.UserOptional;
+    /** External links related to the consumer user */
+    externalLinks?: string[];
 }

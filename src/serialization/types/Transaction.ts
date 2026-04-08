@@ -38,6 +38,7 @@ export const Transaction: core.serialization.ObjectSchema<serializers.Transactio
         metadata: TransactionMetadata.optional(),
         tags: core.serialization.list(Tag).optional(),
         jurisdiction: core.serialization.string().optional(),
+        externalLinks: core.serialization.list(core.serialization.string()).optional(),
     });
 
 export declare namespace Transaction {
@@ -63,5 +64,6 @@ export declare namespace Transaction {
         metadata?: TransactionMetadata.Raw | null;
         tags?: Tag.Raw[] | null;
         jurisdiction?: string | null;
+        externalLinks?: string[] | null;
     }
 }

@@ -19,4 +19,6 @@ export interface BusinessUserEvent {
     /** Event description */
     eventDescription?: string;
     updatedBusinessUserAttributes?: Flagright.BusinessOptional;
+    /** External links related to the business user */
+    externalLinks?: string[];
 }

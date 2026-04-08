@@ -65,6 +65,7 @@ export const User: core.serialization.ObjectSchema<serializers.User.Raw, Flagrig
     metaData: DeviceData.optional(),
     jurisdiction: core.serialization.string().optional(),
     productsEnabled: core.serialization.list(ProductsEnabled).optional(),
+    externalLinks: core.serialization.list(core.serialization.string()).optional(),
 });
 
 export declare namespace User {
@@ -102,5 +103,6 @@ export declare namespace User {
         metaData?: DeviceData.Raw | null;
         jurisdiction?: string | null;
         productsEnabled?: ProductsEnabled.Raw[] | null;
+        externalLinks?: string[] | null;
     }
 }

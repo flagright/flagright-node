@@ -21,6 +21,7 @@ export const TransactionEvent: core.serialization.ObjectSchema<
     eventDescription: core.serialization.string().optional(),
     updatedTransactionAttributes: TransactionUpdatable.optional(),
     metaData: DeviceData.optional(),
+    externalLinks: core.serialization.list(core.serialization.string()).optional(),
 });
 
 export declare namespace TransactionEvent {
@@ -33,5 +34,6 @@ export declare namespace TransactionEvent {
         eventDescription?: string | null;
         updatedTransactionAttributes?: TransactionUpdatable.Raw | null;
         metaData?: DeviceData.Raw | null;
+        externalLinks?: string[] | null;
     }
 }

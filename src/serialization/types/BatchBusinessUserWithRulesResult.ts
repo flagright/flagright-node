@@ -63,6 +63,7 @@ export const BatchBusinessUserWithRulesResult: core.serialization.ObjectSchema<
     pepStatus: core.serialization.list(PepStatus).optional(),
     sanctionsStatus: core.serialization.boolean().optional(),
     adverseMediaStatus: core.serialization.boolean().optional(),
+    externalLinks: core.serialization.list(core.serialization.string()).optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     riskScoreDetails: UserRiskScoreDetails.optional(),
 });
@@ -99,6 +100,7 @@ export declare namespace BatchBusinessUserWithRulesResult {
         pepStatus?: PepStatus.Raw[] | null;
         sanctionsStatus?: boolean | null;
         adverseMediaStatus?: boolean | null;
+        externalLinks?: string[] | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         riskScoreDetails?: UserRiskScoreDetails.Raw | null;
     }

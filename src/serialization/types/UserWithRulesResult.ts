@@ -71,6 +71,7 @@ export const UserWithRulesResult: core.serialization.ObjectSchema<
     metaData: DeviceData.optional(),
     jurisdiction: core.serialization.string().optional(),
     productsEnabled: core.serialization.list(ProductsEnabled).optional(),
+    externalLinks: core.serialization.list(core.serialization.string()).optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     hitRules: core.serialization.list(HitRulesDetails).optional(),
     riskScoreDetails: UserRiskScoreDetails.optional(),
@@ -111,6 +112,7 @@ export declare namespace UserWithRulesResult {
         metaData?: DeviceData.Raw | null;
         jurisdiction?: string | null;
         productsEnabled?: ProductsEnabled.Raw[] | null;
+        externalLinks?: string[] | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         hitRules?: HitRulesDetails.Raw[] | null;
         riskScoreDetails?: UserRiskScoreDetails.Raw | null;

@@ -6,6 +6,7 @@ export interface FileInfo {
     s3Key: string;
     bucket?: string;
     filename: string;
+    /** File size in bytes */
     size: number;
     downloadLink?: string;
     aiSummary?: string;

@@ -46,6 +46,8 @@ export interface UserWithRulesResult {
     /** Legal authority or region governing the transaction */
     jurisdiction?: string;
     productsEnabled?: Flagright.ProductsEnabled[];
+    /** External links related to the consumer user */
+    externalLinks?: string[];
     executedRules?: Flagright.ExecutedRulesResult[];
     hitRules?: Flagright.HitRulesDetails[];
     riskScoreDetails?: Flagright.UserRiskScoreDetails;

@@ -47,4 +47,6 @@ export interface BusinessOptional {
     sanctionsStatus?: boolean;
     /** Whether the user is in the adverse media list */
     adverseMediaStatus?: boolean;
+    /** External links related to the business user */
+    externalLinks?: string[];
 }

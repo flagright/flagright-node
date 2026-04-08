@@ -48,6 +48,8 @@ export interface BatchBusinessUserWithRulesResult {
     sanctionsStatus?: boolean;
     /** Whether the user is in the adverse media list */
     adverseMediaStatus?: boolean;
+    /** External links related to the business user */
+    externalLinks?: string[];
     executedRules?: Flagright.ExecutedRulesResult[];
     riskScoreDetails?: Flagright.UserRiskScoreDetails;
 }

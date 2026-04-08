@@ -16,6 +16,8 @@ export interface BusinessUserEventWithRulesResult {
     /** Event description */
     eventDescription?: string;
     updatedBusinessUserAttributes?: Flagright.BusinessOptional;
+    /** External links related to the business user */
+    externalLinks?: string[];
     executedRules?: Flagright.ExecutedRulesResult[];
     hitRules?: Flagright.HitRulesDetails[];
     riskScoreDetails?: Flagright.UserRiskScoreDetails;

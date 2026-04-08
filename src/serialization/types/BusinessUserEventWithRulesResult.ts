@@ -20,6 +20,7 @@ export const BusinessUserEventWithRulesResult: core.serialization.ObjectSchema<
     reason: core.serialization.string().optional(),
     eventDescription: core.serialization.string().optional(),
     updatedBusinessUserAttributes: BusinessOptional.optional(),
+    externalLinks: core.serialization.list(core.serialization.string()).optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     hitRules: core.serialization.list(HitRulesDetails).optional(),
     riskScoreDetails: UserRiskScoreDetails.optional(),
@@ -33,6 +34,7 @@ export declare namespace BusinessUserEventWithRulesResult {
         reason?: string | null;
         eventDescription?: string | null;
         updatedBusinessUserAttributes?: BusinessOptional.Raw | null;
+        externalLinks?: string[] | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         hitRules?: HitRulesDetails.Raw[] | null;
         riskScoreDetails?: UserRiskScoreDetails.Raw | null;

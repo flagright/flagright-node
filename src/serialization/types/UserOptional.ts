@@ -64,6 +64,7 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
         metaData: DeviceData.optional(),
         jurisdiction: core.serialization.string().optional(),
         productsEnabled: core.serialization.list(ProductsEnabled).optional(),
+        externalLinks: core.serialization.list(core.serialization.string()).optional(),
     });
 
 export declare namespace UserOptional {
@@ -99,5 +100,6 @@ export declare namespace UserOptional {
         metaData?: DeviceData.Raw | null;
         jurisdiction?: string | null;
         productsEnabled?: ProductsEnabled.Raw[] | null;
+        externalLinks?: string[] | null;
     }
 }

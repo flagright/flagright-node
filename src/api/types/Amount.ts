@@ -8,7 +8,7 @@ import * as Flagright from "../index";
  * Model for amount
  */
 export interface Amount {
-    /** Numerical value of the transaction */
+    /** Numerical value of the transaction in major currency units (within IEEE 754 safe integer range for exact JSON representation) */
     amountValue: number;
     amountCurrency: Flagright.CurrencyCode;
 }

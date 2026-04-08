@@ -3,8 +3,12 @@
  */
 
 export interface TransactionCountLimit {
+    /** Maximum transaction count allowed per calendar day */
     day?: number;
+    /** Maximum transaction count allowed per calendar week */
     week?: number;
+    /** Maximum transaction count allowed per calendar month */
     month?: number;
+    /** Maximum transaction count allowed per calendar year */
     year?: number;
 }
