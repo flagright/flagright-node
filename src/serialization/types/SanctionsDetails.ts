@@ -15,6 +15,7 @@ export const SanctionsDetails: core.serialization.ObjectSchema<
 > = core.serialization.object({
     name: core.serialization.string(),
     searchId: core.serialization.string(),
+    requestHash: core.serialization.string().optional(),
     iban: core.serialization.string().optional(),
     entityType: SanctionsDetailsEntityType.optional(),
     sanctionHitIds: core.serialization.list(core.serialization.string()).optional(),
@@ -27,6 +28,7 @@ export declare namespace SanctionsDetails {
     export interface Raw {
         name: string;
         searchId: string;
+        requestHash?: string | null;
         iban?: string | null;
         entityType?: SanctionsDetailsEntityType.Raw | null;
         sanctionHitIds?: string[] | null;

@@ -7,6 +7,7 @@ import * as Flagright from "../index";
 export interface SanctionsDetails {
     name: string;
     searchId: string;
+    requestHash?: string;
     iban?: string;
     entityType?: Flagright.SanctionsDetailsEntityType;
     sanctionHitIds?: string[];

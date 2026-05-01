@@ -165,6 +165,7 @@ export * from "./PosDetails";
 export * from "./PosEntryMode";
 export * from "./WebhookEventBaseTriggeredBy";
 export * from "./WebhookEventBase";
+export * from "./CraRiskLevelUpdatedRiskFactor";
 export * from "./CraRiskLevelUpdatedDetails";
 export * from "./BatchCompletedDetailsType";
 export * from "./BatchCompletedDetails";
