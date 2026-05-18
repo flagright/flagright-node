@@ -14,4 +14,6 @@ export type WebhookEventData =
     | Flagright.KycStatusDetails
     | Flagright.UserTagsUpdate
     | Flagright.CraRiskLevelUpdatedDetails
-    | Flagright.BatchCompletedDetails;
+    | Flagright.BatchCompletedDetails
+    | Flagright.SarWebhookDetails
+    | Flagright.SarMessageReceivedDetails;

@@ -27,6 +27,10 @@ export const WebhookEventType: core.serialization.Schema<serializers.WebhookEven
         "BATCH_COMPLETED",
         "CASE_INTERIM_STATUS_UPDATE",
         "ALERT_INTERIM_STATUS_UPDATE",
+        "SAR_CREATED",
+        "SAR_SUBMITTED",
+        "SAR_SUBMISSION_ACCEPTED",
+        "SAR_MESSAGE_RECEIVED",
     ]);
 
 export declare namespace WebhookEventType {
@@ -49,5 +53,9 @@ export declare namespace WebhookEventType {
         | "ALERT_ESCALATED"
         | "BATCH_COMPLETED"
         | "CASE_INTERIM_STATUS_UPDATE"
-        | "ALERT_INTERIM_STATUS_UPDATE";
+        | "ALERT_INTERIM_STATUS_UPDATE"
+        | "SAR_CREATED"
+        | "SAR_SUBMITTED"
+        | "SAR_SUBMISSION_ACCEPTED"
+        | "SAR_MESSAGE_RECEIVED";
 }

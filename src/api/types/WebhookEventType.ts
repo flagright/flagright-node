@@ -21,7 +21,11 @@ export type WebhookEventType =
     | "ALERT_ESCALATED"
     | "BATCH_COMPLETED"
     | "CASE_INTERIM_STATUS_UPDATE"
-    | "ALERT_INTERIM_STATUS_UPDATE";
+    | "ALERT_INTERIM_STATUS_UPDATE"
+    | "SAR_CREATED"
+    | "SAR_SUBMITTED"
+    | "SAR_SUBMISSION_ACCEPTED"
+    | "SAR_MESSAGE_RECEIVED";
 export const WebhookEventType = {
     CaseClosed: "CASE_CLOSED",
     UserStateUpdated: "USER_STATE_UPDATED",
@@ -42,4 +46,8 @@ export const WebhookEventType = {
     BatchCompleted: "BATCH_COMPLETED",
     CaseInterimStatusUpdate: "CASE_INTERIM_STATUS_UPDATE",
     AlertInterimStatusUpdate: "ALERT_INTERIM_STATUS_UPDATE",
+    SarCreated: "SAR_CREATED",
+    SarSubmitted: "SAR_SUBMITTED",
+    SarSubmissionAccepted: "SAR_SUBMISSION_ACCEPTED",
+    SarMessageReceived: "SAR_MESSAGE_RECEIVED",
 } as const;
