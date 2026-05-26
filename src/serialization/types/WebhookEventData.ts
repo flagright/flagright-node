@@ -15,8 +15,6 @@ import { KycStatusDetails } from "./KycStatusDetails";
 import { UserTagsUpdate } from "./UserTagsUpdate";
 import { CraRiskLevelUpdatedDetails } from "./CraRiskLevelUpdatedDetails";
 import { BatchCompletedDetails } from "./BatchCompletedDetails";
-import { SarWebhookDetails } from "./SarWebhookDetails";
-import { SarMessageReceivedDetails } from "./SarMessageReceivedDetails";
 
 export const WebhookEventData: core.serialization.Schema<serializers.WebhookEventData.Raw, Flagright.WebhookEventData> =
     core.serialization.undiscriminatedUnion([
@@ -30,8 +28,6 @@ export const WebhookEventData: core.serialization.Schema<serializers.WebhookEven
         UserTagsUpdate,
         CraRiskLevelUpdatedDetails,
         BatchCompletedDetails,
-        SarWebhookDetails,
-        SarMessageReceivedDetails,
     ]);
 
 export declare namespace WebhookEventData {
@@ -45,7 +41,5 @@ export declare namespace WebhookEventData {
         | KycStatusDetails.Raw
         | UserTagsUpdate.Raw
         | CraRiskLevelUpdatedDetails.Raw
-        | BatchCompletedDetails.Raw
-        | SarWebhookDetails.Raw
-        | SarMessageReceivedDetails.Raw;
+        | BatchCompletedDetails.Raw;
 }

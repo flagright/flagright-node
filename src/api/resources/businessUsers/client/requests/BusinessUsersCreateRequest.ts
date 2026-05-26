@@ -17,6 +17,7 @@ import * as Flagright from "../../../../index";
  *                 companyGeneralDetails: {
  *                     legalName: "Ozkan Hazelnut Export JSC",
  *                     businessIndustry: ["Farming"],
+ *                     secondaryBusinessIndustry: ["Food Processing"],
  *                     mainProductsServicesSold: ["Hazelnut"]
  *                 }
  *             }

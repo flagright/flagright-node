@@ -7,4 +7,5 @@ import * as Flagright from "../index";
 export interface ExecutedLogicVars {
     direction?: Flagright.RuleHitDirection;
     value: Record<string, unknown>;
+    listContext?: Flagright.ListContext;
 }

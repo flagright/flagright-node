@@ -16,6 +16,7 @@ export const CompanyGeneralDetails: core.serialization.ObjectSchema<
 > = core.serialization.object({
     legalName: core.serialization.string().optional(),
     businessIndustry: core.serialization.list(core.serialization.string()).optional(),
+    secondaryBusinessIndustry: core.serialization.list(core.serialization.string()).optional(),
     mainProductsServicesSold: core.serialization.list(core.serialization.string()).optional(),
     userSegment: BusinessUserSegment.optional(),
     userRegistrationStatus: UserRegistrationStatus.optional(),
@@ -28,6 +29,7 @@ export declare namespace CompanyGeneralDetails {
     export interface Raw {
         legalName?: string | null;
         businessIndustry?: string[] | null;
+        secondaryBusinessIndustry?: string[] | null;
         mainProductsServicesSold?: string[] | null;
         userSegment?: BusinessUserSegment.Raw | null;
         userRegistrationStatus?: UserRegistrationStatus.Raw | null;

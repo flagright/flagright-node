@@ -12,6 +12,8 @@ export interface CompanyGeneralDetails {
     legalName?: string;
     /** The industry in which the business operates for a business customer */
     businessIndustry?: string[];
+    /** Additional industries in which the business operates for a business customer */
+    secondaryBusinessIndustry?: string[];
     /** The key products and services provided by the company */
     mainProductsServicesSold?: string[];
     /** Segmentation of the business user */

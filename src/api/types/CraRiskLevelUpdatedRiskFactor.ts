@@ -7,6 +7,7 @@
  */
 export interface CraRiskLevelUpdatedRiskFactor {
     riskFactorId?: string;
+    riskFactorName?: string;
     /** Set for KRS factor score detail rows */
     riskFactorVersionId?: string;
     value?: string;

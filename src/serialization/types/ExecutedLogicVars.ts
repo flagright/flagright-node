@@ -6,6 +6,7 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { RuleHitDirection } from "./RuleHitDirection";
+import { ListContext } from "./ListContext";
 
 export const ExecutedLogicVars: core.serialization.ObjectSchema<
     serializers.ExecutedLogicVars.Raw,
@@ -13,11 +14,13 @@ export const ExecutedLogicVars: core.serialization.ObjectSchema<
 > = core.serialization.object({
     direction: RuleHitDirection.optional(),
     value: core.serialization.record(core.serialization.string(), core.serialization.unknown()),
+    listContext: ListContext.optional(),
 });
 
 export declare namespace ExecutedLogicVars {
     export interface Raw {
         direction?: RuleHitDirection.Raw | null;
         value: Record<string, unknown>;
+        listContext?: ListContext.Raw | null;
     }
 }

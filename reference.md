@@ -591,6 +591,7 @@ await client.batch.createBusinessUsers({
                 companyGeneralDetails: {
                     legalName: "Ozkan Hazelnut Export JSC",
                     businessIndustry: ["Farming"],
+                    secondaryBusinessIndustry: ["Food Processing"],
                     mainProductsServicesSold: ["Hazelnut"],
                 },
             },
@@ -1339,6 +1340,7 @@ await client.businessUsers.create({
             companyGeneralDetails: {
                 legalName: "Ozkan Hazelnut Export JSC",
                 businessIndustry: ["Farming"],
+                secondaryBusinessIndustry: ["Food Processing"],
                 mainProductsServicesSold: ["Hazelnut"],
             },
         },
