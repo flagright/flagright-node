@@ -51,6 +51,7 @@ export * from "./ListMatchedEntityMatchedValuesItem";
 export * from "./ListMatchedEntity";
 export * from "./ListContext";
 export * from "./RuleExecutionSanctionsDetails";
+export * from "./RuleExecutionMetric";
 export * from "./ExecutedRulesResult";
 export * from "./HitRulesDetails";
 export * from "./FailedRulesResult";
