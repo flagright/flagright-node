@@ -25,7 +25,10 @@ export type SourceOfFunds =
     | "Salary"
     | "Real Estate Sale"
     | "Real Estate Rental"
-    | "Company Exit";
+    | "Company Exit"
+    | "Loan"
+    | "Other"
+    | "Dividends";
 export const SourceOfFunds = {
     Earnings: "Earnings",
     Savings: "Savings",
@@ -50,4 +53,7 @@ export const SourceOfFunds = {
     RealEstateSale: "Real Estate Sale",
     RealEstateRental: "Real Estate Rental",
     CompanyExit: "Company Exit",
+    Loan: "Loan",
+    Other: "Other",
+    Dividends: "Dividends",
 } as const;

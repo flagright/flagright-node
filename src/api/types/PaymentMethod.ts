@@ -3,17 +3,7 @@
  */
 
 export type PaymentMethod =
-    | "ACH"
-    | "CARD"
-    | "IBAN"
-    | "UPI"
-    | "GENERIC_BANK_ACCOUNT"
-    | "MPESA"
-    | "SWIFT"
-    | "WALLET"
-    | "CHECK"
-    | "CASH"
-    | "NPP";
+    "ACH" | "CARD" | "IBAN" | "UPI" | "GENERIC_BANK_ACCOUNT" | "MPESA" | "SWIFT" | "WALLET" | "CHECK" | "CASH" | "NPP";
 export const PaymentMethod = {
     Ach: "ACH",
     Card: "CARD",

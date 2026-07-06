@@ -19,9 +19,5 @@ export const MpesaTransactionType: core.serialization.Schema<
 
 export declare namespace MpesaTransactionType {
     export type Raw =
-        | "CustomerPayBillOnline"
-        | "CustomerBuyGoodsOnline"
-        | "SalaryPayment"
-        | "BusinessPayment"
-        | "PromotionPayment";
+        "CustomerPayBillOnline" | "CustomerBuyGoodsOnline" | "SalaryPayment" | "BusinessPayment" | "PromotionPayment";
 }

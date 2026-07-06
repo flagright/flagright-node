@@ -34,7 +34,9 @@ export type WalletNetwork =
     | "ALGORAND"
     | "CELESTIA"
     | "BASE"
-    | "SUI";
+    | "SUI"
+    | "TEMPO"
+    | "TEMPO_TESTNET";
 export const WalletNetwork = {
     Bitcoin: "BITCOIN",
     Ethereum: "ETHEREUM",
@@ -65,4 +67,6 @@ export const WalletNetwork = {
     Celestia: "CELESTIA",
     Base: "BASE",
     Sui: "SUI",
+    Tempo: "TEMPO",
+    TempoTestnet: "TEMPO_TESTNET",
 } as const;

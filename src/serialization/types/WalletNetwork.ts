@@ -37,6 +37,8 @@ export const WalletNetwork: core.serialization.Schema<serializers.WalletNetwork.
         "CELESTIA",
         "BASE",
         "SUI",
+        "TEMPO",
+        "TEMPO_TESTNET",
     ]);
 
 export declare namespace WalletNetwork {
@@ -69,5 +71,7 @@ export declare namespace WalletNetwork {
         | "ALGORAND"
         | "CELESTIA"
         | "BASE"
-        | "SUI";
+        | "SUI"
+        | "TEMPO"
+        | "TEMPO_TESTNET";
 }

@@ -6,6 +6,7 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { CountryCode } from "./CountryCode";
+import { TaxIdentification } from "./TaxIdentification";
 import { Tag } from "./Tag";
 
 export const CompanyRegistrationDetails: core.serialization.ObjectSchema<
@@ -14,7 +15,9 @@ export const CompanyRegistrationDetails: core.serialization.ObjectSchema<
 > = core.serialization.object({
     registrationIdentifier: core.serialization.string().optional(),
     registrationCountry: CountryCode.optional(),
+    secondaryRegistrationCountry: core.serialization.list(CountryCode).optional(),
     taxResidenceCountry: CountryCode.optional(),
+    secondaryTaxIdentifications: core.serialization.list(TaxIdentification).optional(),
     taxIdentifier: core.serialization.string().optional(),
     legalEntityType: core.serialization.string().optional(),
     dateOfRegistration: core.serialization.string().optional(),
@@ -25,7 +28,9 @@ export declare namespace CompanyRegistrationDetails {
     export interface Raw {
         registrationIdentifier?: string | null;
         registrationCountry?: CountryCode.Raw | null;
+        secondaryRegistrationCountry?: CountryCode.Raw[] | null;
         taxResidenceCountry?: CountryCode.Raw | null;
+        secondaryTaxIdentifications?: TaxIdentification.Raw[] | null;
         taxIdentifier?: string | null;
         legalEntityType?: string | null;
         dateOfRegistration?: string | null;

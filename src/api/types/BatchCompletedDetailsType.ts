@@ -6,10 +6,7 @@
  * Type of batch entity
  */
 export type BatchCompletedDetailsType =
-    | "TRANSACTION_BATCH"
-    | "TRANSACTION_EVENT_BATCH"
-    | "USER_BATCH"
-    | "USER_EVENT_BATCH";
+    "TRANSACTION_BATCH" | "TRANSACTION_EVENT_BATCH" | "USER_BATCH" | "USER_EVENT_BATCH";
 export const BatchCompletedDetailsType = {
     TransactionBatch: "TRANSACTION_BATCH",
     TransactionEventBatch: "TRANSACTION_EVENT_BATCH",

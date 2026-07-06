@@ -11,7 +11,11 @@ export interface CompanyRegistrationDetails {
     /** Commercial registry registration number for the company in its registration country */
     registrationIdentifier?: string;
     registrationCountry?: Flagright.CountryCode;
+    /** Additional registration countries for the company */
+    secondaryRegistrationCountry?: Flagright.CountryCode[];
     taxResidenceCountry?: Flagright.CountryCode;
+    /** Additional tax residence countries for the company with their tax identification details */
+    secondaryTaxIdentifications?: Flagright.TaxIdentification[];
     /** Tax ID number of the registered entity */
     taxIdentifier?: string;
     /** Type of legal entity, e.g., Limited Liability */

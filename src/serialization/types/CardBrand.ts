@@ -20,12 +20,5 @@ export const CardBrand: core.serialization.Schema<serializers.CardBrand.Raw, Fla
 
 export declare namespace CardBrand {
     export type Raw =
-        | "VISA"
-        | "MASTERCARD"
-        | "AMERICAN_EXPRESS"
-        | "DISCOVER"
-        | "UNIONPAY"
-        | "RUPAY"
-        | "JCB"
-        | "DINERS_CLUB";
+        "VISA" | "MASTERCARD" | "AMERICAN_EXPRESS" | "DISCOVER" | "UNIONPAY" | "RUPAY" | "JCB" | "DINERS_CLUB";
 }

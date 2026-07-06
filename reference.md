@@ -34,10 +34,11 @@ Here are some of the most used payload fields explained (you can find the full p
 - `destinationAmountDetails` - Details of the amount being received at the destination
 - `originPaymentDetails` - Payment details (if any) used at the origin (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
 - `destinationPaymentDetails` - Payment details (if any) used at the destination (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
-  </dd>
-  </dl>
-  </dd>
-  </dl>
+
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -167,7 +168,6 @@ await client.transactions.verify({
 `/transactions` endpoint allows you to operate on the [Transaction entity](/guides/overview/entities#transaction).
 
 Calling `GET /transactions/{transactionId}` will return the entire transaction payload and rule execution results for the transaction with the corresponding `transactionId`
-
 </dd>
 </dl>
 </dd>
@@ -957,7 +957,6 @@ Each transaction event needs three mandatory fields:
 - `transactionId` - The ID of the transaction for which this event is generated.
 
 In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
-
 </dd>
 </dl>
 </dd>
@@ -1037,7 +1036,6 @@ await client.transactionEvents.create({
 `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](/guides/overview/entities#transaction-event).
 
 You can retrieve any transaction event you created using the [POST Transaction Events](/api-reference/api-reference/transaction-events/create) call.
-
 </dd>
 </dl>
 </dd>
@@ -1113,10 +1111,11 @@ Each consumer user needs two mandatory fields:
 
 - `userId` - Unique identifier for the user
 - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
-  </dd>
-  </dl>
-  </dd>
-  </dl>
+
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1238,7 +1237,6 @@ await client.consumerUsers.create({
 `/consumer/user` endpoint allows you to operate on the Consumer User entity.
 
 Calling `GET /consumer/user/{userId}` will return the entire user payload and rule execution results for the user with the corresponding `userId`
-
 </dd>
 </dl>
 </dd>
@@ -1315,10 +1313,11 @@ Each business user needs three mandatory fields:
 - `userId` - Unique identifier for the user
 - `legalEntity` - Details of the business legal entity (CompanyGeneralDetails, FinancialDetails etc) - only `legalName`in `CompanyGeneralDetails` is mandatory
 - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
-  </dd>
-  </dl>
-  </dd>
-  </dl>
+
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1397,7 +1396,6 @@ await client.businessUsers.create({
 `/business/user` endpoint allows you to operate on the Business User entity.
 
 Calling `GET /business/user/{userId}` will return the entire User payload and rule execution results for the User with the corresponding `userId`
-
 </dd>
 </dl>
 </dd>
@@ -1480,7 +1478,6 @@ Each user event needs three mandatory fields:
 - `userId` - The ID of the transaction for which this event is generated.
 
 In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
-
 </dd>
 </dl>
 </dd>
@@ -1553,7 +1550,6 @@ await client.consumerUserEvents.create({
 ### GET a Consumer User Event
 
 You can retrieve any consumer user event you created using the [POST Consumer User Events](/api-reference/api-reference/consumer-user-events/create) call.
-
 </dd>
 </dl>
 </dd>
@@ -1636,7 +1632,6 @@ Each user event needs three mandatory fields:
 - `userId` - The ID of the transaction for which this event is generated.
 
 In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
-
 </dd>
 </dl>
 </dd>
@@ -1709,7 +1704,6 @@ await client.businessUserEvents.create({
 ### GET a Business User Event
 
 You can retrieve any business user event you created using the [POST Business User Events](/api-reference/api-reference/business-user-events/create) call.
-
 </dd>
 </dl>
 </dd>

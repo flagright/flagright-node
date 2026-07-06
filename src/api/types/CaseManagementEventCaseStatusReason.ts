@@ -6,10 +6,7 @@
  * Case status reason. E.g. Closed & False Positive, Closed & Investigation Completed etc.
  */
 export type CaseManagementEventCaseStatusReason =
-    | "FALSE_POSITIVE"
-    | "INVESTIGATION_COMPLETED"
-    | "DOCUMENTS_COLLECTED"
-    | "OTHER";
+    "FALSE_POSITIVE" | "INVESTIGATION_COMPLETED" | "DOCUMENTS_COLLECTED" | "OTHER";
 export const CaseManagementEventCaseStatusReason = {
     FalsePositive: "FALSE_POSITIVE",
     InvestigationCompleted: "INVESTIGATION_COMPLETED",

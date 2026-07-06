@@ -5,5 +5,4 @@
 import * as Flagright from "../index";
 
 export type BatchBusinessUserWithRulesResultAssociatedPartiesItem =
-    | Flagright.PersonWithRole
-    | Flagright.LegalEntityWithRole;
+    Flagright.PersonWithRole | Flagright.LegalEntityWithRole;

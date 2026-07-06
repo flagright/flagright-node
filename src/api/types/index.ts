@@ -69,6 +69,7 @@ export * from "./UserDetails";
 export * from "./UserRegistrationStatus";
 export * from "./BusinessUserSegment";
 export * from "./CompanyGeneralDetails";
+export * from "./TaxIdentification";
 export * from "./CompanyRegistrationDetails";
 export * from "./BusinessShareHoldersItem";
 export * from "./BusinessDirectorsItem";
