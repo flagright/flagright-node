@@ -18,6 +18,8 @@ export interface HitRulesDetails {
     versionId?: string;
     /** Timestamp when the rule was hit */
     executedAt?: number;
+    /** Risk level used to select the rule logic, parameters, and action. */
+    executedRiskLevel?: Flagright.RiskLevel;
     ruleAction: Flagright.RuleAction;
     ruleHitMeta?: Flagright.RuleHitMeta;
     labels?: Flagright.RuleLabels[];

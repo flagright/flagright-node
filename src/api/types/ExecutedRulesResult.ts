@@ -20,6 +20,8 @@ export interface ExecutedRulesResult {
     versionId?: string;
     /** Timestamp when the rule was executed */
     executedAt?: number;
+    /** Risk level used to select the rule logic, parameters, and action. */
+    executedRiskLevel?: Flagright.RiskLevel;
     ruleHitMeta?: Flagright.RuleHitMeta;
     vars?: Flagright.ExecutedLogicVars[];
     labels?: Flagright.RuleLabels[];

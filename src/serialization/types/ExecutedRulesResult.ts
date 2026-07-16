@@ -6,6 +6,7 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { RuleAction } from "./RuleAction";
+import { RiskLevel } from "./RiskLevel";
 import { RuleHitMeta } from "./RuleHitMeta";
 import { ExecutedLogicVars } from "./ExecutedLogicVars";
 import { RuleLabels } from "./RuleLabels";
@@ -23,6 +24,7 @@ export const ExecutedRulesResult: core.serialization.ObjectSchema<
     ruleHit: core.serialization.boolean(),
     versionId: core.serialization.string().optional(),
     executedAt: core.serialization.number().optional(),
+    executedRiskLevel: RiskLevel.optional(),
     ruleHitMeta: RuleHitMeta.optional(),
     vars: core.serialization.list(ExecutedLogicVars).optional(),
     labels: core.serialization.list(RuleLabels).optional(),
@@ -40,6 +42,7 @@ export declare namespace ExecutedRulesResult {
         ruleHit: boolean;
         versionId?: string | null;
         executedAt?: number | null;
+        executedRiskLevel?: RiskLevel.Raw | null;
         ruleHitMeta?: RuleHitMeta.Raw | null;
         vars?: ExecutedLogicVars.Raw[] | null;
         labels?: RuleLabels.Raw[] | null;

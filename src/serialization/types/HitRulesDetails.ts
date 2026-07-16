@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { RiskLevel } from "./RiskLevel";
 import { RuleAction } from "./RuleAction";
 import { RuleHitMeta } from "./RuleHitMeta";
 import { RuleLabels } from "./RuleLabels";
@@ -20,6 +21,7 @@ export const HitRulesDetails: core.serialization.ObjectSchema<
     ruleDescription: core.serialization.string(),
     versionId: core.serialization.string().optional(),
     executedAt: core.serialization.number().optional(),
+    executedRiskLevel: RiskLevel.optional(),
     ruleAction: RuleAction,
     ruleHitMeta: RuleHitMeta.optional(),
     labels: core.serialization.list(RuleLabels).optional(),
@@ -35,6 +37,7 @@ export declare namespace HitRulesDetails {
         ruleDescription: string;
         versionId?: string | null;
         executedAt?: number | null;
+        executedRiskLevel?: RiskLevel.Raw | null;
         ruleAction: RuleAction.Raw;
         ruleHitMeta?: RuleHitMeta.Raw | null;
         labels?: RuleLabels.Raw[] | null;
