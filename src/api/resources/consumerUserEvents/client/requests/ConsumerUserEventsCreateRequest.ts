@@ -10,6 +10,7 @@ import * as Flagright from "../../../../index";
  *         allowUserTypeConversion: "true",
  *         lockKycRiskLevel: "true",
  *         lockCraRiskLevel: "true",
+ *         changeUserId: "true",
  *         body: {
  *             timestamp: 1.1,
  *             userId: "userId"
@@ -29,5 +30,10 @@ export interface ConsumerUserEventsCreateRequest {
      * Boolean string whether Flagright should lock the CRA risk level for the user.
      */
     lockCraRiskLevel?: Flagright.BooleanString;
+    /**
+     * Boolean string whether Flagright should change userId of the user.
+     * (Note: Only allowed for users with no associated transactions).
+     */
+    changeUserId?: Flagright.BooleanString;
     body: Flagright.ConsumerUserEvent;
 }

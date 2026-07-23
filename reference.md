@@ -1447,7 +1447,7 @@ await client.businessUsers.get("userId");
 
 ## ConsumerUserEvents
 
-<details><summary><code>client.consumerUserEvents.<a href="/src/api/resources/consumerUserEvents/client/Client.ts">create</a>({ ...params }) -> Flagright.UserWithRulesResult</code></summary>
+<details><summary><code>client.consumerUserEvents.<a href="/src/api/resources/consumerUserEvents/client/Client.ts">create</a>({ ...params }) -> Flagright.ConsumerUserEventsCreateResponse</code></summary>
 <dl>
 <dd>
 
@@ -1496,6 +1496,7 @@ await client.consumerUserEvents.create({
     allowUserTypeConversion: "true",
     lockKycRiskLevel: "true",
     lockCraRiskLevel: "true",
+    changeUserId: "true",
     body: {
         timestamp: 1.1,
         userId: "userId",
@@ -1601,7 +1602,7 @@ await client.consumerUserEvents.get("eventId");
 
 ## BusinessUserEvents
 
-<details><summary><code>client.businessUserEvents.<a href="/src/api/resources/businessUserEvents/client/Client.ts">create</a>({ ...params }) -> Flagright.BusinessWithRulesResult</code></summary>
+<details><summary><code>client.businessUserEvents.<a href="/src/api/resources/businessUserEvents/client/Client.ts">create</a>({ ...params }) -> Flagright.BusinessUserEventsCreateResponse</code></summary>
 <dl>
 <dd>
 
@@ -1650,6 +1651,7 @@ await client.businessUserEvents.create({
     allowUserTypeConversion: "true",
     lockKycRiskLevel: "true",
     lockCraRiskLevel: "true",
+    changeUserId: "true",
     body: {
         timestamp: 1.1,
         userId: "userId",

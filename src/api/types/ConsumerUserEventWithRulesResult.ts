@@ -16,6 +16,8 @@ export interface ConsumerUserEventWithRulesResult {
     /** Event description */
     eventDescription?: string;
     updatedConsumerUserAttributes?: Flagright.UserOptional;
+    /** New userId for the existing user (keep in mind all of the future requests for this user will now reference this userId). Requires the `changeUserId` queryparam to come in affect. */
+    newUserId?: string;
     /** External links related to the consumer user */
     externalLinks?: string[];
     executedRules?: Flagright.ExecutedRulesResult[];

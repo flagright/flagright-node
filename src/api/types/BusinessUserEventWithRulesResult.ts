@@ -16,6 +16,8 @@ export interface BusinessUserEventWithRulesResult {
     /** Event description */
     eventDescription?: string;
     updatedBusinessUserAttributes?: Flagright.BusinessOptional;
+    /** New userId for the existing user (keep in mind all of the future requests for this user will now reference this userId). Requires the `changeUserId` query param to come in affect. */
+    newUserId?: string;
     /** External links related to the business user */
     externalLinks?: string[];
     executedRules?: Flagright.ExecutedRulesResult[];

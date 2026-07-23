@@ -58,6 +58,7 @@ export class BusinessUserEvents {
      *
      * @throws {@link Flagright.BadRequestError}
      * @throws {@link Flagright.UnauthorizedError}
+     * @throws {@link Flagright.NotFoundError}
      * @throws {@link Flagright.ConflictError}
      * @throws {@link Flagright.TooManyRequestsError}
      *
@@ -66,6 +67,7 @@ export class BusinessUserEvents {
      *         allowUserTypeConversion: "true",
      *         lockKycRiskLevel: "true",
      *         lockCraRiskLevel: "true",
+     *         changeUserId: "true",
      *         body: {
      *             timestamp: 1.1,
      *             userId: "userId"
@@ -75,15 +77,15 @@ export class BusinessUserEvents {
     public create(
         request: Flagright.BusinessUserEventsCreateRequest,
         requestOptions?: BusinessUserEvents.RequestOptions,
-    ): core.HttpResponsePromise<Flagright.BusinessWithRulesResult> {
+    ): core.HttpResponsePromise<Flagright.BusinessUserEventsCreateResponse> {
         return core.HttpResponsePromise.fromPromise(this.__create(request, requestOptions));
     }
 
     private async __create(
         request: Flagright.BusinessUserEventsCreateRequest,
         requestOptions?: BusinessUserEvents.RequestOptions,
-    ): Promise<core.WithRawResponse<Flagright.BusinessWithRulesResult>> {
-        const { allowUserTypeConversion, lockKycRiskLevel, lockCraRiskLevel, body: _body } = request;
+    ): Promise<core.WithRawResponse<Flagright.BusinessUserEventsCreateResponse>> {
+        const { allowUserTypeConversion, lockKycRiskLevel, lockCraRiskLevel, changeUserId, body: _body } = request;
         const _queryParams: Record<string, string | string[] | object | object[] | null> = {};
         if (allowUserTypeConversion != null) {
             _queryParams["allowUserTypeConversion"] = serializers.BooleanString.jsonOrThrow(allowUserTypeConversion, {
@@ -103,6 +105,12 @@ export class BusinessUserEvents {
             });
         }
 
+        if (changeUserId != null) {
+            _queryParams["changeUserId"] = serializers.BooleanString.jsonOrThrow(changeUserId, {
+                unrecognizedObjectKeys: "strip",
+            });
+        }
+
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
@@ -114,8 +122,8 @@ export class BusinessUserEvents {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.60",
-                "User-Agent": "flagright/1.8.60",
+                "X-Fern-SDK-Version": "1.8.61",
+                "User-Agent": "flagright/1.8.61",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),
@@ -131,7 +139,7 @@ export class BusinessUserEvents {
         });
         if (_response.ok) {
             return {
-                data: serializers.BusinessWithRulesResult.parseOrThrow(_response.body, {
+                data: serializers.BusinessUserEventsCreateResponse.parseOrThrow(_response.body, {
                     unrecognizedObjectKeys: "passthrough",
                     allowUnrecognizedUnionMembers: true,
                     allowUnrecognizedEnumValues: true,
@@ -155,6 +163,16 @@ export class BusinessUserEvents {
                     );
                 case 401:
                     throw new Flagright.UnauthorizedError(
+                        serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                case 404:
+                    throw new Flagright.NotFoundError(
                         serializers.ApiErrorResponse.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
@@ -245,8 +263,8 @@ export class BusinessUserEvents {
             headers: {
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "flagright",
-                "X-Fern-SDK-Version": "1.8.60",
-                "User-Agent": "flagright/1.8.60",
+                "X-Fern-SDK-Version": "1.8.61",
+                "User-Agent": "flagright/1.8.61",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...(await this._getCustomAuthorizationHeaders()),

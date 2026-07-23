@@ -17,6 +17,7 @@ export const ConsumerUserEvent: core.serialization.ObjectSchema<
     reason: core.serialization.string().optional(),
     eventDescription: core.serialization.string().optional(),
     updatedConsumerUserAttributes: UserOptional.optional(),
+    newUserId: core.serialization.string().optional(),
     externalLinks: core.serialization.list(core.serialization.string()).optional(),
 });
 
@@ -28,6 +29,7 @@ export declare namespace ConsumerUserEvent {
         reason?: string | null;
         eventDescription?: string | null;
         updatedConsumerUserAttributes?: UserOptional.Raw | null;
+        newUserId?: string | null;
         externalLinks?: string[] | null;
     }
 }

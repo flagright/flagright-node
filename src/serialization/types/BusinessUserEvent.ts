@@ -17,6 +17,7 @@ export const BusinessUserEvent: core.serialization.ObjectSchema<
     reason: core.serialization.string().optional(),
     eventDescription: core.serialization.string().optional(),
     updatedBusinessUserAttributes: BusinessOptional.optional(),
+    newUserId: core.serialization.string().optional(),
     externalLinks: core.serialization.list(core.serialization.string()).optional(),
 });
 
@@ -28,6 +29,7 @@ export declare namespace BusinessUserEvent {
         reason?: string | null;
         eventDescription?: string | null;
         updatedBusinessUserAttributes?: BusinessOptional.Raw | null;
+        newUserId?: string | null;
         externalLinks?: string[] | null;
     }
 }
