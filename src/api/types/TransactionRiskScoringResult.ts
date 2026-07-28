@@ -14,4 +14,14 @@ export interface TransactionRiskScoringResult {
     destinationUserCraRiskScore?: number;
     originUserCraRiskLevel?: Flagright.RiskLevel;
     destinationUserCraRiskLevel?: Flagright.RiskLevel;
+    /** Per-factor TRS breakdown; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled */
+    trsRiskFactors?: Flagright.RiskFactorBreakdown[];
+    /** Origin user's average TRS after this transaction; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled */
+    originUserAvgTrsScore?: number;
+    /** Destination user's average TRS after this transaction; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled */
+    destinationUserAvgTrsScore?: number;
+    /** KRS weight in the CRA formula when using custom weighting; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled */
+    krsWeight?: number;
+    /** Average TRS weight in the CRA formula when using custom weighting; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled */
+    avgTrsWeight?: number;
 }

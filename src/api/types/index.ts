@@ -210,6 +210,7 @@ export * from "./SanctionsDetailsEntityType";
 export * from "./UserEntityLink";
 export * from "./UserWithRulesResultSavedPaymentDetailsItem";
 export * from "./UserWithRulesResult";
+export * from "./RiskFactorBreakdown";
 export * from "./UserRiskScoreDetails";
 export * from "./BusinessWithRulesResultShareHoldersItem";
 export * from "./BusinessWithRulesResultDirectorsItem";

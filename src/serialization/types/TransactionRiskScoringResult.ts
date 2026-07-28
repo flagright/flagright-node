@@ -6,6 +6,7 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { RiskLevel } from "./RiskLevel";
+import { RiskFactorBreakdown } from "./RiskFactorBreakdown";
 
 export const TransactionRiskScoringResult: core.serialization.ObjectSchema<
     serializers.TransactionRiskScoringResult.Raw,
@@ -17,6 +18,11 @@ export const TransactionRiskScoringResult: core.serialization.ObjectSchema<
     destinationUserCraRiskScore: core.serialization.number().optional(),
     originUserCraRiskLevel: RiskLevel.optional(),
     destinationUserCraRiskLevel: RiskLevel.optional(),
+    trsRiskFactors: core.serialization.list(RiskFactorBreakdown).optional(),
+    originUserAvgTrsScore: core.serialization.number().optional(),
+    destinationUserAvgTrsScore: core.serialization.number().optional(),
+    krsWeight: core.serialization.number().optional(),
+    avgTrsWeight: core.serialization.number().optional(),
 });
 
 export declare namespace TransactionRiskScoringResult {
@@ -27,5 +33,10 @@ export declare namespace TransactionRiskScoringResult {
         destinationUserCraRiskScore?: number | null;
         originUserCraRiskLevel?: RiskLevel.Raw | null;
         destinationUserCraRiskLevel?: RiskLevel.Raw | null;
+        trsRiskFactors?: RiskFactorBreakdown.Raw[] | null;
+        originUserAvgTrsScore?: number | null;
+        destinationUserAvgTrsScore?: number | null;
+        krsWeight?: number | null;
+        avgTrsWeight?: number | null;
     }
 }

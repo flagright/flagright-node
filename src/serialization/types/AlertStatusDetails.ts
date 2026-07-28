@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { RuleNature } from "./RuleNature";
 
 export const AlertStatusDetails: core.serialization.ObjectSchema<
     serializers.AlertStatusDetails.Raw,
@@ -21,6 +22,7 @@ export const AlertStatusDetails: core.serialization.ObjectSchema<
     ruleDescription: core.serialization.string().optional(),
     ruleId: core.serialization.string().optional(),
     ruleInstanceId: core.serialization.string().optional(),
+    nature: RuleNature.optional(),
 });
 
 export declare namespace AlertStatusDetails {
@@ -36,5 +38,6 @@ export declare namespace AlertStatusDetails {
         ruleDescription?: string | null;
         ruleId?: string | null;
         ruleInstanceId?: string | null;
+        nature?: RuleNature.Raw | null;
     }
 }

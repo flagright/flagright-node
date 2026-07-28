@@ -6,6 +6,7 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { RiskLevel } from "./RiskLevel";
+import { RiskFactorBreakdown } from "./RiskFactorBreakdown";
 
 export const UserRiskScoreDetails: core.serialization.ObjectSchema<
     serializers.UserRiskScoreDetails.Raw,
@@ -15,6 +16,10 @@ export const UserRiskScoreDetails: core.serialization.ObjectSchema<
     craRiskScore: core.serialization.number().optional(),
     kycRiskLevel: RiskLevel.optional(),
     craRiskLevel: RiskLevel.optional(),
+    kycRiskFactors: core.serialization.list(RiskFactorBreakdown).optional(),
+    avgTrsScore: core.serialization.number().optional(),
+    krsWeight: core.serialization.number().optional(),
+    avgTrsWeight: core.serialization.number().optional(),
 });
 
 export declare namespace UserRiskScoreDetails {
@@ -23,5 +28,9 @@ export declare namespace UserRiskScoreDetails {
         craRiskScore?: number | null;
         kycRiskLevel?: RiskLevel.Raw | null;
         craRiskLevel?: RiskLevel.Raw | null;
+        kycRiskFactors?: RiskFactorBreakdown.Raw[] | null;
+        avgTrsScore?: number | null;
+        krsWeight?: number | null;
+        avgTrsWeight?: number | null;
     }
 }

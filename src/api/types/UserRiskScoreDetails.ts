@@ -9,4 +9,12 @@ export interface UserRiskScoreDetails {
     craRiskScore?: number;
     kycRiskLevel?: Flagright.RiskLevel;
     craRiskLevel?: Flagright.RiskLevel;
+    /** Per-factor KRS breakdown; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled */
+    kycRiskFactors?: Flagright.RiskFactorBreakdown[];
+    /** User average transaction risk score; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled */
+    avgTrsScore?: number;
+    /** KRS weight in the CRA formula when using custom weighting; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled */
+    krsWeight?: number;
+    /** Average TRS weight in the CRA formula when using custom weighting; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled */
+    avgTrsWeight?: number;
 }
