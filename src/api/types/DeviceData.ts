@@ -14,12 +14,12 @@ export interface DeviceData {
     deviceLatitude?: number;
     /** Device longitude at a give timestamp for an event or transaction */
     deviceLongitude?: number;
-    /** IP address of the device at a given timestamp for an event or transaction */
+    /** IP address of the device at a given timestamp for an event or transaction. Overwritten with a verified value when `deviceIntelligenceSealedResult` is provided and decrypts successfully */
     ipAddress?: string;
     ipCountry?: Flagright.CountryCode;
-    /** Device identifier number */
+    /** Device identifier number. Overwritten with a verified value when `deviceIntelligenceSealedResult` is provided and decrypts successfully */
     deviceIdentifier?: string;
-    /** Whether VPN was used at a given timestamp for an event or transaction */
+    /** Whether VPN was used at a given timestamp for an event or transaction. Overwritten when `deviceIntelligenceSealedResult` is provided and decrypts successfully, with the configured provider's own aggregate VPN detection verdict */
     vpnUsed?: boolean;
     /** Operating system of the device at a given timestamp for an event or transaction */
     operatingSystem?: string;
@@ -31,4 +31,99 @@ export interface DeviceData {
     deviceYear?: string;
     /** The version of the app your user is using on their device at a given timestamp for an event or transaction */
     appVersion?: string;
+    /** Base64-encoded encrypted sealed result blob from your configured device intelligence provider. When provided, Flagright decrypts it server-side and populates the device intelligence fields below (and `deviceIdentifier`, `ipAddress`, `ipCountry`, `vpnUsed` above) with the resulting verified signals; any value passed directly in those fields is ignored when this field is present */
+    deviceIntelligenceSealedResult?: string;
+    /** Whether the request originated from a known TOR exit node */
+    tor?: boolean;
+    /** Confidence score (0 to 1) that the device identity is correctly identified */
+    confidence?: number;
+    /** Whether the browser was in incognito/private mode */
+    incognito?: boolean;
+    /** Whether the request originated from a known public or residential proxy */
+    proxy?: boolean;
+    /** Whether browser tampering (e.g. anti-detect browser) was detected */
+    tampering?: boolean;
+    botDetection?: Flagright.BotDetectionResult;
+    /** Whether privacy-focused browser settings were detected */
+    privacySettings?: boolean;
+    /** Weighted risk score (0 and up, no fixed upper bound) */
+    suspectScore?: number;
+    /** Number of events from this device in the last 5 minutes */
+    velocity5MEvents?: number;
+    /** Number of distinct IPs used by this device in the last 5 minutes */
+    velocity5MIps?: number;
+    /** Number of distinct countries used by this device in the last 5 minutes */
+    velocity5MCountries?: number;
+    /** Number of events from this device in the last 1 hour */
+    velocity1HEvents?: number;
+    /** Number of distinct IPs used by this device in the last 1 hour */
+    velocity1HIps?: number;
+    /** Number of distinct countries used by this device in the last 1 hour */
+    velocity1HCountries?: number;
+    /** Number of events from this device in the last 24 hours */
+    velocity24HEvents?: number;
+    /** Number of distinct IPs used by this device in the last 24 hours */
+    velocity24HIps?: number;
+    /** Number of distinct countries used by this device in the last 24 hours */
+    velocity24HCountries?: number;
+    /** Device intelligence provider's request identifier for the event, ties back to the provider's event for audit purposes */
+    requestId?: string;
+    /** Operating system version of the device (e.g. "10.15.7") */
+    osVersion?: string;
+    /** Browser name (e.g. "Chrome", "Safari") */
+    browser?: string;
+    /** Browser version (e.g. "148.0.0") */
+    browserVersion?: string;
+    /** Android-specific rooted device detection (root management apps). False when checked and clean; unset if not evaluated */
+    rooted?: boolean;
+    /** iOS-specific jailbreak detection. False when checked and clean; unset if not evaluated */
+    jailbroken?: boolean;
+    /** Frida instrumentation framework detection. False when checked and clean; unset if not evaluated */
+    frida?: boolean;
+    /** Android-specific cloned application detection. False when checked and clean; unset if not evaluated */
+    clonedApp?: boolean;
+    /** Android-specific emulator detection. False when checked and clean; unset if not evaluated */
+    emulator?: boolean;
+    /** iOS-specific simulator detection. False when checked and clean; unset if not evaluated */
+    simulator?: boolean;
+    /** Whether the browser DevTools (or mobile Developer Tools) were open */
+    developerTools?: boolean;
+    /** Android-specific man-in-the-middle attack detection */
+    mitmAttack?: boolean;
+    /** Whether the IP address was part of a known network attack (SSH/HTTPS) */
+    ipAttackSource?: boolean;
+    /** Whether the IP address was part of a known email spam attack (SMTP) */
+    ipEmailSpam?: boolean;
+    /** Whether the device intelligence provider determined this identification payload was replayed rather than freshly captured */
+    replayed?: boolean;
+    /** Whether the request came from a browser running inside a virtual machine (e.g. VMWare) */
+    virtualMachine?: boolean;
+    /** Confidence score (0 to 1) for the virtualMachine detection result */
+    virtualMachineConfidenceScore?: number;
+    /** Mobile-specific GPS location spoofing detection */
+    locationSpoofing?: boolean;
+    /** Unix epoch time of the most recent factory reset detected on a mobile device; 0 if not detected or not a mobile device */
+    factoryResetTimestamp?: number;
+    /** Whether the request came from a device with unusually high identification activity */
+    highActivityDevice?: boolean;
+    /** Whether the device is considered rare based on its combination of hardware and software attributes */
+    rareDevice?: boolean;
+    /** Rarity percentile bucket of the device (e.g. "<p95", "p99.9+", "not_seen") */
+    rareDevicePercentileBucket?: string;
+    /** Confidence level of the VPN detection result (e.g. "low", "medium", "high") */
+    vpnConfidence?: string;
+    /** Country the request appears to originate from per VPN detection (ISO 3166 format, or "unknown") */
+    vpnOriginCountry?: string;
+    /** Local timezone used by the VPN detection's timezone-mismatch method */
+    vpnOriginTimezone?: string;
+    /** Additional classification of the bot type, if botDetection found one */
+    botType?: string;
+    /** Confidence level of the proxy detection result (e.g. "low", "medium", "high") */
+    proxyConfidence?: string;
+    /** Confidence score (0 to 1) for the proxy detection result */
+    proxyConfidenceScore?: number;
+    /** Confidence level of the tampering detection result (e.g. "low", "medium", "high") */
+    tamperingConfidence?: string;
+    /** Confidence score (0 to 1) for the tampering detection result */
+    tamperingConfidenceScore?: number;
 }

@@ -6,6 +6,7 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { CountryCode } from "./CountryCode";
+import { BotDetectionResult } from "./BotDetectionResult";
 
 export const DeviceData: core.serialization.ObjectSchema<serializers.DeviceData.Raw, Flagright.DeviceData> =
     core.serialization.object({
@@ -21,6 +22,57 @@ export const DeviceData: core.serialization.ObjectSchema<serializers.DeviceData.
         deviceModel: core.serialization.string().optional(),
         deviceYear: core.serialization.string().optional(),
         appVersion: core.serialization.string().optional(),
+        deviceIntelligenceSealedResult: core.serialization.string().optional(),
+        tor: core.serialization.boolean().optional(),
+        confidence: core.serialization.number().optional(),
+        incognito: core.serialization.boolean().optional(),
+        proxy: core.serialization.boolean().optional(),
+        tampering: core.serialization.boolean().optional(),
+        botDetection: BotDetectionResult.optional(),
+        privacySettings: core.serialization.boolean().optional(),
+        suspectScore: core.serialization.number().optional(),
+        velocity5MEvents: core.serialization.property("velocity5mEvents", core.serialization.number().optional()),
+        velocity5MIps: core.serialization.property("velocity5mIps", core.serialization.number().optional()),
+        velocity5MCountries: core.serialization.property("velocity5mCountries", core.serialization.number().optional()),
+        velocity1HEvents: core.serialization.property("velocity1hEvents", core.serialization.number().optional()),
+        velocity1HIps: core.serialization.property("velocity1hIps", core.serialization.number().optional()),
+        velocity1HCountries: core.serialization.property("velocity1hCountries", core.serialization.number().optional()),
+        velocity24HEvents: core.serialization.property("velocity24hEvents", core.serialization.number().optional()),
+        velocity24HIps: core.serialization.property("velocity24hIps", core.serialization.number().optional()),
+        velocity24HCountries: core.serialization.property(
+            "velocity24hCountries",
+            core.serialization.number().optional(),
+        ),
+        requestId: core.serialization.string().optional(),
+        osVersion: core.serialization.string().optional(),
+        browser: core.serialization.string().optional(),
+        browserVersion: core.serialization.string().optional(),
+        rooted: core.serialization.boolean().optional(),
+        jailbroken: core.serialization.boolean().optional(),
+        frida: core.serialization.boolean().optional(),
+        clonedApp: core.serialization.boolean().optional(),
+        emulator: core.serialization.boolean().optional(),
+        simulator: core.serialization.boolean().optional(),
+        developerTools: core.serialization.boolean().optional(),
+        mitmAttack: core.serialization.boolean().optional(),
+        ipAttackSource: core.serialization.boolean().optional(),
+        ipEmailSpam: core.serialization.boolean().optional(),
+        replayed: core.serialization.boolean().optional(),
+        virtualMachine: core.serialization.boolean().optional(),
+        virtualMachineConfidenceScore: core.serialization.number().optional(),
+        locationSpoofing: core.serialization.boolean().optional(),
+        factoryResetTimestamp: core.serialization.number().optional(),
+        highActivityDevice: core.serialization.boolean().optional(),
+        rareDevice: core.serialization.boolean().optional(),
+        rareDevicePercentileBucket: core.serialization.string().optional(),
+        vpnConfidence: core.serialization.string().optional(),
+        vpnOriginCountry: core.serialization.string().optional(),
+        vpnOriginTimezone: core.serialization.string().optional(),
+        botType: core.serialization.string().optional(),
+        proxyConfidence: core.serialization.string().optional(),
+        proxyConfidenceScore: core.serialization.number().optional(),
+        tamperingConfidence: core.serialization.string().optional(),
+        tamperingConfidenceScore: core.serialization.number().optional(),
     });
 
 export declare namespace DeviceData {
@@ -37,5 +89,53 @@ export declare namespace DeviceData {
         deviceModel?: string | null;
         deviceYear?: string | null;
         appVersion?: string | null;
+        deviceIntelligenceSealedResult?: string | null;
+        tor?: boolean | null;
+        confidence?: number | null;
+        incognito?: boolean | null;
+        proxy?: boolean | null;
+        tampering?: boolean | null;
+        botDetection?: BotDetectionResult.Raw | null;
+        privacySettings?: boolean | null;
+        suspectScore?: number | null;
+        velocity5mEvents?: number | null;
+        velocity5mIps?: number | null;
+        velocity5mCountries?: number | null;
+        velocity1hEvents?: number | null;
+        velocity1hIps?: number | null;
+        velocity1hCountries?: number | null;
+        velocity24hEvents?: number | null;
+        velocity24hIps?: number | null;
+        velocity24hCountries?: number | null;
+        requestId?: string | null;
+        osVersion?: string | null;
+        browser?: string | null;
+        browserVersion?: string | null;
+        rooted?: boolean | null;
+        jailbroken?: boolean | null;
+        frida?: boolean | null;
+        clonedApp?: boolean | null;
+        emulator?: boolean | null;
+        simulator?: boolean | null;
+        developerTools?: boolean | null;
+        mitmAttack?: boolean | null;
+        ipAttackSource?: boolean | null;
+        ipEmailSpam?: boolean | null;
+        replayed?: boolean | null;
+        virtualMachine?: boolean | null;
+        virtualMachineConfidenceScore?: number | null;
+        locationSpoofing?: boolean | null;
+        factoryResetTimestamp?: number | null;
+        highActivityDevice?: boolean | null;
+        rareDevice?: boolean | null;
+        rareDevicePercentileBucket?: string | null;
+        vpnConfidence?: string | null;
+        vpnOriginCountry?: string | null;
+        vpnOriginTimezone?: string | null;
+        botType?: string | null;
+        proxyConfidence?: string | null;
+        proxyConfidenceScore?: number | null;
+        tamperingConfidence?: string | null;
+        tamperingConfidenceScore?: number | null;
     }
 }

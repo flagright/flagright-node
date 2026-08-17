@@ -18,6 +18,7 @@ export const UserDetails: core.serialization.ObjectSchema<serializers.UserDetail
         userCategory: core.serialization.string().optional(),
         countryOfResidence: CountryCode.optional(),
         countryOfTaxResidence: CountryCode.optional(),
+        secondaryCountryOfTaxResidence: core.serialization.list(CountryCode).optional(),
         countryOfNationality: CountryCode.optional(),
         secondaryCountryOfNationality: core.serialization.list(CountryCode).optional(),
         gender: Gender.optional(),
@@ -33,6 +34,7 @@ export declare namespace UserDetails {
         userCategory?: string | null;
         countryOfResidence?: CountryCode.Raw | null;
         countryOfTaxResidence?: CountryCode.Raw | null;
+        secondaryCountryOfTaxResidence?: CountryCode.Raw[] | null;
         countryOfNationality?: CountryCode.Raw | null;
         secondaryCountryOfNationality?: CountryCode.Raw[] | null;
         gender?: Gender.Raw | null;

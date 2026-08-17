@@ -15,6 +15,8 @@ export interface UserDetails {
     userCategory?: string;
     countryOfResidence?: Flagright.CountryCode;
     countryOfTaxResidence?: Flagright.CountryCode;
+    /** Additional tax residence countries of the user */
+    secondaryCountryOfTaxResidence?: Flagright.CountryCode[];
     countryOfNationality?: Flagright.CountryCode;
     /** Additional nationalities of the user */
     secondaryCountryOfNationality?: Flagright.CountryCode[];
