@@ -10,6 +10,8 @@ export interface ConsumerName {
     firstName: string;
     /** Middle name of the user */
     middleName?: string;
+    /** Name of the father of the user */
+    fatherName?: string;
     /** Last name of the user */
     lastName?: string;
 }

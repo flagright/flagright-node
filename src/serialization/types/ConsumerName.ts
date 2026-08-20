@@ -10,6 +10,7 @@ export const ConsumerName: core.serialization.ObjectSchema<serializers.ConsumerN
     core.serialization.object({
         firstName: core.serialization.string(),
         middleName: core.serialization.string().optional(),
+        fatherName: core.serialization.string().optional(),
         lastName: core.serialization.string().optional(),
     });
 
@@ -17,6 +18,7 @@ export declare namespace ConsumerName {
     export interface Raw {
         firstName: string;
         middleName?: string | null;
+        fatherName?: string | null;
         lastName?: string | null;
     }
 }

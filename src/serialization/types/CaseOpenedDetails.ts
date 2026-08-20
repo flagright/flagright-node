@@ -11,6 +11,7 @@ export const CaseOpenedDetails: core.serialization.ObjectSchema<
     Flagright.CaseOpenedDetails
 > = core.serialization.object({
     caseId: core.serialization.string().optional(),
+    caseObject: core.serialization.record(core.serialization.string(), core.serialization.unknown()).optional(),
     status: core.serialization.string().optional(),
     userId: core.serialization.string().optional(),
     transactionIds: core.serialization.list(core.serialization.string()).optional(),
@@ -19,6 +20,7 @@ export const CaseOpenedDetails: core.serialization.ObjectSchema<
 export declare namespace CaseOpenedDetails {
     export interface Raw {
         caseId?: string | null;
+        caseObject?: Record<string, unknown> | null;
         status?: string | null;
         userId?: string | null;
         transactionIds?: string[] | null;

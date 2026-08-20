@@ -4,6 +4,7 @@
 
 export interface CaseOpenedDetails {
     caseId?: string;
+    caseObject?: Record<string, unknown>;
     status?: string;
     userId?: string;
     transactionIds?: string[];
