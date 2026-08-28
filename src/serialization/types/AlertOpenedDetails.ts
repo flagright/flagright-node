@@ -14,6 +14,9 @@ export const AlertOpenedDetails: core.serialization.ObjectSchema<
     alertId: core.serialization.string().optional(),
     status: core.serialization.string().optional(),
     transactionIds: core.serialization.list(core.serialization.string()).optional(),
+    reasons: core.serialization.list(core.serialization.string()).optional(),
+    reasonDescriptionForOther: core.serialization.string().optional(),
+    comment: core.serialization.string().optional(),
     ruleName: core.serialization.string().optional(),
     ruleDescription: core.serialization.string().optional(),
     ruleId: core.serialization.string().optional(),
@@ -28,6 +31,9 @@ export declare namespace AlertOpenedDetails {
         alertId?: string | null;
         status?: string | null;
         transactionIds?: string[] | null;
+        reasons?: string[] | null;
+        reasonDescriptionForOther?: string | null;
+        comment?: string | null;
         ruleName?: string | null;
         ruleDescription?: string | null;
         ruleId?: string | null;

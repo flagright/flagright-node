@@ -8,6 +8,9 @@ export interface AlertOpenedDetails {
     alertId?: string;
     status?: string;
     transactionIds?: string[];
+    reasons?: string[];
+    reasonDescriptionForOther?: string;
+    comment?: string;
     ruleName?: string;
     ruleDescription?: string;
     ruleId?: string;

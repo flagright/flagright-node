@@ -11,6 +11,7 @@ export interface AlertStatusDetails {
     reasonDescriptionForOther?: string;
     comment?: string;
     userId?: string;
+    caseId?: string;
     transactionIds?: string[];
     ruleName?: string;
     ruleDescription?: string;

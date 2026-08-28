@@ -8,4 +8,7 @@ export interface CaseOpenedDetails {
     status?: string;
     userId?: string;
     transactionIds?: string[];
+    reasons?: string[];
+    reasonDescriptionForOther?: string;
+    comment?: string;
 }

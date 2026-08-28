@@ -15,6 +15,9 @@ export const CaseOpenedDetails: core.serialization.ObjectSchema<
     status: core.serialization.string().optional(),
     userId: core.serialization.string().optional(),
     transactionIds: core.serialization.list(core.serialization.string()).optional(),
+    reasons: core.serialization.list(core.serialization.string()).optional(),
+    reasonDescriptionForOther: core.serialization.string().optional(),
+    comment: core.serialization.string().optional(),
 });
 
 export declare namespace CaseOpenedDetails {
@@ -24,5 +27,8 @@ export declare namespace CaseOpenedDetails {
         status?: string | null;
         userId?: string | null;
         transactionIds?: string[] | null;
+        reasons?: string[] | null;
+        reasonDescriptionForOther?: string | null;
+        comment?: string | null;
     }
 }

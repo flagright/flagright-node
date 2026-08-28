@@ -17,6 +17,7 @@ export const AlertStatusDetails: core.serialization.ObjectSchema<
     reasonDescriptionForOther: core.serialization.string().optional(),
     comment: core.serialization.string().optional(),
     userId: core.serialization.string().optional(),
+    caseId: core.serialization.string().optional(),
     transactionIds: core.serialization.list(core.serialization.string()).optional(),
     ruleName: core.serialization.string().optional(),
     ruleDescription: core.serialization.string().optional(),
@@ -33,6 +34,7 @@ export declare namespace AlertStatusDetails {
         reasonDescriptionForOther?: string | null;
         comment?: string | null;
         userId?: string | null;
+        caseId?: string | null;
         transactionIds?: string[] | null;
         ruleName?: string | null;
         ruleDescription?: string | null;
