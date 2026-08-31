@@ -10,4 +10,6 @@ import * as Flagright from "../index";
 export interface TransactionMetadata {
     /** List of blockchain risk analyses from different providers */
     blockchainRisk?: Flagright.BlockchainRisk[];
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
 }

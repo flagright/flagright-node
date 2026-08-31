@@ -126,4 +126,6 @@ export interface DeviceData {
     tamperingConfidence?: string;
     /** Confidence score (0 to 1) for the tampering detection result */
     tamperingConfidenceScore?: number;
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
 }

@@ -7,6 +7,7 @@ import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { CountryCode } from "./CountryCode";
 import { BotDetectionResult } from "./BotDetectionResult";
+import { Tag } from "./Tag";
 
 export const DeviceData: core.serialization.ObjectSchema<serializers.DeviceData.Raw, Flagright.DeviceData> =
     core.serialization.object({
@@ -73,6 +74,7 @@ export const DeviceData: core.serialization.ObjectSchema<serializers.DeviceData.
         proxyConfidenceScore: core.serialization.number().optional(),
         tamperingConfidence: core.serialization.string().optional(),
         tamperingConfidenceScore: core.serialization.number().optional(),
+        tags: core.serialization.list(Tag).optional(),
     });
 
 export declare namespace DeviceData {
@@ -137,5 +139,6 @@ export declare namespace DeviceData {
         proxyConfidenceScore?: number | null;
         tamperingConfidence?: string | null;
         tamperingConfidenceScore?: number | null;
+        tags?: Tag.Raw[] | null;
     }
 }

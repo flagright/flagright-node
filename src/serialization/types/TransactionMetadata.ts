@@ -6,16 +6,19 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { BlockchainRisk } from "./BlockchainRisk";
+import { Tag } from "./Tag";
 
 export const TransactionMetadata: core.serialization.ObjectSchema<
     serializers.TransactionMetadata.Raw,
     Flagright.TransactionMetadata
 > = core.serialization.object({
     blockchainRisk: core.serialization.list(BlockchainRisk).optional(),
+    tags: core.serialization.list(Tag).optional(),
 });
 
 export declare namespace TransactionMetadata {
     export interface Raw {
         blockchainRisk?: BlockchainRisk.Raw[] | null;
+        tags?: Tag.Raw[] | null;
     }
 }
