@@ -5,12 +5,14 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { CaseType } from "./CaseType";
 
 export const CaseOpenedDetails: core.serialization.ObjectSchema<
     serializers.CaseOpenedDetails.Raw,
     Flagright.CaseOpenedDetails
 > = core.serialization.object({
     caseId: core.serialization.string().optional(),
+    caseType: CaseType.optional(),
     caseObject: core.serialization.record(core.serialization.string(), core.serialization.unknown()).optional(),
     status: core.serialization.string().optional(),
     userId: core.serialization.string().optional(),
@@ -18,11 +20,14 @@ export const CaseOpenedDetails: core.serialization.ObjectSchema<
     reasons: core.serialization.list(core.serialization.string()).optional(),
     reasonDescriptionForOther: core.serialization.string().optional(),
     comment: core.serialization.string().optional(),
+    caseGroupId: core.serialization.string().optional(),
+    caseGroupName: core.serialization.string().optional(),
 });
 
 export declare namespace CaseOpenedDetails {
     export interface Raw {
         caseId?: string | null;
+        caseType?: CaseType.Raw | null;
         caseObject?: Record<string, unknown> | null;
         status?: string | null;
         userId?: string | null;
@@ -30,5 +35,7 @@ export declare namespace CaseOpenedDetails {
         reasons?: string[] | null;
         reasonDescriptionForOther?: string | null;
         comment?: string | null;
+        caseGroupId?: string | null;
+        caseGroupName?: string | null;
     }
 }

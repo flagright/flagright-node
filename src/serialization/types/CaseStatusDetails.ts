@@ -5,28 +5,35 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { CaseType } from "./CaseType";
 
 export const CaseStatusDetails: core.serialization.ObjectSchema<
     serializers.CaseStatusDetails.Raw,
     Flagright.CaseStatusDetails
 > = core.serialization.object({
     caseId: core.serialization.string().optional(),
+    caseType: CaseType.optional(),
     status: core.serialization.string().optional(),
     reasons: core.serialization.list(core.serialization.string()).optional(),
     reasonDescriptionForOther: core.serialization.string().optional(),
     comment: core.serialization.string().optional(),
     userId: core.serialization.string().optional(),
     transactionIds: core.serialization.list(core.serialization.string()).optional(),
+    caseGroupId: core.serialization.string().optional(),
+    caseGroupName: core.serialization.string().optional(),
 });
 
 export declare namespace CaseStatusDetails {
     export interface Raw {
         caseId?: string | null;
+        caseType?: CaseType.Raw | null;
         status?: string | null;
         reasons?: string[] | null;
         reasonDescriptionForOther?: string | null;
         comment?: string | null;
         userId?: string | null;
         transactionIds?: string[] | null;
+        caseGroupId?: string | null;
+        caseGroupName?: string | null;
     }
 }

@@ -163,6 +163,7 @@ export * from "./WebhookKycStatusDetails";
 export * from "./WebhookPepStatusDetails";
 export * from "./WebhookSanctionsStatusDetails";
 export * from "./WebhookAdverseMediaStatusDetails";
+export * from "./CaseType";
 export * from "./CaseStatusDetails";
 export * from "./CaseOpenedDetails";
 export * from "./AlertStatusDetails";
