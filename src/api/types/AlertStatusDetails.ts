@@ -18,4 +18,6 @@ export interface AlertStatusDetails {
     ruleId?: string;
     ruleInstanceId?: string;
     nature?: Flagright.RuleNature;
+    /** Tags attached to the alert. */
+    alertTags?: Flagright.Tag[];
 }

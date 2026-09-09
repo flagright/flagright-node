@@ -6,6 +6,7 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { RuleNature } from "./RuleNature";
+import { Tag } from "./Tag";
 
 export const AlertStatusDetails: core.serialization.ObjectSchema<
     serializers.AlertStatusDetails.Raw,
@@ -24,6 +25,7 @@ export const AlertStatusDetails: core.serialization.ObjectSchema<
     ruleId: core.serialization.string().optional(),
     ruleInstanceId: core.serialization.string().optional(),
     nature: RuleNature.optional(),
+    alertTags: core.serialization.list(Tag).optional(),
 });
 
 export declare namespace AlertStatusDetails {
@@ -41,5 +43,6 @@ export declare namespace AlertStatusDetails {
         ruleId?: string | null;
         ruleInstanceId?: string | null;
         nature?: RuleNature.Raw | null;
+        alertTags?: Tag.Raw[] | null;
     }
 }

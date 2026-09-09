@@ -18,4 +18,6 @@ export interface AlertOpenedDetails {
     nature?: Flagright.RuleNature;
     caseId?: string;
     userId?: string;
+    /** Tags attached to the alert. */
+    alertTags?: Flagright.Tag[];
 }

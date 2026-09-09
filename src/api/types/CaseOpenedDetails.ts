@@ -18,4 +18,6 @@ export interface CaseOpenedDetails {
     caseGroupId?: string;
     /** Display name of the case group. */
     caseGroupName?: string;
+    /** Tags attached to the case. */
+    caseTags?: Flagright.Tag[];
 }

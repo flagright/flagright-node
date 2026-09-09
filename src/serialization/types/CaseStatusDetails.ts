@@ -6,6 +6,7 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { CaseType } from "./CaseType";
+import { Tag } from "./Tag";
 
 export const CaseStatusDetails: core.serialization.ObjectSchema<
     serializers.CaseStatusDetails.Raw,
@@ -21,6 +22,7 @@ export const CaseStatusDetails: core.serialization.ObjectSchema<
     transactionIds: core.serialization.list(core.serialization.string()).optional(),
     caseGroupId: core.serialization.string().optional(),
     caseGroupName: core.serialization.string().optional(),
+    caseTags: core.serialization.list(Tag).optional(),
 });
 
 export declare namespace CaseStatusDetails {
@@ -35,5 +37,6 @@ export declare namespace CaseStatusDetails {
         transactionIds?: string[] | null;
         caseGroupId?: string | null;
         caseGroupName?: string | null;
+        caseTags?: Tag.Raw[] | null;
     }
 }

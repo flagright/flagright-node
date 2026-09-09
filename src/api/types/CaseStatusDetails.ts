@@ -17,4 +17,6 @@ export interface CaseStatusDetails {
     caseGroupId?: string;
     /** Display name of the case group. */
     caseGroupName?: string;
+    /** Tags attached to the case. */
+    caseTags?: Flagright.Tag[];
 }

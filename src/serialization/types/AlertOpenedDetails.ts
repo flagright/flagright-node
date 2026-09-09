@@ -6,6 +6,7 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { RuleNature } from "./RuleNature";
+import { Tag } from "./Tag";
 
 export const AlertOpenedDetails: core.serialization.ObjectSchema<
     serializers.AlertOpenedDetails.Raw,
@@ -24,6 +25,7 @@ export const AlertOpenedDetails: core.serialization.ObjectSchema<
     nature: RuleNature.optional(),
     caseId: core.serialization.string().optional(),
     userId: core.serialization.string().optional(),
+    alertTags: core.serialization.list(Tag).optional(),
 });
 
 export declare namespace AlertOpenedDetails {
@@ -41,5 +43,6 @@ export declare namespace AlertOpenedDetails {
         nature?: RuleNature.Raw | null;
         caseId?: string | null;
         userId?: string | null;
+        alertTags?: Tag.Raw[] | null;
     }
 }
