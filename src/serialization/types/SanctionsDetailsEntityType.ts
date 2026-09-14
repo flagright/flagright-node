@@ -18,6 +18,7 @@ export const SanctionsDetailsEntityType: core.serialization.Schema<
     "PAYMENT_NAME",
     "PAYMENT_BENEFICIARY_NAME",
     "BANK_NAME",
+    "BANK_BIC",
     "CORRESPONDENT_BANK_NAME",
     "BANK_ACCOUNT_HOLDER_NAME",
     "BUSINESS_PARTNER",
@@ -38,6 +39,7 @@ export declare namespace SanctionsDetailsEntityType {
         | "PAYMENT_NAME"
         | "PAYMENT_BENEFICIARY_NAME"
         | "BANK_NAME"
+        | "BANK_BIC"
         | "CORRESPONDENT_BANK_NAME"
         | "BANK_ACCOUNT_HOLDER_NAME"
         | "BUSINESS_PARTNER"
