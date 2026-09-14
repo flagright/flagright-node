@@ -11,6 +11,7 @@ export type SanctionsDetailsEntityType =
     | "PAYMENT_NAME"
     | "PAYMENT_BENEFICIARY_NAME"
     | "BANK_NAME"
+    | "CORRESPONDENT_BANK_NAME"
     | "BANK_ACCOUNT_HOLDER_NAME"
     | "BUSINESS_PARTNER"
     | "ASSOCIATED_PARTY"
@@ -27,6 +28,7 @@ export const SanctionsDetailsEntityType = {
     PaymentName: "PAYMENT_NAME",
     PaymentBeneficiaryName: "PAYMENT_BENEFICIARY_NAME",
     BankName: "BANK_NAME",
+    CorrespondentBankName: "CORRESPONDENT_BANK_NAME",
     BankAccountHolderName: "BANK_ACCOUNT_HOLDER_NAME",
     BusinessPartner: "BUSINESS_PARTNER",
     AssociatedParty: "ASSOCIATED_PARTY",
