@@ -40,4 +40,6 @@ export interface Transaction {
     jurisdiction?: string;
     /** External links related to the transaction */
     externalLinks?: string[];
+    /** Typed Object defined on the console for additional data */
+    customObject?: Record<string, unknown>;
 }

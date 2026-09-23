@@ -45,6 +45,7 @@ export const TransactionWithRulesResult: core.serialization.ObjectSchema<
     tags: core.serialization.list(Tag).optional(),
     jurisdiction: core.serialization.string().optional(),
     externalLinks: core.serialization.list(core.serialization.string()).optional(),
+    customObject: core.serialization.record(core.serialization.string(), core.serialization.unknown()).optional(),
     executedRules: core.serialization.list(ExecutedRulesResult),
     hitRules: core.serialization.list(HitRulesDetails),
     status: RuleAction,
@@ -75,6 +76,7 @@ export declare namespace TransactionWithRulesResult {
         tags?: Tag.Raw[] | null;
         jurisdiction?: string | null;
         externalLinks?: string[] | null;
+        customObject?: Record<string, unknown> | null;
         executedRules: ExecutedRulesResult.Raw[];
         hitRules: HitRulesDetails.Raw[];
         status: RuleAction.Raw;

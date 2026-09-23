@@ -12,6 +12,7 @@ export interface CaseStatusDetails {
     reasonDescriptionForOther?: string;
     comment?: string;
     userId?: string;
+    userType?: Flagright.UserType;
     transactionIds?: string[];
     /** Id of the case group this case belongs to. Absent when the case is not mapped to a case group. */
     caseGroupId?: string;

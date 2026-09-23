@@ -40,6 +40,8 @@ export interface TransactionWithRulesResult {
     jurisdiction?: string;
     /** External links related to the transaction */
     externalLinks?: string[];
+    /** Typed Object defined on the console for additional data */
+    customObject?: Record<string, unknown>;
     executedRules: Flagright.ExecutedRulesResult[];
     hitRules: Flagright.HitRulesDetails[];
     status: Flagright.RuleAction;

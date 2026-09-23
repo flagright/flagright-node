@@ -50,4 +50,6 @@ export interface Business {
     adverseMediaStatus?: boolean;
     /** External links related to the business user */
     externalLinks?: string[];
+    /** Typed Object defined on the console for additional data */
+    customObject?: Record<string, unknown>;
 }

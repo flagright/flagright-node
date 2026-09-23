@@ -13,6 +13,8 @@ export type WebhookEventData =
     | Flagright.TransactionStatusDetails
     | Flagright.KycStatusDetails
     | Flagright.UserTagsUpdate
+    | Flagright.CaseTagsUpdate
+    | Flagright.AlertTagsUpdate
     | Flagright.CraRiskLevelUpdatedDetails
     | Flagright.BatchCompletedDetails
     | Flagright.WebhookPepStatusDetails

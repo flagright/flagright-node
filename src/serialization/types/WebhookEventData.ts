@@ -13,6 +13,8 @@ import { AlertOpenedDetails } from "./AlertOpenedDetails";
 import { TransactionStatusDetails } from "./TransactionStatusDetails";
 import { KycStatusDetails } from "./KycStatusDetails";
 import { UserTagsUpdate } from "./UserTagsUpdate";
+import { CaseTagsUpdate } from "./CaseTagsUpdate";
+import { AlertTagsUpdate } from "./AlertTagsUpdate";
 import { CraRiskLevelUpdatedDetails } from "./CraRiskLevelUpdatedDetails";
 import { BatchCompletedDetails } from "./BatchCompletedDetails";
 import { WebhookPepStatusDetails } from "./WebhookPepStatusDetails";
@@ -29,6 +31,8 @@ export const WebhookEventData: core.serialization.Schema<serializers.WebhookEven
         TransactionStatusDetails,
         KycStatusDetails,
         UserTagsUpdate,
+        CaseTagsUpdate,
+        AlertTagsUpdate,
         CraRiskLevelUpdatedDetails,
         BatchCompletedDetails,
         WebhookPepStatusDetails,
@@ -46,6 +50,8 @@ export declare namespace WebhookEventData {
         | TransactionStatusDetails.Raw
         | KycStatusDetails.Raw
         | UserTagsUpdate.Raw
+        | CaseTagsUpdate.Raw
+        | AlertTagsUpdate.Raw
         | CraRiskLevelUpdatedDetails.Raw
         | BatchCompletedDetails.Raw
         | WebhookPepStatusDetails.Raw

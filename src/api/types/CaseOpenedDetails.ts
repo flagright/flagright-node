@@ -10,6 +10,7 @@ export interface CaseOpenedDetails {
     caseObject?: Record<string, unknown>;
     status?: string;
     userId?: string;
+    userType?: Flagright.UserType;
     transactionIds?: string[];
     reasons?: string[];
     reasonDescriptionForOther?: string;

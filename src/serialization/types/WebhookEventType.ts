@@ -18,6 +18,10 @@ export const WebhookEventType: core.serialization.Schema<serializers.WebhookEven
         "PEP_STATUS_UPDATED",
         "USER_TAGS_UPDATED",
         "USER_TAGS_DELETED",
+        "CASE_TAGS_UPDATED",
+        "CASE_TAGS_DELETED",
+        "ALERT_TAGS_UPDATED",
+        "ALERT_TAGS_DELETED",
         "CRA_RISK_LEVEL_UPDATED",
         "LIST_UPDATED",
         "SANCTIONS_STATUS_UPDATED",
@@ -41,6 +45,10 @@ export declare namespace WebhookEventType {
         | "PEP_STATUS_UPDATED"
         | "USER_TAGS_UPDATED"
         | "USER_TAGS_DELETED"
+        | "CASE_TAGS_UPDATED"
+        | "CASE_TAGS_DELETED"
+        | "ALERT_TAGS_UPDATED"
+        | "ALERT_TAGS_DELETED"
         | "CRA_RISK_LEVEL_UPDATED"
         | "LIST_UPDATED"
         | "SANCTIONS_STATUS_UPDATED"

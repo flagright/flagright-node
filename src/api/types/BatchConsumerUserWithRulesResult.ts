@@ -48,6 +48,8 @@ export interface BatchConsumerUserWithRulesResult {
     productsEnabled?: Flagright.ProductsEnabled[];
     /** External links related to the consumer user */
     externalLinks?: string[];
+    /** Typed Object defined on the console for additional data */
+    customObject?: Record<string, unknown>;
     executedRules?: Flagright.ExecutedRulesResult[];
     riskScoreDetails?: Flagright.UserRiskScoreDetails;
 }

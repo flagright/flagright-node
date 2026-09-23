@@ -47,4 +47,6 @@ export interface UserOptional {
     productsEnabled?: Flagright.ProductsEnabled[];
     /** External links related to the consumer user */
     externalLinks?: string[];
+    /** Typed Object defined on the console for additional data */
+    customObject?: Record<string, unknown>;
 }

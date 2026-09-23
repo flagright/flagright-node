@@ -13,6 +13,10 @@ export type WebhookEventType =
     | "PEP_STATUS_UPDATED"
     | "USER_TAGS_UPDATED"
     | "USER_TAGS_DELETED"
+    | "CASE_TAGS_UPDATED"
+    | "CASE_TAGS_DELETED"
+    | "ALERT_TAGS_UPDATED"
+    | "ALERT_TAGS_DELETED"
     | "CRA_RISK_LEVEL_UPDATED"
     | "LIST_UPDATED"
     | "SANCTIONS_STATUS_UPDATED"
@@ -33,6 +37,10 @@ export const WebhookEventType = {
     PepStatusUpdated: "PEP_STATUS_UPDATED",
     UserTagsUpdated: "USER_TAGS_UPDATED",
     UserTagsDeleted: "USER_TAGS_DELETED",
+    CaseTagsUpdated: "CASE_TAGS_UPDATED",
+    CaseTagsDeleted: "CASE_TAGS_DELETED",
+    AlertTagsUpdated: "ALERT_TAGS_UPDATED",
+    AlertTagsDeleted: "ALERT_TAGS_DELETED",
     CraRiskLevelUpdated: "CRA_RISK_LEVEL_UPDATED",
     ListUpdated: "LIST_UPDATED",
     SanctionsStatusUpdated: "SANCTIONS_STATUS_UPDATED",

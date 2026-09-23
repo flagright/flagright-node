@@ -34,6 +34,7 @@ export const TransactionUpdatable: core.serialization.ObjectSchema<
     tags: core.serialization.list(Tag).optional(),
     jurisdiction: core.serialization.string().optional(),
     externalLinks: core.serialization.list(core.serialization.string()).optional(),
+    customObject: core.serialization.record(core.serialization.string(), core.serialization.unknown()).optional(),
 });
 
 export declare namespace TransactionUpdatable {
@@ -54,5 +55,6 @@ export declare namespace TransactionUpdatable {
         tags?: Tag.Raw[] | null;
         jurisdiction?: string | null;
         externalLinks?: string[] | null;
+        customObject?: Record<string, unknown> | null;
     }
 }
