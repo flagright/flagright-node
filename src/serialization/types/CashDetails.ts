@@ -8,6 +8,8 @@ import * as core from "../../core";
 import { CounterpartyType } from "./CounterpartyType";
 import { Address } from "./Address";
 import { EmailId } from "./EmailId";
+import { Amount } from "./Amount";
+import { Tag } from "./Tag";
 
 export const CashDetails: core.serialization.ObjectSchema<serializers.CashDetails.Raw, Flagright.CashDetails> =
     core.serialization.object({
@@ -16,6 +18,8 @@ export const CashDetails: core.serialization.ObjectSchema<serializers.CashDetail
         address: Address.optional(),
         name: core.serialization.string().optional(),
         emailId: EmailId.optional(),
+        accountBalance: Amount.optional(),
+        tags: core.serialization.list(Tag).optional(),
     });
 
 export declare namespace CashDetails {
@@ -25,5 +29,7 @@ export declare namespace CashDetails {
         address?: Address.Raw | null;
         name?: string | null;
         emailId?: EmailId.Raw | null;
+        accountBalance?: Amount.Raw | null;
+        tags?: Tag.Raw[] | null;
     }
 }

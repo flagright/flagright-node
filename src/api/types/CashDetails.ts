@@ -11,4 +11,7 @@ export interface CashDetails {
     address?: Flagright.Address;
     name?: string;
     emailId?: Flagright.EmailId;
+    accountBalance?: Flagright.Amount;
+    /** Additional information that can be added via tags */
+    tags?: Flagright.Tag[];
 }
