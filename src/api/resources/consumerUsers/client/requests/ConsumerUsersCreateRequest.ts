@@ -32,7 +32,8 @@ import * as Flagright from "../../../../index";
  *                     tags: [{
  *                             key: "customerType",
  *                             value: "wallet"
- *                         }]
+ *                         }],
+ *                     documentIssuedState: "Berlin"
  *                 }],
  *             contactDetails: {
  *                 emailIds: ["baran@flagright.com"],

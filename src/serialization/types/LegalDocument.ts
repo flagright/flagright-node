@@ -18,6 +18,7 @@ export const LegalDocument: core.serialization.ObjectSchema<serializers.LegalDoc
         documentIssuedCountry: CountryCode.optional(),
         tags: core.serialization.list(Tag).optional(),
         nameOnDocument: ConsumerName.optional(),
+        documentIssuedState: core.serialization.string().optional(),
     });
 
 export declare namespace LegalDocument {
@@ -29,5 +30,6 @@ export declare namespace LegalDocument {
         documentIssuedCountry?: CountryCode.Raw | null;
         tags?: Tag.Raw[] | null;
         nameOnDocument?: ConsumerName.Raw | null;
+        documentIssuedState?: string | null;
     }
 }

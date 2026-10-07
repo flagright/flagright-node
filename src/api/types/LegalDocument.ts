@@ -20,4 +20,6 @@ export interface LegalDocument {
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
     nameOnDocument?: Flagright.ConsumerName;
+    /** State or province that issued the user's identity document */
+    documentIssuedState?: string;
 }

@@ -1156,6 +1156,7 @@ await client.consumerUsers.create({
                         value: "wallet",
                     },
                 ],
+                documentIssuedState: "Berlin",
             },
         ],
         contactDetails: {

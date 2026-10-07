@@ -27,6 +27,15 @@ export const SanctionsDetailsEntityType: core.serialization.Schema<
     "LEGAL_ENTITY_ALIAS",
     "TRANSACTION_REFERENCE",
     "TRANSACTION_TAG",
+    "CONSUMER_ADDRESS",
+    "LEGAL_ENTITY_ADDRESS",
+    "DIRECTOR_ADDRESS",
+    "SHAREHOLDER_ADDRESS",
+    "BUSINESS_PARTNER_ADDRESS",
+    "ASSOCIATED_PARTY_ADDRESS",
+    "BANK_ADDRESS",
+    "CORRESPONDENT_BANK_ADDRESS",
+    "PAYMENT_DETAILS_ADDRESS",
 ]);
 
 export declare namespace SanctionsDetailsEntityType {
@@ -47,5 +56,14 @@ export declare namespace SanctionsDetailsEntityType {
         | "CONSUMER_ALIAS"
         | "LEGAL_ENTITY_ALIAS"
         | "TRANSACTION_REFERENCE"
-        | "TRANSACTION_TAG";
+        | "TRANSACTION_TAG"
+        | "CONSUMER_ADDRESS"
+        | "LEGAL_ENTITY_ADDRESS"
+        | "DIRECTOR_ADDRESS"
+        | "SHAREHOLDER_ADDRESS"
+        | "BUSINESS_PARTNER_ADDRESS"
+        | "ASSOCIATED_PARTY_ADDRESS"
+        | "BANK_ADDRESS"
+        | "CORRESPONDENT_BANK_ADDRESS"
+        | "PAYMENT_DETAILS_ADDRESS";
 }

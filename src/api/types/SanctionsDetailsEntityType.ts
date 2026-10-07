@@ -19,7 +19,16 @@ export type SanctionsDetailsEntityType =
     | "CONSUMER_ALIAS"
     | "LEGAL_ENTITY_ALIAS"
     | "TRANSACTION_REFERENCE"
-    | "TRANSACTION_TAG";
+    | "TRANSACTION_TAG"
+    | "CONSUMER_ADDRESS"
+    | "LEGAL_ENTITY_ADDRESS"
+    | "DIRECTOR_ADDRESS"
+    | "SHAREHOLDER_ADDRESS"
+    | "BUSINESS_PARTNER_ADDRESS"
+    | "ASSOCIATED_PARTY_ADDRESS"
+    | "BANK_ADDRESS"
+    | "CORRESPONDENT_BANK_ADDRESS"
+    | "PAYMENT_DETAILS_ADDRESS";
 export const SanctionsDetailsEntityType = {
     ConsumerName: "CONSUMER_NAME",
     LegalName: "LEGAL_NAME",
@@ -38,4 +47,13 @@ export const SanctionsDetailsEntityType = {
     LegalEntityAlias: "LEGAL_ENTITY_ALIAS",
     TransactionReference: "TRANSACTION_REFERENCE",
     TransactionTag: "TRANSACTION_TAG",
+    ConsumerAddress: "CONSUMER_ADDRESS",
+    LegalEntityAddress: "LEGAL_ENTITY_ADDRESS",
+    DirectorAddress: "DIRECTOR_ADDRESS",
+    ShareholderAddress: "SHAREHOLDER_ADDRESS",
+    BusinessPartnerAddress: "BUSINESS_PARTNER_ADDRESS",
+    AssociatedPartyAddress: "ASSOCIATED_PARTY_ADDRESS",
+    BankAddress: "BANK_ADDRESS",
+    CorrespondentBankAddress: "CORRESPONDENT_BANK_ADDRESS",
+    PaymentDetailsAddress: "PAYMENT_DETAILS_ADDRESS",
 } as const;
