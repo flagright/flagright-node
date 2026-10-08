@@ -95,6 +95,7 @@ export * from "./WalletDetails";
 export * from "./WalletNetwork";
 export * from "./AchDetails";
 export * from "./CorrespondentBankDetails";
+export * from "./CorrespondentGenericBankDetails";
 export * from "./SwiftDetails";
 export * from "./MpesaDetails";
 export * from "./GenericBankAccountDetails";

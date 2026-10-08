@@ -41,4 +41,5 @@ export interface GenericBankAccountDetails {
     address?: Flagright.Address;
     /** Routing number of the bank */
     routingNumber?: string;
+    correspondentBankDetails?: Flagright.CorrespondentGenericBankDetails[];
 }

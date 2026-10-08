@@ -11,6 +11,7 @@ import { CountryCode } from "./CountryCode";
 import { Address } from "./Address";
 import { EmailId } from "./EmailId";
 import { Tag } from "./Tag";
+import { CorrespondentGenericBankDetails } from "./CorrespondentGenericBankDetails";
 
 export const GenericBankAccountDetails: core.serialization.ObjectSchema<
     serializers.GenericBankAccountDetails.Raw,
@@ -36,6 +37,7 @@ export const GenericBankAccountDetails: core.serialization.ObjectSchema<
     transitNumber: core.serialization.string().optional(),
     address: Address.optional(),
     routingNumber: core.serialization.string().optional(),
+    correspondentBankDetails: core.serialization.list(CorrespondentGenericBankDetails).optional(),
 });
 
 export declare namespace GenericBankAccountDetails {
@@ -60,5 +62,6 @@ export declare namespace GenericBankAccountDetails {
         transitNumber?: string | null;
         address?: Address.Raw | null;
         routingNumber?: string | null;
+        correspondentBankDetails?: CorrespondentGenericBankDetails.Raw[] | null;
     }
 }
