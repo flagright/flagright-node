@@ -7,6 +7,7 @@ import * as Flagright from "../index";
 export interface CraRiskLevelUpdatedDetails {
     riskLevel?: string;
     userId?: string;
+    userType?: Flagright.UserType;
     /** Current CRA (DRS) risk score for the user */
     riskScore?: number;
     /** KRS score when a KRS record exists for the user */

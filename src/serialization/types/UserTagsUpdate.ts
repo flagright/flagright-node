@@ -5,17 +5,20 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { UserType } from "./UserType";
 import { UserTag } from "./UserTag";
 
 export const UserTagsUpdate: core.serialization.ObjectSchema<serializers.UserTagsUpdate.Raw, Flagright.UserTagsUpdate> =
     core.serialization.object({
         userId: core.serialization.string().optional(),
+        userType: UserType.optional(),
         tags: core.serialization.list(UserTag).optional(),
     });
 
 export declare namespace UserTagsUpdate {
     export interface Raw {
         userId?: string | null;
+        userType?: UserType.Raw | null;
         tags?: UserTag.Raw[] | null;
     }
 }

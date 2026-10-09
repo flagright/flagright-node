@@ -8,4 +8,5 @@ export interface WebhookKycStatusDetails {
     reason?: string;
     status?: Flagright.KycStatus;
     userId: string;
+    userType?: Flagright.UserType;
 }

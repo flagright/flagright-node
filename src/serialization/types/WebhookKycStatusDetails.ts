@@ -6,6 +6,7 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { KycStatus } from "./KycStatus";
+import { UserType } from "./UserType";
 
 export const WebhookKycStatusDetails: core.serialization.ObjectSchema<
     serializers.WebhookKycStatusDetails.Raw,
@@ -14,6 +15,7 @@ export const WebhookKycStatusDetails: core.serialization.ObjectSchema<
     reason: core.serialization.string().optional(),
     status: KycStatus.optional(),
     userId: core.serialization.string(),
+    userType: UserType.optional(),
 });
 
 export declare namespace WebhookKycStatusDetails {
@@ -21,5 +23,6 @@ export declare namespace WebhookKycStatusDetails {
         reason?: string | null;
         status?: KycStatus.Raw | null;
         userId: string;
+        userType?: UserType.Raw | null;
     }
 }

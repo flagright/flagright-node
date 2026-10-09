@@ -5,13 +5,13 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
-import { UserStateDetails } from "./UserStateDetails";
+import { WebhookUserStateDetails } from "./WebhookUserStateDetails";
 import { CaseStatusDetails } from "./CaseStatusDetails";
 import { CaseOpenedDetails } from "./CaseOpenedDetails";
 import { AlertStatusDetails } from "./AlertStatusDetails";
 import { AlertOpenedDetails } from "./AlertOpenedDetails";
 import { TransactionStatusDetails } from "./TransactionStatusDetails";
-import { KycStatusDetails } from "./KycStatusDetails";
+import { WebhookKycStatusDetails } from "./WebhookKycStatusDetails";
 import { UserTagsUpdate } from "./UserTagsUpdate";
 import { CaseTagsUpdate } from "./CaseTagsUpdate";
 import { AlertTagsUpdate } from "./AlertTagsUpdate";
@@ -23,13 +23,13 @@ import { WebhookAdverseMediaStatusDetails } from "./WebhookAdverseMediaStatusDet
 
 export const WebhookEventData: core.serialization.Schema<serializers.WebhookEventData.Raw, Flagright.WebhookEventData> =
     core.serialization.undiscriminatedUnion([
-        UserStateDetails,
+        WebhookUserStateDetails,
         CaseStatusDetails,
         CaseOpenedDetails,
         AlertStatusDetails,
         AlertOpenedDetails,
         TransactionStatusDetails,
-        KycStatusDetails,
+        WebhookKycStatusDetails,
         UserTagsUpdate,
         CaseTagsUpdate,
         AlertTagsUpdate,
@@ -42,13 +42,13 @@ export const WebhookEventData: core.serialization.Schema<serializers.WebhookEven
 
 export declare namespace WebhookEventData {
     export type Raw =
-        | UserStateDetails.Raw
+        | WebhookUserStateDetails.Raw
         | CaseStatusDetails.Raw
         | CaseOpenedDetails.Raw
         | AlertStatusDetails.Raw
         | AlertOpenedDetails.Raw
         | TransactionStatusDetails.Raw
-        | KycStatusDetails.Raw
+        | WebhookKycStatusDetails.Raw
         | UserTagsUpdate.Raw
         | CaseTagsUpdate.Raw
         | AlertTagsUpdate.Raw

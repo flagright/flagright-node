@@ -6,6 +6,7 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { UserState } from "./UserState";
+import { UserType } from "./UserType";
 
 export const WebhookUserStateDetails: core.serialization.ObjectSchema<
     serializers.WebhookUserStateDetails.Raw,
@@ -14,6 +15,7 @@ export const WebhookUserStateDetails: core.serialization.ObjectSchema<
     reason: core.serialization.string().optional(),
     state: UserState,
     userId: core.serialization.string(),
+    userType: UserType.optional(),
 });
 
 export declare namespace WebhookUserStateDetails {
@@ -21,5 +23,6 @@ export declare namespace WebhookUserStateDetails {
         reason?: string | null;
         state: UserState.Raw;
         userId: string;
+        userType?: UserType.Raw | null;
     }
 }

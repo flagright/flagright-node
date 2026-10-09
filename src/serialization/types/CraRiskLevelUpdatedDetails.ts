@@ -5,6 +5,7 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { UserType } from "./UserType";
 import { CraRiskLevelUpdatedRiskFactor } from "./CraRiskLevelUpdatedRiskFactor";
 
 export const CraRiskLevelUpdatedDetails: core.serialization.ObjectSchema<
@@ -13,6 +14,7 @@ export const CraRiskLevelUpdatedDetails: core.serialization.ObjectSchema<
 > = core.serialization.object({
     riskLevel: core.serialization.string().optional(),
     userId: core.serialization.string().optional(),
+    userType: UserType.optional(),
     riskScore: core.serialization.number().optional(),
     kycRiskScore: core.serialization.number().optional(),
     kycRiskLevel: core.serialization.string().optional(),
@@ -23,6 +25,7 @@ export declare namespace CraRiskLevelUpdatedDetails {
     export interface Raw {
         riskLevel?: string | null;
         userId?: string | null;
+        userType?: UserType.Raw | null;
         riskScore?: number | null;
         kycRiskScore?: number | null;
         kycRiskLevel?: string | null;

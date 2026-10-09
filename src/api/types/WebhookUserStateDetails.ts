@@ -8,4 +8,5 @@ export interface WebhookUserStateDetails {
     reason?: string;
     state: Flagright.UserState;
     userId: string;
+    userType?: Flagright.UserType;
 }

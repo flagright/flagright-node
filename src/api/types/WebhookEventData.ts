@@ -5,13 +5,13 @@
 import * as Flagright from "../index";
 
 export type WebhookEventData =
-    | Flagright.UserStateDetails
+    | Flagright.WebhookUserStateDetails
     | Flagright.CaseStatusDetails
     | Flagright.CaseOpenedDetails
     | Flagright.AlertStatusDetails
     | Flagright.AlertOpenedDetails
     | Flagright.TransactionStatusDetails
-    | Flagright.KycStatusDetails
+    | Flagright.WebhookKycStatusDetails
     | Flagright.UserTagsUpdate
     | Flagright.CaseTagsUpdate
     | Flagright.AlertTagsUpdate

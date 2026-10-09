@@ -6,6 +6,7 @@ import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
 import { BatchCompletedDetailsType } from "./BatchCompletedDetailsType";
+import { UserType } from "./UserType";
 
 export const BatchCompletedDetails: core.serialization.ObjectSchema<
     serializers.BatchCompletedDetails.Raw,
@@ -13,6 +14,7 @@ export const BatchCompletedDetails: core.serialization.ObjectSchema<
 > = core.serialization.object({
     batchId: core.serialization.string(),
     type: BatchCompletedDetailsType,
+    userType: UserType.optional(),
     totalCount: core.serialization.number(),
     processedCount: core.serialization.number(),
     status: core.serialization.stringLiteral("COMPLETED"),
@@ -24,6 +26,7 @@ export declare namespace BatchCompletedDetails {
     export interface Raw {
         batchId: string;
         type: BatchCompletedDetailsType.Raw;
+        userType?: UserType.Raw | null;
         totalCount: number;
         processedCount: number;
         status: "COMPLETED";

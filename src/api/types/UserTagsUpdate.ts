@@ -6,5 +6,6 @@ import * as Flagright from "../index";
 
 export interface UserTagsUpdate {
     userId?: string;
+    userType?: Flagright.UserType;
     tags?: Flagright.UserTag[];
 }

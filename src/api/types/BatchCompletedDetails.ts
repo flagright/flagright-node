@@ -12,6 +12,7 @@ export interface BatchCompletedDetails {
     batchId: string;
     /** Type of batch entity */
     type: Flagright.BatchCompletedDetailsType;
+    userType?: Flagright.UserType;
     /** Total number of successfully validated records in the batch */
     totalCount: number;
     /** Number of records that were processed */
