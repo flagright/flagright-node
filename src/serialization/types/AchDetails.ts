@@ -11,6 +11,7 @@ import { Address } from "./Address";
 import { CountryCode } from "./CountryCode";
 import { EmailId } from "./EmailId";
 import { Tag } from "./Tag";
+import { JointEntity } from "./JointEntity";
 
 export const AchDetails: core.serialization.ObjectSchema<serializers.AchDetails.Raw, Flagright.AchDetails> =
     core.serialization.object({
@@ -27,6 +28,7 @@ export const AchDetails: core.serialization.ObjectSchema<serializers.AchDetails.
         beneficiaryName: core.serialization.string().optional(),
         emailId: EmailId.optional(),
         tags: core.serialization.list(Tag).optional(),
+        jointEntity: JointEntity.optional(),
     });
 
 export declare namespace AchDetails {
@@ -44,5 +46,6 @@ export declare namespace AchDetails {
         beneficiaryName?: string | null;
         emailId?: EmailId.Raw | null;
         tags?: Tag.Raw[] | null;
+        jointEntity?: JointEntity.Raw | null;
     }
 }

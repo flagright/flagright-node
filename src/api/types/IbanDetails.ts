@@ -32,4 +32,5 @@ export interface IbanDetails {
     countryOfResidence?: Flagright.CountryCode;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
+    jointEntity?: Flagright.JointEntity;
 }

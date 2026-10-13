@@ -45,4 +45,5 @@ export interface CardDetails {
     bankAddress?: Flagright.Address;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
+    jointEntity?: Flagright.JointEntity;
 }

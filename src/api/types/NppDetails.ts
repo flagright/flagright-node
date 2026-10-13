@@ -46,4 +46,5 @@ export interface NppDetails {
     /** Name of the bank associated with the account */
     bankName?: string;
     address?: Flagright.Address;
+    jointEntity?: Flagright.JointEntity;
 }

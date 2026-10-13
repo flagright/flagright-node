@@ -5,16 +5,19 @@
 import * as serializers from "../index";
 import * as Flagright from "../../api/index";
 import * as core from "../../core";
+import { ProductsEnabledDetails } from "./ProductsEnabledDetails";
 
 export const ProductsEnabled: core.serialization.ObjectSchema<
     serializers.ProductsEnabled.Raw,
     Flagright.ProductsEnabled
 > = core.serialization.object({
     productName: core.serialization.string().optional(),
+    details: ProductsEnabledDetails.optional(),
 });
 
 export declare namespace ProductsEnabled {
     export interface Raw {
         productName?: string | null;
+        details?: ProductsEnabledDetails.Raw | null;
     }
 }

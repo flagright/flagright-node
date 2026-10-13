@@ -10,6 +10,7 @@ import { Address } from "./Address";
 import { EmailId } from "./EmailId";
 import { Amount } from "./Amount";
 import { Tag } from "./Tag";
+import { JointEntity } from "./JointEntity";
 
 export const CashDetails: core.serialization.ObjectSchema<serializers.CashDetails.Raw, Flagright.CashDetails> =
     core.serialization.object({
@@ -20,6 +21,7 @@ export const CashDetails: core.serialization.ObjectSchema<serializers.CashDetail
         emailId: EmailId.optional(),
         accountBalance: Amount.optional(),
         tags: core.serialization.list(Tag).optional(),
+        jointEntity: JointEntity.optional(),
     });
 
 export declare namespace CashDetails {
@@ -31,5 +33,6 @@ export declare namespace CashDetails {
         emailId?: EmailId.Raw | null;
         accountBalance?: Amount.Raw | null;
         tags?: Tag.Raw[] | null;
+        jointEntity?: JointEntity.Raw | null;
     }
 }

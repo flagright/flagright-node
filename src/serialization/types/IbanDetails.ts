@@ -11,6 +11,7 @@ import { CountryCode } from "./CountryCode";
 import { Amount } from "./Amount";
 import { EmailId } from "./EmailId";
 import { Tag } from "./Tag";
+import { JointEntity } from "./JointEntity";
 
 export const IbanDetails: core.serialization.ObjectSchema<serializers.IbanDetails.Raw, Flagright.IbanDetails> =
     core.serialization.object({
@@ -30,6 +31,7 @@ export const IbanDetails: core.serialization.ObjectSchema<serializers.IbanDetail
         countryOfNationality: CountryCode.optional(),
         countryOfResidence: CountryCode.optional(),
         tags: core.serialization.list(Tag).optional(),
+        jointEntity: JointEntity.optional(),
     });
 
 export declare namespace IbanDetails {
@@ -50,5 +52,6 @@ export declare namespace IbanDetails {
         countryOfNationality?: CountryCode.Raw | null;
         countryOfResidence?: CountryCode.Raw | null;
         tags?: Tag.Raw[] | null;
+        jointEntity?: JointEntity.Raw | null;
     }
 }

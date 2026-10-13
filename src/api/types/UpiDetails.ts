@@ -21,4 +21,5 @@ export interface UpiDetails {
     emailId?: Flagright.EmailId;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
+    jointEntity?: Flagright.JointEntity;
 }

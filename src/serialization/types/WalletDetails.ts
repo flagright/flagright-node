@@ -13,6 +13,7 @@ import { WalletNetwork } from "./WalletNetwork";
 import { Address } from "./Address";
 import { CountryCode } from "./CountryCode";
 import { UserDetails } from "./UserDetails";
+import { JointEntity } from "./JointEntity";
 
 export const WalletDetails: core.serialization.ObjectSchema<serializers.WalletDetails.Raw, Flagright.WalletDetails> =
     core.serialization.object({
@@ -34,6 +35,7 @@ export const WalletDetails: core.serialization.ObjectSchema<serializers.WalletDe
         authorizedRepresentative: core.serialization.list(UserDetails).optional(),
         dateOfBirth: core.serialization.string().optional(),
         transactionHash: core.serialization.string().optional(),
+        jointEntity: JointEntity.optional(),
     });
 
 export declare namespace WalletDetails {
@@ -56,5 +58,6 @@ export declare namespace WalletDetails {
         authorizedRepresentative?: UserDetails.Raw[] | null;
         dateOfBirth?: string | null;
         transactionHash?: string | null;
+        jointEntity?: JointEntity.Raw | null;
     }
 }

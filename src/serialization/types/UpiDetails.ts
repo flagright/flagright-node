@@ -9,6 +9,7 @@ import { CounterpartyType } from "./CounterpartyType";
 import { Address } from "./Address";
 import { EmailId } from "./EmailId";
 import { Tag } from "./Tag";
+import { JointEntity } from "./JointEntity";
 
 export const UpiDetails: core.serialization.ObjectSchema<serializers.UpiDetails.Raw, Flagright.UpiDetails> =
     core.serialization.object({
@@ -20,6 +21,7 @@ export const UpiDetails: core.serialization.ObjectSchema<serializers.UpiDetails.
         address: Address.optional(),
         emailId: EmailId.optional(),
         tags: core.serialization.list(Tag).optional(),
+        jointEntity: JointEntity.optional(),
     });
 
 export declare namespace UpiDetails {
@@ -32,5 +34,6 @@ export declare namespace UpiDetails {
         address?: Address.Raw | null;
         emailId?: EmailId.Raw | null;
         tags?: Tag.Raw[] | null;
+        jointEntity?: JointEntity.Raw | null;
     }
 }

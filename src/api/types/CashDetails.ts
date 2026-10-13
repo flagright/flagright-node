@@ -14,4 +14,5 @@ export interface CashDetails {
     accountBalance?: Flagright.Amount;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
+    jointEntity?: Flagright.JointEntity;
 }

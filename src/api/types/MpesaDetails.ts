@@ -20,4 +20,5 @@ export interface MpesaDetails {
     address?: Flagright.Address;
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
+    jointEntity?: Flagright.JointEntity;
 }

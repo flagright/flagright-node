@@ -10,6 +10,7 @@ import { MpesaTransactionType } from "./MpesaTransactionType";
 import { EmailId } from "./EmailId";
 import { Address } from "./Address";
 import { Tag } from "./Tag";
+import { JointEntity } from "./JointEntity";
 
 export const MpesaDetails: core.serialization.ObjectSchema<serializers.MpesaDetails.Raw, Flagright.MpesaDetails> =
     core.serialization.object({
@@ -21,6 +22,7 @@ export const MpesaDetails: core.serialization.ObjectSchema<serializers.MpesaDeta
         name: core.serialization.string().optional(),
         address: Address.optional(),
         tags: core.serialization.list(Tag).optional(),
+        jointEntity: JointEntity.optional(),
     });
 
 export declare namespace MpesaDetails {
@@ -33,5 +35,6 @@ export declare namespace MpesaDetails {
         name?: string | null;
         address?: Address.Raw | null;
         tags?: Tag.Raw[] | null;
+        jointEntity?: JointEntity.Raw | null;
     }
 }

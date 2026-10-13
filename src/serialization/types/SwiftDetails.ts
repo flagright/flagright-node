@@ -12,6 +12,7 @@ import { CountryCode } from "./CountryCode";
 import { EmailId } from "./EmailId";
 import { CorrespondentBankDetails } from "./CorrespondentBankDetails";
 import { Tag } from "./Tag";
+import { JointEntity } from "./JointEntity";
 
 export const SwiftDetails: core.serialization.ObjectSchema<serializers.SwiftDetails.Raw, Flagright.SwiftDetails> =
     core.serialization.object({
@@ -32,6 +33,7 @@ export const SwiftDetails: core.serialization.ObjectSchema<serializers.SwiftDeta
         address: Address.optional(),
         correspondentBankDetails: core.serialization.list(CorrespondentBankDetails).optional(),
         tags: core.serialization.list(Tag).optional(),
+        jointEntity: JointEntity.optional(),
     });
 
 export declare namespace SwiftDetails {
@@ -53,5 +55,6 @@ export declare namespace SwiftDetails {
         address?: Address.Raw | null;
         correspondentBankDetails?: CorrespondentBankDetails.Raw[] | null;
         tags?: Tag.Raw[] | null;
+        jointEntity?: JointEntity.Raw | null;
     }
 }

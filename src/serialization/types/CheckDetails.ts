@@ -10,6 +10,7 @@ import { CheckDeliveryStatus } from "./CheckDeliveryStatus";
 import { Address } from "./Address";
 import { CountryCode } from "./CountryCode";
 import { Tag } from "./Tag";
+import { JointEntity } from "./JointEntity";
 
 export const CheckDetails: core.serialization.ObjectSchema<serializers.CheckDetails.Raw, Flagright.CheckDetails> =
     core.serialization.object({
@@ -28,6 +29,7 @@ export const CheckDetails: core.serialization.ObjectSchema<serializers.CheckDeta
         countryOfResidence: CountryCode.optional(),
         bankAddress: Address.optional(),
         tags: core.serialization.list(Tag).optional(),
+        jointEntity: JointEntity.optional(),
     });
 
 export declare namespace CheckDetails {
@@ -47,5 +49,6 @@ export declare namespace CheckDetails {
         countryOfResidence?: CountryCode.Raw | null;
         bankAddress?: Address.Raw | null;
         tags?: Tag.Raw[] | null;
+        jointEntity?: JointEntity.Raw | null;
     }
 }

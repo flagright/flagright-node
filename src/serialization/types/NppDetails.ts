@@ -10,6 +10,7 @@ import { ConsumerName } from "./ConsumerName";
 import { EmailId } from "./EmailId";
 import { Tag } from "./Tag";
 import { Address } from "./Address";
+import { JointEntity } from "./JointEntity";
 
 export const NppDetails: core.serialization.ObjectSchema<serializers.NppDetails.Raw, Flagright.NppDetails> =
     core.serialization.object({
@@ -34,6 +35,7 @@ export const NppDetails: core.serialization.ObjectSchema<serializers.NppDetails.
         messageFormat: core.serialization.string().optional(),
         bankName: core.serialization.string().optional(),
         address: Address.optional(),
+        jointEntity: JointEntity.optional(),
     });
 
 export declare namespace NppDetails {
@@ -59,5 +61,6 @@ export declare namespace NppDetails {
         messageFormat?: string | null;
         bankName?: string | null;
         address?: Address.Raw | null;
+        jointEntity?: JointEntity.Raw | null;
     }
 }

@@ -34,4 +34,5 @@ export interface SwiftDetails {
     correspondentBankDetails?: Flagright.CorrespondentBankDetails[];
     /** Additional information that can be added via tags */
     tags?: Flagright.Tag[];
+    jointEntity?: Flagright.JointEntity;
 }

@@ -12,6 +12,7 @@ import { Address } from "./Address";
 import { EmailId } from "./EmailId";
 import { Tag } from "./Tag";
 import { CorrespondentGenericBankDetails } from "./CorrespondentGenericBankDetails";
+import { JointEntity } from "./JointEntity";
 
 export const GenericBankAccountDetails: core.serialization.ObjectSchema<
     serializers.GenericBankAccountDetails.Raw,
@@ -38,6 +39,7 @@ export const GenericBankAccountDetails: core.serialization.ObjectSchema<
     address: Address.optional(),
     routingNumber: core.serialization.string().optional(),
     correspondentBankDetails: core.serialization.list(CorrespondentGenericBankDetails).optional(),
+    jointEntity: JointEntity.optional(),
 });
 
 export declare namespace GenericBankAccountDetails {
@@ -63,5 +65,6 @@ export declare namespace GenericBankAccountDetails {
         address?: Address.Raw | null;
         routingNumber?: string | null;
         correspondentBankDetails?: CorrespondentGenericBankDetails.Raw[] | null;
+        jointEntity?: JointEntity.Raw | null;
     }
 }

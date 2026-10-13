@@ -19,6 +19,7 @@ import { Amount } from "./Amount";
 import { CardMerchantDetails } from "./CardMerchantDetails";
 import { Address } from "./Address";
 import { Tag } from "./Tag";
+import { JointEntity } from "./JointEntity";
 
 export const CardDetails: core.serialization.ObjectSchema<serializers.CardDetails.Raw, Flagright.CardDetails> =
     core.serialization.object({
@@ -49,6 +50,7 @@ export const CardDetails: core.serialization.ObjectSchema<serializers.CardDetail
         countryOfResidence: CountryCode.optional(),
         bankAddress: Address.optional(),
         tags: core.serialization.list(Tag).optional(),
+        jointEntity: JointEntity.optional(),
     });
 
 export declare namespace CardDetails {
@@ -80,5 +82,6 @@ export declare namespace CardDetails {
         countryOfResidence?: CountryCode.Raw | null;
         bankAddress?: Address.Raw | null;
         tags?: Tag.Raw[] | null;
+        jointEntity?: JointEntity.Raw | null;
     }
 }
