@@ -39,6 +39,69 @@ export const WalletNetwork: core.serialization.Schema<serializers.WalletNetwork.
         "SUI",
         "TEMPO",
         "TEMPO_TESTNET",
+        "MONAD",
+        "MORPH",
+        "PLASMA",
+        "INK",
+        "ROBINHOOD_CHAIN",
+        "BITTENSOR",
+        "ARC",
+        "ANUBIS",
+        "X_LAYER",
+        "STARKNET",
+        "CRONOS",
+        "PROVENANCE",
+        "FLARE",
+        "MANTLE",
+        "GNOSIS_CHAIN",
+        "STACKS",
+        "ROOTSTOCK",
+        "MEZO",
+        "MIXIN",
+        "PHAROS",
+        "PULSECHAIN",
+        "DYDX",
+        "HYDRATION",
+        "APTOS",
+        "TON",
+        "XPR_NETWORK",
+        "WORLD_CHAIN",
+        "KATANA",
+        "BERACHAIN",
+        "THORCHAIN",
+        "SEI",
+        "RISE",
+        "BOT_CHAIN",
+        "BLAST",
+        "UNICHAIN",
+        "STABLE",
+        "LINEA",
+        "KAVA",
+        "FRAXTAL",
+        "MEGAETH",
+        "CELO",
+        "CHAINFLIP",
+        "STRATO_CHAIN",
+        "ETHERLINK",
+        "BIFROST_NETWORK",
+        "ZKSYNC_ERA",
+        "INTERNET_COMPUTER",
+        "MULTIVERSX",
+        "ROLLUX",
+        "INJECTIVE",
+        "KAIA",
+        "SCROLL",
+        "TAIKO",
+        "IOTA",
+        "CANTON_NETWORK",
+        "FILECOIN",
+        "ETHEREUM_CLASSIC",
+        "STORY",
+        "OSMOSIS",
+        "XDC_NETWORK",
+        "FLOW",
+        "ARWEAVE",
+        "IMMUTABLE_X",
     ]);
 
 export declare namespace WalletNetwork {
@@ -73,5 +136,68 @@ export declare namespace WalletNetwork {
         | "BASE"
         | "SUI"
         | "TEMPO"
-        | "TEMPO_TESTNET";
+        | "TEMPO_TESTNET"
+        | "MONAD"
+        | "MORPH"
+        | "PLASMA"
+        | "INK"
+        | "ROBINHOOD_CHAIN"
+        | "BITTENSOR"
+        | "ARC"
+        | "ANUBIS"
+        | "X_LAYER"
+        | "STARKNET"
+        | "CRONOS"
+        | "PROVENANCE"
+        | "FLARE"
+        | "MANTLE"
+        | "GNOSIS_CHAIN"
+        | "STACKS"
+        | "ROOTSTOCK"
+        | "MEZO"
+        | "MIXIN"
+        | "PHAROS"
+        | "PULSECHAIN"
+        | "DYDX"
+        | "HYDRATION"
+        | "APTOS"
+        | "TON"
+        | "XPR_NETWORK"
+        | "WORLD_CHAIN"
+        | "KATANA"
+        | "BERACHAIN"
+        | "THORCHAIN"
+        | "SEI"
+        | "RISE"
+        | "BOT_CHAIN"
+        | "BLAST"
+        | "UNICHAIN"
+        | "STABLE"
+        | "LINEA"
+        | "KAVA"
+        | "FRAXTAL"
+        | "MEGAETH"
+        | "CELO"
+        | "CHAINFLIP"
+        | "STRATO_CHAIN"
+        | "ETHERLINK"
+        | "BIFROST_NETWORK"
+        | "ZKSYNC_ERA"
+        | "INTERNET_COMPUTER"
+        | "MULTIVERSX"
+        | "ROLLUX"
+        | "INJECTIVE"
+        | "KAIA"
+        | "SCROLL"
+        | "TAIKO"
+        | "IOTA"
+        | "CANTON_NETWORK"
+        | "FILECOIN"
+        | "ETHEREUM_CLASSIC"
+        | "STORY"
+        | "OSMOSIS"
+        | "XDC_NETWORK"
+        | "FLOW"
+        | "ARWEAVE"
+        | "IMMUTABLE_X";
 }
