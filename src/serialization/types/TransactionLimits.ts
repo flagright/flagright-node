@@ -19,6 +19,12 @@ export const TransactionLimits: core.serialization.ObjectSchema<
     maximumTransactionLimit: Amount.optional(),
     maximumYearlyTransactionLimit: Amount.optional(),
     paymentMethodLimits: TransactionLimitsPaymentMethodLimits.optional(),
+    minimumDailyTransactionLimit: Amount.optional(),
+    minimumWeeklyTransactionLimit: Amount.optional(),
+    minimumMonthlyTransactionLimit: Amount.optional(),
+    minimumQuarterlyTransactionLimit: Amount.optional(),
+    minimumYearlyTransactionLimit: Amount.optional(),
+    minimumTransactionLimit: Amount.optional(),
 });
 
 export declare namespace TransactionLimits {
@@ -30,5 +36,11 @@ export declare namespace TransactionLimits {
         maximumTransactionLimit?: Amount.Raw | null;
         maximumYearlyTransactionLimit?: Amount.Raw | null;
         paymentMethodLimits?: TransactionLimitsPaymentMethodLimits.Raw | null;
+        minimumDailyTransactionLimit?: Amount.Raw | null;
+        minimumWeeklyTransactionLimit?: Amount.Raw | null;
+        minimumMonthlyTransactionLimit?: Amount.Raw | null;
+        minimumQuarterlyTransactionLimit?: Amount.Raw | null;
+        minimumYearlyTransactionLimit?: Amount.Raw | null;
+        minimumTransactionLimit?: Amount.Raw | null;
     }
 }

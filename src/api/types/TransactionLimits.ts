@@ -15,4 +15,16 @@ export interface TransactionLimits {
     maximumTransactionLimit?: Flagright.Amount;
     maximumYearlyTransactionLimit?: Flagright.Amount;
     paymentMethodLimits?: Flagright.TransactionLimitsPaymentMethodLimits;
+    /** Minimum daily transaction limit. Must not be greater than `maximumDailyTransactionLimit` when both use the same currency */
+    minimumDailyTransactionLimit?: Flagright.Amount;
+    /** Minimum weekly transaction limit. Must not be greater than `maximumWeeklyTransactionLimit` when both use the same currency */
+    minimumWeeklyTransactionLimit?: Flagright.Amount;
+    /** Minimum monthly transaction limit. Must not be greater than `maximumMonthlyTransactionLimit` when both use the same currency */
+    minimumMonthlyTransactionLimit?: Flagright.Amount;
+    /** Minimum quarterly transaction limit. Must not be greater than `maximumQuarterlyTransactionLimit` when both use the same currency */
+    minimumQuarterlyTransactionLimit?: Flagright.Amount;
+    /** Minimum yearly transaction limit. Must not be greater than `maximumYearlyTransactionLimit` when both use the same currency */
+    minimumYearlyTransactionLimit?: Flagright.Amount;
+    /** Minimum amount of a single transaction. Must not be greater than `maximumTransactionLimit` when both use the same currency */
+    minimumTransactionLimit?: Flagright.Amount;
 }
