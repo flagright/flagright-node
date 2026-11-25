@@ -67,6 +67,7 @@ export const User: core.serialization.ObjectSchema<serializers.User.Raw, Flagrig
     productsEnabled: core.serialization.list(ProductsEnabled).optional(),
     externalLinks: core.serialization.list(core.serialization.string()).optional(),
     customObject: core.serialization.record(core.serialization.string(), core.serialization.unknown()).optional(),
+    reRunRiskScoring: core.serialization.boolean().optional(),
 });
 
 export declare namespace User {
@@ -106,5 +107,6 @@ export declare namespace User {
         productsEnabled?: ProductsEnabled.Raw[] | null;
         externalLinks?: string[] | null;
         customObject?: Record<string, unknown> | null;
+        reRunRiskScoring?: boolean | null;
     }
 }

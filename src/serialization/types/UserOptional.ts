@@ -66,6 +66,7 @@ export const UserOptional: core.serialization.ObjectSchema<serializers.UserOptio
         productsEnabled: core.serialization.list(ProductsEnabled).optional(),
         externalLinks: core.serialization.list(core.serialization.string()).optional(),
         customObject: core.serialization.record(core.serialization.string(), core.serialization.unknown()).optional(),
+        reRunRiskScoring: core.serialization.boolean().optional(),
     });
 
 export declare namespace UserOptional {
@@ -103,5 +104,6 @@ export declare namespace UserOptional {
         productsEnabled?: ProductsEnabled.Raw[] | null;
         externalLinks?: string[] | null;
         customObject?: Record<string, unknown> | null;
+        reRunRiskScoring?: boolean | null;
     }
 }

@@ -73,6 +73,7 @@ export const UserWithRulesResult: core.serialization.ObjectSchema<
     productsEnabled: core.serialization.list(ProductsEnabled).optional(),
     externalLinks: core.serialization.list(core.serialization.string()).optional(),
     customObject: core.serialization.record(core.serialization.string(), core.serialization.unknown()).optional(),
+    reRunRiskScoring: core.serialization.boolean().optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     hitRules: core.serialization.list(HitRulesDetails).optional(),
     riskScoreDetails: UserRiskScoreDetails.optional(),
@@ -115,6 +116,7 @@ export declare namespace UserWithRulesResult {
         productsEnabled?: ProductsEnabled.Raw[] | null;
         externalLinks?: string[] | null;
         customObject?: Record<string, unknown> | null;
+        reRunRiskScoring?: boolean | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         hitRules?: HitRulesDetails.Raw[] | null;
         riskScoreDetails?: UserRiskScoreDetails.Raw | null;

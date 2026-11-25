@@ -61,6 +61,7 @@ export const Business: core.serialization.ObjectSchema<serializers.Business.Raw,
         adverseMediaStatus: core.serialization.boolean().optional(),
         externalLinks: core.serialization.list(core.serialization.string()).optional(),
         customObject: core.serialization.record(core.serialization.string(), core.serialization.unknown()).optional(),
+        reRunRiskScoring: core.serialization.boolean().optional(),
     });
 
 export declare namespace Business {
@@ -97,5 +98,6 @@ export declare namespace Business {
         adverseMediaStatus?: boolean | null;
         externalLinks?: string[] | null;
         customObject?: Record<string, unknown> | null;
+        reRunRiskScoring?: boolean | null;
     }
 }

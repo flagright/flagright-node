@@ -65,6 +65,7 @@ export const BatchBusinessUserWithRulesResult: core.serialization.ObjectSchema<
     adverseMediaStatus: core.serialization.boolean().optional(),
     externalLinks: core.serialization.list(core.serialization.string()).optional(),
     customObject: core.serialization.record(core.serialization.string(), core.serialization.unknown()).optional(),
+    reRunRiskScoring: core.serialization.boolean().optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     riskScoreDetails: UserRiskScoreDetails.optional(),
 });
@@ -103,6 +104,7 @@ export declare namespace BatchBusinessUserWithRulesResult {
         adverseMediaStatus?: boolean | null;
         externalLinks?: string[] | null;
         customObject?: Record<string, unknown> | null;
+        reRunRiskScoring?: boolean | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         riskScoreDetails?: UserRiskScoreDetails.Raw | null;
     }

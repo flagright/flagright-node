@@ -50,4 +50,6 @@ export interface User {
     externalLinks?: string[];
     /** Typed Object defined on the console for additional data */
     customObject?: Record<string, unknown>;
+    /** Controls if user risk score should be calculated on risk scoring re-runs. If left unset risk scoring is calcuated need to be explicity set to false to stop calculations. */
+    reRunRiskScoring?: boolean;
 }

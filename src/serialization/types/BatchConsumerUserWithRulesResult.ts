@@ -72,6 +72,7 @@ export const BatchConsumerUserWithRulesResult: core.serialization.ObjectSchema<
     productsEnabled: core.serialization.list(ProductsEnabled).optional(),
     externalLinks: core.serialization.list(core.serialization.string()).optional(),
     customObject: core.serialization.record(core.serialization.string(), core.serialization.unknown()).optional(),
+    reRunRiskScoring: core.serialization.boolean().optional(),
     executedRules: core.serialization.list(ExecutedRulesResult).optional(),
     riskScoreDetails: UserRiskScoreDetails.optional(),
 });
@@ -113,6 +114,7 @@ export declare namespace BatchConsumerUserWithRulesResult {
         productsEnabled?: ProductsEnabled.Raw[] | null;
         externalLinks?: string[] | null;
         customObject?: Record<string, unknown> | null;
+        reRunRiskScoring?: boolean | null;
         executedRules?: ExecutedRulesResult.Raw[] | null;
         riskScoreDetails?: UserRiskScoreDetails.Raw | null;
     }
